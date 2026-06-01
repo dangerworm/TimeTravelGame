@@ -47,7 +47,8 @@ you can execute the complete sequence in a single turn.
 1. **React** _(optional)_ — adjust last turn's plan before jumping
 2. **Jump** — execute the jump
 3. **Process returns** — collect materials as tokens; artefact cards held in hand
-4. **Write a paper / Sell** _(optional, each costs 1 action)_ — convert artefact cards to currency or legacy points
+4. **Write a paper / Sell** _(optional, each costs 1 action)_ — convert artefact cards to currency
+   or legacy points
 5. **Develop** — upgrade machine, recruit team members
 6. **Plan next jump** — assign team, lock in destination
 
@@ -102,11 +103,11 @@ use a team member.
 Every team member card carries a small **capability table** — one column per action type, with an
 indicator in each:
 
-| Indicator | Meaning |
-|-----------|---------|
-| Red dot | Cannot perform this action |
+| Indicator | Meaning                                           |
+| --------- | ------------------------------------------------- |
+| Red dot   | Cannot perform this action                        |
 | Green dot | Can perform this action at standard effectiveness |
-| Star | Performs this action with a bonus |
+| Star      | Performs this action with a bonus                 |
 
 The player has no capability table — they can perform any action with their 3 general actions.
 
@@ -143,16 +144,42 @@ Loop** and may eventually unlock **Many Worlds**.
 
 ### Closed Loop (Default)
 
-Actions taken in the past have consequences in the present. Jumps may affect the shared timeline —
-resources become scarcer or more available, certain eras become harder to access, or events ripple
-outward to affect all players. This creates shared jeopardy and incentivises caution and cooperation
-in the early game.
+Every jump changes the past slightly. Those changes propagate forward through physical causality and
+manifest in the present as small shifts in material availability, technology, or conditions — not as
+anyone's knowledge or memory of change. Nobody knows what happened. The world is simply a little
+different.
+
+**Closed loop consequence deck:** A single shared deck. After processing returns, the jumping player
+draws from it as specified by the destination card (None / Draw 1 / Draw 2). They read the card
+aloud and apply the effect immediately. Effects are one-time and resolve instantly.
+
+Effects can be positive or negative, and may target: all players, all players except the jumping
+player, or players holding a specific resource or artefact type. Examples of the principle in
+action:
+
+- _You removed a gold nugget that would have sparked a 19th-century gold rush — gold is now scarcer.
+  Players holding base metal gain 1 currency._
+- _You accidentally left a battery in 1800 AD — energy research accelerated. All players pay 1 less
+  currency on their next machine upgrade._
+- _New manufacturing processes emerged from your left-behind technology — engineers gain 1 bonus
+  action this round._
+- _You prevented the burning of the Library of Alexandria — historians have access to better
+  records. Players with a historian on their team draw 1 additional card on their next jump._
+- _Your excavation disturbed a mineral deposit — all players lose 1 base metal token._
+- _A temporal ripple affected equipment calibration — all players gain 1 unpredictability token._
+
+Flavour text explains the causality. The mechanical effect applies regardless of whether the jumping
+player intended the change.
+
+**Quantum physicist mitigation:** A quantum physicist with a star on the consequence phase may look
+at the top 2 consequence cards and choose which one applies, or discard one without effect.
 
 ### Many Worlds (Unlocked)
 
-The player who achieves this upgrade operates in their own parallel timeline. Their jumps no longer
-affect the shared game state. This is a significant power asymmetry — they are effectively insulated
-from closed loop consequences — and it triggers end game scoring.
+Achieving the Many Worlds upgrade triggers end game scoring immediately. All players tally their
+Academic Legacy score; the highest wins — not necessarily the player who triggered it. The
+triggering player receives a flat bonus equivalent to 2–3 research papers for reaching this
+milestone first.
 
 ---
 
@@ -216,12 +243,12 @@ Each overclock adds one **unpredictability token**. One token is removed at the 
 which the player does not overclock. Tokens accumulate across consecutive overclock turns and cannot
 be removed except by not overclocking.
 
-| Tokens held | Effect when overclocking |
-|-------------|--------------------------|
-| 1 | Normal — Die 2 added, mitigation available |
-| 2 | One mitigation team member is unavailable this jump |
-| 3 | All mitigation negated |
-| 4+ | All mitigation negated + additional Die 2 roll |
+| Tokens held | Effect when overclocking                            |
+| ----------- | --------------------------------------------------- |
+| 1           | Normal — Die 2 added, mitigation available          |
+| 2           | One mitigation team member is unavailable this jump |
+| 3           | All mitigation negated                              |
+| 4+          | All mitigation negated + additional Die 2 roll      |
 
 _Token thresholds are a starting point for playtesting._
 
@@ -275,7 +302,7 @@ Better precision means more choice, not just better destinations.
 
 **Back side:**
 
-- **Paper title** — flavour (e.g. *"Concrete Evidence: The Chemistry of Roman Marine Structures"*)
+- **Paper title** — flavour (e.g. _"Concrete Evidence: The Chemistry of Roman Marine Structures"_)
 - **Mystery tier** — determines legacy point value (see below)
 - **Legacy points**
 - **Secondary bonus** — respect, a free secondary paper, or similar (if applicable)
@@ -284,26 +311,26 @@ Better precision means more choice, not just better destinations.
 
 Paper rewards on the back of destination cards scale with how genuinely unknown the subject is:
 
-| Tier | Description | Example finds | Legacy pts |
-|------|-------------|---------------|------------|
-| 1 — Known | Broadly understood; confirms existing theory | Roman nail, 1200 BC grain | 1–2 |
-| 2 — Debated | Contested or partially understood | Roman concrete, Stonehenge transport | 3–4 |
-| 3 — Lost | Knowledge that vanished completely | Greek fire, Damascus steel, theriac | 5–6 |
-| 4 — Unknown | Never before seen | Silphium, the Wow! signal source | 8–10 |
+| Tier        | Description                                  | Example finds                        | Legacy pts |
+| ----------- | -------------------------------------------- | ------------------------------------ | ---------- |
+| 1 — Known   | Broadly understood; confirms existing theory | Roman nail, 1200 BC grain            | 1–2        |
+| 2 — Debated | Contested or partially understood            | Roman concrete, Stonehenge transport | 3–4        |
+| 3 — Lost    | Knowledge that vanished completely           | Greek fire, Damascus steel, theriac  | 5–6        |
+| 4 — Unknown | Never before seen                            | Silphium, the Wow! signal source     | 8–10       |
 
 A Tier 4 paper is career-defining — the kind of find that wins legacy scoring on its own.
 
 ### Two-Sided Destination Cards and Artefact Decisions
 
 Every destination card that yields an artefact has a front (jump returns) and a back (academic
-reward). Materials (tokens) come home with you regardless. Artefacts are different — the card
-itself represents the artefact, and you decide what to do with it:
+reward). Materials (tokens) come home with you regardless. Artefacts are different — the card itself
+represents the artefact, and you decide what to do with it:
 
-| Path | Actions | Currency | Legacy points |
-|------|---------|----------|---------------|
-| **Sell** the artefact | 1 | Face value | — |
-| **Write paper** about the artefact | 1 | — | Full |
-| **Write paper, then sell** | 2 | Face value + small bonus | Full |
+| Path                               | Actions | Currency                 | Legacy points |
+| ---------------------------------- | ------- | ------------------------ | ------------- |
+| **Sell** the artefact              | 1       | Face value               | —             |
+| **Write paper** about the artefact | 1       | —                        | Full          |
+| **Write paper, then sell**         | 2       | Face value + small bonus | Full          |
 
 Selling forecloses the paper option — you no longer have access to study it. Writing a paper does
 not foreclose selling; the paper establishes provenance and marginally increases the sale value.
@@ -317,8 +344,8 @@ of agricultural practice. A Roman nail is evidence of construction technique.
 Some destination cards have no back side — resource-only finds (raw materials, exotic elements)
 yield no academic credit. There is no paper to write about digging up copper.
 
-**Selling** is covered by the Process Returns column on the capability table. A cultural specialist's
-star on this column means they achieve a bonus above face value when selling.
+**Selling** is covered by the Process Returns column on the capability table. A cultural
+specialist's star on this column means they achieve a bonus above face value when selling.
 
 ---
 
@@ -332,23 +359,23 @@ It is prohibitively expensive to fill the entire grid. You build the team that f
 
 ### Capability Table
 
-Every team member card carries a small table — one column per action type — showing what they can
-do and how well:
+Every team member card carries a small table — one column per action type — showing what they can do
+and how well:
 
-| Indicator | Meaning |
-|-----------|---------|
-| Red dot | Cannot perform this action |
+| Indicator | Meaning                                           |
+| --------- | ------------------------------------------------- |
+| Red dot   | Cannot perform this action                        |
 | Green dot | Can perform this action at standard effectiveness |
-| Star | Performs this action with a bonus |
+| Star      | Performs this action with a bonus                 |
 
 **Action columns:** React · Jump · Process Returns · Write Paper · Develop · Plan Next Jump
 
 The player has no capability table — they can perform any action with their 3 general actions.
 
 **Location matters:** Some failure types can only be mitigated by team members in the right place.
-Team members assigned to the staging area are **travelling** (at the destination). Everyone else
-is **at base**. Comms failure is mitigated by a team member at base; machine failure is mitigated
-by a team member travelling.
+Team members assigned to the staging area are **travelling** (at the destination). Everyone else is
+**at base**. Comms failure is mitigated by a team member at base; machine failure is mitigated by a
+team member travelling.
 
 Junior team members have more restricted capability tables than fully specialised ones. Spending
 experience tokens to specialise upgrades their indicators — green dots may become stars, and some
@@ -528,16 +555,16 @@ retrieval within time limits.
 **Risk resolution:** Each destination card specifies a risk level which determines how many dice to
 roll. Two custom dice are used, each with typed faces:
 
-| Die | Faces |
-|-----|-------|
-| **Die 1** (mild) | 4× blank, 1× missed opportunity, 1× comms failure |
+| Die                | Faces                                                                 |
+| ------------------ | --------------------------------------------------------------------- |
+| **Die 1** (mild)   | 4× blank, 1× missed opportunity, 1× comms failure                     |
 | **Die 2** (severe) | 3× blank, 1× missed opportunity, 1× comms failure, 1× machine failure |
 
-| Risk level | Dice rolled |
-|------------|-------------|
-| None | 0 — safe, no roll |
-| Low | Die 1 only |
-| Moderate / High | Die 1 + Die 2 |
+| Risk level      | Dice rolled       |
+| --------------- | ----------------- |
+| None            | 0 — safe, no roll |
+| Low             | Die 1 only        |
+| Moderate / High | Die 1 + Die 2     |
 
 **Typed outcomes:**
 
@@ -563,8 +590,8 @@ tokens while stranded. On their next turn, the player must choose:
 
 - **Rescue** — jump to the same era at zero risk (no materials retrieved). The team member returns.
   The rescuing player gains respect: more than was lost by the stranding, acknowledging the cost of
-  the missed productive turn. Another player may also offer to retrieve them during their own jump to
-  the same era, earning respect for doing so.
+  the missed productive turn. Another player may also offer to retrieve them during their own jump
+  to the same era, earning respect for doing so.
 - **Abandon** — the team member is lost permanently, with no retirement bonus. The player loses
   respect for leaving a colleague behind.
 
@@ -623,8 +650,10 @@ Spend resources and currency on any combination of:
 - **3-action special** — which of Breakthrough / Landmark Paper / Temporal Anchor (or a combination)
 - **Exact legacy score values** — relative weighting of papers vs respect vs team vs machine
   sophistication
-- **Machine failure consequence mix** — what range of outcomes to put on destination cards; how severe the worst outcomes should be at each tier
-- **Closed loop consequence cards** — what specific effects, how severe, how targeted
+- **Machine failure consequence mix** — what range of outcomes to put on destination cards; how
+  severe the worst outcomes should be at each tier
+- **Closed loop consequence deck** — size, card mix, ratio of positive to negative effects; exact
+  mechanical phrasings for each category of consequence
 - **Lending transaction rules** — formalise the exchange mechanic
 - **Researcher shop structure** — how many cards visible at once, how does the shop refresh
 - **Exotic element name** — candidates: dark matter, temporal crystal, gravitonium
@@ -632,7 +661,8 @@ Spend resources and currency on any combination of:
 - **Game length calibration** — targeting 3–5 hours; action economy and experience rates need tuning
 - **Ethical actions** — recovering artifacts vs collecting resources vs more disruptive actions;
   different risk/reward and respect consequences
-- **Unpredictability token thresholds** — exact point at which mitigation is partially/fully negated and extra dice are added; requires playtesting to calibrate
+- **Unpredictability token thresholds** — exact point at which mitigation is partially/fully negated
+  and extra dice are added; requires playtesting to calibrate
 - **Stage 1 (Observation) utility** — needs a compelling reason to use scouting rather than just
   jumping blind. Candidate: allow Stage 1 to reveal destination card backs (the academic reward)
   without committing to a jump — scouts know what's worth publishing before anyone goes there
@@ -643,5 +673,5 @@ Spend resources and currency on any combination of:
 
 ---
 
-_Document updated following third design session (1 June). All mechanics are provisional and
-subject to playtesting._
+_Document updated following third design session (1 June). All mechanics are provisional and subject
+to playtesting._

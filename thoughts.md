@@ -3,6 +3,17 @@
 These are things that have occurred to me but which I haven't fully fleshed out, or which I'm not
 sure add much/anything to the game, or might make it overly complicated.
 
+## Many Worlds as intermediate unlock (Option B)
+
+Currently Many Worlds triggers end game immediately (Option A). An alternative: Many Worlds becomes
+a significant mid-game unlock rather than the finishing move. Benefits would include insulation from
+closed loop consequences, access to new jump possibilities, and a legacy point bonus for having
+achieved it. End game would instead be triggered by something else — a fixed round count, a points
+threshold, or a specific final achievement.
+
+Downside: loses the dramatic "player X ends the game on their terms" moment that Option A provides.
+Option A kept for now; revisit if the end game feels anticlimactic in playtesting.
+
 ## Failure
 
 Doing anything in the past is inherently risky. Perhaps you send a drone to the middle ages and
