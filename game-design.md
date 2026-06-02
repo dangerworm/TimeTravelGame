@@ -111,9 +111,9 @@ indicator in each:
 
 The player has no capability table — they can perform any action with their 3 general actions.
 
-Junior team members have a more limited capability table than fully specialised ones. Spending
-experience tokens to specialise upgrades their indicators — green dots may become stars, and some
-blocked actions may open up.
+Junior team members have a more limited capability table than fully specialised ones. Capability
+improves as experience accumulates — green dots may become stars, and some blocked actions open up
+over time.
 
 ### How This Plays Out
 
@@ -231,7 +231,7 @@ and a minimum team specialisation threshold.
 Engineers may apply an **overclock** to the machine — pushing it beyond its rated capability for a
 single jump. The player chooses one of the following benefits:
 
-- **Higher tier access** — draw from the destination deck one tier above what the machine stage
+- **Higher era access** — draw from the destination deck one era above what the machine stage
   normally allows
 - **Bypass one machine requirement** — ignore one ability card requirement listed on the destination
   card
@@ -256,42 +256,56 @@ _Token thresholds are a starting point for playtesting._
 
 ## The Era Decks
 
-The centre of the table holds a set of **era decks** divided by tier. Each deck contains destination
-cards representing specific moments in time. Players draw from these decks when executing a jump.
+The centre of the table holds five **era decks**, each representing a distinct period in history.
+Cards are drawn from these decks during the Plan Next Jump phase. Each era has a colour code for
+quick identification and scales in difficulty, reward, and rarity with temporal distance from the
+game's present (~2125 AD).
 
-### Deck Tiers
+A sixth era — the Future — is planned but deferred to a later design phase.
 
-| Tier             | Access Requirement                     | Contents                                        |
-| ---------------- | -------------------------------------- | ----------------------------------------------- |
-| **Accessible**   | Any functional time machine (Stage 1+) | Common resources, low risk, low reward          |
-| **Intermediate** | Stage 2 machine                        | Better resources, moderate risk                 |
-| **Advanced**     | Stage 3 machine + specific abilities   | Rare materials, exotic elements, high reward    |
-| **Expert**       | Stage 4 machine                        | Exceptional rewards, high risk, exotic elements |
+### Eras
 
-Advanced and Expert decks sit face-down in the centre of the table as a visible reminder of what
-players are working toward.
+| Era | Period | Machine stage | Colour | Notes |
+|-----|--------|---------------|--------|-------|
+| **Modern** | 1800–2000 AD | Stage 1+ | Silver/grey | Entry point; closest to game's present |
+| **Early-Modern** | 1500–1800 AD | Stage 2+ | Blue | Age of exploration and early science |
+| **Medieval** | 500–1500 AD | Stage 3+ | Forest green | Feudal societies, early engineering |
+| **Ancient** | 500 BC–500 AD | Stage 4 | Terracotta/burgundy | Classical civilisations, lost knowledge |
+| **Prehistoric** | Before 500 BC | Stage 4 + Theoretical physicist | Deep ochre/brown | Deep time; hardest to reach, greatest reward |
+
+Ancient and Prehistoric decks sit face-down in the centre of the table as a visible reminder of
+what players are working toward.
 
 ### Precision and Card Drawing
 
-Your machine's **precision level** determines how many cards you draw from a deck and how much
-choice you have:
+Card selection happens during the **Plan Next Jump** phase, not during the jump itself. The player
+draws from the target era deck, selects one card, places it face-down in the staging area, and
+executes it on their next turn. This gives all players time to consider the table state and plan
+responses.
 
-| Precision Level   | Draw    | Keep         |
-| ----------------- | ------- | ------------ |
-| Year (base)       | 1 card  | Must take it |
-| Month             | 2 cards | Pick 1       |
-| Week              | 3 cards | Pick 1       |
-| Day               | 4 cards | Pick 1       |
-| Hour/Minute (max) | 5 cards | Pick 1 or 2  |
+The number of cards drawn is determined by two factors:
 
-Better precision means more choice, not just better destinations.
+- **Machine precision** (upgraded via the Precision satellite slot)
+- **Travelling team members** with relevant expertise (historians, quantum physicists, engineers
+  with a star on the Plan column)
+
+| Precision Level   | Base draw | Notes |
+| ----------------- | --------- | ----- |
+| Year (base)       | 1 card — must take it | No choice; machine too imprecise |
+| Month             | 2 cards — pick 1 | |
+| Week              | 3 cards — pick 1 | |
+| Day               | 4 cards — pick 1 | |
+| Hour/Minute (max) | 5 cards — pick 1 or 2 | |
+
+Team members may add +1 draw each, up to a maximum of 4–5 cards total regardless of precision
+level. Better precision means more choice, not necessarily better destinations.
 
 ### Destination Card Contents
 
 **Front side:**
 
-- **Era and flavour text** — where and when
-- **Tier** — which deck it belongs to
+- **Era and location** — which era deck it belongs to; specific place and date
+- **Flavour text** — 1–2 lines setting the scene
 - **Dice** — risk level: 0 dice (safe), Die 1, or Die 1 + Die 2
 - **Machine failure consequence** — what happens if machine failure is rolled (e.g. "lose all
   materials", "team member stranded"). Only present if Die 2 is in play.
@@ -341,9 +355,6 @@ The paper is not about the object retrieved — it is about the _discovery_: the
 what the find reveals about that moment in history or science. A lump of 1200 BC grain is evidence
 of agricultural practice. A Roman nail is evidence of construction technique.
 
-Some destination cards have no back side — resource-only finds (raw materials, exotic elements)
-yield no academic credit. There is no paper to write about digging up copper.
-
 **Selling** is covered by the Process Returns column on the capability table. A cultural
 specialist's star on this column means they achieve a bonus above face value when selling.
 
@@ -370,6 +381,11 @@ and how well:
 
 **Action columns:** React · Jump · Process Returns · Write Paper · Develop · Plan Next Jump
 
+A star in any column signals that something special happens in that phase — a bonus, a mitigation, or
+an unlocked capability. For new players it's a prompt to check the rules; for experienced players,
+a reminder of what that card does. Closed loop consequence mitigation and overclock management both
+register as stars in the Jump column.
+
 The player has no capability table — they can perform any action with their 3 general actions.
 
 **Location matters:** Some failure types can only be mitigated by team members in the right place.
@@ -377,9 +393,9 @@ Team members assigned to the staging area are **travelling** (at the destination
 **at base**. Comms failure is mitigated by a team member at base; machine failure is mitigated by a
 team member travelling.
 
-Junior team members have more restricted capability tables than fully specialised ones. Spending
-experience tokens to specialise upgrades their indicators — green dots may become stars, and some
-blocked actions may open up.
+Junior team members have more restricted capability tables than fully specialised ones. Capability
+improves as experience accumulates — green dots may become stars, and some blocked actions open up
+over time.
 
 ### The Four Team Types
 
@@ -436,14 +452,20 @@ routes.
 
 ### Researcher Lifecycle
 
-Team members begin as juniors — cheap, flexible, unspecialised. They gain **experience tokens** each
-round. These tokens can be spent to:
+Team members begin as juniors — cheap, flexible, unspecialised. They gain one **experience token**
+each round — tracked on a scale marked on the side of the card, so career progress is visible at a
+glance. Experience accumulates; it is not spent. A team member who has served longer is simply more
+capable. Their capability table improves at experience thresholds: green dots become stars, and some
+blocked actions open up.
 
-- Unlock a sub-specialisation
-- Contribute to a machine upgrade
-- Write a research paper (if they are a postdoc type)
+Some more expensive team member cards start the game with higher base experience, reflecting hires
+who come with an established track record.
 
-After full specialisation, a researcher eventually **retires**. Retirement is a payoff, not a loss.
+**Team member trades:** When a team member moves to another player's team as part of a loan or deal,
+their experience carries forward minus one level — an adjustment cost for a new team, working style,
+and machine.
+
+After sufficient experience, a researcher eventually **retires**. Retirement is a payoff, not a loss.
 A retiring team member leaves behind one of:
 
 - A permanent machine upgrade card
@@ -501,7 +523,7 @@ suggested to allow flexible representation without excessive tokens.
 
 ### Conversion
 
-- Artifacts convert directly to currency on processing
+- Artefacts are held in hand after a jump — selling costs 1 action; they do not convert automatically
 - Base metal and silicon are spent directly on machine upgrades — they do not convert to currency
 - Exotic elements are spent on specific advanced upgrades only
 - Respect cannot be converted but contributes directly to legacy scoring
@@ -540,13 +562,15 @@ Each player has an A5 board representing their workspace. Suggested layout:
 
 ### 1. React _(optional)_
 
-Before jumping, make one adjustment to last turn's plan in response to table changes. Costs a
-resource. Aborting entirely is possible but costs more.
+Before jumping, make one adjustment to last turn's plan in response to table changes. Costs 1
+action, and requires turning over a single era card from the target deck — the price of a last-minute
+change is working with slightly less information on future jumps. Aborting the jump entirely is
+possible but costs more.
 
 ### 2. Jump
 
-Execute the planned jump. Draw cards from the target era deck based on machine precision. Select
-your destination. Resolve risk if applicable.
+Execute the planned jump using the destination card from the staging area. Resolve risk if
+applicable.
 
 **Machine stage constraint:** What you can _do_ at the destination depends on your machine stage.
 Stage 1 (Observation) means you cannot retrieve anything — you can only look. Stage 2+ allows
@@ -618,12 +642,14 @@ Spend resources and currency on any combination of:
 - Advance machine to next stage (stack a new machine card)
 - Install ability cards into satellite slots
 - Recruit team members from the shop
-- Spend experience tokens on specialisations
+
+Development costs credits, not actions — you can do as many upgrades and hires as you can afford.
 
 ### 6. Plan Next Jump
 
-- Select target era deck
-- Assign team members to the jump (place their cards in the staging area)
+- Select target era deck; draw cards (precision + team bonuses, max 4–5)
+- Choose one destination card; place it face-down in the staging area
+- Assign team members to the jump (travelling vs. at base)
 - Commit any resources required
 - Negotiate loans or alliances with other players if desired
 
@@ -633,7 +659,7 @@ Spend resources and currency on any combination of:
 
 | Card Type                     | Location                         | Notes                                                   |
 | ----------------------------- | -------------------------------- | ------------------------------------------------------- |
-| Destination cards (two-sided) | Era decks (centre table)         | Drawn during jump; flippable for academic rewards       |
+| Destination cards (two-sided) | Era decks (centre table)         | Drawn during Plan Next Jump; flippable for academic rewards |
 | Physicist cards               | Team shop deck                   | Purchased during develop phase                          |
 | Historian cards               | Team shop deck                   | Purchased during develop phase                          |
 | Engineer cards                | Team shop deck                   | Purchased during develop phase                          |
@@ -647,6 +673,8 @@ Spend resources and currency on any combination of:
 
 ## Open Questions / To Resolve
 
+- **Academic scoring metric name** — "legacy points" is the working term; needs a proper name
+  (something h-index-like that fits the game's academic theme)
 - **3-action special** — which of Breakthrough / Landmark Paper / Temporal Anchor (or a combination)
 - **Exact legacy score values** — relative weighting of papers vs respect vs team vs machine
   sophistication

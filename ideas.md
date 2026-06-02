@@ -2,12 +2,36 @@
 
 These are things I've thought of which aren't yet in the design document.
 
+## Machine cards that build on each other visually
+
+Rather than stage cards simply stacking on top of one another, design them so they visually
+interlock or extend — each card reveals a new component above or below the previous one, telling the
+story of the machine's development as a physical object. When all four stages are stacked the
+machine looks complete and cohesive. Stage 1 might show a bare frame; Stage 4 shows a refined,
+miniaturised portal.
+
+Pure aesthetic/production design — not relevant to the prototype, but worth pursuing for a final
+version to give the machine a tactile presence on the personal board.
+
+## Future era (deferred)
+
+A sixth era — destinations beyond the game's present (~2125 AD) — is thematically compelling but
+requires a completely different design approach. Past eras are fixed; the future is probabilistic. A
+theoretical physicist would be required to calculate which probable future is stable enough to
+visit. Content would be entirely invented rather than drawn from historical record.
+
+Possible framing: "possible futures" rather than "the future." High risk (probability instability),
+exotic theoretical legacy points (forecasting rather than archaeology), exotic elements not yet
+available in the present. Accessing the future contributes uniquely to the Many Worlds unlock.
+
+Deferred to a later design phase or expansion. The five historical eras are the base game.
+
 ## Destination team requirements
 
 Some destinations should require a minimum number of travelling team members, or a specific type of
-team member at the destination. An Expert tier card might say "requires a physicist travelling" — you
-simply cannot jump there without one assigned to the staging area. This adds a planning layer beyond
-just having the right machine stage.
+team member at the destination. A Prehistoric era card might say "requires a physicist travelling" —
+you simply cannot jump there without one assigned to the staging area. This adds a planning layer
+beyond just having the right machine stage.
 
 Could also work as a soft requirement: the destination is accessible without the team member, but
 has an additional risk or reduced returns if you go without.
