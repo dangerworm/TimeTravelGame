@@ -70,7 +70,7 @@ At game end, players score across the following:
 | Category                   | Notes                                                                                                           |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Research papers published  | Accumulated during the game via paper actions or postdoc researchers                                            |
-| Respect tokens held        | Net respect (gains minus losses)                                                                                |
+| Disrespect tokens held     | Each token held at game end reduces final legacy score by 1 (they represent unresolved reputational damage)     |
 | Team cards in play         | Weighted by specialisation level                                                                                |
 | Retired researcher bonuses | Veterans leave behind permanent upgrades or bonus legacy points                                                 |
 | Machine sophistication     | Number and tier of ability cards slotted around the time machine                                                |
@@ -100,20 +100,10 @@ Each team member card can take **at most one action per turn**. After acting, th
 (turned sideways) and cannot act again until the start of your next turn. You are never required to
 use a team member.
 
-Every team member card carries a small **capability table** — one column per action type, with an
-indicator in each:
-
-| Indicator | Meaning                                           |
-| --------- | ------------------------------------------------- |
-| Red dot   | Cannot perform this action                        |
-| Green dot | Can perform this action at standard effectiveness |
-| Star      | Performs this action with a bonus                 |
-
-The player has no capability table — they can perform any action with their 3 general actions.
-
-Junior team members have a more limited capability table than fully specialised ones. Capability
-improves as experience accumulates — green dots may become stars, and some blocked actions open up
-over time.
+Every team member card carries a small **capability table** showing what they can do across six
+action columns (Red = blocked, Green = standard, Star = bonus). Full detail in The Research Team
+section. The player has no capability table — they can perform any action with their 3 general
+actions.
 
 ### How This Plays Out
 
@@ -171,8 +161,8 @@ action:
 Flavour text explains the causality. The mechanical effect applies regardless of whether the jumping
 player intended the change.
 
-**Quantum physicist mitigation:** A quantum physicist with a star on the consequence phase may look
-at the top 2 consequence cards and choose which one applies, or discard one without effect.
+**Quantum physicist mitigation:** A quantum physicist with a star on the Jump column may look at
+the top 2 consequence cards and choose which one applies, or discard one without effect.
 
 ### Many Worlds (Unlocked)
 
@@ -193,7 +183,7 @@ you can make.
 
 | Stage | Name                  | Capability                                 | Notes                                                                                                                                             |
 | ----- | --------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1     | **Observation**       | See the past, cannot interact              | Basic goggles/viewer prototype. Can scout a destination card without committing to a jump. No retrieval risk.                                     |
+| 1     | **Observation**       | Drone retrieval, no personal travel        | A drone is sent in your place. Retrieves small quantities of base materials and can record observations for academic papers (confirming or denying historical myths; witnessing documented events). No artefact retrieval — the drone cannot carry them. No personal risk.                                     |
 | 2     | **Visitation**        | Physical presence, time-limited            | You can visit and interact but carry only a portable return pad — you have roughly one hour before it expires. Risk of being stranded if delayed. |
 | 3     | **Extended Presence** | Longer visits, more actions at destination | More reliable return mechanism. Can bring back larger hauls, spend more time selecting resources.                                                 |
 | 4     | **Stable Portal**     | Reliable two-way transit, reduced risk     | Full control. Miniaturised and refined. Foundation for the Many Worlds unlock.                                                                    |
@@ -265,16 +255,31 @@ A sixth era — the Future — is planned but deferred to a later design phase.
 
 ### Eras
 
-| Era | Period | Machine stage | Colour | Notes |
-|-----|--------|---------------|--------|-------|
-| **Modern** | 1800–2000 AD | Stage 1+ | Silver/grey | Entry point; closest to game's present |
-| **Early-Modern** | 1500–1800 AD | Stage 2+ | Blue | Age of exploration and early science |
-| **Medieval** | 500–1500 AD | Stage 3+ | Forest green | Feudal societies, early engineering |
-| **Ancient** | 500 BC–500 AD | Stage 4 | Terracotta/burgundy | Classical civilisations, lost knowledge |
-| **Prehistoric** | Before 500 BC | Stage 4 + Theoretical physicist | Deep ochre/brown | Deep time; hardest to reach, greatest reward |
+| Era              | Period        | Machine stage                   | Colour              | Notes                                        |
+| ---------------- | ------------- | ------------------------------- | ------------------- | -------------------------------------------- |
+| **Modern**       | 1800–2000 AD  | Stage 1+                        | Silver/grey         | Entry point; closest to game's present       |
+| **Early-Modern** | 1500–1800 AD  | Stage 2+                        | Blue                | Age of exploration and early science         |
+| **Medieval**     | 500–1500 AD   | Stage 3+                        | Forest green        | Feudal societies, early engineering          |
+| **Ancient**      | 500 BC–500 AD | Stage 4                         | Terracotta/burgundy | Classical civilisations, lost knowledge      |
+| **Prehistoric**  | Before 500 BC | Stage 4 + Theoretical physicist | Deep ochre/brown    | Deep time; hardest to reach, greatest reward |
 
-Ancient and Prehistoric decks sit face-down in the centre of the table as a visible reminder of
-what players are working toward.
+Ancient and Prehistoric decks sit face-down in the centre of the table as a visible reminder of what
+players are working toward.
+
+### Stage 1 Destination Cards
+
+A small set of Stage 1 destination cards — drone-accessible, observation-only — is included in the
+game. These yield base materials and observation papers, but no artefacts. Observation papers are
+primarily Tier 3 (lost or unverifiable knowledge — the drone witnesses something no historian has
+confirmed), giving players enough merit from their first jump to begin accessing the researcher shop.
+
+**Standard setup (recommended for first play):** Seed Stage 1 cards to the top of the Modern era
+deck. Every player's first jump is productive from turn one, and the paper and academic merit
+mechanics are introduced naturally before anyone has upgraded their machine.
+
+**Experienced setup:** Remove Stage 1 cards from the deck entirely. All players begin with a Stage 2
+machine (Visitation). The early game is denser — players start with full retrieval capability and
+manage the faster strategic pace from turn one.
 
 ### Precision and Card Drawing
 
@@ -289,16 +294,16 @@ The number of cards drawn is determined by two factors:
 - **Travelling team members** with relevant expertise (historians, quantum physicists, engineers
   with a star on the Plan column)
 
-| Precision Level   | Base draw | Notes |
-| ----------------- | --------- | ----- |
+| Precision Level   | Base draw             | Notes                            |
+| ----------------- | --------------------- | -------------------------------- |
 | Year (base)       | 1 card — must take it | No choice; machine too imprecise |
-| Month             | 2 cards — pick 1 | |
-| Week              | 3 cards — pick 1 | |
-| Day               | 4 cards — pick 1 | |
-| Hour/Minute (max) | 5 cards — pick 1 or 2 | |
+| Month             | 2 cards — pick 1      |                                  |
+| Week              | 3 cards — pick 1      |                                  |
+| Day               | 4 cards — pick 1      |                                  |
+| Hour/Minute (max) | 5 cards — pick 1 or 2 |                                  |
 
-Team members may add +1 draw each, up to a maximum of 4–5 cards total regardless of precision
-level. Better precision means more choice, not necessarily better destinations.
+Team members may add +1 draw each, up to a maximum of 4–5 cards total regardless of precision level.
+Better precision means more choice, not necessarily better destinations.
 
 ### Destination Card Contents
 
@@ -311,7 +316,7 @@ level. Better precision means more choice, not necessarily better destinations.
   materials", "team member stranded"). Only present if Die 2 is in play.
 - **Machine requirements** — any ability cards needed in the satellite slots
 - **Team requirements** — minimum travelling team size or specific type required (if any)
-- **Returns** — what can be brought back: materials (tokens), artefact sale value, respect gain
+- **Returns** — what can be brought back: materials (tokens), artefact sale value, merit gain
 - **Closed loop consequence** — what ripples outward in the shared timeline (if applicable)
 
 **Back side:**
@@ -319,7 +324,7 @@ level. Better precision means more choice, not necessarily better destinations.
 - **Paper title** — flavour (e.g. _"Concrete Evidence: The Chemistry of Roman Marine Structures"_)
 - **Mystery tier** — determines legacy point value (see below)
 - **Legacy points**
-- **Secondary bonus** — respect, a free secondary paper, or similar (if applicable)
+- **Secondary bonus** — bonus merit, a free secondary paper, or similar (if applicable)
 
 ### Mystery Tiers
 
@@ -336,9 +341,15 @@ A Tier 4 paper is career-defining — the kind of find that wins legacy scoring 
 
 ### Two-Sided Destination Cards and Artefact Decisions
 
-Every destination card that yields an artefact has a front (jump returns) and a back (academic
-reward). Materials (tokens) come home with you regardless. Artefacts are different — the card itself
-represents the artefact, and you decide what to do with it:
+Every destination card has a front (jump returns) and a back (academic reward). What you can do
+with the card depends on the type of return:
+
+**Observation cards (Stage 1 / drone only):** The card yields base materials and an observation
+paper. There is nothing physical to sell — the drone witnessed and recorded. Writing the paper costs
+1 action and earns legacy points. No sell option.
+
+**Artefact cards (Stage 2+):** The card itself represents the artefact. Materials (tokens) come
+home automatically; the artefact card is held in hand and you decide what to do with it:
 
 | Path                               | Actions | Currency                 | Legacy points |
 | ---------------------------------- | ------- | ------------------------ | ------------- |
@@ -381,10 +392,10 @@ and how well:
 
 **Action columns:** React · Jump · Process Returns · Write Paper · Develop · Plan Next Jump
 
-A star in any column signals that something special happens in that phase — a bonus, a mitigation, or
-an unlocked capability. For new players it's a prompt to check the rules; for experienced players,
-a reminder of what that card does. Closed loop consequence mitigation and overclock management both
-register as stars in the Jump column.
+A star in any column signals that something special happens in that phase — a bonus, a mitigation,
+or an unlocked capability. For new players it's a prompt to check the rules; for experienced
+players, a reminder of what that card does. Closed loop consequence mitigation and overclock
+management both register as stars in the Jump column.
 
 The player has no capability table — they can perform any action with their 3 general actions.
 
@@ -394,7 +405,7 @@ Team members assigned to the staging area are **travelling** (at the destination
 team member travelling.
 
 Junior team members have more restricted capability tables than fully specialised ones. Capability
-improves as experience accumulates — green dots may become stars, and some blocked actions open up
+improves as the age marker advances — green dots may become stars, and some blocked actions open up
 over time.
 
 ### The Four Team Types
@@ -414,7 +425,7 @@ Drive destination knowledge and return quality.
 
 - **Era specialists** — deep knowledge of a period; look ahead in era decks or draw additional cards
 - **Resource specialists** — identify high-value materials at a destination
-- **Cultural specialists** — maximise artifact value and respect returns
+- **Cultural specialists** — maximise artefact value; their existing relationships achieve above face-value returns when selling
 - **Archaeological** — unlock special destination cards or recover additional items from a single
   jump
 
@@ -436,6 +447,29 @@ Drive academic output and paper production, freeing other team members for highe
 - **Materials postdoc** — writes papers on resource finds and material science
 - **Generalist postdoc** — slower but can cover any paper type
 
+### The Researcher Shop
+
+The shop is a single shared deck, sorted at setup so that accessible researchers sit near the top
+and more powerful specialists sit deeper. As cards are purchased and the deck advances, the shop
+naturally escalates — later cards cost more and require more academic merit, but come with stronger
+capability tables and higher base ages.
+
+Each researcher card carries two hire requirements printed on it:
+
+- **Currency cost** — paid from the player's currency tokens
+- **Merit threshold** — the minimum legacy points the player must have accumulated to make the hire
+
+A player flush with currency but thin on published papers simply cannot attract the later
+specialists. The field is maturing; serious researchers want to join established teams. This
+reinforces the core tension: racing for Many Worlds starves the team; building a rich legacy
+unlocks the best hires.
+
+When a card is purchased, the shop immediately refills from the top of the deck. The number of cards
+visible at once is to be finalised in playtesting (starting point: 4–6 visible).
+
+_The escalating shop also carries flavour: early hires are pioneers in a brand-new discipline; later
+hires are specialists in an established field, with credentials and expectations to match._
+
 ### Team Synergies
 
 Some combinations are notably powerful:
@@ -452,25 +486,31 @@ routes.
 
 ### Researcher Lifecycle
 
-Team members begin as juniors — cheap, flexible, unspecialised. They gain one **experience token**
-each round — tracked on a scale marked on the side of the card, so career progress is visible at a
-glance. Experience accumulates; it is not spent. A team member who has served longer is simply more
-capable. Their capability table improves at experience thresholds: green dots become stars, and some
-blocked actions open up.
+Each team member's career is tracked as an **age**, marked on a scale printed on the side of the
+card:
 
-Some more expensive team member cards start the game with higher base experience, reflecting hires
-who come with an established track record.
+> **25 · 30 · 35 · 40 · 45 · 50 · 55 · 60 · 65 · 70**
 
-**Team member trades:** When a team member moves to another player's team as part of a loan or deal,
-their experience carries forward minus one level — an adjustment cost for a new team, working style,
-and machine.
+A marker advances one step each round. Age is experience — a 50-year-old has served longer and is
+simply more capable than the 30-year-old you just hired. Capability improves at age thresholds:
+green dots become stars, and some blocked actions open up. (Exact thresholds to be calibrated in
+playtesting.)
 
-After sufficient experience, a researcher eventually **retires**. Retirement is a payoff, not a loss.
-A retiring team member leaves behind one of:
+Team members begin as juniors — cheap, flexible, unspecialised — and start at age 25. More expensive
+cards may start at a higher age, reflecting hires with an established track record.
+
+**Retirement:** A team member may retire voluntarily at age 60 or 65. Retirement is mandatory at 70.
+This is one of the game's richest decisions — your most experienced researchers are at peak
+capability, but the retirement bonus is waiting. Retirement is a payoff, not a loss. A retiring team
+member leaves behind one of:
 
 - A permanent machine upgrade card
 - A one-time powerful action card
 - A flat legacy score bonus
+
+**Team member trades:** When a team member moves to another player's team as part of a loan or deal,
+their age marker carries forward — minus one step, as an adjustment cost for a new team, working
+style, and machine.
 
 Young researchers are cheap and flexible. Veterans are powerful but finite.
 
@@ -484,8 +524,7 @@ Players may offer use of their time machine or team members to other players.
 
 The lender must have an incentive. Suggested options (to be finalised during playtesting):
 
-1. **Reputation gain** — lending earns respect tokens; the lender's design is being validated by
-   external use
+1. **Reputation gain** — lending earns merit; the lender's design is being validated by external use
 2. **Compulsory component exchange** — the borrower has a material or researcher the lender needs;
    the deal is negotiated at the table
 3. **Machine returns improved** — the borrower's team learns something during the jump; the lender
@@ -495,7 +534,7 @@ The lender must have an incentive. Suggested options (to be finalised during pla
 
 A player far behind benefits greatly from borrowing an advanced machine. This is intentional — it
 gives trailing players a catch-up mechanism. The imbalance should favour the borrower in capability,
-but the lender extracts value in reputation or resources. Both parties gain something.
+but the lender extracts value in merit or resources. Both parties gain something.
 
 ### Alliances
 
@@ -518,15 +557,16 @@ suggested to allow flexible representation without excessive tokens.
 | **Base Metal**     | Iron, copper, steel — structural machine components | Common, accessible from early era decks                                                                     |
 | **Silicon**        | Computing and processing components                 | Mid-game resource                                                                                           |
 | **Exotic Element** | Rare material enabling advanced machine abilities   | Late-game, expert deck destinations only. Name TBD — candidates: dark matter, temporal crystal, gravitonium |
-| **Currency**       | Money from artifact sales and paper income          | Converts to team members and upgrades                                                                       |
-| **Respect**        | Academic reputation                                 | Gained from papers, successful jumps, lending; lost from failed jumps or unethical actions                  |
+| **Currency**       | Money from artefact sales                           | Used to hire team members and buy upgrades                                                                  |
+| **Disrespect**     | Reputational damage from ethical violations         | Each token increases the merit threshold on any researcher hire by 1. One token removed per turn on which no ethical violation is committed (reputation fades). Any remaining at game end reduce legacy score by 1 each. |
 
 ### Conversion
 
-- Artefacts are held in hand after a jump — selling costs 1 action; they do not convert automatically
+- Artefacts are held in hand after a jump — selling costs 1 action; they do not convert
+  automatically
 - Base metal and silicon are spent directly on machine upgrades — they do not convert to currency
 - Exotic elements are spent on specific advanced upgrades only
-- Respect cannot be converted but contributes directly to legacy scoring
+- Disrespect tokens cannot be converted; they decay one per turn without ethical violation and reduce legacy score if held at game end
 
 ---
 
@@ -536,7 +576,7 @@ Each player has an A5 board representing their workspace. Suggested layout:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  TEAM SLOTS — up to 6 cards, each with experience tokens    │
+│  TEAM SLOTS — up to 6 cards, each with age marker           │
 │  [ Physicist ] [ Historian ] [ Engineer ] [ Postdoc ] ...   │
 ├────────────────────────┬────────────────────────────────────┤
 │                        │  SATELLITE ABILITY SLOTS           │
@@ -547,7 +587,7 @@ Each player has an A5 board representing their workspace. Suggested layout:
 │                        │  [ ] Research                      │
 ├────────────────────────┴────────────────────────────────────┤
 │  RESOURCE TOKENS:   Metal | Silicon | Exotic                │
-│                     Currency | Respect                      │
+│                     Currency | Disrespect                   │
 ├─────────────────────────────────────────────────────────────┤
 │  JUMP PLAN STAGING AREA                                     │
 │  (destination card face-down + assigned team + resources)   │
@@ -563,9 +603,9 @@ Each player has an A5 board representing their workspace. Suggested layout:
 ### 1. React _(optional)_
 
 Before jumping, make one adjustment to last turn's plan in response to table changes. Costs 1
-action, and requires turning over a single era card from the target deck — the price of a last-minute
-change is working with slightly less information on future jumps. Aborting the jump entirely is
-possible but costs more.
+action, and requires turning over a single era card from the target deck — the price of a
+last-minute change is working with slightly less information on future jumps. Aborting the jump
+entirely is possible but costs more.
 
 ### 2. Jump
 
@@ -573,8 +613,8 @@ Execute the planned jump using the destination card from the staging area. Resol
 applicable.
 
 **Machine stage constraint:** What you can _do_ at the destination depends on your machine stage.
-Stage 1 (Observation) means you cannot retrieve anything — you can only look. Stage 2+ allows
-retrieval within time limits.
+Stage 1 (Observation) sends a drone — base materials and observation papers only; no artefacts and
+no personal risk. Stage 2+ allows personal travel and artefact retrieval within time limits.
 
 **Risk resolution:** Each destination card specifies a risk level which determines how many dice to
 roll. Two custom dice are used, each with typed faces:
@@ -609,18 +649,38 @@ type — but location matters. Comms failure can only be mitigated by a team mem
 the destination, physically present to fix it). Missed opportunity is mitigated by a historian
 **travelling** (they need to be there to spot what others would miss).
 
-**Stranded:** A stranded team member cannot contribute until retrieved and does not gain experience
-tokens while stranded. On their next turn, the player must choose:
+**Stranded:** A stranded team member cannot contribute until retrieved and their age marker does not
+advance while stranded. On their next turn, the player must choose:
 
 - **Rescue** — jump to the same era at zero risk (no materials retrieved). The team member returns.
-  The rescuing player gains respect: more than was lost by the stranding, acknowledging the cost of
-  the missed productive turn. Another player may also offer to retrieve them during their own jump
-  to the same era, earning respect for doing so.
-- **Abandon** — the team member is lost permanently, with no retirement bonus. The player loses
-  respect for leaving a colleague behind.
+  The rescuing player gains merit, acknowledging the cost of the missed productive turn. Another
+  player may also offer to retrieve them during their own jump to the same era, earning merit for
+  doing so.
+- **Abandon** — the team member is lost permanently, with no retirement bonus. The player receives
+  a disrespect token for leaving a colleague behind.
 
 _Prototype note: use standard d6s with a reference table. Production: custom dice with printed
 symbols._
+
+#### Deliberate Interference
+
+A player may choose to deliberately alter a historical event rather than simply observe and retrieve.
+This is high-risk, high-reward, and ethically contested.
+
+**Requirements:** A postdoc must be on the team (at base). Before jumping, they document the
+baseline conditions — the zeitgeist of the era. On return, they compare pre- and post-interference
+records, producing a paper that proves theories about closed-loop timeline behaviour.
+
+**Rewards:** Exceptional material haul + elevated legacy points (the comparative methodology
+justifies the academic credit).
+
+**Costs:**
+- Both dice are mandatory (Die 1 + Die 2), regardless of the destination's base risk level
+- Draw 2–3 closed loop consequence cards — the quantum physicist cannot mitigate any of them
+- Receive a disrespect token — the scientific community has opinions
+
+**Note:** Normal dice failure mitigation still applies (team members can negate rolled outcomes).
+Only the consequence draws are unmitigable.
 
 ### 3. Process Returns
 
@@ -657,17 +717,17 @@ Development costs credits, not actions — you can do as many upgrades and hires
 
 ## Card Types Summary
 
-| Card Type                     | Location                         | Notes                                                   |
-| ----------------------------- | -------------------------------- | ------------------------------------------------------- |
+| Card Type                     | Location                         | Notes                                                       |
+| ----------------------------- | -------------------------------- | ----------------------------------------------------------- |
 | Destination cards (two-sided) | Era decks (centre table)         | Drawn during Plan Next Jump; flippable for academic rewards |
-| Physicist cards               | Team shop deck                   | Purchased during develop phase                          |
-| Historian cards               | Team shop deck                   | Purchased during develop phase                          |
-| Engineer cards                | Team shop deck                   | Purchased during develop phase                          |
-| Postdoc cards                 | Team shop deck                   | Purchased during develop phase; enable paper delegation |
-| Machine base card             | Personal board                   | Starting card, never removed                            |
-| Machine stage cards           | Personal board (stacked)         | One per stage upgrade                                   |
-| Ability cards                 | Personal board (satellite slots) | Slotted around machine stack                            |
-| Turn order card               | Passed around table              | Tracks whose turn it is                                 |
+| Physicist cards               | Team shop deck                   | Purchased during develop phase                              |
+| Historian cards               | Team shop deck                   | Purchased during develop phase                              |
+| Engineer cards                | Team shop deck                   | Purchased during develop phase                              |
+| Postdoc cards                 | Team shop deck                   | Purchased during develop phase; enable paper delegation     |
+| Machine base card             | Personal board                   | Starting card, never removed                                |
+| Machine stage cards           | Personal board (stacked)         | One per stage upgrade                                       |
+| Ability cards                 | Personal board (satellite slots) | Slotted around machine stack                                |
+| Turn order card               | Passed around table              | Tracks whose turn it is                                     |
 
 ---
 
@@ -676,30 +736,22 @@ Development costs credits, not actions — you can do as many upgrades and hires
 - **Academic scoring metric name** — "legacy points" is the working term; needs a proper name
   (something h-index-like that fits the game's academic theme)
 - **3-action special** — which of Breakthrough / Landmark Paper / Temporal Anchor (or a combination)
-- **Exact legacy score values** — relative weighting of papers vs respect vs team vs machine
-  sophistication
+- **Exact legacy score values** — relative weighting of papers vs team vs machine sophistication vs disrespect penalty
 - **Machine failure consequence mix** — what range of outcomes to put on destination cards; how
   severe the worst outcomes should be at each tier
 - **Closed loop consequence deck** — size, card mix, ratio of positive to negative effects; exact
   mechanical phrasings for each category of consequence
 - **Lending transaction rules** — formalise the exchange mechanic
-- **Researcher shop structure** — how many cards visible at once, how does the shop refresh
+- **Researcher shop visible count** — how many cards visible at once; starting point is 4–6
 - **Exotic element name** — candidates: dark matter, temporal crystal, gravitonium
 - **Exact token denominations** — 1/3/7 is a starting point; playtesting will calibrate
 - **Game length calibration** — targeting 3–5 hours; action economy and experience rates need tuning
-- **Ethical actions** — recovering artifacts vs collecting resources vs more disruptive actions;
-  different risk/reward and respect consequences
 - **Unpredictability token thresholds** — exact point at which mitigation is partially/fully negated
   and extra dice are added; requires playtesting to calibrate
-- **Stage 1 (Observation) utility** — needs a compelling reason to use scouting rather than just
-  jumping blind. Candidate: allow Stage 1 to reveal destination card backs (the academic reward)
-  without committing to a jump — scouts know what's worth publishing before anyone goes there
 - **Postdoc unlock condition** — does hiring a postdoc immediately unlock card backs, or is there a
   trigger?
-- **Year structure** — if each year is four rounds, what happens at year end? Does anything reset or
-  escalate?
 
 ---
 
-_Document updated following third design session (1 June). All mechanics are provisional and subject
+_Document updated following fourth design session (2 June). All mechanics are provisional and subject
 to playtesting._

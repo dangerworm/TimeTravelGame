@@ -26,22 +26,26 @@ available in the present. Accessing the future contributes uniquely to the Many 
 
 Deferred to a later design phase or expansion. The five historical eras are the base game.
 
-## Destination team requirements
+## Destination team requirements _(partially integrated)_
 
 Some destinations should require a minimum number of travelling team members, or a specific type of
 team member at the destination. A Prehistoric era card might say "requires a physicist travelling" —
 you simply cannot jump there without one assigned to the staging area. This adds a planning layer
 beyond just having the right machine stage.
 
+_Hard requirements are partially integrated: the Prehistoric era already requires a theoretical
+physicist. The per-destination requirement (on individual cards rather than the era as a whole) and
+the soft requirement variant below are still ideas to develop during content design._
+
 Could also work as a soft requirement: the destination is accessible without the team member, but
 has an additional risk or reduced returns if you go without.
 
-## Back story
+## Back story _(resolved)_
 
-The story as written doesn't hold up to full scrutiny. Perhaps sending a marble was only possible
-because the portal through which items can be sent is very small - perhaps it becomes exponentially
-more unstable with size/duration and going through yourself would be too dangerous, meaning you can
-only send a camera on a stick or a small drone.
+The portal is small and exponentially unstable with size — sending a marble was possible; sending a
+person is not, at least not yet. Stage 1 machines send a drone. Stage 2+ machines are stable enough
+for personal travel. This explains the machine stage progression and grounds the early game
+narratively.
 
 ## Real historical stuff
 
