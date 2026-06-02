@@ -19,8 +19,9 @@ time zones, different lives — actually read it. Properly. And something clicks
 
 Independently, almost simultaneously, each of you has cracked the foundational principle of temporal
 displacement. You can't go far. Not yet. You've proved it to yourself by sending a marble three
-minutes into the past and catching it before you threw it. But the principle is sound, the maths
-works, and you are standing at the edge of something that will change everything.
+minutes into the past and catching it before you threw it. The portal is barely the size of your
+thumb. But the principle is sound, the maths works, and you are standing at the edge of something
+that will change everything. You've already ordered parts for a drone.
 
 You are not rivals. Not exactly. You are peers who have each stumbled into the same extraordinary
 discovery, and you each know — because you are scientists — that the person who publishes first, who
@@ -459,6 +460,12 @@ Each researcher card carries two hire requirements printed on it:
 - **Currency cost** — paid from the player's currency tokens
 - **Merit threshold** — the minimum legacy points the player must have accumulated to make the hire
 
+**Merit and legacy points are the same thing.** Legacy points accumulate permanently and are never
+spent — they represent your standing in the field. The merit threshold is a floor, not a cost: you
+must have published enough to demonstrate credibility, but you do not lose points when hiring.
+This means a player who races ahead on papers can access specialists earlier, without sacrificing
+their end-game score to do so.
+
 A player flush with currency but thin on published papers simply cannot attract the later
 specialists. The field is maturing; serious researchers want to join established teams. This
 reinforces the core tension: racing for Many Worlds starves the team; building a rich legacy
@@ -735,7 +742,11 @@ Development costs credits, not actions — you can do as many upgrades and hires
 
 - **Academic scoring metric name** — "legacy points" is the working term; needs a proper name
   (something h-index-like that fits the game's academic theme)
-- **3-action special** — which of Breakthrough / Landmark Paper / Temporal Anchor (or a combination)
+- **3-action special** — decide whether it is one fixed special (simpler, more memorable) or whether
+  different team compositions unlock different specials (more complex, rewards build diversity).
+  Candidates: Breakthrough, Landmark Paper, Temporal Anchor
+- **React double-penalty** — React currently costs 1 action and burns an era card. Whether both
+  costs are warranted or one suffices is a playtesting question
 - **Exact legacy score values** — relative weighting of papers vs team vs machine sophistication vs disrespect penalty
 - **Machine failure consequence mix** — what range of outcomes to put on destination cards; how
   severe the worst outcomes should be at each tier

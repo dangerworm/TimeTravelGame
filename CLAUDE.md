@@ -74,10 +74,17 @@ See `tasks.md`.
 
 ### Still open (priority order for next session)
 
-1. **3-action special** — candidates are Breakthrough, Landmark Paper, Temporal Anchor; needs a
-   decision
+1. **3-action special** — decide: one fixed special (simpler) or team-composition unlocks different
+   specials (more complex)? Candidates: Breakthrough, Landmark Paper, Temporal Anchor
 2. **Postdoc unlock condition** — does hiring a postdoc immediately unlock card backs?
 3. **Lending transaction rules** — formalise the exchange mechanic
 4. **Destination card content** — start writing actual cards using historical material in `ideas.md`
 5. **Academic scoring metric name** — "legacy points" is working term; Drew wants something
    h-index-like
+
+### Flags from external review (Claude.ai, end of session 4)
+
+- **React double-penalty** — costing 1 action AND burning an era card may be too punishing; worth
+  testing whether the action cost alone is sufficient
+- **Merit = legacy points** — clarified in doc (they are the same; threshold is a floor not a cost;
+  points never spent). Confirm this feels right in play.
