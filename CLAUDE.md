@@ -11,17 +11,19 @@ building, historical destination exploration, and academic output.
 
 ## Key files
 
-| File             | Purpose                                                              |
-| ---------------- | -------------------------------------------------------------------- |
-| `game-design.md` | The canonical design document. Keep this up to date as we iterate.   |
-| `ideas.md`       | Unintegrated ideas - review before each session, integrate if agreed |
-| `thoughts.md`    | Half-formed thoughts and concerns - discussion fodder                |
-| `tasks.md`       | Task list                                                            |
+| File             | Purpose                                                                |
+| ---------------- | ---------------------------------------------------------------------- |
+| `game-design.md` | The canonical design document. Keep this up to date as we iterate.     |
+| `ideas.md`       | Unintegrated ideas - review before each session, integrate if agreed   |
+| `thoughts.md`    | Half-formed thoughts and concerns - discussion fodder                  |
+| `tasks.md`       | Task list                                                              |
 | `sessions/`      | Per-session handoff notes (source of truth is always `game-design.md`) |
 
 ## How sessions work
 
 - Read `game-design.md`, `ideas.md`, and `thoughts.md` at session start.
+- You **_MUST_** read `game-design.md` rather than relying on session handoff notes otherwise you
+  won't know how the game hangs together.
 - `game-design.md` is the single source of truth.
 - Walk through design elements one at a time with Drew - discuss, challenge, refine.
 - Occurring thoughts are added to `thoughts.md` to come back to.
@@ -51,4 +53,3 @@ building, historical destination exploration, and academic output.
 When the design is sufficiently stable, a browser-based playtesting tool will be built - no AI, just
 multiple boards and a table layout, playable solo to calibrate action economy and component counts.
 See `tasks.md`.
-

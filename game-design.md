@@ -55,7 +55,7 @@ you can execute the complete sequence in a single turn.
    decision (reduces number of era cards to choose from to 1)
 2. **Jump** - open a portal; collect artefacts, information, and/or materials
 3. **Realise** _(optional, each costs 1 action)_ - convert artefact cards to currency; write a paper
-   for academic reputation points
+   for academic reputation
 4. **Develop** - recruit team members, install component, upgrade machine
 5. **Plan** - assign a team and choose the next destination
 
@@ -95,13 +95,13 @@ At game end, players score across the following:
 | Category                   | Notes                                                                                                           |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Research papers published  | Accumulated during the game via writing papers                                                                  |
-| Disrespect tokens held     | Each token represents unresolved reputational damage; reduce final score by 10 each                             |
+| Disrepute tokens held     | Each token represents unresolved reputational damage; reduce final score by 10 each                             |
 | Team cards in play         | Weighted by specialisation level                                                                                |
-| Retired researcher bonuses | Veterans leave behind permanent upgrades or bonus reputation points                                             |
+| Retired researcher bonuses | Veterans leave behind permanent upgrades or bonus reputation                                             |
 | Machine sophistication     | Number and tier of ability cards slotted around the time machine                                                |
 | Machine stage reached      | Bonus for each time machine tier unlocked                                                                       |
 | Many Worlds bonus          | A flat bonus (approximately equivalent to 4–5 research papers) awarded to the player who triggered the end game |
-| Research thesis             | Flat reputation bonus if the player's secret objective was met (see Research Thesis)                            |
+| Research thesis            | Flat reputation bonus if the player's secret objective was met (see Research Thesis)                            |
 
 **The strategic tension:** Racing hard for Many Worlds risks a low reputation. Building a rich,
 well-rounded career risks someone else triggering end game before you're ready. Both approaches are
@@ -118,9 +118,9 @@ only guess at.
 
 ### Scoring
 
-Thesis objectives score at game end. Each is worth a flat reputation bonus if the condition has
-been met — significant enough to swing a close game but not so large that it overrides the main
-scoring categories. Starting point: 8–10 reputation points. To be calibrated in playtesting.
+Thesis objectives score at game end. Each is worth a flat reputation bonus if the condition has been
+met — significant enough to swing a close game but not so large that it overrides the main scoring
+categories. Starting point: 8–10 reputation. To be calibrated in playtesting.
 
 ### Revelation
 
@@ -132,17 +132,17 @@ A player who reveals mid-game signals their strategy to the table. A player who 
 maintains the mystery of whether they have already achieved their thesis or are still working toward
 it.
 
-| Objective | Condition | Revelation |
-| --------- | --------- | ---------- |
-| **Saturated** | Have all four satellite slots filled at game end | End only |
-| **Emeritus** | Retire two team members during the game | End only |
-| **Broad Scholar** | Write at least one paper from each of four different eras | End only |
-| **The Frontier** | Make at least one successful jump to the Ancient or Prehistoric era | Mid-game |
-| **Tarnished** | Hold two disrespect tokens at the same time | Mid-game |
-| **Maverick** | Hold two instability tokens at the same time | Mid-game |
-| **No Shortcuts** | End the game having never overclocked your time machine | End only |
-| **Disruptor** | Complete at least one deliberate interference jump | Mid-game |
-| **Diligent** | Write a paper for every artefact retrieved | End only |
+| Objective         | Condition                                                           | Revelation |
+| ----------------- | ------------------------------------------------------------------- | ---------- |
+| **Saturated**     | Have all four satellite slots filled at game end                    | End only   |
+| **Emeritus**      | Retire two team members during the game                             | End only   |
+| **Broad Scholar** | Write at least one paper from each of four different eras           | End only   |
+| **The Frontier**  | Make at least one successful jump to the Ancient or Prehistoric era | Mid-game   |
+| **Tarnished**     | Hold two disrepute tokens at the same time                         | Mid-game   |
+| **Maverick**      | Hold two instability tokens at the same time                        | Mid-game   |
+| **No Shortcuts**  | End the game having never overclocked your time machine             | End only   |
+| **Disruptor**     | Complete at least one deliberate interference jump                  | Mid-game   |
+| **Diligent**      | Write a paper for every artefact retrieved                          | End only   |
 
 The full thesis deck should contain 12–16 cards for variety between games. The above are the
 starting set; additional objectives to be developed during content design.
@@ -189,18 +189,22 @@ always initiate.
 ### The 3-Action Special
 
 Spending all 3 player actions in one move triggers a powerful late-game play. **On a 3-action
-special turn, the player does not jump — the special replaces the jump.** The team handles the
-jump (if jump autonomy is available) or the player skips jumping that turn. The team also covers
-Realise and Plan as normal.
+special turn, the player does not jump — the special replaces the jump.** The team handles the jump
+(if jump autonomy is available) or the player skips jumping that turn. The team also covers Realise
+and Plan as normal.
 
-The specific mechanic is to be finalised, with the following as candidates:
+The 3 player actions are consumed entirely by the special. All named team members also exhaust. Three
+distinct specials exist, each unlocked by a specific team composition:
 
-- **Breakthrough** - install two upgrades in a single turn, advance the machine from stage 3 to 4,
-  or buy the many-worlds card
-- **Landmark Paper** - publish a career-defining paper worth significantly more reputation points
-  than a standard flip
-- **Temporal Anchor** - stabilise a parallel timeline entry point; a prerequisite step toward the
-  Many Worlds unlock
+- **Breakthrough** — quantum physicist + structural engineer. The team derives a new capability
+  independently, without a jump. Effect: install one new satellite slot for free.
+- **Landmark Paper** — a researcher and their matching specialist postdoc (physicist + physics
+  postdoc; historian + history postdoc; engineer + materials postdoc). Effect: publish a
+  career-defining paper worth significantly more reputation than a standard flip. The field
+  of the paper is determined by the pairing used. The generalist postdoc cannot trigger this special.
+- **Temporal Anchor** — quantum physicist + any historian + advanced fabrication engineer +
+  generalist postdoc. Effect: stabilise a parallel timeline entry point. Required before the Many
+  Worlds upgrade can be purchased.
 
 ---
 
@@ -281,8 +285,8 @@ matching ability cards:
   an awareness link so the team can sense what's shifting and course-correct); _Hindsight_ (on
   revisit, consequence draw reduced or previewed — the team understands what changed last time);
   _Awareness_ (targeted reversal — a revisit can undo a specific consequence rather than just reduce
-  risk). The slot supports revisiting any destination to extract more depth, not just recovering from
-  bad outcomes. Exact mechanics to be calibrated in playtesting.
+  risk). The slot supports revisiting any destination to extract more depth, not just recovering
+  from bad outcomes. Exact mechanics to be calibrated in playtesting.
 - **Materials slot** - exotic material installation. Accepts a horexium or aevium token (refined
   from exotic ore during Develop). The double-sided token is placed face-up showing which material
   is installed. Horexium: overclocking adds 1 fewer instability token while installed. Aevium: draw
@@ -406,10 +410,10 @@ Better precision means more choice, not necessarily better destinations.
   materials", "team member stranded"). Only present if Die 2 is in play.
 - **Machine requirements** - any ability cards needed in the satellite slots
 - **Team requirements** - minimum travelling team size or specific type required (if any). Hard
-  requirements exist only at the era level (e.g. Prehistoric requires a theoretical physicist). Per-card
-  requirements are soft: the destination is accessible without the specified team member, but going
-  without applies a modifier — an extra die, reduced returns, or both. The exact modifier is printed
-  on the card.
+  requirements exist only at the era level (e.g. Prehistoric requires a theoretical physicist).
+  Per-card requirements are soft: the destination is accessible without the specified team member,
+  but going without applies a modifier — an extra die, reduced returns, or both. The exact modifier
+  is printed on the card.
 - **Returns** - what can be brought back: materials (tokens), artefact sale value, reputation gain
 - **Closed loop consequence** - what ripples outward in the shared timeline (if applicable): how
   many 'butterfly effect' cards to draw; cards may specify a particular effect (instead of drawing
@@ -444,7 +448,7 @@ the card depends on the type of return:
 
 **Observation cards (Stage 0 / drone only):** The card yields base materials and an observation
 paper. There is nothing physical to sell - the drone witnessed and recorded. Writing the paper costs
-1 action and earns reputation points. No sell option.
+1 action and earns reputation. No sell option.
 
 **Artefact cards (Stage 1+):** The card itself represents the artefact. Materials (tokens) come home
 automatically; the artefact card is held in hand and you decide what to do with it:
@@ -497,9 +501,9 @@ A star in any column signals that something special happens in that phase - a bo
 or an unlocked capability. For new players it's a prompt to check the text on the card; for
 experienced players, a reminder that the card does something. Overclock repair registers as a star
 in the React column, Overclock management registers as a star in the Jump column, Closed loop
-consequence mitigation as a star in the Realise column. Jump autonomy (initiating a jump without
-the player, on a Stage 3+ machine) also registers as a star in the Jump column for experienced
-engineers and classical physicists — the card text distinguishes this from other Jump stars.
+consequence mitigation as a star in the Realise column. Jump autonomy (initiating a jump without the
+player, on a Stage 3+ machine) also registers as a star in the Jump column for experienced engineers
+and classical physicists — the card text distinguishes this from other Jump stars.
 
 The player has no capability table - they can perform any action with their 3 general actions.
 
@@ -548,9 +552,13 @@ Drive machine construction, maintenance, and reliability.
 Drive academic output and paper production, freeing other team members for higher-value tasks.
 
 - **Physics postdoc** - writes papers on time travel discoveries and machine breakthroughs
-- **History postdoc** - writes papers on artifacts and era discoveries (flips destination cards)
+- **History postdoc** - writes papers on artefacts and era discoveries
 - **Materials postdoc** - writes papers on resource finds and material science
 - **Generalist postdoc** - slower but can cover any paper type
+
+Writing a paper always costs 1 action; the player may take this action themselves. Postdocs exist to
+take it off the player's plate, freeing those actions for higher-value work. Card backs are always
+accessible — there is no unlock condition.
 
 ### Researcher Applications
 
@@ -562,7 +570,7 @@ but come with stronger capability tables and higher base ages.
 Each researcher card carries two hire requirements printed on it:
 
 - **Currency cost** - paid from the player's currency tokens
-- **Reputation threshold** - the minimum reputation points the player must have accumulated to make
+- **Reputation threshold** - the minimum reputation the player must have accumulated to make
   the hire
 
 ### Team Synergies
@@ -616,8 +624,8 @@ reaches 40. Exact capability implications per skill are to be developed during c
 (currency cost to be calibrated in playtesting). If the team member has reached age 40, they also
 receive a partial retirement bonus — smaller than the full benefit available at age 60+, but
 acknowledging their investment in the project. Dismissed researchers leave the game entirely; they
-do not return to the shop. No disrespect token is incurred — this is a financial transaction, not
-an ethical failing.
+do not return to the shop. No disrepute token is incurred — this is a financial transaction, not an
+ethical failing.
 
 ---
 
@@ -667,15 +675,15 @@ suggested to allow flexible representation without excessive tokens.
 
 ### Token Types
 
-| Token              | Represents                                          | Notes                                                                                                                                                                                                                          |
-| ------------------ | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Base Metal**     | Iron, copper, steel - structural machine components | Common, accessible from early era decks                                                                                                                                                                                        |
-| **Chips**          | Computing and processing components                 | Mid-game resource                                                                                                                                                                                                              |
-| **Exotic Ore**     | Raw exotic material collected from deep-era destinations | Late-game only; Ancient and Prehistoric destinations. Refined during Develop into either horexium or aevium. |
-| **Horexium**       | Refined exotic material — temporal stabiliser       | Installed in the Materials slot. While installed: overclocking adds 1 fewer instability token than normal (minimum 0). |
-| **Aevium**         | Refined exotic material — temporal broadener        | Installed in the Materials slot. While installed: draw one additional destination card from an adjacent era during every Plan phase, on top of the normal precision draw. |
-| **Currency**       | Money from artefact sales                           | Used to hire team members and buy upgrades                                                                                                                                                                                     |
-| **Disrespect**     | Reputational damage from ethical violations         | Each token increases the reputation threshold on any researcher hire by 1. One token removed per turn on which no ethical violation is committed (damage fades). Any remaining at game end reduce reputation score by 10 each. |
+| Token          | Represents                                               | Notes                                                                                                                                                                                                                          |
+| -------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Base Metal** | Iron, copper, steel - structural machine components      | Common, accessible from early era decks                                                                                                                                                                                        |
+| **Chips**      | Computing and processing components                      | Mid-game resource                                                                                                                                                                                                              |
+| **Exotic Ore** | Raw exotic material collected from deep-era destinations | Late-game only; Ancient and Prehistoric destinations. Refined during Develop into either horexium or aevium.                                                                                                                   |
+| **Horexium**   | Refined exotic material — temporal stabiliser            | Installed in the Materials slot. While installed: overclocking adds 1 fewer instability token than normal (minimum 0).                                                                                                         |
+| **Aevium**     | Refined exotic material — temporal broadener             | Installed in the Materials slot. While installed: draw one additional destination card from an adjacent era during every Plan phase, on top of the normal precision draw.                                                      |
+| **Currency**   | Money from artefact sales                                | Used to hire team members and buy upgrades                                                                                                                                                                                     |
+| **Disrepute** | Reputational damage from ethical violations              | Each token increases the reputation threshold on any researcher hire by 1. One token removed per turn on which no ethical violation is committed (damage fades). Any remaining at game end reduce reputation score by 10 each. |
 
 ### Conversion
 
@@ -686,7 +694,7 @@ suggested to allow flexible representation without excessive tokens.
   the double-sided exotic material token, choose which face is up). The refined token is then
   installed in the Materials satellite slot — it is not a currency; it is a machine component.
   Horexium and aevium are spent when their capability is triggered; they do not convert to currency
-- Disrespect tokens cannot be converted; they decay at a rate of one per each turn without an
+- Disrepute tokens cannot be converted; they decay at a rate of one per each turn without an
   ethical violation, and reduce reputation score if held at game end
 
 ---
@@ -702,12 +710,12 @@ Each player has an A5 board representing their workspace. Suggested layout:
 ├────────────────────────┬────────────────────────────────────┤
 │                        │  SATELLITE ABILITY SLOTS           │
 │   TIME MACHINE         │  [ ] Precision                     │
-│   (card stack)         │  [ ] Physics                       │
+│   (card stack)         │  [ ] Reversal                      │
 │   Stage: 0/1/2/3/4     │  [ ] Materials                     │
 │                        │  [ ] Computing                     │
 ├────────────────────────┴────────────────────────────────────┤
 │  RESOURCE TOKENS:   Metal | Chips | Exotic Ore               │
-│                     Currency | Disrespect                   │
+│                     Currency | Disrepute                   │
 ├─────────────────────────────────────────────────────────────┤
 │  JUMP PLAN STAGING AREA                                     │
 │  (destination card face-down + assigned team + resources)   │
@@ -722,14 +730,19 @@ Each player has an A5 board representing their workspace. Suggested layout:
 
 ### 1. React / _(optional)_
 
-Before jumping, make one adjustment to last turn's plan in response to table changes. Costs 1
-action, and requires turning over a single era card from the target deck - the price of a
-last-minute change is working with slightly less information on future jumps.
+Before jumping, make a last-minute adjustment to last turn's plan, or — if no jump was staged —
+make a spur-of-the-moment decision. Either way, the team is acting without a proper planning cycle.
 
-Alternatively, a player who did not plan a jump may make a spur-of-the-moment decision. With less
-time to plan this reduces their pick of era cards to just the top one on the deck (which they may
-choose not to take or not have the ability to jump to) and reduces the effectivenes of researchers
-or adds an instability token, as the researchers are not ready.
+**Costs 1 action.** Even a hasty jump takes real effort: rough calculations, rapid briefings,
+last-minute workshops. Actions represent a meaningful block of time and work, and setting up a jump
+demands that regardless of how little preparation there was.
+
+**Instead of a normal precision draw, you may only take the top card of the target era deck — no
+choice.** At low precision this is no different from a normal Plan; at high precision it is a
+significant downgrade. This is simply the reality of operating without five years of lead time.
+
+If no jump was staged, an instability token is also added — the team is not ready and the machine
+knows it.
 
 Aborting the jump entirely is also possible - whether it costs more should be determined during
 playtesting.
@@ -746,18 +759,18 @@ no personal risk. Stage 1+ allows personal travel and artefact retrieval.
 **Risk resolution:** Each destination card specifies a risk level which determines how many dice to
 roll. Two custom dice are used, each with typed faces:
 
-| Die                | Faces                                                                 |
-| ------------------ | --------------------------------------------------------------------- |
-| **Die 1** (mild)   | 4× blank, 1× missed opportunity, 1× comms failure                     |
+| Die                    | Faces                                                                 |
+| ---------------------- | --------------------------------------------------------------------- |
+| **Die 1** (mild)       | 4× blank, 1× missed opportunity, 1× comms failure                     |
 | **Die 2** (severe)     | 3× blank, 1× missed opportunity, 1× comms failure, 1× machine failure |
 | **Die 3** (volatility) | 2× blank, 2× boon, 2× bane                                            |
 
-| Risk level                        | Dice rolled           |
-| --------------------------------- | --------------------- |
-| None                              | 0 - safe, no roll     |
-| Low                               | Die 1 only            |
-| Moderate / High                   | Die 1 + Die 2         |
-| Ancient / Prehistoric destination | + Die 3 (always)      |
+| Risk level                        | Dice rolled       |
+| --------------------------------- | ----------------- |
+| None                              | 0 - safe, no roll |
+| Low                               | Die 1 only        |
+| Moderate / High                   | Die 1 + Die 2     |
+| Ancient / Prehistoric destination | + Die 3 (always)  |
 
 > _Prototype note: use standard d6s with a reference table. Production: custom dice with printed
 > symbols._
@@ -769,8 +782,8 @@ roll. Two custom dice are used, each with typed faces:
 - **Comms failure** - moderately reduced material gains (team panics without coordination)
 - **Machine failure** - consequence specified on the destination card (examples: lose all materials,
   lose a team member for one turn, team member stranded)
-- **Boon** - bonus specified on the destination card (examples: extra materials, additional artefact,
-  improved paper tier). TBD per card during content design.
+- **Boon** - bonus specified on the destination card (examples: extra materials, additional
+  artefact, improved paper tier). TBD per card during content design.
 - **Bane** - cascade: roll Die 2 and apply the result. Field-trained team members travelling may
   negate the bane before the Die 2 is rolled.
 
@@ -795,7 +808,7 @@ their next turn, the player must choose:
   Another player may also offer to retrieve them during their own jump to the same era, earning
   reputation for doing so.
 - **Abandon** - the team member is lost permanently, with no retirement bonus. The player receives a
-  disrespect token for leaving a colleague behind.
+  disrepute token for leaving a colleague behind.
 
 #### Deliberate Interference
 
@@ -806,14 +819,14 @@ retrieve. This is high-risk, high-reward, and ethically contested.
 baseline conditions - the zeitgeist of the era. On return, they compare pre- and post-interference
 records, producing a paper that proves theories about closed-loop timeline behaviour.
 
-**Rewards:** Exceptional material haul + elevated reputation points (the comparative methodology
+**Rewards:** Exceptional material haul + elevated reputation (the comparative methodology
 justifies the academic credit).
 
 **Costs:**
 
 - Both dice are mandatory (Die 1 + Die 2), regardless of the destination's base risk level
 - Draw 2–3 closed loop consequence cards - the quantum physicist cannot mitigate any of them
-- Receive a disrespect token - word gets out and society has opinions
+- Receive a disrepute token - word gets out and society has opinions
 
 **Note:** Normal dice failure mitigation still applies (team members can negate rolled outcomes).
 Only the consequence draws are unmitigable.
@@ -829,7 +842,7 @@ Only the consequence draws are unmitigable.
 _**Optional activities - each costs 1 action:**_
 
 Artefact cards in hand may be sold (1 action, face value currency) or written up as a paper (1
-action, flip the card for reputation points), or both in sequence (2 actions, full currency + small
+action, flip the card for reputation), or both in sequence (2 actions, full currency + small
 bonus). Either the player or an eligible team member may take these actions. See Two-Sided
 Destination Cards for full detail.
 
@@ -852,8 +865,8 @@ Development costs credits, not actions - you can do as many upgrades and hires a
 - Negotiate loans or alliances with other players if desired
 
 **Holding a staged card:** If the staging area already holds a card from a previous turn, it may
-remain there as long as needed. The slot is occupied: the player cannot plan a new jump until it
-is cleared by either executing the jump or discarding the card.
+remain there as long as needed. The slot is occupied: the player cannot plan a new jump until it is
+cleared by either executing the jump or discarding the card.
 
 **Discarding a staged card:** The player may spend 1 player action to discard a staged card. The
 card is not removed from the game — it is shuffled back into the middle of its era deck. (Another
@@ -883,15 +896,8 @@ team might make the same discovery.) Team members cannot take this action.
 
 ## Open Questions / To Resolve
 
-- **Academic scoring metric name** - "reputation points" is the working term; needs a proper name
-  (something h-index-like that fits the game's academic theme)
-- **3-action special** - decide whether it is one fixed special (simpler, more memorable) or whether
-  different team compositions unlock different specials (more complex, rewards build diversity).
-  Candidates: Breakthrough, Landmark Paper, Temporal Anchor
-- **React double-penalty** - React currently costs 1 action and burns an era card. Whether both
-  costs are warranted or one suffices is a playtesting question
 - **Exact reputation score values** - relative weighting of papers vs team vs machine sophistication
-  vs disrespect penalty
+  vs disrepute penalty
 - **Machine failure consequence mix** - what range of outcomes to put on destination cards; how
   severe the worst outcomes should be at each tier
 - **Closed loop consequence deck** - size, card mix, ratio of positive to negative effects; exact
@@ -902,10 +908,8 @@ team might make the same discovery.) Team members cannot take this action.
 - **Game length calibration** - targeting 3–5 hours; action economy and experience rates need tuning
 - **Instability token thresholds** - exact point at which mitigation is partially/fully negated and
   extra dice are added; requires playtesting to calibrate
-- **Postdoc unlock condition** - does hiring a postdoc immediately unlock card backs, or is there a
-  trigger?
 
 ---
 
-_Document updated following fifth design session (3 June). All mechanics are provisional and
-subject to playtesting._
+_Document updated following fifth design session (3 June). All mechanics are provisional and subject
+to playtesting._

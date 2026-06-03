@@ -149,10 +149,12 @@ severance pay (currency, amount to be calibrated). Age 40+: also grants a partia
 smaller than the full benefit at 60+. Dismissed researcher leaves the game entirely. No disrespect
 token, no action cost.
 
-## Butterfly effect card: end of capitalism
+## Consequence card: end of capitalism
 
-A consequence of a past-altering jump: capitalism was never invented and the world now runs on
-meritocracy. All hiring is done according to reputation rather than currency.
+A closed loop consequence card (same deck as all other consequences — "butterfly effect" was a
+loose synonym, not a separate card type). Triggered by a past-altering jump: capitalism was never
+invented and the world now runs on meritocracy. All hiring is done according to reputation rather
+than currency.
 
 Mechanical effect (draft): for some number of rounds, hiring costs no currency but requires a
 higher reputation threshold (double, or +X). Currency is temporarily irrelevant for hiring; reputation
