@@ -283,7 +283,10 @@ matching ability cards:
   _Awareness_ (targeted reversal — a revisit can undo a specific consequence rather than just reduce
   risk). The slot supports revisiting any destination to extract more depth, not just recovering from
   bad outcomes. Exact mechanics to be calibrated in playtesting.
-- **Materials slot** - exotic element enhancements (reliability)
+- **Materials slot** - exotic material installation. Accepts a horexium or aevium token (refined
+  from exotic ore during Develop). The double-sided token is placed face-up showing which material
+  is installed. Horexium: overclocking adds 1 fewer instability token while installed. Aevium: draw
+  one additional card from an adjacent era on every Plan while installed.
 - **Computing slot** - processing upgrades and overclocking
 
 ### Machine Upgrade Path
@@ -668,7 +671,9 @@ suggested to allow flexible representation without excessive tokens.
 | ------------------ | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Base Metal**     | Iron, copper, steel - structural machine components | Common, accessible from early era decks                                                                                                                                                                                        |
 | **Chips**          | Computing and processing components                 | Mid-game resource                                                                                                                                                                                                              |
-| **Exotic Element** | Rare material enabling advanced machine abilities   | Late-game, expert deck destinations only. Name TBD - candidates: dark matter, temporal crystal, gravitonium                                                                                                                    |
+| **Exotic Ore**     | Raw exotic material collected from deep-era destinations | Late-game only; Ancient and Prehistoric destinations. Refined during Develop into either horexium or aevium. |
+| **Horexium**       | Refined exotic material — temporal stabiliser       | Installed in the Materials slot. While installed: overclocking adds 1 fewer instability token than normal (minimum 0). |
+| **Aevium**         | Refined exotic material — temporal broadener        | Installed in the Materials slot. While installed: draw one additional destination card from an adjacent era during every Plan phase, on top of the normal precision draw. |
 | **Currency**       | Money from artefact sales                           | Used to hire team members and buy upgrades                                                                                                                                                                                     |
 | **Disrespect**     | Reputational damage from ethical violations         | Each token increases the reputation threshold on any researcher hire by 1. One token removed per turn on which no ethical violation is committed (damage fades). Any remaining at game end reduce reputation score by 10 each. |
 
@@ -677,7 +682,10 @@ suggested to allow flexible representation without excessive tokens.
 - Artefacts are held in hand after a jump - selling costs 1 action; they do not convert
   automatically
 - Base metal and chips are spent directly on machine upgrades - they do not convert to currency
-- Exotic elements are spent on specific advanced upgrades only
+- Exotic ore is refined during Develop into either horexium or aevium (exchange the ore token for
+  the double-sided exotic material token, choose which face is up). The refined token is then
+  installed in the Materials satellite slot — it is not a currency; it is a machine component.
+  Horexium and aevium are spent when their capability is triggered; they do not convert to currency
 - Disrespect tokens cannot be converted; they decay at a rate of one per each turn without an
   ethical violation, and reduce reputation score if held at game end
 
@@ -698,7 +706,7 @@ Each player has an A5 board representing their workspace. Suggested layout:
 │   Stage: 0/1/2/3/4     │  [ ] Materials                     │
 │                        │  [ ] Computing                     │
 ├────────────────────────┴────────────────────────────────────┤
-│  RESOURCE TOKENS:   Metal | Chips | Exotic                  │
+│  RESOURCE TOKENS:   Metal | Chips | Exotic Ore               │
 │                     Currency | Disrespect                   │
 ├─────────────────────────────────────────────────────────────┤
 │  JUMP PLAN STAGING AREA                                     │
@@ -890,7 +898,6 @@ team might make the same discovery.) Team members cannot take this action.
   mechanical phrasings for each category of consequence
 - **Lending transaction rules** - formalise the exchange mechanic
 - **Researcher shop visible count** - how many cards visible at once; starting point is 4–6
-- **Exotic element name** - candidates: dark matter, temporal crystal, gravitonium
 - **Exact token denominations** - 1/3/7 is a starting point; playtesting will calibrate
 - **Game length calibration** - targeting 3–5 hours; action economy and experience rates need tuning
 - **Instability token thresholds** - exact point at which mitigation is partially/fully negated and
@@ -900,5 +907,5 @@ team might make the same discovery.) Team members cannot take this action.
 
 ---
 
-_Document updated following fourth design session (2 June). All mechanics are provisional and
+_Document updated following fifth design session (3 June). All mechanics are provisional and
 subject to playtesting._
