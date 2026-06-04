@@ -28,10 +28,10 @@ Deferred to a later design phase or expansion. The five historical eras are the 
 
 ## Destination team requirements _(resolved)_
 
-Hard requirements exist only at the era level (Prehistoric requires a theoretical physicist). Per-card
-requirements are soft: accessible without the right team member, but going without applies a modifier
-(extra die, reduced returns, or both) printed on the card. Holding a staged card is free (occupies
-the staging slot). Discarding a staged card costs 1 player action; card returns mid-deck.
+Hard requirements exist only at the era level (Prehistoric requires a theoretical physicist).
+Per-card requirements are soft: accessible without the right team member, but going without applies
+a modifier (extra die, reduced returns, or both) printed on the card. Holding a staged card is free
+(occupies the staging slot). Discarding a staged card costs 1 player action; card returns mid-deck.
 
 ## Real historical stuff
 
@@ -104,19 +104,20 @@ used for centuries and then lost. Ancient physicians swore by it; we don't know 
 
 ## Engineering team as collective action _(resolved)_
 
-The concern (large homogeneous teams making the 3-action special irrelevant) is resolved differently:
-a well-assembled team frees up the player's 3 actions by covering routine phases, enabling the
-special. The special replaces the jump on that turn. Jump initiation remains a player action until
-a Stage 3+ machine is in play and an experienced engineer or classical physicist with a Jump star
-is available — at that point the team can initiate autonomously. No collective action rule needed.
+The concern (large homogeneous teams making the 3-action special irrelevant) is resolved
+differently: a well-assembled team frees up the player's 3 actions by covering routine phases,
+enabling the special. The special replaces the jump on that turn. Jump initiation remains a player
+action until a Stage 3+ machine is in play and an experienced engineer or classical physicist with a
+Jump star is available — at that point the team can initiate autonomously. No collective action rule
+needed.
 
 ## Physics slot identity _(resolved — now Reversal slot)_
 
 Renamed to **Reversal slot**. A temporal analysis track distinct from Precision (destination choice)
 and Computing (overclock/speed). Supports revisiting any destination to extract more depth — not
-just failure recovery. Upgrade tiers: **Familiarity** (replay with real-time temporal feedback loop),
-**Hindsight** (consequence draw reduced/previewed on revisit), **Awareness** (targeted reversal of a
-specific consequence). Integrated into game-design.md.
+just failure recovery. Upgrade tiers: **Familiarity** (replay with real-time temporal feedback
+loop), **Hindsight** (consequence draw reduced/previewed on revisit), **Awareness** (targeted
+reversal of a specific consequence). Integrated into game-design.md.
 
 Related idea: the undo expedition — see below.
 
@@ -127,6 +128,7 @@ to make a targeted jump back and undo the change — rivals setting aside compet
 a timeline catastrophe affects everyone. Enabled by Physics slot Tier 3 (targeted correction).
 
 Open questions:
+
 - What makes a consequence "bad enough" to trigger this? A threshold on score impact? A specific
   card type? Player consensus?
 - How do players pool resources — do they share a jump cost, assign team members from multiple
@@ -136,13 +138,13 @@ Open questions:
 - Does this have to be planned in advance (staged like a normal jump) or can it be a reactive
   multi-player turn insert?
 
-Related to Physics slot identity. Also links to the Lending / Alliance mechanic as a natural
-moment for temporary cooperation between otherwise competing players.
+Related to Physics slot identity. Also links to the Lending / Alliance mechanic as a natural moment
+for temporary cooperation between otherwise competing players.
 
 ## Team roster: size cap and dismissal _(resolved)_
 
-**Slot count:** 8. Strategic constraint; typical team will be 4–6. Expand if playtesting shows
-it's too tight.
+**Slot count:** 8. Strategic constraint; typical team will be 4–6. Expand if playtesting shows it's
+too tight.
 
 **Dismissal (severance):** Player may dismiss a team member during the Develop phase. Costs
 severance pay (currency, amount to be calibrated). Age 40+: also grants a partial retirement bonus,
@@ -151,14 +153,14 @@ token, no action cost.
 
 ## Consequence card: end of capitalism
 
-A closed loop consequence card (same deck as all other consequences — "butterfly effect" was a
-loose synonym, not a separate card type). Triggered by a past-altering jump: capitalism was never
-invented and the world now runs on meritocracy. All hiring is done according to reputation rather
-than currency.
+A closed loop consequence card (same deck as all other consequences — "butterfly effect" was a loose
+synonym, not a separate card type). Triggered by a past-altering jump: capitalism was never invented
+and the world now runs on meritocracy. All hiring is done according to reputation rather than
+currency.
 
-Mechanical effect (draft): for some number of rounds, hiring costs no currency but requires a
-higher reputation threshold (double, or +X). Currency is temporarily irrelevant for hiring; reputation
-is the only qualification that matters.
+Mechanical effect (draft): for some number of rounds, hiring costs no currency but requires a higher
+reputation threshold (double, or +X). Currency is temporarily irrelevant for hiring; reputation is
+the only qualification that matters.
 
 Needs: duration rule, exact threshold modifier, and whether it affects all players or only some.
 Good flavour for a high-impact consequence card (probably a Draw 2 destination or from deliberate
@@ -176,7 +178,8 @@ integrated into game-design.md.
 
 No push-your-luck dynamic in this game — dice count is determined by destination cards, not player
 choice. Adding positive faces would also break the typed mitigation system. Destination card returns
-already serve as the reward channel; dice are specifically the risk channel. Keep them negative-only.
+already serve as the reward channel; dice are specifically the risk channel. Keep them
+negative-only.
 
 ## Named researchers / sci-fi IP
 

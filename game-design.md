@@ -95,9 +95,9 @@ At game end, players score across the following:
 | Category                   | Notes                                                                                                           |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Research papers published  | Accumulated during the game via writing papers                                                                  |
-| Disrepute tokens held     | Each token represents unresolved reputational damage; reduce final score by 10 each                             |
+| Disrepute tokens held      | Each token represents unresolved reputational damage; reduce final score by 10 each                             |
 | Team cards in play         | Weighted by specialisation level                                                                                |
-| Retired researcher bonuses | Veterans leave behind permanent upgrades or bonus reputation                                             |
+| Retired researcher bonuses | Veterans leave behind permanent upgrades or bonus reputation                                                    |
 | Machine sophistication     | Number and tier of ability cards slotted around the time machine                                                |
 | Machine stage reached      | Bonus for each time machine tier unlocked                                                                       |
 | Many Worlds bonus          | A flat bonus (approximately equivalent to 4–5 research papers) awarded to the player who triggered the end game |
@@ -138,7 +138,7 @@ it.
 | **Emeritus**      | Retire two team members during the game                             | End only   |
 | **Broad Scholar** | Write at least one paper from each of four different eras           | End only   |
 | **The Frontier**  | Make at least one successful jump to the Ancient or Prehistoric era | Mid-game   |
-| **Tarnished**     | Hold two disrepute tokens at the same time                         | Mid-game   |
+| **Tarnished**     | Hold two disrepute tokens at the same time                          | Mid-game   |
 | **Maverick**      | Hold two instability tokens at the same time                        | Mid-game   |
 | **No Shortcuts**  | End the game having never overclocked your time machine             | End only   |
 | **Disruptor**     | Complete at least one deliberate interference jump                  | Mid-game   |
@@ -193,15 +193,15 @@ special turn, the player does not jump — the special replaces the jump.** The 
 (if jump autonomy is available) or the player skips jumping that turn. The team also covers Realise
 and Plan as normal.
 
-The 3 player actions are consumed entirely by the special. All named team members also exhaust. Three
-distinct specials exist, each unlocked by a specific team composition:
+The 3 player actions are consumed entirely by the special. All named team members also exhaust.
+Three distinct specials exist, each unlocked by a specific team composition:
 
 - **Breakthrough** — quantum physicist + structural engineer. The team derives a new capability
   independently, without a jump. Effect: install one new satellite slot for free.
 - **Landmark Paper** — a researcher and their matching specialist postdoc (physicist + physics
   postdoc; historian + history postdoc; engineer + materials postdoc). Effect: publish a
-  career-defining paper worth significantly more reputation than a standard flip. The field
-  of the paper is determined by the pairing used. The generalist postdoc cannot trigger this special.
+  career-defining paper worth significantly more reputation than a standard flip. The field of the
+  paper is determined by the pairing used. The generalist postdoc cannot trigger this special.
 - **Temporal Anchor** — quantum physicist + any historian + advanced fabrication engineer +
   generalist postdoc. Effect: stabilise a parallel timeline entry point. Required before the Many
   Worlds upgrade can be purchased.
@@ -220,13 +220,37 @@ manifest in the present as small shifts in material availability, technology, or
 anyone's knowledge or memory of change. Only your team knows what happened. The world is simply a
 little different.
 
-**Closed loop consequence deck:** A single shared deck. After jumping, the player draws from it as
-specified by the destination card (None / Draw 1 / Draw 2). They read the card aloud and apply the
-effect immediately. Effects are one-time and resolve instantly.
+**Closed loop consequence deck:** A single shared deck of 42 cards (14 positive, 28 negative). After
+jumping, the player draws as specified by the destination card (None / Draw 1 / Draw 2). They read
+the card aloud and apply the effect immediately. Effects are one-time and resolve instantly.
 
-Effects can be positive or negative, and may target: all players, all players except the jumping
-player, or players holding a specific resource or artefact type. Examples of the principle in
-action:
+Drawn cards are discarded face-up beside the face-down deck so players can track what has cycled
+through. When the deck is exhausted, the discard pile is shuffled and play continues.
+
+**Difficulty tiers** (chosen at setup):
+
+| Tier       | Rule                                                                                                                                                             |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Easy**   | Destination card draws reduced by 1 (min 0). At end of each complete round, draw 1 consequence — "active player" targeting applies to all players for this draw. |
+| **Normal** | Draw as specified on destination card.                                                                                                                           |
+| **Hard**   | All destination card draws +1 (min 1 per jump).                                                                                                                  |
+
+Effects may target:
+
+- **Active player** — the player who jumped
+- **All other players** — everyone except the player who jumped
+- **All players** — the entire table
+- **Conditional** — players meeting a specific condition (e.g. holding a particular resource or
+  artefact type, or having a specific team member). Only qualifying players are affected, regardless
+  of difficulty tier.
+
+The Easy round-end draw expansion (treating "active player" as "all players") applies only to
+active-player-targeted cards. Conditional targeting always resolves as written.
+
+**Content guideline:** Cards targeting the active player only should carry mild effects so that when
+expanded to all players in the Easy round-end draw, the impact remains manageable.
+
+Examples of the principle in action:
 
 - _You removed a gold nugget that would have sparked a 19th-century gold rush - gold is now scarcer.
   Players holding base metal gain 1 currency._
@@ -570,8 +594,8 @@ but come with stronger capability tables and higher base ages.
 Each researcher card carries two hire requirements printed on it:
 
 - **Currency cost** - paid from the player's currency tokens
-- **Reputation threshold** - the minimum reputation the player must have accumulated to make
-  the hire
+- **Reputation threshold** - the minimum reputation the player must have accumulated to make the
+  hire
 
 ### Team Synergies
 
@@ -631,30 +655,54 @@ ethical failing.
 
 ## The Lending / Alliance Mechanic
 
-Players may offer use of their time machine or team members to other players.
+Players may offer use of their time machine or team members to other players. All terms are freely
+negotiated at the table — the lender may ask for currency, resources, future reciprocation, or
+nothing at all. If they ask too much, the borrower can refuse; if they forget to ask for anything,
+that is their loss.
 
-### Why Lend?
+### Lending Incentives
 
-The lender must have an incentive. Suggested options (to be finalised during playtesting):
+When the borrower completes a jump using the lender's machine, the lender receives an **automatic
+flat reputation gain** — external use of their design validates the build. This applies to machine
+lending only; lending team members carries no automatic reputation gain. Amount to be calibrated in
+playtesting.
 
-1. **Reputation gain** - lending a time machine earns reputation; the lender's design is being
-   validated by external use
-2. **Compulsory component exchange** - the borrower has a material or researcher the lender needs;
-   the deal is negotiated at the table
-3. **Machine returns improved** - the borrower's team learns something during the jump; the lender
-   receives a minor upgrade card
+Additional terms are freely negotiated and may include: resources, artefacts, team member loans or
+transfers, or future reciprocation.
+
+### How a Loan Works
+
+Loans are initiated at the beginning of a jump — either during React or at the start of a normal
+jump turn. The borrower uses the lender's machine stage, satellite ability slots, and any agreed
+team members for that jump, resolved immediately on the borrower's turn.
+
+**React case:** During a jump prepared in a React step, the instability token is applied to
+**whichever machine is used for the jump** — the borrower's own if they are jumping with it, or the
+lender's if they are borrowing. This gives lenders genuine skin in the game and makes negotiations
+in React situations naturally more tense.
+
+**Normal case:** If the borrower has a staged plan and is simply borrowing capability they fall
+short on, no instability is added to the lender. The lender's team has had the same five years of
+preparation and is simply helping on the day.
+
+The lender's machine returns after the jump. There is no unavailability penalty on the lender's
+next turn.
+
+### Loans vs Transfers
+
+**Loan:** A team member works with the borrower for one jump — whether travelling to the
+destination or providing support at base — and returns to the home team automatically afterward.
+No age adjustment — this is a brief professional collaboration, not a career move.
+
+**Transfer:** A team member moves permanently to another player's team. Their age marker carries
+forward but is treated as 5 years less, reflecting the adjustment cost of a new team, working
+style, and machine.
 
 ### Imbalance by Design
 
 A player far behind benefits greatly from borrowing an advanced machine. This is intentional - it
 gives trailing players a catch-up mechanism. The imbalance should favour the borrower in capability,
 but the lender extracts value in reputation or resources. Both parties gain something.
-
-### Team Member Trades
-
-When a team member moves to another player's team as part of a loan or deal, their age/experience
-marker carries forward but is treated as 5 years less, as an adjustment cost for a new team, working
-style, and machine.
 
 ### Alliances
 
@@ -663,7 +711,7 @@ with outstanding physicists, and a player with excellent raw materials are colle
 than any one of them alone. The game does not enforce alliances but incentivises them through the
 lending mechanic.
 
-This opens the possibility of team play - alliances who achieve the Many Worlds jump should be
+This opens the possibility of team play — alliances who achieve the Many Worlds jump should be
 allowed to pool their points and win together.
 
 ---
@@ -683,7 +731,7 @@ suggested to allow flexible representation without excessive tokens.
 | **Horexium**   | Refined exotic material — temporal stabiliser            | Installed in the Materials slot. While installed: overclocking adds 1 fewer instability token than normal (minimum 0).                                                                                                         |
 | **Aevium**     | Refined exotic material — temporal broadener             | Installed in the Materials slot. While installed: draw one additional destination card from an adjacent era during every Plan phase, on top of the normal precision draw.                                                      |
 | **Currency**   | Money from artefact sales                                | Used to hire team members and buy upgrades                                                                                                                                                                                     |
-| **Disrepute** | Reputational damage from ethical violations              | Each token increases the reputation threshold on any researcher hire by 1. One token removed per turn on which no ethical violation is committed (damage fades). Any remaining at game end reduce reputation score by 10 each. |
+| **Disrepute**  | Reputational damage from ethical violations              | Each token increases the reputation threshold on any researcher hire by 1. One token removed per turn on which no ethical violation is committed (damage fades). Any remaining at game end reduce reputation score by 10 each. |
 
 ### Conversion
 
@@ -694,8 +742,8 @@ suggested to allow flexible representation without excessive tokens.
   the double-sided exotic material token, choose which face is up). The refined token is then
   installed in the Materials satellite slot — it is not a currency; it is a machine component.
   Horexium and aevium are spent when their capability is triggered; they do not convert to currency
-- Disrepute tokens cannot be converted; they decay at a rate of one per each turn without an
-  ethical violation, and reduce reputation score if held at game end
+- Disrepute tokens cannot be converted; they decay at a rate of one per each turn without an ethical
+  violation, and reduce reputation score if held at game end
 
 ---
 
@@ -730,8 +778,8 @@ Each player has an A5 board representing their workspace. Suggested layout:
 
 ### 1. React / _(optional)_
 
-Before jumping, make a last-minute adjustment to last turn's plan, or — if no jump was staged —
-make a spur-of-the-moment decision. Either way, the team is acting without a proper planning cycle.
+Before jumping, make a last-minute adjustment to last turn's plan, or — if no jump was staged — make
+a spur-of-the-moment decision. Either way, the team is acting without a proper planning cycle.
 
 **Costs 1 action.** Even a hasty jump takes real effort: rough calculations, rapid briefings,
 last-minute workshops. Actions represent a meaningful block of time and work, and setting up a jump
@@ -819,8 +867,8 @@ retrieve. This is high-risk, high-reward, and ethically contested.
 baseline conditions - the zeitgeist of the era. On return, they compare pre- and post-interference
 records, producing a paper that proves theories about closed-loop timeline behaviour.
 
-**Rewards:** Exceptional material haul + elevated reputation (the comparative methodology
-justifies the academic credit).
+**Rewards:** Exceptional material haul + elevated reputation (the comparative methodology justifies
+the academic credit).
 
 **Costs:**
 
@@ -842,9 +890,9 @@ Only the consequence draws are unmitigable.
 _**Optional activities - each costs 1 action:**_
 
 Artefact cards in hand may be sold (1 action, face value currency) or written up as a paper (1
-action, flip the card for reputation), or both in sequence (2 actions, full currency + small
-bonus). Either the player or an eligible team member may take these actions. See Two-Sided
-Destination Cards for full detail.
+action, flip the card for reputation), or both in sequence (2 actions, full currency + small bonus).
+Either the player or an eligible team member may take these actions. See Two-Sided Destination Cards
+for full detail.
 
 ### 4. Develop
 
@@ -900,9 +948,6 @@ team might make the same discovery.) Team members cannot take this action.
   vs disrepute penalty
 - **Machine failure consequence mix** - what range of outcomes to put on destination cards; how
   severe the worst outcomes should be at each tier
-- **Closed loop consequence deck** - size, card mix, ratio of positive to negative effects; exact
-  mechanical phrasings for each category of consequence
-- **Lending transaction rules** - formalise the exchange mechanic
 - **Researcher shop visible count** - how many cards visible at once; starting point is 4–6
 - **Exact token denominations** - 1/3/7 is a starting point; playtesting will calibrate
 - **Game length calibration** - targeting 3–5 hours; action economy and experience rates need tuning
