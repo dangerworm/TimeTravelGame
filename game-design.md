@@ -768,19 +768,19 @@ Each player has an A5 board representing their workspace. Suggested layout:
 │  TEAM SLOTS - up to 8 cards, each with age marker           │
 │  [ Physicist ] [ Historian ] [ Engineer ] [ Postdoc ] ...   │
 ├────────────────────────┬────────────────────────────────────┤
-│                        │  MODULE SLOTS           │
+│                        │  MODULE SLOTS                      │
 │   TIME MACHINE         │  [ ] Precision                     │
 │   (card stack)         │  [ ] Reversal                      │
 │   Stage: 0/1/2/3/4     │  [ ] Materials                     │
 │                        │  [ ] Computing                     │
 ├────────────────────────┴────────────────────────────────────┤
-│  RESOURCE TOKENS:   Metal | Chips | Exotic Ore               │
-│                     Currency | Disrepute                   │
+│  RESOURCE TOKENS:   Metal | Chips | Exotic Ore              │
+│                     Currency | Disrepute                    │
 ├─────────────────────────────────────────────────────────────┤
 │  JUMP PLAN STAGING AREA                                     │
 │  (destination card face-down + assigned team + resources)   │
 ├─────────────────────────────────────────────────────────────┤
-│  PAPERS PUBLISHED: ___    LEGACY TRACK: ___                 │
+│  PAPERS PUBLISHED: ___    REPUTATION: ___                   │
 └─────────────────────────────────────────────────────────────┘
 ```
 

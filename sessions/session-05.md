@@ -8,13 +8,13 @@ materials changes remain staged in this handoff commit.
 - **CLAUDE.md cleanup:** Session notes moved to `sessions/` directory. CLAUDE.md is now lean project
   context only. Player count updated to 2–6. sessions/ directory added to key files table.
 - **Session 4 notes corrected:** sessions/session-04.md corrected to use Stage 0 (drone) / Stage 1+
-  (personal) terminology and 10-point disrespect penalty — matching game-design.md, not the erroneous
-  CLAUDE.md session notes.
-- **Destination team requirements:** Soft requirements at card level (hard only at era level). Holding
-  a staged card occupies the slot and blocks planning. Discarding a staged card costs 1 player action;
-  card returns mid-deck.
-- **Jump autonomy:** Stage 3+ machine + experienced engineer or classical physicist (star on Jump) can
-  initiate jumps without the player. Gates the 3-action special naturally to late game.
+  (personal) terminology and 10-point disrespect penalty — matching game-design.md, not the
+  erroneous CLAUDE.md session notes.
+- **Destination team requirements:** Soft requirements at card level (hard only at era level).
+  Holding a staged card occupies the slot and blocks planning. Discarding a staged card costs 1
+  player action; card returns mid-deck.
+- **Jump autonomy:** Stage 3+ machine + experienced engineer or classical physicist (star on Jump)
+  can initiate jumps without the player. Gates the 3-action special naturally to late game.
 - **3-action special replaces the jump:** On a 3-action special turn the player does not jump. The
   team covers Realise and Plan; the special is the player's entire contribution that turn. Still to
   decide: one fixed special or team-composition unlocks different specials (see below).
@@ -25,15 +25,15 @@ materials changes remain staged in this handoff commit.
   retirement bonus. No disrespect token. Dismissed researcher leaves the game.
 - **Research Thesis cards:** Secret objectives drawn at setup. 9 starting objectives: Saturated,
   Emeritus, Broad Scholar, The Frontier, Tarnished, Maverick, No Shortcuts, Disruptor, Diligent.
-  Event-based (Frontier, Tarnished, Maverick, Disruptor) may be revealed mid-game; others scored
-  at end only. Worth 8–10 reputation points (to be calibrated). Full deck: 12–16 cards.
+  Event-based (Frontier, Tarnished, Maverick, Disruptor) may be revealed mid-game; others scored at
+  end only. Worth 8–10 reputation points (to be calibrated). Full deck: 12–16 cards.
 - **Die 3 (volatility die):** 2× blank, 2× boon, 2× bane. Used on Ancient and Prehistoric
   destination cards. Bane = cascade: roll Die 2 and apply result. Boon = bonus specified on
   destination card (TBD per card). Field-trained team members travelling can negate bane.
 - **Field training:** At age 40 any team member may take a field training specialisation (weapons
   handling, martial arts, or surveillance). Negates bane (Die 3) for field-trained team members
-  travelling. One skill per researcher, chosen at age 40. Replaces the security/field operative
-  team type concept.
+  travelling. One skill per researcher, chosen at age 40. Replaces the security/field operative team
+  type concept.
 - **Reward dice:** Rejected. No push-your-luck dynamic in this game; dice count is card-determined.
   Would also break the typed mitigation system.
 - **Named researchers:** Use real sci-fi character names for prototype; replace with homages if/when
@@ -61,6 +61,7 @@ materials changes remain staged in this handoff commit.
 
 My proposal (not yet accepted): all three specials exist as separate unlocks tied to team
 composition — not one fixed move:
+
 - **Breakthrough** — requires engineer + physicist
 - **Landmark Paper** — requires postdoc + historian
 - **Temporal Anchor** — requires theoretical physicist

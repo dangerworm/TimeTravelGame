@@ -17,8 +17,8 @@
 - **React mechanic clarified:** Costs 1 action; limits draw to top card only (no card burned or
   destroyed). Action cost represents effort of setting up a jump even without preparation. If no
   jump was staged, team instability token added.
-- **Postdoc role clarified:** Card backs always accessible. Postdocs free player actions rather
-  than unlocking anything.
+- **Postdoc role clarified:** Card backs always accessible. Postdocs free player actions rather than
+  unlocking anything.
 - **Terminology rename:** "reputation points" → "reputation"; "disrespect tokens" → "disrepute
   tokens" throughout.
 - **Satellite slots → modules:** "Satellite ability slots" → "module slots"; "ability cards" →
@@ -40,19 +40,19 @@
   - Loan = one jump, team member returns automatically, no age adjustment
   - Transfer = permanent move, -5 year age adjustment
 - **Unified instability system:** Single pool, two areas:
-  - Machine tokens (overclock → machine stack): mitigated by experimental physicists; removed
-    only by Reliability Engineers (1/turn, non-overclock turns)
+  - Machine tokens (overclock → machine stack): mitigated by experimental physicists; removed only
+    by Reliability Engineers (1/turn, non-overclock turns)
   - Team tokens (React/consequences → near team slots): removed naturally 1/turn; React tokens
     active for current turn only and gone by end of turn
   - Total across both areas fires the effect table on ANY jump when total > 0 (not just overclock)
   - Table moved to its own `### Instability` section within The Time Machine
-- **Stage feels added** to machine stages table Notes column (Stage 0: discovery/amazement;
-  Stage 1: peak personal danger; Stage 2: busier, more complex; Stage 3: routine, lending peaks;
-  Stage 4: smooth but volatile, race to Many Worlds intensifies)
+- **Stage feels added** to machine stages table Notes column (Stage 0: discovery/amazement; Stage 1:
+  peak personal danger; Stage 2: busier, more complex; Stage 3: routine, lending peaks; Stage 4:
+  smooth but volatile, race to Many Worlds intensifies)
 - **Document review completed:** Cleaned up stale terminology, typos, and structural issues
-  throughout. Notably: 'butterfly effect' → 'consequence' in destination card description;
-  'credits' → 'currency'; 'overclock tokens' → 'instability tokens'; typo 'additonal' fixed;
-  footer updated; instability token removal scope clarified.
+  throughout. Notably: 'butterfly effect' → 'consequence' in destination card description; 'credits'
+  → 'currency'; 'overclock tokens' → 'instability tokens'; typo 'additonal' fixed; footer updated;
+  instability token removal scope clarified.
 
 ## Still to resolve (all are playtesting calibration — no design decisions pending)
 

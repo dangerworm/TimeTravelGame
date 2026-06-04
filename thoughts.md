@@ -92,10 +92,10 @@ This means players experience peak personal risk in the middle of the machine de
 at the beginning.
 
 This feels right: early game you observe safely via drone (Stage 0), then you brave in-person visits
-with the risky portable pad (Stage 1), then you graduate to a more reliable mechanism (Stage 2).
-The risk peak at Stage 1 encourages progression. Worth confirming this is the intended feel, and
-that destination cards are written accordingly - Stage 1-accessible destinations should carry more
-Die 1/Die 2 risk to reflect the fragile equipment.
+with the risky portable pad (Stage 1), then you graduate to a more reliable mechanism (Stage 2). The
+risk peak at Stage 1 encourages progression. Worth confirming this is the intended feel, and that
+destination cards are written accordingly - Stage 1-accessible destinations should carry more Die
+1/Die 2 risk to reflect the fragile equipment.
 
 ## Artefact processing _(resolved)_
 
