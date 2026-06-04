@@ -72,10 +72,10 @@ highest score wins - not necessarily the player who triggered the end game.
 
 ## Academic Reputation
 
-Reputation points accumulate permanently and are never spent - they represent your standing in the
-field. The reputation threshold is a floor, not a cost: you must have published enough to
-demonstrate credibility, but you do not lose points when hiring. This means a player who races ahead
-on papers can access specialists earlier, without sacrificing their end-game score to do so.
+Reputation accumulates permanently and is never spent - it represents your standing in the field.
+The reputation threshold is a floor, not a cost: you must have published enough to demonstrate
+credibility, but you do not lose points when hiring. This means a player who races ahead on papers
+can access specialists earlier, without sacrificing their end-game score to do so.
 
 A player flush with currency but thin on published papers simply cannot attract the later
 specialists. The field is maturing; serious researchers want to join established teams. This
@@ -98,7 +98,7 @@ At game end, players score across the following:
 | Disrepute tokens held      | Each token represents unresolved reputational damage; reduce final score by 10 each                             |
 | Team cards in play         | Weighted by specialisation level                                                                                |
 | Retired researcher bonuses | Veterans leave behind permanent upgrades or bonus reputation                                                    |
-| Machine sophistication     | Number and tier of ability cards slotted around the time machine                                                |
+| Machine sophistication     | Number and tier of modules installed in module slots                                                            |
 | Machine stage reached      | Bonus for each time machine tier unlocked                                                                       |
 | Many Worlds bonus          | A flat bonus (approximately equivalent to 4–5 research papers) awarded to the player who triggered the end game |
 | Research thesis            | Flat reputation bonus if the player's secret objective was met (see Research Thesis)                            |
@@ -134,7 +134,7 @@ it.
 
 | Objective         | Condition                                                           | Revelation |
 | ----------------- | ------------------------------------------------------------------- | ---------- |
-| **Saturated**     | Have all four satellite slots filled at game end                    | End only   |
+| **Saturated**     | Have all four module slots filled at game end                       | End only   |
 | **Emeritus**      | Retire two team members during the game                             | End only   |
 | **Broad Scholar** | Write at least one paper from each of four different eras           | End only   |
 | **The Frontier**  | Make at least one successful jump to the Ancient or Prehistoric era | Mid-game   |
@@ -197,7 +197,7 @@ The 3 player actions are consumed entirely by the special. All named team member
 Three distinct specials exist, each unlocked by a specific team composition:
 
 - **Breakthrough** — quantum physicist + structural engineer. The team derives a new capability
-  independently, without a jump. Effect: install one new satellite slot for free.
+  independently, without a jump. Effect: install one module for free into any existing empty slot.
 - **Landmark Paper** — a researcher and their matching specialist postdoc (physicist + physics
   postdoc; historian + history postdoc; engineer + materials postdoc). Effect: publish a
   career-defining paper worth significantly more reputation than a standard flip. The field of the
@@ -286,31 +286,31 @@ you can make.
 
 ### Machine Stages
 
-| Stage | Name                  | Capability                                                                                                          | Notes                                                                                                                                                                                                                                                                      |
-| ----- | --------------------- | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | **Observation**       | Drone retrieval, no personal travel                                                                                 | A drone is sent in your place. Retrieves small quantities of base materials and can record observations for academic papers (confirming or denying historical myths; witnessing documented events). No artefact retrieval - the drone cannot carry them. No personal risk. |
-| 1     | **Visitation**        | Physical presence, time-limited                                                                                     | You can visit and interact but carry only a portable return pad - you have roughly one hour before it expires. Risk of being stranded if delayed.                                                                                                                          |
-| 2     | **Extended Presence** | Longer visits, more actions at destination                                                                          | More reliable return mechanism. Can bring back larger hauls, spend more time selecting resources.                                                                                                                                                                          |
-| 3     | **Stable Portal**     | Reliable two-way transit, reduced risk                                                                              | Full control. Miniaturised and refined.                                                                                                                                                                                                                                    |
-| 4     | **Enhanced Portal**   | Reliable two-way transit plus spatial translocation (teleportation) at destination, reduced risk of machine failure | Full control. Miniaturised and refined. Foundation for the Many Worlds unlock.                                                                                                                                                                                             |
+| Stage | Name                  | Capability                                                                                                          | Notes                                                                                                                                                                                                                                                                                                                                          |
+| ----- | --------------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | **Observation**       | Drone retrieval, no personal travel                                                                                 | A drone is sent in your place. Retrieves small quantities of base materials and can record observations for academic papers (confirming or denying historical myths; witnessing documented events). No artefact retrieval - the drone cannot carry them. No personal risk. _The thrill of first contact — pure discovery, no personal danger._ |
+| 1     | **Visitation**        | Physical presence, time-limited                                                                                     | You can visit and interact but carry only a portable return pad - you have roughly one hour before it expires. Risk of being stranded if delayed. _Peak personal danger: exhilarating and genuinely unnerving._                                                                                                                                |
+| 2     | **Extended Presence** | Longer visits, more actions at destination                                                                          | More reliable return mechanism. Can bring back larger hauls, spend more time selecting resources. _More capable but more complex — richer returns, more to coordinate._                                                                                                                                                                        |
+| 3     | **Stable Portal**     | Reliable two-way transit, reduced risk                                                                              | Full control. Miniaturised and refined. _Operations become routine; reliable enough to lend — borrowing and lending peaks here._                                                                                                                                                                                                               |
+| 4     | **Enhanced Portal**   | Reliable two-way transit plus spatial translocation (teleportation) at destination, reduced risk of machine failure | Full control. Miniaturised and refined. Foundation for the Many Worlds unlock. _Mechanically smooth but contextually volatile: the race to Many Worlds intensifies, competition sharpens, and the resources needed push into the most demanding eras._                                                                                         |
 
 Each stage is represented by a new card placed on the machine stack on the personal board. The stack
 visually narrates the machine's development.
 
-### Satellite Ability Slots
+### Module Slots
 
-Around the central machine stack are **4 satellite slots**. Each slot has a type and accepts only
-matching ability cards:
+Around the central machine stack are **4 module slots**. Each slot has a type and accepts only
+matching modules:
 
 - **Precision slot** - upgrades targeting accuracy (enables larger choice of era cards)
-- **Reversal slot** - temporal analysis and consequence management. Ability cards in this slot
-  represent increasingly sophisticated understanding of the closed loop. Three upgrade tiers:
-  _Familiarity_ (replay a destination with active real-time temporal feedback — the machine creates
-  an awareness link so the team can sense what's shifting and course-correct); _Hindsight_ (on
-  revisit, consequence draw reduced or previewed — the team understands what changed last time);
-  _Awareness_ (targeted reversal — a revisit can undo a specific consequence rather than just reduce
-  risk). The slot supports revisiting any destination to extract more depth, not just recovering
-  from bad outcomes. Exact mechanics to be calibrated in playtesting.
+- **Reversal slot** - temporal analysis and consequence management. Modules in this slot represent
+  increasingly sophisticated understanding of the closed loop. Three upgrade tiers: _Familiarity_
+  (replay a destination with active real-time temporal feedback — the machine creates an awareness
+  link so the team can sense what's shifting and course-correct); _Hindsight_ (on revisit,
+  consequence draw reduced or previewed — the team understands what changed last time); _Awareness_
+  (targeted reversal — a revisit can undo a specific consequence rather than just reduce risk). The
+  slot supports revisiting any destination to extract more depth, not just recovering from bad
+  outcomes. Exact mechanics to be calibrated in playtesting.
 - **Materials slot** - exotic material installation. Accepts a horexium or aevium token (refined
   from exotic ore during Develop). The double-sided token is placed face-up showing which material
   is installed. Horexium: overclocking adds 1 fewer instability token while installed. Aevium: draw
@@ -338,20 +338,33 @@ capability for a single jump. The player chooses one of the following benefits o
 
 - **Higher era access** - draw from the destination deck one era above what the machine stage
   normally allows
-- **Bypass one machine requirement** - ignore one ability card requirement listed on the destination
-  card
+- **Bypass one machine requirement** - ignore one module requirement listed on the destination card
 
 Overclock always forces Die 2 to be added to the jump's risk roll, regardless of the destination's
 base risk level.
 
-Each overclock adds one **instability token**. Only Reliability Engineers can remove overclock
-tokens, and only remove one token at the end of any turn on which the player does not overclock.
-Tokens accumulate across consecutive overclock turns and cannot be removed except by not
-overclocking.
+Each overclock adds one **machine instability token**, placed on the machine stack. See Instability
+below for how tokens affect jumps.
 
-| Tokens held | Effect when overclocking                            |
+### Instability
+
+Instability tokens represent accumulated strain on the operation — from pushing the machine beyond
+its limits, or from hasty, underprepared jumps. **The total count across all held tokens determines
+the effect on every jump, regardless of source.**
+
+Tokens are placed in one of two areas to indicate their origin, which governs how they are removed:
+
+- **Machine instability** (on the machine stack): caused by overclocking. Can be mitigated by
+  experimental physicists (star on Jump column — card text specifies the exact benefit). Removed
+  only by a Reliability Engineer: one token per turn on any turn the player does not overclock.
+- **Team instability** (near the team slots): caused by a hasty React with no staged plan, or by
+  certain consequence cards. Removed naturally at a rate of one per turn with no special
+  requirement. A React-added token is active only for that turn's jump and is gone by end of turn —
+  the panic fades.
+
+| Tokens held | Effect on jump                                      |
 | ----------- | --------------------------------------------------- |
-| 1           | Normal - Die 2 added, mitigation available          |
+| 1           | Die 2 added; typed mitigation available             |
 | 2           | One mitigation team member is unavailable this jump |
 | 3           | All mitigation negated + additional Die 1 roll      |
 | 4+          | All mitigation negated + 1+ additional Die 2 rolls  |
@@ -408,7 +421,7 @@ their next turn. This gives all players time to consider the table state and pla
 
 The number of cards drawn is determined by two factors:
 
-- **Machine precision** (upgraded via the Precision satellite slot)
+- **Machine precision** (upgraded via the Precision module slot)
 - **Travelling team members** with relevant expertise (historians, quantum physicists, engineers
   with a star on the Plan column)
 
@@ -432,7 +445,7 @@ Better precision means more choice, not necessarily better destinations.
 - **Dice** - risk level: 0 dice (safe), Die 1, or Die 1 + Die 2
 - **Machine failure consequence** - what happens if machine failure is rolled (e.g. "lose all
   materials", "team member stranded"). Only present if Die 2 is in play.
-- **Machine requirements** - any ability cards needed in the satellite slots
+- **Machine requirements** - any modules needed in the module slots
 - **Team requirements** - minimum travelling team size or specific type required (if any). Hard
   requirements exist only at the era level (e.g. Prehistoric requires a theoretical physicist).
   Per-card requirements are soft: the destination is accessible without the specified team member,
@@ -440,27 +453,26 @@ Better precision means more choice, not necessarily better destinations.
   is printed on the card.
 - **Returns** - what can be brought back: materials (tokens), artefact sale value, reputation gain
 - **Closed loop consequence** - what ripples outward in the shared timeline (if applicable): how
-  many 'butterfly effect' cards to draw; cards may specify a particular effect (instead of drawing
-  from the butterfly effect deck), how many butterfly effect cards to draw (sometimes in addition to
-  a particular effect written on the card).
+  many consequence cards to draw. Some destination cards specify a particular effect directly rather
+  than drawing from the deck; others specify additional draws on top of a fixed effect.
 
 **Back side:**
 
 - **Paper title** - flavour (e.g. _"Concrete Evidence: The Chemistry of Roman Marine Structures"_)
-- **Mystery tier** - determines reputation point value (see below)
-- **Reputation points**
+- **Mystery tier** - determines reputation value (see below)
+- **Reputation**
 - **Secondary bonus** - bonus reputation, a free secondary paper, or similar (if applicable)
 
 ### Mystery Tiers
 
 Paper rewards on the back of destination cards scale with how genuinely unknown the subject is:
 
-| Tier        | Description                                  | Example finds                        | Reputation pts |
-| ----------- | -------------------------------------------- | ------------------------------------ | -------------- |
-| 1 - Known   | Broadly understood; confirms existing theory | Roman nail, 1200 BC grain            | 1–2            |
-| 2 - Debated | Contested or partially understood            | Roman concrete, Stonehenge transport | 3–4            |
-| 3 - Lost    | Knowledge that vanished completely           | Greek fire, Damascus steel, theriac  | 5–7            |
-| 4 - Unknown | Never before seen                            | Silphium, the Wow! signal source     | 8–10           |
+| Tier        | Description                                  | Example finds                        | Reputation |
+| ----------- | -------------------------------------------- | ------------------------------------ | ---------- |
+| 1 - Known   | Broadly understood; confirms existing theory | Roman nail, 1200 BC grain            | 1–2        |
+| 2 - Debated | Contested or partially understood            | Roman concrete, Stonehenge transport | 3–4        |
+| 3 - Lost    | Knowledge that vanished completely           | Greek fire, Damascus steel, theriac  | 5–7        |
+| 4 - Unknown | Never before seen                            | Silphium, the Wow! signal source     | 8–10       |
 
 A Tier 4 paper is career-defining - the kind of find that provides a substantial boost to reputation
 on its own.
@@ -477,16 +489,16 @@ paper. There is nothing physical to sell - the drone witnessed and recorded. Wri
 **Artefact cards (Stage 1+):** The card itself represents the artefact. Materials (tokens) come home
 automatically; the artefact card is held in hand and you decide what to do with it:
 
-| Path                               | Actions | Currency                 | Reputation points |
-| ---------------------------------- | ------- | ------------------------ | ----------------- |
-| **Sell** the artefact              | 1       | Face value               | -                 |
-| **Write paper** about the artefact | 1       | -                        | Full              |
-| **Write paper, then sell**         | 2       | Face value + small bonus | Full              |
+| Path                               | Actions | Currency                 | Reputation |
+| ---------------------------------- | ------- | ------------------------ | ---------- |
+| **Sell** the artefact              | 1       | Face value               | -          |
+| **Write paper** about the artefact | 1       | -                        | Full       |
+| **Write paper, then sell**         | 2       | Face value + small bonus | Full       |
 
 - Selling forecloses the paper option - you no longer have access to study it.
 - Writing a paper does not foreclose selling; the paper establishes provenance and marginally
-  increases the sale value. A 'paper' token is placed on the card so that no additonal papers can be
-  written .
+  increases the sale value. A 'paper' token is placed on the card so that no additional papers can
+  be written.
 - Holding a card in hand is free and has no time limit - players may accumulate several destination
   cards and write papers on all of them in a single turn if they have enough postdocs, or can write
   papers and sell if they have enough postdocs and actions.
@@ -673,8 +685,8 @@ transfers, or future reciprocation.
 ### How a Loan Works
 
 Loans are initiated at the beginning of a jump — either during React or at the start of a normal
-jump turn. The borrower uses the lender's machine stage, satellite ability slots, and any agreed
-team members for that jump, resolved immediately on the borrower's turn.
+jump turn. The borrower uses the lender's machine stage, module slots, and any agreed team members
+for that jump, resolved immediately on the borrower's turn.
 
 **React case:** During a jump prepared in a React step, the instability token is applied to
 **whichever machine is used for the jump** — the borrower's own if they are jumping with it, or the
@@ -685,18 +697,18 @@ in React situations naturally more tense.
 short on, no instability is added to the lender. The lender's team has had the same five years of
 preparation and is simply helping on the day.
 
-The lender's machine returns after the jump. There is no unavailability penalty on the lender's
-next turn.
+The lender's machine returns after the jump. There is no unavailability penalty on the lender's next
+turn.
 
 ### Loans vs Transfers
 
-**Loan:** A team member works with the borrower for one jump — whether travelling to the
-destination or providing support at base — and returns to the home team automatically afterward.
-No age adjustment — this is a brief professional collaboration, not a career move.
+**Loan:** A team member works with the borrower for one jump — whether travelling to the destination
+or providing support at base — and returns to the home team automatically afterward. No age
+adjustment — this is a brief professional collaboration, not a career move.
 
 **Transfer:** A team member moves permanently to another player's team. Their age marker carries
-forward but is treated as 5 years less, reflecting the adjustment cost of a new team, working
-style, and machine.
+forward but is treated as 5 years less, reflecting the adjustment cost of a new team, working style,
+and machine.
 
 ### Imbalance by Design
 
@@ -740,8 +752,8 @@ suggested to allow flexible representation without excessive tokens.
 - Base metal and chips are spent directly on machine upgrades - they do not convert to currency
 - Exotic ore is refined during Develop into either horexium or aevium (exchange the ore token for
   the double-sided exotic material token, choose which face is up). The refined token is then
-  installed in the Materials satellite slot — it is not a currency; it is a machine component.
-  Horexium and aevium are spent when their capability is triggered; they do not convert to currency
+  installed in the Materials module slot — it is not a currency; it is a machine component. Horexium
+  and aevium are spent when their capability is triggered; they do not convert to currency
 - Disrepute tokens cannot be converted; they decay at a rate of one per each turn without an ethical
   violation, and reduce reputation score if held at game end
 
@@ -756,7 +768,7 @@ Each player has an A5 board representing their workspace. Suggested layout:
 │  TEAM SLOTS - up to 8 cards, each with age marker           │
 │  [ Physicist ] [ Historian ] [ Engineer ] [ Postdoc ] ...   │
 ├────────────────────────┬────────────────────────────────────┤
-│                        │  SATELLITE ABILITY SLOTS           │
+│                        │  MODULE SLOTS           │
 │   TIME MACHINE         │  [ ] Precision                     │
 │   (card stack)         │  [ ] Reversal                      │
 │   Stage: 0/1/2/3/4     │  [ ] Materials                     │
@@ -899,10 +911,10 @@ for full detail.
 Spend resources and currency on any combination of:
 
 - Advance machine to next stage (stack a new machine card)
-- Install ability cards into satellite slots
+- Install modules into module slots
 - Recruit team members from the shop
 
-Development costs credits, not actions - you can do as many upgrades and hires as you can afford.
+Development costs currency, not actions - you can do as many upgrades and hires as you can afford.
 
 ### 5. Plan
 
@@ -927,18 +939,18 @@ team might make the same discovery.) Team members cannot take this action.
 
 ## Card Types Summary
 
-| Card Type                     | Location                         | Notes                                                   |
-| ----------------------------- | -------------------------------- | ------------------------------------------------------- |
-| Destination cards (two-sided) | Era decks (centre table)         | Drawn during Plan; flippable for academic rewards       |
-| Physicist cards               | Team shop deck                   | Purchased during develop phase                          |
-| Historian cards               | Team shop deck                   | Purchased during develop phase                          |
-| Engineer cards                | Team shop deck                   | Purchased during develop phase                          |
-| Postdoc cards                 | Team shop deck                   | Purchased during develop phase; enable paper delegation |
-| Machine base card             | Personal board                   | Starting card, never removed                            |
-| Machine stage cards           | Personal board (stacked)         | One per stage upgrade                                   |
-| Ability cards                 | Personal board (satellite slots) | Slotted around machine stack                            |
-| Research thesis cards         | Player hand (secret)             | Drawn at setup; scored at game end                      |
-| Turn order card               | Passed around table              | Tracks whose turn it is                                 |
+| Card Type                     | Location                      | Notes                                                   |
+| ----------------------------- | ----------------------------- | ------------------------------------------------------- |
+| Destination cards (two-sided) | Era decks (centre table)      | Drawn during Plan; flippable for academic rewards       |
+| Physicist cards               | Team shop deck                | Purchased during develop phase                          |
+| Historian cards               | Team shop deck                | Purchased during develop phase                          |
+| Engineer cards                | Team shop deck                | Purchased during develop phase                          |
+| Postdoc cards                 | Team shop deck                | Purchased during develop phase; enable paper delegation |
+| Machine base card             | Personal board                | Starting card, never removed                            |
+| Machine stage cards           | Personal board (stacked)      | One per stage upgrade                                   |
+| Modules                       | Personal board (module slots) | Installed in module slots around the machine stack      |
+| Research thesis cards         | Player hand (secret)          | Drawn at setup; scored at game end                      |
+| Turn order card               | Passed around table           | Tracks whose turn it is                                 |
 
 ---
 
@@ -956,5 +968,5 @@ team might make the same discovery.) Team members cannot take this action.
 
 ---
 
-_Document updated following fifth design session (3 June). All mechanics are provisional and subject
-to playtesting._
+_Document updated following sixth design session (4 June 2026). All mechanics are provisional and
+subject to playtesting._

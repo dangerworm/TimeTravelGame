@@ -21,7 +21,7 @@ theoretical physicist would be required to calculate which probable future is st
 visit. Content would be entirely invented rather than drawn from historical record.
 
 Possible framing: "possible futures" rather than "the future." High risk (probability instability),
-exotic theoretical reputation points (forecasting rather than archaeology), exotic elements not yet
+exotic theoretical reputation (forecasting rather than archaeology), exotic elements not yet
 available in the present. Accessing the future contributes uniquely to the Many Worlds unlock.
 
 Deferred to a later design phase or expansion. The five historical eras are the base game.
@@ -125,7 +125,7 @@ Related idea: the undo expedition — see below.
 
 A multi-player event triggered by a particularly severe closed loop consequence. Players cooperate
 to make a targeted jump back and undo the change — rivals setting aside competition briefly because
-a timeline catastrophe affects everyone. Enabled by Physics slot Tier 3 (targeted correction).
+a timeline catastrophe affects everyone. Enabled by Reversal slot Tier 3 (Awareness).
 
 Open questions:
 
