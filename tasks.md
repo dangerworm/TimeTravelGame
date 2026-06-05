@@ -5,11 +5,21 @@ _The active backlog for the redesign. The old task list lives in `archive/tasks.
 ## Now
 
 - [x] Spec the **minimal paper prototype** of the core expedition loop. → `prototypes/prototype-01.md`
-- [ ] **Drew plays Prototype 01 solo (~20 min).** Fixed team of 3, five expeditions. The only
-      question: is cracking each expedition fun, round after round — and does "presence risks a
-      trace" feel like drama, not punishment? Jot a line of feedback per expedition.
-- [ ] Fold playtest findings back into `current-idea-scratchpad.md`; adjust the loop before adding
-      any economy/recruiting.
+- [x] Playtest the core loop (guided, Exps 1–2). **Validated** — the spine is fun. Rules refined
+      heavily during play (see `current-idea-scratchpad.md`).
+- [x] Design the wrapper (turn shape, consequence deck, instability, team-legacy lifecycle).
+- [ ] **Pick the next front:** (a) the **endgame** — collapse mode-flip + Many Worlds trigger +
+      final scoring (dodge runaway-leader & "who triggers?" problems); or (b) the **Develop
+      economy** — sell-vs-publish, shop, upgrade tracks, instability numbers.
+- [ ] Cleanup: reconcile `prototypes/prototype-01.md` reward lines with "reward sits at the
+      objective"; play Exps 3–5 (thread / hidden / Die-B).
+
+## Next (once the core loop proves fun)
+
+- [ ] Define the minimal JSON content schema (one card type to start).
+- [ ] Scaffold the prototype renderer: Vite + React + MUI. Loads JSON, renders print-ready A4 sheets
+      (3×3 card grids, cut lines, page breaks, print-to-PDF). Start with one card type, one sheet,
+      then widen.
 
 ## Next (once the core loop proves fun)
 

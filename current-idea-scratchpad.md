@@ -158,6 +158,27 @@ tracked tokens.
   TBD)_ (5 Jun)
 - 🅿️ **Parking lot:** a v1-style "React" (adjust your staged plan if the world changed before you
   execute, at a cost) could live in the Execute step — don't build yet.
+
+### Develop & the team-legacy lifecycle (5 Jun)
+
+- ✅ **Develop = spend spoils on three competing jobs:** hire (shop), upgrade machine
+  (capacity / era access / instability tolerance / precision), repair instability. One pool; they
+  trade off.
+- ✅ **Researchers grow by USE, not a calendar.** Each researcher who _works_ an expedition earns
+  experience; bench-warmers don't grow. At thresholds they advance (green→star, +1 Skill or
+  Discretion, or a small ability). Replaces v1's 25→70 age track — lighter, and it builds
+  attachment (your mainstays become _yours_). (5 Jun)
+- ✅ **Retirement = an earned legacy, gated by experience (Drew's fix).** Retire BELOW the threshold
+  → nothing, just frees the slot. Retire AT/ABOVE → **draw from the Retirement deck** (random, not
+  a menu — story over min-max, and each card explains _how_ the legacy came about). Cards =
+  upgrade / boon / reputation / protégé; some are gifts, some are **opportunities with a cost**.
+  The investment (many expeditions growing them) IS the price, so it's not a free gamble. Seed
+  content + tonal benchmark: `decks/retirement/seed-cards.md`. (5 Jun)
+- ✅ **Retirement draw = 2, keep 1** (surprise + a sliver of agency, so an off-fit card doesn't sour
+  the send-off). **Reward is flat** — not scaled by investment depth; the rounds spent growing the
+  researcher already generated the story, so the card just gives it a punchline. (5 Jun)
+- 🅿️ **Parking lot:** retirement timing — voluntary any time, with an eventual experience **cap**
+  that forces it (keeps veterans finite, lineage flowing). Don't lock yet.
 - ✅ **Overclock +1 stretch = "reliable stretch" (~60%): roll Skill+1 dice, need pips ≥ requirement.**
   Chosen over the long-shot (~25%). _Justification (narrative):_ overclock is the **rewind** — the
   team gets several runs at the step, approaching differently each loop — which makes "repeated
