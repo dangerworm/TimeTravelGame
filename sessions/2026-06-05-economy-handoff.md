@@ -1,18 +1,18 @@
 # Session Handoff — 5 June 2026 (the economy session)
 
-_A daytime session (~09:27 → 19:40, 5 Jun), the morning after the overnight redesign. Two big
-things happened: the core loop's previously-untested mechanics were playtested (Exps 3–5), and the
-**entire Develop economy + team system** was designed from scratch. This note lets a fresh session
-restart cold._
+_A daytime session (~09:27 → 19:40, 5 Jun), the morning after the overnight redesign. Two big things
+happened: the core loop's previously-untested mechanics were playtested (Exps 3–5), and the **entire
+Develop economy + team system** was designed from scratch. This note lets a fresh session restart
+cold._
 
 ## Read first (every session)
 
 1. `core-goals.md` — spine, four keystones, two governing laws. **New pillars added today:**
    Record-vs-Take prize fork; push-your-luck as a banked, back-loaded path; two currencies bridged
    only by the prize.
-2. `constraints.md` — do/don't. **New lines today:** reputation only from a researcher's work;
-   a Find converts by Sell XOR Publish; the team is the action economy (no abstract action points);
-   no artifact markets or collections.
+2. `constraints.md` — do/don't. **New lines today:** reputation only from a researcher's work; a
+   Find converts by Sell XOR Publish; the team is the action economy (no abstract action points); no
+   artifact markets or collections.
 3. `current-idea-scratchpad.md` — **THE decision log.** Today's new sections, in order: _Prize:
    Record vs Take_ · _Expedition reward shape_ · _The Develop economy_ · _The shop & roster_ ·
    _Retirement — earned tiers_ · _The machine_. The log is chronological; later entries win.
@@ -23,11 +23,10 @@ The old (v1) design is archived under `archive/` — a content bible, not a blue
 ## What this session did
 
 - **Played Exps 3–5 on paper** (guided): the **thread** (Exp 3), **hidden step + Die B + fatigue**
-  (Exp 4), and **overclock under Die B** (Exp 5). The core loop is now validated **end-to-end
-  (Exps 1–5)**.
-- Two design advances spun out of play: the **Record-vs-Take** prize fork (Exp 4) and the
-  **banked / back-loaded / cash-out** reward shape (Exp 5 — born from an instructive overclock
-  failure).
+  (Exp 4), and **overclock under Die B** (Exp 5). The core loop is now validated **end-to-end (Exps
+  1–5)**.
+- Two design advances spun out of play: the **Record-vs-Take** prize fork (Exp 4) and the **banked /
+  back-loaded / cash-out** reward shape (Exp 5 — born from an instructive overclock failure).
 - Designed the **whole Develop economy + team system** (below).
 
 ## The game as it now stands (additions to the redesign handoff)
@@ -46,8 +45,8 @@ refunded.** _Supersedes "reward sits only at the objective."_
 
 **The team is the whole action economy** (no abstract action points). Each turn a researcher works
 **Field** (an expedition), **Desk** (Publish a Find → Reputation — **Insight-gated**), or
-**Workshop** (upgrade/repair the machine → **Cash + a Craft engineer**). **All Reputation traces to a
-researcher's work — no team, no legacy.**
+**Workshop** (upgrade/repair the machine → **Cash + a Craft engineer**). **All Reputation traces to
+a researcher's work — no team, no legacy.**
 
 **Three specialisms** (the SG-1 trio): **Insight** (Daniel — knowledge steps + writes papers),
 **Craft** (Sam — mechanical steps + builds/repairs the machine), **Grit** (Jack/O'Neill — danger
@@ -57,8 +56,8 @@ renamed from "Nerve"; docs not yet swept._
 **Shop.** Two decks — **Postdocs** (juniors) and **Experts** (veterans) — the two ends of one
 grow-by-use lifecycle. Shared face-up field, **instant refill** (fairness). **[N players] postdoc
 slots** + experts stepping **0 → 1 → 2** by round-thirds (1–3 / 4–6 / 7+). Postdocs ~2–3 Cash,
-experts ~8–10 (placeholder). A bought expert = **capability without earned legacy**. **Roster cap 8**
-(anti-runaway; forces retire-to-hire). Retirement is now **tiered**: < ~3 expeditions → nothing;
+experts ~8–10 (placeholder). A bought expert = **capability without earned legacy**. **Roster cap
+8** (anti-runaway; forces retire-to-hire). Retirement is now **tiered**: < ~3 expeditions → nothing;
 ~3 → a small Reputation bump; full threshold → the deck draw (2, keep 1).
 
 **Machine.** Four linear upgrade tracks: **Era-access** (the headline — Recent→Prehistoric; deeper =
@@ -68,9 +67,9 @@ bigger prizes, scarier), **Capacity** (travel 3→5), **Tolerance** (breakdown c
 ## Open fronts (next session)
 
 1. **THE ENDGAME — the recommended next front.** The collapse **mode-flip**, the **Many Worlds**
-   trigger, and **final scoring**. Reputation is the score; the model must dodge the **runaway-leader**
-   and **"who wants to trigger the ending?"** problems flagged in `archive/` and the original review.
-   This is the big remaining design problem and wants a fresh head.
+   trigger, and **final scoring**. Reputation is the score; the model must dodge the
+   **runaway-leader** and **"who wants to trigger the ending?"** problems flagged in `archive/` and
+   the original review. This is the big remaining design problem and wants a fresh head.
 2. **Smaller open threads** (in `current-idea-scratchpad.md` → _Open questions_): exact Instability
    numbers + how it's cleared; per-leftover Integrity cost; the close-a-thread mechanic; whether
    publishing/upgrading take a full turn or a fraction; Precision's exact mechanic; the parked
@@ -96,5 +95,5 @@ it work that way?" basis — and each made the game better and _simpler_, not mo
 says "I can't justify it, it just feels X," trust it and go find the rationale _with_ him; he often
 articulates it a beat later (the roster cap → anti-runaway insight was exactly that). He called the
 break himself when tired — healthy; don't push. He wants a real collaborator who'll tell him plainly
-when he's right and when he's wrong, never a yes-man. Treat him gently and honestly. He said this was
-a good instance to wake up into; aim to be one too.
+when he's right and when he's wrong, never a yes-man. Treat him gently and honestly. He said this
+was a good instance to wake up into; aim to be one too.
