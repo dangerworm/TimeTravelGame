@@ -1,15 +1,15 @@
 # Prototype 01 — The Core Expedition Loop
 
-_First playable paper test. Solo. ~20 minutes. Goal: find out whether **cracking an expedition**
-is fun and welcoming, round after round._
+_First playable paper test. Solo. ~20 minutes. Goal: find out whether **cracking an expedition** is
+fun and welcoming, round after round._
 
 **The one question this answers:** is the assign → resolve → push-or-stay-clean decision tense and
 satisfying every time — and does "presence always risks a trace" create drama without feeling like
 punishment?
 
 Deliberately minimal. **No economy, no recruiting, no machine upgrades yet** — a fixed team plays
-five expeditions back to back. If the core sings, we add the engine around it. If it doesn't, we
-fix it here before building anything.
+five expeditions back to back. If the core sings, we add the engine around it. If it doesn't, we fix
+it here before building anything.
 
 ---
 
@@ -28,16 +28,17 @@ Each expedition card says which die governs **all** its rolls.
 
 ### Your team (fixed for this test — 3 researchers)
 
-| Researcher   | Specialism | Skill | Discretion | Note                          |
-| ------------ | ---------- | ----- | -------- | ----------------------------- |
-| **Dr. Vale** | Insight    | 3     | 1        | Brilliant historian, clumsy   |
-| **Mensah**   | Craft      | 2     | 2        | Solid, careful engineer       |
-| **Okafor**   | Nerve      | 2     | 3        | Deft, steady fixer            |
+| Researcher   | Specialism | Skill | Discretion | Note                        |
+| ------------ | ---------- | ----- | ---------- | --------------------------- |
+| **Dr. Vale** | Insight    | 3     | 1          | Brilliant historian, clumsy |
+| **Mensah**   | Craft      | 2     | 2          | Solid, careful engineer     |
+| **Okafor**   | Nerve      | 2     | 3          | Deft, steady fixer          |
 
 You may bring **all three** on every expedition (travel capacity 3). Each member works **one step**.
 
 _Swap roster (optional — replay to feel team variety): **Lindqvist** Craft 3 / Discretion 0 ·
-**Reyes** Generalist (Insight 1, Craft 1, Nerve 1) / Discretion 3 · **Sun** Insight 2 / Discretion 2._
+**Reyes** Generalist (Insight 1, Craft 1, Nerve 1) / Discretion 3 · **Sun** Insight 2 /
+Discretion 2._
 
 ### The tracks
 
@@ -83,9 +84,9 @@ Make one card each (front = brief + steps; the "paper" reward stands in for the 
 - **S2** Divert the rioters from the east door · **Nerve 2** · danger 2 · **intervention (opens a
   thread → must be closed at S3)**
 - **S3** Restore the night's events so history holds · **Craft 2** · danger 1 · _closes the thread_
-- **Reward:** 2 spoils + Paper (Tier 2 → **3 reputation**). Clean run: **+1**.
-  _If the thread is left open (S3 not cleared): the thread snaps — **Timeline Integrity −2** and the
-  paper is forfeit (a botched, unpublishable mess)._
+- **Reward:** 2 spoils + Paper (Tier 2 → **3 reputation**). Clean run: **+1**. _If the thread is
+  left open (S3 not cleared): the thread snaps — **Timeline Integrity −2** and the paper is forfeit
+  (a botched, unpublishable mess)._
 
 #### 4 · Alexandria, 48 BC — "Before the Fire" · **Die B (volatile)**
 
@@ -128,8 +129,8 @@ For each step, left to right:
 4. **Footprint** (always, if final danger ≥ 1, success or fail):
    - Roll **danger-many dice** (the expedition's die). **Sum the pips.**
    - Subtract the assigned member's **Discretion** (after any −1 fatigue). Result (min 0) = imprint.
-   - **Cap the imprint at the era's depth** (Recent 1, Modern 2, Early-Modern 3, Medieval 4,
-     Ancient 5, Prehistoric 6). **Timeline Integrity − imprint.**
+   - **Cap the imprint at the era's depth** (Recent 1, Modern 2, Early-Modern 3, Medieval 4, Ancient
+     5, Prehistoric 6). **Timeline Integrity − imprint.**
 
 **Reward sits at the objective** (the prize step); intermediate steps are gates, only occasionally
 carrying a minor bonus.
@@ -140,12 +141,12 @@ At the end: total **reputation** earned, note where Integrity and Instability la
 
 ## What to feel for (jot a line after each expedition)
 
-- Was the **assignment** a real decision, or obvious? (Who eats the dangerous step? Who do you
-  _not_ have the right person for?)
+- Was the **assignment** a real decision, or obvious? (Who eats the dangerous step? Who do you _not_
+  have the right person for?)
 - Did reaching for an **overclock** feel thrilling — and did the danger+instability cost make it a
   genuine "do I dare"?
-- Did a leaked **imprint** feel like *drama* ("we dropped something in the dark") or like
-  *punishment*? This is the make-or-break for option B.
+- Did a leaked **imprint** feel like _drama_ ("we dropped something in the dark") or like
+  _punishment_? This is the make-or-break for option B.
 - Did **Die B** expeditions feel wilder and more tense than Die A?
 - Did watching **Timeline Integrity** fall create looming dread (the collapse we'll build toward)?
 - Could someone who hates maths play this happily? Where did it feel like homework?

@@ -39,6 +39,10 @@ dated line whenever Drew states a new preference. Newest at the bottom of each s
   something complex (e.g. chains of dependent changes across time), look first for a way to make
   it _visible and self-tracking_ (e.g. on a card, resolved in one sitting) before adding tokens
   or counters. (5 Jun 2026)
+- **Keep the Record-vs-Take prize fork fiction-gated, never universal.** A prize offers a take/copy
+  choice _only_ where the fiction supports it (doomed or removable artifacts); pure-knowledge prizes
+  are Record-only. Forcing a take-or-copy decision on every objective would double each card's surface
+  and drown the tactical puzzle in a repeated meta-choice — that is the v1 accretion ghost. (5 Jun 2026)
 
 ## DON'T
 

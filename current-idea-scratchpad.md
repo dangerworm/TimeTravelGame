@@ -102,7 +102,8 @@ tracked tokens.
   step to reach the prize. Failing a gate ends the expedition there (keep what you banked). (5 Jun)
 - ✅ **Reward lives at the objective** (the final/prize step). Intermediate steps are obstacles,
   only occasionally carrying a minor bonus. _(Parking lot: could a step ever yield its own paper?
-  Later.)_ (5 Jun)
+  Later.)_ (5 Jun) — **⚠️ SUPERSEDED by "Expedition reward shape: banked, back-loaded, cash-out"
+  below: the objective still holds the bulk, but the path now banks escalating finds.**
 - ✅ **Overclock bridges the gap, using Skill-many dice.** Roll dice = the member's Skill; need pips
   **≥ the shortfall** (requirement − Skill), not ≥ the full requirement. Your Skill isn't wasted;
   short-by-one is easy, short-by-two is nasty. Overclock still adds danger +1 and Instability +1.
@@ -124,12 +125,28 @@ tracked tokens.
 - ✅ **A clean run survives overclocking.** Machine strain ≠ a trace on history; if total imprint
   is 0 the run is clean and scores the bonus. Rewards building discreet operatives. (5 Jun)
 
-> **── CORE EXPEDITION LOOP: VALIDATED (playtest, Exps 1–2, 5 Jun) ──**
+> **── CORE EXPEDITION LOOP: VALIDATED (playtest, Exps 1–5, 5 Jun) ──**
 > The assign → push → footprint decision is tense and fun; the overclock push delivers the
 > keystone thrill; twist, fatigue, Discretion, era-capped imprint all pulled their weight. The
 > spine is proven on paper. **Note:** this log is chronological — where entries conflict, the
 > _later_ one wins (e.g. risk = footprint supersedes "only unfinished changes"; reliable-stretch
 > supersedes bridge-the-gap; Discretion supersedes Deftness).
+>
+> **Exps 3–5 played (the previously-untested core mechanics):**
+>
+> - **Exp 3 (thread):** a thread you can comfortably close plays as _relief_, not tension — the
+>   "you earned this" dividend for good team-building. Threads need a real risk of the closing step
+>   failing to carry drama. **Finding banked, not a flaw.**
+> - **Exp 4 (hidden + Die B + fatigue):** fatigue-leak read as _story_ ("the tired genius fumbled
+>   the delicate part"), not tax. **Big validation:** shared imprint became a _social_ moment —
+>   "the timeline damage is everyone's problem; I look round to see who's annoyed by my gamble."
+>   Die B spiked but Discretion buffers hid it; volatility barely registered when danger was low.
+> - **Exp 5 (overclock under Die B):** surfaced the **tollgate-trapdoor flaw** → led to the
+>   banked/back-loaded/cash-out reward model (see its section below). The fix that came out of this
+>   is the night's headline.
+>
+> Two design threads spun out of this play and are captured as their own sections below:
+> **Record-vs-Take prize fork** (from Exp 4) and **Expedition reward shape** (from Exp 5).
 >
 > **NEXT TOPIC — the wrapper around the expedition** (Drew's three questions, 5 Jun):
 >
@@ -196,6 +213,55 @@ tracked tokens.
   capacity raises the ceiling but lean teams are stealthier. Test whether clean runs feel too clean
   before adding. (5 Jun)
 
+### Prize: Record vs Take — sell-vs-publish made physical (5 Jun, from Exp 4 playtest)
+
+- ✅ **Each prize step can be claimed up to two ways:** _Record_ (copy/document) → **Paper →
+  reputation** (the score), history intact; or _Take_ (remove the artifact) → **spoils** (engine
+  fuel), normally a big **intervention imprint** because the record now diverges. (5 Jun)
+- ✅ **"Doomed" is a one-bit flag on the destination** that waives the take-imprint: if the object
+  burns / is lost anyway, taking it changes nothing, so it's clean _and_ clever. Rewards reading the
+  fiction (the Alexandria scroll: why copy what's about to burn? — grab it). (5 Jun)
+- ✅ **Fiction-gated, not universal** (constraint added): pure-knowledge prizes (cipher, calculation)
+  are Record-only; doomed/removable artifacts are where the fork is live. Avoids doubling every card
+  and drowning the puzzle in a repeated meta-choice. (5 Jun)
+- ✅ **This consolidates three parked threads into one mechanism:** sell-vs-publish, intervention-vs-
+  observe, and "take-don't-copy." Engine-building tension (spoils grow you vs. reputation scores) and
+  the ethical dial both fall out for free. Belongs at the centre of the **Develop-economy** front when
+  we pick it up (it defines what spoils are _for_). Folded into `core-goals.md`. (5 Jun)
+- 🅿️ **Parking lot:** can you ever do _both_ (take AND copy)? Default no — you either remove it or
+  leave it; that's the fork. Confirm when we build the economy.
+
+### Expedition reward shape: banked, back-loaded, cash-out (5 Jun, from Exp 5 playtest)
+
+This is the **press-your-luck spine**, and it supersedes the earlier "reward sits _only_ at the
+objective" line below. Born from the Exp 5 finding: a do-or-die overclock on a _mandatory mid-path
+gate_ forfeits everything downstream → reads as a **tollgate-with-a-trapdoor**, not the keystone
+thrill, and a winning/cautious player simply won't engage (breaks keystone #1 + accessibility).
+
+- ✅ **Rewards bank along the path and escalate toward the objective.** Steps are either **gates**
+  (pure obstacle, no reward) or **finds** (bank a small reward when cleared). Finds grow as you
+  descend; the **objective holds the bulk (~40–50% of the expedition's value)**. (5 Jun)
+- ✅ **Back-loaded, but _not_ exponential.** Convex-but-gentle (Drew's 1·1·3·4·objective shape), so
+  the objective clearly matters yet the banked finds aren't rounding error. True exponential
+  re-creates the cliff (losing the final step = near-total loss again). The steepness is the key
+  calibration knob. (5 Jun)
+- ✅ **Voluntary cash-out is the lynchpin.** Before any step you may **stop and bank everything
+  cleared.** _This is what "I wouldn't commit" actually means_ — bank your finds and leave the prize
+  on the desk — turning all-or-nothing into a real, non-zero press-your-luck decision. The overclock
+  at a gate becomes "push deeper for the growing prize, or cash out my floor?" — keystone thrill with
+  a floor that grows as you go. (5 Jun)
+- ✅ **Footprint is never refunded.** Imprints left on steps already taken stay even if you cash out
+  early — so "was it worth going in?" keeps its weight; a half-run can still scar history for a
+  partial reward. (5 Jun)
+- ✅ **Reward types split along the path:** intermediate **finds = spoils** (engine fuel — "everything
+  you collect is of interest"); the **objective = the Paper** (reputation, the score) and the home of
+  the **Record-vs-Take** fork. (5 Jun)
+- ✅ **Failing a gate** ends the expedition: keep what's banked, lose everything downstream incl. the
+  objective; a snapped intervention thread _additionally_ costs Integrity. (5 Jun)
+- 📌 **Finding — overclock placement matters:** an overclock on the _prize/final_ step feels heroic
+  (Nuremberg, Exp 2 — "dare I grab it?"); an overclock on a _mandatory middle_ step felt like a
+  trapdoor (Lisbon, Exp 5). Back-loaded banking + cash-out resolves this. (5 Jun)
+
 ### Open questions to resolve
 
 - Exact Integrity cost per leftover blank; exact Instability per overclock; how Instability is
@@ -218,5 +284,5 @@ tracked tokens.
 _Parking lot (capture stray thoughts here so we don't lose them, but don't chase them now):_
 
 - Do large/late expeditions ever span multiple turns, or always resolve in one? (Default: one.)
-- Sell-vs-publish (cash vs. respect) likely folds into the intervention-vs-observe choice on a
-  step — confirm later.
+- ✅ Sell-vs-publish (cash vs. respect) — **confirmed (5 Jun):** it _is_ the Record-vs-Take prize
+  fork (see the dedicated section above). No longer parked.

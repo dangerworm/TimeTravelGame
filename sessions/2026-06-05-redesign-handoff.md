@@ -48,7 +48,7 @@ leave). A person may work multiple steps of their specialism; each extra step = 
 (fatigue). Two custom dice: **A** `0·1·1·1·1·2` (steady) and **B** `0·0·1·1·2·2` (volatile — same
 mean, double variance, for deep/volatile expeditions).
 
-**Team-legacy lifecycle (the keystone):** hire junior → they earn experience by *working*
+**Team-legacy lifecycle (the keystone):** hire junior → they earn experience by _working_
 expeditions → advance at thresholds (stat/ability bumps) → **retire**. Below an experience
 threshold, retiring just frees the slot. At/above it, **draw 2 from the Retirement deck, keep 1**
 (flat reward) — upgrade / boon / reputation / **protégé** (a lineage), each with flavour explaining
@@ -83,11 +83,11 @@ Execute; whether intermediate steps can ever yield their own paper.
 ## Housekeeping / loose ends
 
 - `prototypes/prototype-01.md` was updated mid-session for the locked rules (Discretion, overclock
-  +1 cap, era-capped imprint, steps-in-order) but its **expedition reward lines still read
-  "N spoils + Paper"** from before "reward sits at the objective" — worth a cleanup pass before the
+  +1 cap, era-capped imprint, steps-in-order) but its **expedition reward lines still read "N
+  spoils + Paper"** from before "reward sits at the objective" — worth a cleanup pass before the
   next play, and Exps 3–5 (thread/hidden/Die-B) are still unplayed.
 - The prototyping **renderer** (Vite + React + MUI, JSON → printable cards) is still future work
   (`tasks.md`); we've been on paper by design. Good first real content for it: the destination,
   researcher, consequence, and retirement decks.
-- Commits this session: `fc957f2` (reset + archive v1), `f50f0b4` (core loop + wrapper),
-  and the handoff commit.
+- Commits this session: `fc957f2` (reset + archive v1), `f50f0b4` (core loop + wrapper), and the
+  handoff commit.

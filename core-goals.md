@@ -73,11 +73,27 @@ wrong.
 
 - **Engine-building team.** Recruit specialists; each opens new ways to solve problems and new eras
   to reach. Growth = more tools = harder challenges accessible = bigger rewards.
-- **Push-your-luck overclock.** A clean "push it" option on a jump: more reward, more risk, a cost
-  paid in instability. One instability track, not two.
+- **Push-your-luck = a banked, back-loaded path (not just an overclock toggle).** An expedition
+  banks **escalating finds** as you descend, with the **objective holding the bulk** of the value.
+  Before any step you may **cash out** and keep what you've banked — so every gate is a genuine
+  "push deeper for the growing prize, or take my floor and walk?" decision, with a floor that grows
+  as you go. The **overclock** is the reach _at_ a gate (more reward, more risk, a cost paid in
+  instability — one track, not two). Failing a gate forfeits everything downstream but not what's
+  banked; footprint already left is never refunded. _(This shape replaces the earlier "reward sits
+  only at the objective" idea; refined from the Exp 5 playtest, 5 Jun 2026.)_
 - **Shared Timeline Integrity.** Aggressive approaches (smash-and-grab, overclock failures,
   interference) shave a shared integrity track. As it drops, _everyone's_ jumps get harder — which
   feeds the spine (more challenge) rather than being a flat penalty.
+- **The prize is Recorded or Taken (sell-vs-publish, made physical).** Each objective can be claimed
+  up to two ways: _Record_ it (copy / document / measure) for a **Paper → reputation** (the score),
+  leaving history intact; or _Take_ the artifact for **spoils** (cash that fuels your engine), which
+  normally scars the timeline with a big intervention imprint — _unless the object is doomed anyway_
+  (about to burn, be lost, be destroyed), in which case taking is clean _and_ clever, and rewards the
+  player who read the fiction. The fork is **fiction-gated, not universal**: pure-knowledge prizes
+  (a cipher, a calculation) are Record-only; doomed artifacts are where the choice is live and juicy.
+  This consolidates the old sell-vs-publish dilemma _and_ the intervention-vs-observe choice into one
+  mechanism, and it is where the **ethical dial emerges for free** — greedy takes scar history, doomed
+  takes don't. (added 5 Jun 2026, from the Exp 4 playtest)
 - **Ethics as the dial, not the spine.** The ethical axis is what _fuels_ the collapse threat: if
   the table is collectively greedy, integrity slides toward collapse; if everyone is careful, it
   never does. Emergent, player-driven — aim for it threatening **at most ~50% of games**.
