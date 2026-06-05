@@ -16,13 +16,16 @@ _The active backlog for the redesign. The old task list lives in `archive/tasks.
       by the Sell-vs-Publish choice on a Find; the team is the single labour pool (field vs desk),
       publishing is deskwork, all reputation traces to a researcher's work. See scratchpad +
       core-goals + constraints.
-- [ ] **Economy — remaining pieces:** the **shop** (Cash → new researchers) and the **machine
-      upgrade tracks** (capacity / era-access / instability-tolerance / precision); then exact
-      instability numbers.
+- [x] **Shop & roster designed (5 Jun).** Two decks (Postdocs / Experts) as two ends of one
+      lifecycle; shared field, instant refill; [N] postdoc slots + round-thirds expert slots
+      (0→1→2); bought experts = capability without earned legacy; roster cap 8 (anti-runaway,
+      forces retire-to-hire). Retirement gains a consolation tier (~3 expeditions → small rep).
+- [ ] **Economy — last piece:** the **machine upgrade tracks** (capacity / era-access /
+      instability-tolerance / precision); then exact instability numbers.
 - [ ] **Then the endgame front:** collapse mode-flip + Many Worlds trigger + final scoring (dodge
       runaway-leader & "who triggers?" problems).
-- [ ] Sweep "spoils" → "Cash" across docs (scratchpad, core-goals, prototype-01, retirement seed
-      cards) once terminology settles.
+- [ ] Sweep terminology across docs once it settles: **"spoils" → "Cash"** and **"Nerve" → "Grit"**
+      (scratchpad, core-goals, prototype-01, retirement seed cards).
 - [ ] Cleanup: **re-spec `prototypes/prototype-01.md`** for the new reward model — banked escalating
       finds, objective-holds-the-paper, voluntary cash-out, Record-vs-Take prize. (The old "N
       spoils + Paper at the objective only" lines are now superseded, not just mis-worded.)

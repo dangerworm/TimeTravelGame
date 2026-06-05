@@ -308,8 +308,89 @@ artifact is _sold_ or _studied_; the machine runs on _money_).
 **Parked calibration (numbers, not architecture):** Record vs Take→Publish reputation ceilings; does
 publishing take a full turn or a fraction.
 
-**Still open in the economy:** the **shop** (Cash → new researchers) and the **machine upgrade
-tracks** (capacity / era-access / instability-tolerance / precision).
+**Still open in the economy:** the **machine upgrade tracks** (capacity / era-access /
+instability-tolerance / precision).
+
+### The shop & roster (5 Jun)
+
+- ✅ **Two decks — Postdocs (juniors) and Experts (veterans) — are the two ends of one lifecycle.** A
+  grown postdoc _becomes_ expert-tier, so an Expert card is "that endpoint, bought." Grow capability
+  or buy it. (5 Jun)
+- ✅ **Market = a shared face-up field, refilled _instantly_.** A bought slot is replaced from its
+  deck immediately, so every player faces a full market on their turn — kills the first-mover
+  monopoly on a scarce card (Drew's 6-player fairness check). You still race for a _specific_ card,
+  never shut out of the market entirely. (5 Jun)
+- ✅ **Postdoc slots = [number of players]** — talent-to-rival ratio stays constant at every count
+  (self-solves the thin-at-5 / bloated-at-2 problem). (5 Jun)
+- ✅ **Expert slots step up by round-thirds:** rounds **1–3 → 0**, **4–6 → 1**, **7+ → 2.** A
+  grow-your-own opening; proven talent only signs on once the field is making noise.
+  _(supersedes the earlier "1–2 experts" sketch.)_ (5 Jun)
+- ✅ **Costs (placeholder, calibrate on paper):** postdocs ~2–3 Cash, experts ~8–10. (5 Jun)
+- ✅ **A bought Expert = capability without history.** Expert stats (same reachable ceiling as a
+  grown postdoc, maybe a signature ability) but **no earned legacy** until they've worked your
+  expeditions (see retirement tiers). Capability you can buy; legacy you can only grow. (5 Jun)
+- ✅ **Roster cap = 8.** Generous enough to feel like freedom, but a real ceiling whose main job is
+  **anti-runaway-leader** — a rich player can't hoard unlimited talent and snowball (Drew reasoned to
+  this). When full, hiring forces a **retire-to-hire**, manufacturing the bittersweet "make room for
+  the future" beats (lineage churn + legacy draws). 🔶 _Playtest watch: is tracking up to 8
+  researchers (field + desk + bench) too much?_ (5 Jun)
+
+### Retirement — earned tiers (5 Jun, refines the lifecycle section above)
+
+Retirement benefit scales with **expeditions worked for you**, in tiers — which is also how a
+latecomer Expert earns a legacy:
+
+- **Below ~3 expeditions:** nothing — retiring just frees the slot.
+- **~3 expeditions:** a **reduced** send-off — a **small Reputation bump only** (no machine upgrade /
+  action card / deck draw). The consolation legacy.
+- **Full threshold (higher):** the full **Retirement deck draw** (2, keep 1) — upgrade / boon /
+  reputation / protégé.
+
+_(Thresholds are calibration. This adds a consolation tier **below** the full draw; it does **not**
+overturn the earlier "the full draw is flat, not scaled by investment depth" decision — the tiers
+gate _whether_ you draw, not how big the full draw is.)_
+
+### The machine — upgrade tracks & the Workshop action (5 Jun)
+
+- ✅ **Four upgrade tracks; ① Era-access is the headline.** Recent ▸ Modern ▸ Early-Mod ▸ Medieval ▸
+  Ancient ▸ Prehistoric — the progression spine: deeper eras = bigger prizes (higher paper tiers)
+  but scarier (higher imprint caps, Die B, more danger). The other three are supporting cast. (5 Jun)
+- ✅ **② Capacity** (travel 3 ▸ 4 ▸ 5): how many researchers travel one expedition — cover more
+  specialisms, spread fatigue, work longer paths. (5 Jun)
+- ✅ **③ Tolerance** (breakdown cap 5 ▸ 7 ▸ 9): raises the Instability ceiling = overclock headroom;
+  competes with _repairing_ instability (raise the roof vs mop the floor). (5 Jun)
+- ✅ **④ Precision = the machine's Discretion (cleaner drops = less footprint).** _Drew's narrative:_
+  an imprecise machine drops you early (longer exposed → bigger footprint) or needs repeat jumps
+  (tired, stressed researchers → more leak); a precise one puts you exactly where/when, so you scar
+  less. The "go deep but stay clean" track. _("Fewer surprises" rejected — you visit the same period,
+  so the same obstacles are there regardless of arrival precision.)_ Mechanic TBD (−1 footprint die /
+  +effective Discretion). (5 Jun)
+- ✅ **Machine work is a Workshop action — Cash + a Craft researcher.** Upgrading (and repairing) the
+  machine isn't just a purchase: it takes **time, effort and skill**, so it requires assigning a
+  **Craft (engineer) researcher** to the Workshop _and_ spending Cash. This **extends the labour pool
+  to three destinations:** **Field** (work an expedition) · **Desk** (publish a Find → Reputation) ·
+  **Workshop** (upgrade/repair the machine — Craft-gated). (5 Jun)
+- ✅ **Three specialisms kept** (Insight / Craft / Nerve); **Craft = the engineer / STEM / maker**
+  type that does machine work. (5 Jun)
+- 🔶 **Consequence to watch:** Craft becomes a bottleneck — your engineer can crack a field obstacle
+  OR upgrade the machine, not both — rewarding Craft bench depth. Good tension; watch it doesn't
+  starve. (5 Jun)
+- ✅ **Structure = four simple linear tracks** (spend to advance a pip, escalating cost), not modular
+  tiles (parked). Revisit if four feels like too much. (5 Jun)
+- ✅ **Desk / Publish = Insight-gated** (historians write the papers). Reasoning: an engineer might
+  do material analysis on a Find, but only a historian can add the **context** that wraps it into a
+  paper — and materials science has moved on, so the engineering isn't the novel contribution. Each
+  home job now owns a specialism: **Field** (step-driven) · **Desk = Insight** · **Workshop = Craft**.
+  (5 Jun)
+- ✅ **Third specialism = Grit** (renamed from "Nerve"): the **O'Neill** to Insight's Daniel and
+  Craft's Sam — the strong, non-academic tactical leader who **leads the expedition and keeps the
+  team on task.** Field domain = danger steps (infiltrate, survive, escape). **Signature mechanic
+  (confirmed): a Grit leader on an expedition mitigates fatigue** — softens the −1 Discretion per
+  extra step, keeping the party effective — reusing the existing fatigue rule, no new subsystem. So
+  each type owns a field domain _and_ a home/signature role: **Insight** = knowledge + papers (Desk),
+  **Craft** = machine + Workshop, **Grit** = danger + leadership (field). _(Logistics-at-Staging is a
+  parked alternative dimension. Sweep "Nerve" → "Grit" across docs with the spoils→Cash pass.)_ (5
+  Jun)
 
 ### Open questions to resolve
 
