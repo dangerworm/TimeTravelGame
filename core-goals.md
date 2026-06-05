@@ -53,6 +53,22 @@ individual mechanic.
 
 ---
 
+## Two laws that govern every mechanic (added 5 Jun 2026)
+
+These sit above any individual mechanic. A rule that breaks one of these is the rule that's
+wrong.
+
+- **Narrative coherence.** Every mechanic must be explicable in the fiction. If we can't say _why_
+  the machine/team/timeline behaves this way, players can't emotionally invest, and it doesn't go
+  in. Mechanics and story are co-designed.
+- **Accessible to the heart, not just the head.** The game must be a great night for someone who
+  comes for the roleplay and the feeling, not the optimisation — nobody should ever feel stupid.
+  The surface decision stays intuitive and thematic; tactical depth is opt-in, layered on top.
+  The gamble is the leveller (anyone can have a heroic or disastrous moment); failure always
+  reads as drama, never as a maths error exposed to the table.
+
+---
+
 ## How the pieces hang together
 
 - **Engine-building team.** Recruit specialists; each opens new ways to solve problems and new eras

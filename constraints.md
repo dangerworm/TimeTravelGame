@@ -25,6 +25,20 @@ dated line whenever Drew states a new preference. Newest at the bottom of each s
   the core survives first contact and we're iterating on content/numbers. (5 Jun 2026)
 - **Prototyping tooling uses Drew's stack:** TypeScript + React + MUI + Vite. The tool generates
   printable components from JSON content; it is _not_ a playable game. (5 Jun 2026)
+- **Every mechanic must be narratively explicable.** If we can't explain _why_ the game works
+  that way in the fiction, it isn't believable enough to emotionally invest in. Mechanics and
+  narrative are co-designed; neither is bolted onto the other. When a rule and the story
+  disagree, fix the rule. (5 Jun 2026)
+- **Accessibility — never make a player feel stupid.** The game must welcome players who come for
+  the roleplay and the emotional experience, not the optimisation. Keep the _surface_ decision
+  intuitive and thematic ("who do I send to face this?"); make tactical depth _opt-in_, layered
+  on top, never required to participate or to feel good. Failures must read as drama ("the river
+  flooded"), never as "you did the maths wrong." No mechanic should publicly expose one player's
+  poor optimisation to the table's judgement. (5 Jun 2026)
+- **Prefer mechanisms that carry the narrative without bookkeeping.** When the story implies
+  something complex (e.g. chains of dependent changes across time), look first for a way to make
+  it _visible and self-tracking_ (e.g. on a card, resolved in one sitting) before adding tokens
+  or counters. (5 Jun 2026)
 
 ## DON'T
 

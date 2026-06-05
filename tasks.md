@@ -4,11 +4,12 @@ _The active backlog for the redesign. The old task list lives in `archive/tasks.
 
 ## Now
 
-- [ ] Spec the **minimal paper prototype** of the core jump/expedition loop: one era, 3–4
-      destinations with obstacles, a starting team of ~3, the overclock push, the integrity track.
-      (See `current-idea-scratchpad.md`.)
-- [ ] Drew plays the paper prototype solo (~20 min). The only question: is cracking each destination
-      fun, round after round?
+- [x] Spec the **minimal paper prototype** of the core expedition loop. → `prototypes/prototype-01.md`
+- [ ] **Drew plays Prototype 01 solo (~20 min).** Fixed team of 3, five expeditions. The only
+      question: is cracking each expedition fun, round after round — and does "presence risks a
+      trace" feel like drama, not punishment? Jot a line of feedback per expedition.
+- [ ] Fold playtest findings back into `current-idea-scratchpad.md`; adjust the loop before adding
+      any economy/recruiting.
 
 ## Next (once the core loop proves fun)
 
