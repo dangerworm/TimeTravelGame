@@ -55,17 +55,16 @@ individual mechanic.
 
 ## Two laws that govern every mechanic (added 5 Jun 2026)
 
-These sit above any individual mechanic. A rule that breaks one of these is the rule that's
-wrong.
+These sit above any individual mechanic. A rule that breaks one of these is the rule that's wrong.
 
 - **Narrative coherence.** Every mechanic must be explicable in the fiction. If we can't say _why_
   the machine/team/timeline behaves this way, players can't emotionally invest, and it doesn't go
   in. Mechanics and story are co-designed.
 - **Accessible to the heart, not just the head.** The game must be a great night for someone who
-  comes for the roleplay and the feeling, not the optimisation — nobody should ever feel stupid.
-  The surface decision stays intuitive and thematic; tactical depth is opt-in, layered on top.
-  The gamble is the leveller (anyone can have a heroic or disastrous moment); failure always
-  reads as drama, never as a maths error exposed to the table.
+  comes for the roleplay and the feeling, not the optimisation — nobody should ever feel stupid. The
+  surface decision stays intuitive and thematic; tactical depth is opt-in, layered on top. The
+  gamble is the leveller (anyone can have a heroic or disastrous moment); failure always reads as
+  drama, never as a maths error exposed to the table.
 
 ---
 
@@ -88,12 +87,21 @@ wrong.
   up to two ways: _Record_ it (copy / document / measure) for a **Paper → reputation** (the score),
   leaving history intact; or _Take_ the artifact for **spoils** (cash that fuels your engine), which
   normally scars the timeline with a big intervention imprint — _unless the object is doomed anyway_
-  (about to burn, be lost, be destroyed), in which case taking is clean _and_ clever, and rewards the
-  player who read the fiction. The fork is **fiction-gated, not universal**: pure-knowledge prizes
-  (a cipher, a calculation) are Record-only; doomed artifacts are where the choice is live and juicy.
-  This consolidates the old sell-vs-publish dilemma _and_ the intervention-vs-observe choice into one
-  mechanism, and it is where the **ethical dial emerges for free** — greedy takes scar history, doomed
-  takes don't. (added 5 Jun 2026, from the Exp 4 playtest)
+  (about to burn, be lost, be destroyed), in which case taking is clean _and_ clever, and rewards
+  the player who read the fiction. The fork is **fiction-gated, not universal**: pure-knowledge
+  prizes (a cipher, a calculation) are Record-only; doomed artifacts are where the choice is live
+  and juicy. This consolidates the old sell-vs-publish dilemma _and_ the intervention-vs-observe
+  choice into one mechanism, and it is where the **ethical dial emerges for free** — greedy takes
+  scar history, doomed takes don't. (added 5 Jun 2026, from the Exp 4 playtest)
+- **Two currencies, bridged only by the prize.** **Cash** (runs the machine — materials, energy,
+  maintenance — and pays for hires & upgrades) and **Reputation** (the score, never spent) never
+  directly convert. A **Find** (an artifact you _Took_) is converted by **Sell → Cash** or **Publish
+  → Reputation**; that choice, with Record-vs-Take, is the _only_ bridge between the two economies.
+  **All Reputation traces to a researcher's work** — Recording in the field or Publishing at the
+  desk: _no team, no legacy._ And the **team is the single labour pool and the whole action
+  economy** — each turn a researcher goes to the **field** (work an expedition) _or_ the **desk**
+  (publish a Find), never both, so fieldwork and writing-up compete for your people. (added 5 Jun
+  2026, from the Develop-economy session)
 - **Ethics as the dial, not the spine.** The ethical axis is what _fuels_ the collapse threat: if
   the table is collectively greedy, integrity slides toward collapse; if everyone is careful, it
   never does. Emergent, player-driven — aim for it threatening **at most ~50% of games**.

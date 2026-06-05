@@ -4,20 +4,28 @@ _The active backlog for the redesign. The old task list lives in `archive/tasks.
 
 ## Now
 
-- [x] Spec the **minimal paper prototype** of the core expedition loop. → `prototypes/prototype-01.md`
+- [x] Spec the **minimal paper prototype** of the core expedition loop. →
+      `prototypes/prototype-01.md`
 - [x] Playtest the core loop (guided, Exps 1–2). **Validated** — the spine is fun. Rules refined
       heavily during play (see `current-idea-scratchpad.md`).
 - [x] Design the wrapper (turn shape, consequence deck, instability, team-legacy lifecycle).
-- [x] Play Exps 3–5 (thread / hidden / Die-B). **Done 5 Jun.** Two new design threads spun out:
-      the **Record-vs-Take prize fork** and the **banked / back-loaded / cash-out reward shape**
-      (both in `current-idea-scratchpad.md`, folded into `core-goals.md`).
-- [ ] **Pick the next front:** (a) the **endgame** — collapse mode-flip + Many Worlds trigger +
-      final scoring (dodge runaway-leader & "who triggers?" problems); or (b) the **Develop
-      economy** — now the natural next step, since Record-vs-Take + banked rewards already define
-      what spoils are _for_ and where reputation comes from. Shop, upgrade tracks, instability nums.
+- [x] Play Exps 3–5 (thread / hidden / Die-B). **Done 5 Jun.** Two new design threads spun out: the
+      **Record-vs-Take prize fork** and the **banked / back-loaded / cash-out reward shape** (both
+      in `current-idea-scratchpad.md`, folded into `core-goals.md`).
+- [x] **Develop economy — core designed (5 Jun).** Two currencies (Cash + Reputation) bridged only
+      by the Sell-vs-Publish choice on a Find; the team is the single labour pool (field vs desk),
+      publishing is deskwork, all reputation traces to a researcher's work. See scratchpad +
+      core-goals + constraints.
+- [ ] **Economy — remaining pieces:** the **shop** (Cash → new researchers) and the **machine
+      upgrade tracks** (capacity / era-access / instability-tolerance / precision); then exact
+      instability numbers.
+- [ ] **Then the endgame front:** collapse mode-flip + Many Worlds trigger + final scoring (dodge
+      runaway-leader & "who triggers?" problems).
+- [ ] Sweep "spoils" → "Cash" across docs (scratchpad, core-goals, prototype-01, retirement seed
+      cards) once terminology settles.
 - [ ] Cleanup: **re-spec `prototypes/prototype-01.md`** for the new reward model — banked escalating
-      finds, objective-holds-the-paper, voluntary cash-out, Record-vs-Take prize. (The old "N spoils
-      + Paper at the objective only" lines are now superseded, not just mis-worded.)
+      finds, objective-holds-the-paper, voluntary cash-out, Record-vs-Take prize. (The old "N
+      spoils + Paper at the objective only" lines are now superseded, not just mis-worded.)
 
 ## Next (once the core loop proves fun)
 
