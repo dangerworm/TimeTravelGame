@@ -12,6 +12,91 @@ shifts the spine/targets) or into the eventual design doc, record any new hard p
 This is the spine (see `core-goals.md`) and the thing we must prototype first. Everything else is
 downstream of this being fun.
 
+> **── ⚠️ v3 CORE-RESOLUTION REDESIGN (8 Jun 2026) ── READ THIS FIRST.** A **real-human playtest**
+> (Drew + Andy + Rikki) found the v2 expedition loop **dull**: the expedition was _pre-solved at
+> Staging_ (assign the obvious specialist, then Execute just confirms it), so most jumps had one
+> die-roll of drama and otherwise played themselves. Andy wanted **more chaos** and expected a
+> **deck-builder** (Moonrakers); Drew agreed. We rebuilt the **core resolution mechanic** from a
+> deterministic assignment puzzle into a **chip / bag-builder draw**. The v2 decision log below
+> still stands for everything _around_ the resolution — the economy, reward shape (banked /
+> back-loaded / cash-out), Record-vs-Take, the machine tracks, shop, retirement, consequence deck —
+> but the **"assign one member whose Skill ≥ req, no summing" core is SUPERSEDED** by the model in
+> this section.
+
+### v3: the expedition as a chip-draw mini-game (8 Jun 2026)
+
+**The shape.** The expedition stays the **fixed, visible v2 puzzle** — an era card with a
+left-to-right path of steps, each printing a requirement. What changes is _how you clear a step_:
+not by assigning a matching specialist, but by **drawing skill chips and spending them.** The chaos
+lives in **what you draw**, not in the world — so the puzzle stays legible (engine + chaos, with a
+bit of tactical puzzle kept; info largely visible retained). _(Rejected en route: making the
+expedition itself a face-down deck you flip per step — it decouples reward from difficulty, so a
+hard expedition could be one flip and an easy one ten. Killed.)_
+
+- ✅ **Researchers are chip sources, not step-keys.** Every researcher card prints pips in **all
+  three skills** (Insight / Craft / Grit) as a **spiky spread** (high in their thing, ~1 elsewhere).
+  A pip = one **single-skill chip** (the **2×1** model — uniform chips, box needs only 3 chip
+  types).
+- ✅ **You build a fresh bag per expedition from who you send.** At Stage you declare the away-team
+  (capped by machine **Capacity**) and pool the chips matching their pips. This is a **bag-builder
+  (Quacks of Quedlinburg), not a persistent deck** — rebuilt each expedition, low admin (chips, only
+  3–5 people). "Who do I send?" returns as a real recurring decision — but now it shapes your
+  _odds_, not a deterministic key-match. _Spreads must stay spiky or this decision goes soft._
+- ✅ **Draw a hand = 2 chips per researcher going** → **Capacity = away-team size = hand size**
+  (this finally pins down what Capacity _does_). **The hand is visible** = your legible floor:
+  glance at the steps and you _know_ what you can clear cleanly. Risk stays readable because you
+  know your bag's composition (Quacks-style).
+- ✅ **Resolve steps left→right: discard matching-skill chips summing ≥ the requirement** to clear a
+  step. This is what the **relaxed maths law** unlocks (one small sum, one skill, per step — see
+  `constraints.md`). Finds bank Cash; the objective holds the Paper (reward shape unchanged).
+- ✅ **Press-your-luck = "press on or cash out" at each gate**, exactly as the banked/back-loaded
+  reward shape wants. Can't cover the next step? **Overclock = draw 2 more chips, +1 Instability**,
+  gambling the draw turns up the skill you need. Won't or can't → expedition ends, keep what's
+  banked.
+- ✅ **No reshuffle mid-expedition — the bag is your stamina.** A finite draw pool means pushing
+  deep physically runs you low; team _size_ becomes a depth limit alongside the machine's
+  Era-access. A bigger team reaches deeper.
+- ✅ **(a) Identity on board, anonymous chips in the bag.** Researchers live as **identity cards**
+  on the player board (Team area) for growth / retirement / legacy; they _feed_ anonymous skill
+  chips into the bag. Clean separation, two component types. **Grow-by-use = add a pip** (one more
+  chip); **retire = remove the person** (their chips never come again) + the legacy draw. _(Note:
+  the earlier "retirement = thin your deck" flourish is moot — the bag is rebuilt per expedition,
+  not persistent.)_
+
+**One mechanical triad — skills are the currency; profession is flavour + gating (8 Jun):**
+
+- ✅ **Skills (Insight / Craft / Grit) are the only currency; steps require skills.** The
+  **profession** (Historian / Engineer / Physicist) is the _story_ of a researcher's spread + a
+  **gating** lever — it is **not** a second currency. (Killed the muddle of two unaligned 3-way
+  classifications.)
+- ✅ **Knowledge gates are profession-locked; danger is open.** Some steps **gate** on a profession
+  — "decipher the inscription" → Historian; "rig the mechanism" → Engineer; "solve the temporal
+  anomaly" → Physicist — only the right mind unlocks them. **Danger steps gate on no one** — open
+  **Grit** checks anyone brave can answer. _Not everyone can read Linear B; anyone can be brave._
+- ✅ **Grit is a temperament, not a profession — no soldier / muscle / tank type.** Bravery is a
+  quality any scientist can have; the adventurous ones spike Grit (the scientist-adventurer —
+  Indiana Jones, Daniel Jackson). Keeps the **"scientists, not soldiers"** theme anchor intact (a
+  combat type would quietly turn the co-discovery team into a mercenary crew). Optional spice: a
+  **"Field-hardened" trait** tag on some cards to make Grit pop, cross-profession.
+- ✅ **Three professions:** **Historian** (Insight — languages / period / records), **Engineer**
+  (Craft — building / blueprints / the machine), **Physicist** (Insight, hard-science flavour —
+  gates temporal / anomaly steps; distinguished from Historian by _what it gates_, not a separate
+  currency).
+
+**Now OPEN (the v3 redesign reopened these — re-resolve before re-spec'ing the prototype):**
+
+- ❓ **Footprint / imprint → Timeline Integrity in the chip model.** v2's "roll danger dice,
+  subtract Discretion" is now unanchored. How does presence leave a trace when resolution is chips,
+  not dice? (Candidates: a cost paid in chips / instability, or a separate footprint draw. TBD.)
+- ❓ **Fate of Discretion, Die A / Die B, danger ratings, fatigue.** Discretion was the footprint
+  mitigator; fatigue was −1 Discretion per extra step (and one-member-per-step is gone). All hang on
+  how footprint is rebuilt — several v2 stats likely collapse.
+- ❓ **How Field / Desk / Workshop spend chips** — does home labour draw from the same hand/bag as
+  fieldwork? (Earlier instinct: a chip spent at the Desk/Workshop isn't in your field hand — the
+  labour-pool tension survives _through_ the bag. Confirm.)
+- ❓ **Numbers:** requirement magnitudes vs hand size vs bag size, so the overclock-draw bites
+  without being routine. Paper calibration.
+
 ### The question we're answering
 
 Is choosing **how to crack an expedition** — tactical-puzzle-dominant, with an optional gamble —
@@ -313,9 +398,9 @@ instability-tolerance / precision).
 
 ### The shop & roster (5 Jun)
 
-- ✅ **Two decks — Postdocs (juniors) and Experts (veterans) — are the two ends of one lifecycle.** A
-  grown postdoc _becomes_ expert-tier, so an Expert card is "that endpoint, bought." Grow capability
-  or buy it. (5 Jun)
+- ✅ **Two decks — Postdocs (juniors) and Experts (veterans) — are the two ends of one lifecycle.**
+  A grown postdoc _becomes_ expert-tier, so an Expert card is "that endpoint, bought." Grow
+  capability or buy it. (5 Jun)
 - ✅ **Market = a shared face-up field, refilled _instantly_.** A bought slot is replaced from its
   deck immediately, so every player faces a full market on their turn — kills the first-mover
   monopoly on a scarce card (Drew's 6-player fairness check). You still race for a _specific_ card,
@@ -323,16 +408,16 @@ instability-tolerance / precision).
 - ✅ **Postdoc slots = [number of players]** — talent-to-rival ratio stays constant at every count
   (self-solves the thin-at-5 / bloated-at-2 problem). (5 Jun)
 - ✅ **Expert slots step up by round-thirds:** rounds **1–3 → 0**, **4–6 → 1**, **7+ → 2.** A
-  grow-your-own opening; proven talent only signs on once the field is making noise.
-  _(supersedes the earlier "1–2 experts" sketch.)_ (5 Jun)
+  grow-your-own opening; proven talent only signs on once the field is making noise. _(supersedes
+  the earlier "1–2 experts" sketch.)_ (5 Jun)
 - ✅ **Costs (placeholder, calibrate on paper):** postdocs ~2–3 Cash, experts ~8–10. (5 Jun)
 - ✅ **A bought Expert = capability without history.** Expert stats (same reachable ceiling as a
   grown postdoc, maybe a signature ability) but **no earned legacy** until they've worked your
   expeditions (see retirement tiers). Capability you can buy; legacy you can only grow. (5 Jun)
 - ✅ **Roster cap = 8.** Generous enough to feel like freedom, but a real ceiling whose main job is
-  **anti-runaway-leader** — a rich player can't hoard unlimited talent and snowball (Drew reasoned to
-  this). When full, hiring forces a **retire-to-hire**, manufacturing the bittersweet "make room for
-  the future" beats (lineage churn + legacy draws). 🔶 _Playtest watch: is tracking up to 8
+  **anti-runaway-leader** — a rich player can't hoard unlimited talent and snowball (Drew reasoned
+  to this). When full, hiring forces a **retire-to-hire**, manufacturing the bittersweet "make room
+  for the future" beats (lineage churn + legacy draws). 🔶 _Playtest watch: is tracking up to 8
   researchers (field + desk + bench) too much?_ (5 Jun)
 
 ### Retirement — earned tiers (5 Jun, refines the lifecycle section above)
@@ -341,56 +426,57 @@ Retirement benefit scales with **expeditions worked for you**, in tiers — whic
 latecomer Expert earns a legacy:
 
 - **Below ~3 expeditions:** nothing — retiring just frees the slot.
-- **~3 expeditions:** a **reduced** send-off — a **small Reputation bump only** (no machine upgrade /
-  action card / deck draw). The consolation legacy.
+- **~3 expeditions:** a **reduced** send-off — a **small Reputation bump only** (no machine upgrade
+  / action card / deck draw). The consolation legacy.
 - **Full threshold (higher):** the full **Retirement deck draw** (2, keep 1) — upgrade / boon /
   reputation / protégé.
 
 _(Thresholds are calibration. This adds a consolation tier **below** the full draw; it does **not**
 overturn the earlier "the full draw is flat, not scaled by investment depth" decision — the tiers
-gate _whether_ you draw, not how big the full draw is.)_
+gate \_whether_ you draw, not how big the full draw is.)\_
 
 ### The machine — upgrade tracks & the Workshop action (5 Jun)
 
 - ✅ **Four upgrade tracks; ① Era-access is the headline.** Recent ▸ Modern ▸ Early-Mod ▸ Medieval ▸
   Ancient ▸ Prehistoric — the progression spine: deeper eras = bigger prizes (higher paper tiers)
-  but scarier (higher imprint caps, Die B, more danger). The other three are supporting cast. (5 Jun)
+  but scarier (higher imprint caps, Die B, more danger). The other three are supporting cast. (5
+  Jun)
 - ✅ **② Capacity** (travel 3 ▸ 4 ▸ 5): how many researchers travel one expedition — cover more
   specialisms, spread fatigue, work longer paths. (5 Jun)
 - ✅ **③ Tolerance** (breakdown cap 5 ▸ 7 ▸ 9): raises the Instability ceiling = overclock headroom;
   competes with _repairing_ instability (raise the roof vs mop the floor). (5 Jun)
-- ✅ **④ Precision = the machine's Discretion (cleaner drops = less footprint).** _Drew's narrative:_
-  an imprecise machine drops you early (longer exposed → bigger footprint) or needs repeat jumps
-  (tired, stressed researchers → more leak); a precise one puts you exactly where/when, so you scar
-  less. The "go deep but stay clean" track. _("Fewer surprises" rejected — you visit the same period,
-  so the same obstacles are there regardless of arrival precision.)_ Mechanic TBD (−1 footprint die /
-  +effective Discretion). (5 Jun)
-- ✅ **Machine work is a Workshop action — Cash + a Craft researcher.** Upgrading (and repairing) the
-  machine isn't just a purchase: it takes **time, effort and skill**, so it requires assigning a
-  **Craft (engineer) researcher** to the Workshop _and_ spending Cash. This **extends the labour pool
-  to three destinations:** **Field** (work an expedition) · **Desk** (publish a Find → Reputation) ·
-  **Workshop** (upgrade/repair the machine — Craft-gated). (5 Jun)
+- ✅ **④ Precision = the machine's Discretion (cleaner drops = less footprint).** _Drew's
+  narrative:_ an imprecise machine drops you early (longer exposed → bigger footprint) or needs
+  repeat jumps (tired, stressed researchers → more leak); a precise one puts you exactly where/when,
+  so you scar less. The "go deep but stay clean" track. _("Fewer surprises" rejected — you visit the
+  same period, so the same obstacles are there regardless of arrival precision.)_ Mechanic TBD (−1
+  footprint die / +effective Discretion). (5 Jun)
+- ✅ **Machine work is a Workshop action — Cash + a Craft researcher.** Upgrading (and repairing)
+  the machine isn't just a purchase: it takes **time, effort and skill**, so it requires assigning a
+  **Craft (engineer) researcher** to the Workshop _and_ spending Cash. This **extends the labour
+  pool to three destinations:** **Field** (work an expedition) · **Desk** (publish a Find →
+  Reputation) · **Workshop** (upgrade/repair the machine — Craft-gated). (5 Jun)
 - ✅ **Three specialisms kept** (Insight / Craft / Nerve); **Craft = the engineer / STEM / maker**
   type that does machine work. (5 Jun)
 - 🔶 **Consequence to watch:** Craft becomes a bottleneck — your engineer can crack a field obstacle
   OR upgrade the machine, not both — rewarding Craft bench depth. Good tension; watch it doesn't
   starve. (5 Jun)
-- ✅ **Structure = four simple linear tracks** (spend to advance a pip, escalating cost), not modular
-  tiles (parked). Revisit if four feels like too much. (5 Jun)
+- ✅ **Structure = four simple linear tracks** (spend to advance a pip, escalating cost), not
+  modular tiles (parked). Revisit if four feels like too much. (5 Jun)
 - ✅ **Desk / Publish = Insight-gated** (historians write the papers). Reasoning: an engineer might
   do material analysis on a Find, but only a historian can add the **context** that wraps it into a
   paper — and materials science has moved on, so the engineering isn't the novel contribution. Each
-  home job now owns a specialism: **Field** (step-driven) · **Desk = Insight** · **Workshop = Craft**.
-  (5 Jun)
+  home job now owns a specialism: **Field** (step-driven) · **Desk = Insight** · **Workshop =
+  Craft**. (5 Jun)
 - ✅ **Third specialism = Grit** (renamed from "Nerve"): the **O'Neill** to Insight's Daniel and
   Craft's Sam — the strong, non-academic tactical leader who **leads the expedition and keeps the
   team on task.** Field domain = danger steps (infiltrate, survive, escape). **Signature mechanic
   (confirmed): a Grit leader on an expedition mitigates fatigue** — softens the −1 Discretion per
   extra step, keeping the party effective — reusing the existing fatigue rule, no new subsystem. So
-  each type owns a field domain _and_ a home/signature role: **Insight** = knowledge + papers (Desk),
-  **Craft** = machine + Workshop, **Grit** = danger + leadership (field). _(Logistics-at-Staging is a
-  parked alternative dimension. Sweep "Nerve" → "Grit" across docs with the spoils→Cash pass.)_ (5
-  Jun)
+  each type owns a field domain _and_ a home/signature role: **Insight** = knowledge + papers
+  (Desk), **Craft** = machine + Workshop, **Grit** = danger + leadership (field).
+  _(Logistics-at-Staging is a parked alternative dimension. Sweep "Nerve" → "Grit" across docs with
+  the spoils→Cash pass.)_ (5 Jun)
 
 ### Open questions to resolve
 
@@ -412,6 +498,13 @@ gate _whether_ you draw, not how big the full draw is.)_
 ---
 
 _Parking lot (capture stray thoughts here so we don't lose them, but don't chase them now):_
+
+- 🔶 **TITLE CANDIDATE: _Warped_** (Rikki's suggestion, 5 Jun — Drew likes it; front-runner). Works
+  on four levels: (1) **spacetime** — a time-_warp_, the sci-fi mechanism; (2) **the timeline** —
+  imprints _warp_ history, collapse = a warped timeline; (3) **moral** — the greed/ethics dial, a
+  warped scientist; (4) **weaving** — the _warp_ is a loom's lengthwise threads, and the game opens
+  & closes **threads** across a timeline kept consistent. Strong; not locked (confirming triggers a
+  project-wide rename from the "Time Travel" working title).
 
 - Do large/late expeditions ever span multiple turns, or always resolve in one? (Default: one.)
 - ✅ Sell-vs-publish (cash vs. respect) — **confirmed (5 Jun):** it _is_ the Record-vs-Take prize

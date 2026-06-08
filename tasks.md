@@ -4,6 +4,16 @@ _The active backlog for the redesign. The old task list lives in `archive/tasks.
 
 ## Now
 
+> **⚠️ v3 core-resolution redesign (8 Jun 2026):** a real-human playtest found the v2 loop dull; the
+> core flipped from deterministic specialist-assignment to a **chip / bag-builder draw** (see
+> `current-idea-scratchpad.md` → v3). Items below that predate this still stand for the
+> _economy/wrapper_, but the resolution mechanic is now different.
+
+- [ ] **Re-resolve footprint / imprint in the chip model** — how presence scars Timeline Integrity
+      when resolution is chips, not dice; and the fate of Discretion, Die A/B, danger ratings, and
+      fatigue (several v2 stats likely collapse). **Blocks re-spec'ing the prototype.**
+- [ ] **Confirm how Field / Desk / Workshop spend chips** (does home labour draw from the same
+      hand/bag as fieldwork?).
 - [x] Spec the **minimal paper prototype** of the core expedition loop. →
       `prototypes/prototype-01.md`
 - [x] Playtest the core loop (guided, Exps 1–2). **Validated** — the spine is fun. Rules refined
@@ -18,8 +28,8 @@ _The active backlog for the redesign. The old task list lives in `archive/tasks.
       core-goals + constraints.
 - [x] **Shop & roster designed (5 Jun).** Two decks (Postdocs / Experts) as two ends of one
       lifecycle; shared field, instant refill; [N] postdoc slots + round-thirds expert slots
-      (0→1→2); bought experts = capability without earned legacy; roster cap 8 (anti-runaway,
-      forces retire-to-hire). Retirement gains a consolation tier (~3 expeditions → small rep).
+      (0→1→2); bought experts = capability without earned legacy; roster cap 8 (anti-runaway, forces
+      retire-to-hire). Retirement gains a consolation tier (~3 expeditions → small rep).
 - [ ] **Economy — last piece:** the **machine upgrade tracks** (capacity / era-access /
       instability-tolerance / precision); then exact instability numbers.
 - [ ] **Then the endgame front:** collapse mode-flip + Many Worlds trigger + final scoring (dodge

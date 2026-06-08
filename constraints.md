@@ -53,6 +53,24 @@ dated line whenever Drew states a new preference. Newest at the bottom of each s
 - **The team is the action economy — don't add abstract action points.** Each turn a researcher is
   assigned to field _or_ desk; that single labour pool drives both expeditions and publishing. (5
   Jun 2026)
+- **Minimal arithmetic — at most one small sum, across a single set of cards, to resolve a step.**
+  Adding a few chip values to clear an obstacle is fine; what's banned is carrying several running
+  totals across decks/tokens/tracks in your head at once. Failure still reads as drama, never "you
+  did the maths wrong." _Relaxes the earlier "no arithmetic / no summing" stance — summing chips is
+  the v3 resolution engine._ (8 Jun 2026)
+- **The expedition stays a fixed, visible puzzle; the chaos lives in your draw, not the world.**
+  Keep the era card with its printed steps + requirements; players solve **the hand of skill chips
+  they drew** against a legible challenge — engine + chaos, with a bit of tactical puzzle kept and
+  "info largely visible" intact. (Don't make the expedition itself a face-down deck — it decouples
+  difficulty from reward.) (8 Jun 2026)
+- **One mechanical triad: skills (Insight / Craft / Grit) are the currency; profession is flavour +
+  gating.** Steps require skills; professions (Historian / Engineer / Physicist) tell the story of a
+  researcher's spread and gate some steps — never a second currency. Knowledge gates are
+  profession-locked; danger is an open Grit check. (8 Jun 2026)
+- **Grit is a temperament, not a profession — no soldier / muscle / tank type.** Bravery is a
+  quality any scientist can have (the scientist-adventurer); the brave ones spike Grit. Keeps the
+  "scientists, not soldiers" anchor — a combat type would turn the co-discovery team into a
+  mercenary crew. (8 Jun 2026)
 
 ## DON'T
 
@@ -69,6 +87,9 @@ dated line whenever Drew states a new preference. Newest at the bottom of each s
 - **No artifact markets or collections.** No multiple buyers (museum vs. collector vs. auction with
   differing prices) and no keep-a-Find-for-a-permanent-bonus tableau. These are the v1-style
   elaborations the single Sell/Publish decision exists to replace. (5 Jun 2026)
+- **No 4th skill and no soldier / muscle profession.** Three skills (Insight / Craft / Grit), three
+  professions (Historian / Engineer / Physicist). Danger is owned by the Grit _temperament_, not a
+  new type. (8 Jun 2026)
 
 ---
 

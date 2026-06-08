@@ -26,10 +26,16 @@ Each jump is a small **expedition with obstacles**. The obstacles can be solved 
 and **your team is the toolkit that decides which approaches are open to you**. You commit a plan,
 something is revealed, and you adapt.
 
-- **Dominant feel: tactical puzzle.** Information is largely visible; you out-think the destination
-  with the tools you built. This is the part Drew most enjoys — navigating and solving challenges.
-- **Optional layer: the gamble.** You can always choose to _push_ — overclock, dig deeper — for more
-  reward at escalating, heart-in-mouth risk.
+- **Feel: engine + chaos, with a tactical-puzzle core.** _(Revised 8 Jun 2026 after a real-human
+  playtest found the pure deterministic puzzle dull — see `current-idea-scratchpad.md` → v3.)_ You
+  build a team that feeds a **bag of skill chips**; on each expedition you **draw a hand** and spend
+  chips against a **fixed, visible** challenge. Information stays largely visible (the puzzle, and
+  your bag's known composition), but **what you draw is the chaos** — you solve the hand you were
+  dealt, fresh every time. Out-thinking the destination is still there; it's now layered over a
+  draw.
+- **The gamble is built in, not bolted on.** Press deeper for the growing prize or **cash out**;
+  **overclock = draw more chips at rising Instability** when you're short. Heart-in-mouth by
+  default.
 
 If this core choice is not fun round after round, nothing else matters. Prototype it first.
 
@@ -70,8 +76,12 @@ These sit above any individual mechanic. A rule that breaks one of these is the 
 
 ## How the pieces hang together
 
-- **Engine-building team.** Recruit specialists; each opens new ways to solve problems and new eras
-  to reach. Growth = more tools = harder challenges accessible = bigger rewards.
+- **Engine-building team = your chip bag.** _(Revised 8 Jun 2026 — v3.)_ Recruit researchers; each
+  prints pips across all three skills (Insight / Craft / Grit) as a spiky spread, and feeds those as
+  **chips** into the bag you build _per expedition_ from whoever you send. Growth = more/better
+  chips = deeper challenges accessible = bigger rewards. The team is the engine; the **draw** is the
+  chaos. Profession (Historian / Engineer / Physicist) is flavour + gating, not a second currency;
+  **Grit is a temperament any scientist can have**, not a soldier class.
 - **Push-your-luck = a banked, back-loaded path (not just an overclock toggle).** An expedition
   banks **escalating finds** as you descend, with the **objective holding the bulk** of the value.
   Before any step you may **cash out** and keep what you've banked — so every gate is a genuine
