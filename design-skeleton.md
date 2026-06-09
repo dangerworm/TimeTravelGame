@@ -70,10 +70,10 @@ hand size, and sent researchers can't also work at home this turn (§6).
 An era card is a left-to-right path of **2+ steps**, each printing a skill requirement (an amount of one
 skill). Play matching cards from your hand to meet each step.
 
-- **Overclock** — if your hand can't cover the next step, you may overclock: **+1 instability token**
-  and **+1 Trace card to the deck** (Traces do nothing but dilute future draws — within this run *and*,
-  via §3, every future bag until cleaned). _[Open detail: overclock should also let you draw further
-  into the deck — confirm the exact draw, §10.]_
+- **Overclock** — if your hand can't cover the next step, you may overclock: **+1 instability token**,
+  **+1 Trace card to the deck**, and **draw 1 card** into your hand (the gamble that the draw turns up the
+  skill you need). Traces do nothing but dilute future draws — within this run *and*, via §3, every future
+  bag until cleaned. (9 Jun)
 - **Cash out** — at any gate you may stop and **bank everything cleared** (banked/back-loaded/cash-out
   reward shape, unchanged from prior design). Footprint already left is never refunded.
 - **Stabiliser shutdown** — if instability reaches the **Stabiliser limit** (start max **2**; tuning
@@ -81,9 +81,18 @@ skill). Play matching cards from your hand to meet each step.
   draw an **extra consequence**, and Timeline Integrity **−1**. This is the hard cap that stops a single
   run bricking the machine.
 
-**Cleaning up:** an **engineer who did not go on an expedition** this turn may remove **up to [their
-Craft pips]** instability tokens — and a matching number of Trace cards leave your deck with them.
-Instability is a **debt you actively pay down**, not a meter that self-drains.
+**Cleaning up (three paths):** instability is a **debt you actively pay down**, not a meter that
+self-drains.
+
+- **Engineer at base.** An **engineer who did not go on an expedition** this turn removes **up to [their
+  Craft pips]** instability tokens — a matching number of Trace cards leave your deck with them. (Either
+  leave the engineer home while the rest jump, or **skip the Jump** entirely and go straight to Develop to
+  use them.)
+- **Early-game safety valve (no soft-lock).** A player with **no engineer on their team AND no Stabiliser
+  upgrade** may spend a **minimal Develop/Plan turn** (skipping the Jump) to **clear all instability**. So
+  a teamless player who overclocks to shutdown can't get permanently crippled. It is **gated** precisely
+  so it never undercuts the engineer's opportunity cost: the moment you own an engineer (or upgrade the
+  Stabiliser), the free vent is gone and cleanup costs real labour. (9 Jun)
 
 **Consequences:** at the end of **any turn in which you overclocked 1+ times**, draw **one** consequence
 card (clean runs draw none). Examples (flavour stripped):
@@ -212,10 +221,11 @@ each other and the laws of nature themselves come apart at the seams."
    - **(d) Low integrity sabotages the *win*, not the game.** A frayed timeline can't be safely opened —
      low integrity makes Many Worlds harder/impossible. Collective greed denies everyone the good ending
      without a buzzer.
-2. **Overclock draw.** Confirm overclocking also lets you **draw further into the deck** to attempt the
-   step (and how many), vs. only adding instability+trace.
-3. **Instability removal vs the single Develop action.** Is clearing instability free for an idle
-   engineer, or does it compete with the one Develop action / a paper / an upgrade?
+2. **✅ Overclock draw — RESOLVED (9 Jun):** each overclock draws **1** card into the hand (plus the
+   instability token and the Trace).
+3. **✅ Instability removal — RESOLVED (9 Jun):** three paths (engineer at base / skip-Jump-to-Develop /
+   early-game no-engineer vent) — see §4. Working assumption: one home job per researcher per turn, so an
+   engineer who cleans can't also paper/upgrade that turn.
 4. **Numbers / early-game balance.** Hand size vs bag size vs step requirements so the overclock bites
    without being routine; the 2/2/2-base vs Stabiliser-3 floor; per-era requirement and reward curves;
    Many Worlds difficulty; integrity pool scaled to player count.
