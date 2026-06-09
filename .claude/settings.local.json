@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "defaultMode": "bypassPermissions"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path' | tr -d '\\r' | { read -r f; case \"$f\" in *.md|*.ts|*.tsx|*.js|*.jsx|*.css|*.json|*.yml|*.yaml) cd \"$CLAUDE_PROJECT_DIR\" && pre-commit run prettier --files \"$f\" > /dev/null 2>&1 ;; esac; true; }",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
