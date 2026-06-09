@@ -71,6 +71,21 @@ dated line whenever Drew states a new preference. Newest at the bottom of each s
   quality any scientist can have (the scientist-adventurer); the brave ones spike Grit. Keeps the
   "scientists, not soldiers" anchor — a combat type would turn the co-discovery team into a
   mercenary crew. (8 Jun 2026)
+- **Resolution is a per-expedition bag-builder (Option B).** Each jump, pick a roster up to machine
+  **Capacity**, build a one-shot bag from their pips + a permanent **player base (2/2/2, provisional)** +
+  one **Trace per instability token**; draw `2 × researchers-on-expedition + 2`. The bag is rebuilt every
+  jump (not persistent); "who do I send?" stays a live decision. Full ruleset in `design-skeleton.md`.
+  (9 Jun 2026)
+- **Overclock's cost is personal and persistent.** Overclock = +1 instability token **and** +1 Trace
+  card (1:1); Traces dilute every future bag until an engineer clears the tokens. Instability is a debt
+  you pay, capped by the **Stabiliser** (shutdown forces a cash-out — never an unbounded brick). (9 Jun
+  2026)
+- **Experience grows all three skills** (+1 per blue box, max +2 each) — veterans rise uniformly and
+  keep their spike. Paper-writing lives in **Develop**. (9 Jun 2026)
+- **Timeline collapse is a one-round "Unravelling" fuse, never a cold game-over.** Integrity 0 triggers a
+  final round (each player one more turn; settle affairs, or attempt a last Many Worlds escape) then
+  scoring. The overclock deterrent lives in the **personal** costs (Trace pollution, shutdown,
+  consequences, engineer drag), not the shared track. Keystone #3 honoured. (9 Jun 2026)
 
 ## DON'T
 

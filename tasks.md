@@ -9,11 +9,21 @@ _The active backlog for the redesign. The old task list lives in `archive/tasks.
 > `current-idea-scratchpad.md` → v3). Items below that predate this still stand for the
 > _economy/wrapper_, but the resolution mechanic is now different.
 
-- [ ] **Re-resolve footprint / imprint in the chip model** — how presence scars Timeline Integrity
-      when resolution is chips, not dice; and the fate of Discretion, Die A/B, danger ratings, and
-      fatigue (several v2 stats likely collapse). **Blocks re-spec'ing the prototype.**
-- [ ] **Confirm how Field / Desk / Workshop spend chips** (does home labour draw from the same
-      hand/bag as fieldwork?).
+> **⚠️ v4 whole-game skeleton (9 Jun 2026):** Drew's post-whiteboard session with Andy consolidated the
+> turn structure, machine modules, economy, experience, retirement, endgame and scoring into one
+> skeleton — now captured in **`design-skeleton.md`** (the new foundation). Items below are updated to it.
+
+- [x] **Footprint / imprint resolved (9 Jun).** Trace cards (1:1 with instability tokens) are the
+      footprint in the bag model; engineers clear them. Discretion / Die A-B / danger ratings / fatigue
+      retired into this model.
+- [x] **Field / Desk / Workshop resolved (9 Jun).** Sent researchers can't work at home; the team is the
+      action economy (one Develop action/turn).
+- [x] **Capture the v4 skeleton → `design-skeleton.md` (9 Jun).**
+- [x] **Timeline-collapse-as-loss resolved (9 Jun): the "Unravelling" fuse.** Integrity 0 → one final
+      round (settle affairs, or ally for a last Many Worlds escape) → score; deterrent lives in the
+      personal overclock costs. Keystone #3 reconciled in `core-goals.md`; skeleton §9/§10 updated.
+- [ ] Confirm the small open mechanics: overclock draw amount; whether clearing instability costs the
+      Develop action (see `design-skeleton.md` §10).
 - [x] Spec the **minimal paper prototype** of the core expedition loop. →
       `prototypes/prototype-01.md`
 - [x] Playtest the core loop (guided, Exps 1–2). **Validated** — the spine is fun. Rules refined

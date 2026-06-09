@@ -7,7 +7,44 @@ shifts the spine/targets) or into the eventual design doc, record any new hard p
 
 ---
 
-## Currently working on: **The core expedition loop**
+> **── 📕 9 Jun 2026: the whole game is now captured in `design-skeleton.md` (v4).** Drew's
+> post-whiteboard session with Andy folded the loop, machine, economy, experience, endgame and scoring
+> into one skeleton. The bag-builder resolution is **Option B** (pick a roster up to Capacity, build a
+> one-shot bag, draw `2×roster+2`); footprint = **Trace cards** (1:1 with instability, engineer-cleaned).
+> The long v3/v2 log below is **retained for rationale** but superseded by the skeleton. **The single
+> active topic is now the one below.**
+
+## Last resolved (9 Jun): **Timeline-collapse peril — the "Unravelling" fuse**
+
+The skeleton makes **Integrity 0 = game over**. Drew flagged the concern himself: he wants the
+**peril** (overclocking mustn't be free, players mustn't overclock every time) but **not** the
+Pandemic-style dead-stop (it breaks keystone #3) and **not** a trailing-player table-flip lever.
+
+**The reframe (Claude, 9 Jun):** the *personal* overclock costs already do the anti-overclock job —
+compounding Trace pollution, run-ending shutdown, consequence draws, engineer drag. A *shared* bar is a
+weak individual deterrent anyway (tragedy of the commons). So the bar is free to do **collective drama**
+without being a buzzer. Candidates:
+
+- **(a) "Unravelling" fuse — lead recommendation.** Integrity 0 triggers **one final round** at max
+  peril (collapse flavour firing); the only clean escape is completing a **Many Worlds** jump; then the
+  game ends and everyone scores. Restores the mode-flip keystone in one rule; peril intact; spite-flip
+  no better than the legitimate "rush the ending" lever (game always ends on **score**, not auto-win).
+- **(b) Wind-down round** — Integrity 0 → one last turn each → score. (a) minus the escape framing.
+- **(c) Cut the shared bar entirely** — peril is purely personal; collapse is consequence-card flavour;
+  game ends only via Many Worlds. Cleanest, loses collective dread + the collapse ending.
+- **(d) Low integrity sabotages the *win*** — a frayed timeline can't be safely opened, making Many
+  Worlds harder/impossible. Greed denies the good ending without a buzzer.
+
+**✅ Resolved (9 Jun 2026): option (a), the "Unravelling" fuse.** Drew's reasoning: the personal
+overclock punishment is deterrent enough, and a final round lets players get their affairs in order
+before scoring — or, if they're close, ally for one last Many Worlds attempt. Folded into `core-goals.md`
+(keystone #3 reconciled) and `design-skeleton.md` §9. **No active topic — pick the next one when you
+return** (candidates: numbers / early-game calibration; the small open mechanics in `design-skeleton.md`
+§10).
+
+---
+
+## (Superseded, retained for rationale) The core expedition loop
 
 This is the spine (see `core-goals.md`) and the thing we must prototype first. Everything else is
 downstream of this being fun.

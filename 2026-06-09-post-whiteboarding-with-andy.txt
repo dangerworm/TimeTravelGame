@@ -1,0 +1,59 @@
+OK, bit of a shake-up. I've had a long chat with Andy and I think I know what I want to do.
+
+I've drawn out what I think the table will look like. See https://excalidraw.com/#json=7BWf5NmtVaIdSpDVe1Vrj,J2hkAtGgk4e5rudUgzQWBg
+
+Turn order runs as (React), (Negotiate), Jump, Process, Develop, Plan.
+- React: cancel a jump if a consequence means you can no longer do it, or plan a last-minute jump
+  - Max era card draw of 1 for last-minute jumps
+If jumping:
+- Negotiate: arrange with other players for upcoming jump
+- Jump: attempt steps on era card
+If jumped and >0 step successful:
+- Process: gain spoils (cash, artifacts)
+On any turn:
+- Develop:
+  - Write a paper on any unresearched artefact for reputation points
+  - Add one of four time machine modules
+    - Amplifier:
+      - Recent -> Modern upgradeable by player without any researchers
+      - Modern -> Early Modern and Early Modern -> Medieval require an engineer
+      - Medieval -> Ancient and Ancient -> Prehistoric require an engineer AND a physicist
+      - Prehistoric -> Many Worlds requires an engineer AND a physicist, both with three full blue experience boxes
+    - See below for other modules ("Only engineers can upgrade the collimator...")
+- Plan
+  - Select a number of era cards according to collimator level
+
+At the game start players begin with no team, no artefacts, no reputation, 2 cash, and 1 craft, 1 insight, and 1 grit card in the player's skills deck. The first turn begins with a React step in the Recent era. The Amplifier, Capacitor, and Collimator begin at 1; the Stabiliser begins with a max of 2.
+
+Each researcher bought adds [researcher skill pips] skill cards to their deck. (So Dr. Barnes would add 1 x craft card, 2 x insight cards, 1 x grit card.)
+
+Expeditions have 2+ steps requiring different amounts of skills.
+
+At expedition start players pick a roster of team members up to the capacity of the machine and place corresponding cards in their skills deck according the the pips on those in the roster. They then draw [2x researchers on expedition (+ 2 for the player)] cards into their hand and play those cards according to the skills required for the steps. If they don't have the requisite cards in their hand, they 'overclock', add an instability token to the time machine, and add a 'trace' card to their skills deck. (Trace cards do nothing except make it more difficult to draw the cards needed for the next steps).
+
+Any spoils from steps before the artefact/goal step are converted to cash immediately when the expedition ends.
+
+If all steps in an expedition are successful, there is an item to retrieve, and the player plunders it (doomed or not), the era card is placed on the player's board in the artefacts zone. If the player instead brought back evidence (a copy of the text, a photo, etc. but not the artefact itself) then the era card is processed immediately, reputation is added, and the era card is discarded. If left in the artefact zone, the card can be researched (paper written) during Process by any historian who did not go on an expedition that turn, after which the era card is discarded and reputation tokens are added to the reputation zone. If sold for cash instead of being researched, the cash tokens for the artefact are added to the cash zone and one reputation token is removed (or one disrepute token is added).
+
+At the end of each turn where they have overclocked 1+ times, the player draws a consequence card. If at any point they reach the Stabiliser limit (4 in the image) then at the end of that step the time machine shuts down, they automatically end the expedition, cash out, and draw an additional consequence card, and the timeline integrity is reduced by 1.
+
+Examples of consequences (without flavour text):
+- Timeline integrity decreases (by -1 or -2)
+- One, some, or all players:
+  - gain or lose cash
+  - gain or lose reputation
+  - gain or lose a skill card (even a bad one)
+  - lose 1 level of 1 time machine module if >0 (rare)
+  - lose a team member of a specific type (rare)
+
+Engineers can be used to remove up to [their craft pips] instability tokens per turn, providing they did not go on an expedition. A corresponding number of trace cards are removed from the player's skills deck when instability tokens are removed.
+
+Only engineers can upgrade the collimator. Only physicists can upgrade the capacitor and stabiliser. Upgrading the amplifier is as per the rules already mentioned in Develop above.
+
+Each time a researcher is used - on an expedition, to write a paper, or to upgrade the machine (NOT to remove instability tokens) they gain an experience token. Each time they would gain a fourth, the experience tokens are remove and the researcher instead goes up by one on their experience scale (the blue boxes). I'm envisioning some kind of plastic clip that can slide up the sides of the cards for this. The experience scale increases a researcher's pips for craft, insight, and grit by 1 per step (so to a maximum of +2 to both)
+
+Researchers bought at below the maximum on the scale who reach the maximum and are subsequently removed from the team pool leave a 'parting gift' (the retirement mechanic in previous versions). Experts start on the highest box on the scale and cannot be retired.
+
+Play continues until a player successfully completes all the steps on a many worlds card. Any many world expeditions that do not succeed on all steps reduce the timeline integrity by 4-5. After the first successful many worlds expedition - likely as a product of a full-table alliance - ends the game and the winner is the player with the highest score.
+
+Score will be reputation + maximum module upgrade (e.g. 4 for the amplifier in my image) + number of unresearched artefacts.

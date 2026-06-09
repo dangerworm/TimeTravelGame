@@ -119,6 +119,11 @@ These sit above any individual mechanic. A rule that breaks one of these is the 
   closed loop is failing, so the only way to preserve your legacy is to escape into the Many Worlds
   before reality unravels. An uneasy scramble — keep the timeline limping while you each race your
   own escape. Stakes and alliances change; nobody's effort is erased.
+  - **✅ Resolved (9 Jun 2026):** Integrity 0 does **not** end the game cold — it triggers a final
+    **"Unravelling" round** (each player takes one more turn at max peril; the collapse flavour fires).
+    Players use it to get their affairs in order before scoring, or — if close — ally for one last
+    **Many Worlds** escape attempt. Then the game ends and everyone scores. This *is* the mode-flip in
+    its cheapest form; the overclock deterrent lives in the personal costs, not this shared track.
 - **Multiple visible scoring axes.** No player should realise on round 3 that they cannot win.
   Several legible paths to legacy, a telegraphed endgame everyone can see approaching, and ideally a
   two-axis legacy (what you discovered × how you did it) so different playstyles are all viable.
