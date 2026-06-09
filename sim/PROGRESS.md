@@ -3,23 +3,22 @@
 ## Status: Complete
 
 - 81 configs swept
-- Best fitness: 1.482
-- 4p MW rate: 80.0% | avg rounds: 10.89 | wall clock: 131 min
-- 5p MW rate: 82.2% | avg rounds: 10.90 | wall clock: 163 min
+- Best fitness: 0.684
+- 4p MW rate: 72.2% | avg rounds: 9.40 | wall clock: 113 min
+- 5p MW rate: 78.4% | avg rounds: 9.58 | wall clock: 144 min
 
 ## Best Params
 
 ```json
 {
-  "reqBase": 0.7,
-  "reqEraSlope": 0.5,
-  "integrity4p": 10,
-  "ampCostMult": 0.45
+  "reqBase": 0.6,
+  "reqEraSlope": 0.4,
+  "integrity4p": 14,
+  "ampCostMult": 0.4
 }
 ```
 
 ## Next Steps (for Drew)
-- Clarify home-action model (one per researcher vs. one per turn)
-- Clarify exp box count (2 or 3) for MW gate
-- Paper playtest with recommended config
-- Tune mwReqPerStep if game length is off
+- Home-action / exp-box / startStab calls all made (9 Jun) — see ASSUMPTIONS.md.
+- **Paper playtest with the recommended config** — the real test; sim gives the starting grid, not proof of fun.
+- Watch 5-player length and shutdown frequency in play; both have a known dial if they bite.

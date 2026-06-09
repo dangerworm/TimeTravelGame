@@ -61,8 +61,11 @@ function defaultConfig() {
     // Player base
     baseI: 2, baseC: 2, baseG: 2,
 
-    // Start state — spec says "tuning toward 3" for stab; use 3 as default
-    startCash: 2, startAmp: 1, startCap: 1, startCol: 1, startStab: 3,
+    // Start state — startStab=2 (locked 9 Jun): overclock must be a real gamble.
+    // A single carried-over instability + one objective push can now trigger a shutdown.
+    // startAmp=2 (locked 9 Jun): Recent + Modern reachable turn one — kills the ~4-round
+    // Recent crawl that left players "suddenly thrust into the end-game" (Experiment A).
+    startCash: 2, startAmp: 2, startCap: 1, startCol: 1, startStab: 2,
 
     // Timeline Integrity
     integrity4p: 12, integrity5p: 14,
@@ -432,7 +435,11 @@ const pGreedy = {
     return selectRosterDefault(player, card, max);
   },
   shouldOverclock(player, shortfall, si, card, game) {
-    return player.instability+1 < player.machine.stab; // overclock unless next one shutsdown
+    // Reach for the prize: push the objective even into a shutdown if we're close
+    // (models a human gambling for the headline reward — this is what produces shutdowns).
+    const isObjective = si === card.steps.length-1;
+    if (isObjective && shortfall <= 3) return true;
+    return player.instability+1 < player.machine.stab; // otherwise stop before a shutdown
   },
   shouldRecord(player) {
     return !player.team.some(r=>r.profession==='Historian'); // plunder if historian can publish
@@ -483,10 +490,12 @@ const pBalanced = {
     return selectRosterDefault(player, card, send);
   },
   shouldOverclock(player, shortfall, si, card, game) {
+    const isObjective = si === card.steps.length-1;
+    // Balanced will gamble the objective — but only when one short (mild risk appetite).
+    if (isObjective && shortfall <= 1) return true;
     if (player.instability+1 >= player.machine.stab) return false;
-    // OC on any step if 1 short; only OC on find steps once — save stab headroom for objective
+    // Otherwise OC only with headroom, and never into a shutdown.
     const safeInstability = player.instability+1 < player.machine.stab-1;
-    if (card.steps[si].type==='objective') return shortfall<=1;
     return shortfall<=1 && safeInstability;
   },
   shouldRecord(player) {
@@ -544,6 +553,10 @@ function doTurn(player, game, withTrace) {
     const roster = policy.selectRoster(player, card);
     const home   = player.team.filter(r=>!roster.includes(r));
 
+    // Era-by-round diagnostic (only allocated in --analyze mode)
+    if (game.eraLog) game.eraLog.push({ round: game.round, eraIdx: card.eraIdx,
+                                        amp: player.machine.amp, policy: policy.name });
+
     expResult = runExpedition(player, card, roster, policy, game);
 
     // Consequence if any overclock (and not already drawn on shutdown)
@@ -593,7 +606,7 @@ function doTurn(player, game, withTrace) {
 }
 
 // ── SINGLE GAME ───────────────────────────────────────────────────────────────
-function playGame(numPlayers, cfg, policyAssignment, seed, withTrace) {
+function playGame(numPlayers, cfg, policyAssignment, seed, withTrace, logEras) {
   const rng   = makePRNG(seed);
   const market= makeMarket(cfg, rng);
   const eraDecks = Array.from({length:7}, (_, e) =>
@@ -610,6 +623,7 @@ function playGame(numPlayers, cfg, policyAssignment, seed, withTrace) {
     }),
     round:0, ended:false, mwSuccess:false, endReason:'timeout', unravelRound:null,
     trace: withTrace ? [] : null,
+    eraLog: logEras ? [] : null,
   };
 
   // Initial setup: each player buys first researcher if possible, then plans
@@ -631,6 +645,18 @@ function playGame(numPlayers, cfg, policyAssignment, seed, withTrace) {
     p.score = p.rep + maxMod + p.artefacts.length;
   }
 
+  // Per-policy breakdown (player-games) — lets us see the gamble concentrate in the pusher
+  const byPolicy = {};
+  for (const p of game.players) {
+    const k = p.policy.name;
+    (byPolicy[k] ||= { shutdowns:0, overclocks:0, expeditions:0, cashOuts:0, playerGames:0 });
+    byPolicy[k].shutdowns   += p.shutdowns;
+    byPolicy[k].overclocks  += p.overclocks;
+    byPolicy[k].expeditions += p.expeditions;
+    byPolicy[k].cashOuts    += p.cashOuts;
+    byPolicy[k].playerGames += 1;
+  }
+
   return {
     rounds:      game.round,
     mwSuccess:   game.mwSuccess,
@@ -642,7 +668,9 @@ function playGame(numPlayers, cfg, policyAssignment, seed, withTrace) {
     cashOuts:    game.players.reduce((s,p)=>s+p.cashOuts,0),
     shutdowns:   game.players.reduce((s,p)=>s+p.shutdowns,0),
     papers:      game.players.reduce((s,p)=>s+p.papersWritten,0),
+    byPolicy,
     trace:       game.trace,
+    eraLog:      game.eraLog,
   };
 }
 
@@ -663,18 +691,41 @@ function computeMetrics(results, numPlayers) {
   // Wall clock: 3 min/player-turn × players × rounds
   const wallClock    = Math.round(avgRounds * numPlayers * 3);
 
+  // Per-policy shutdowns & overclocks, normalised to per-player-per-game
+  const polAgg = {};
+  for (const r of results) for (const [k,v] of Object.entries(r.byPolicy)) {
+    (polAgg[k] ||= { shutdowns:0, overclocks:0, expeditions:0, cashOuts:0, playerGames:0 });
+    polAgg[k].shutdowns   += v.shutdowns;
+    polAgg[k].overclocks  += v.overclocks;
+    polAgg[k].expeditions += v.expeditions;
+    polAgg[k].cashOuts    += v.cashOuts;
+    polAgg[k].playerGames += v.playerGames;
+  }
+  const byPolicy = {};
+  for (const [k,v] of Object.entries(polAgg)) {
+    byPolicy[k] = {
+      shutdownsPerGame:  v.shutdowns  / v.playerGames,
+      overclocksPerGame: v.overclocks / v.playerGames,
+      ocRate:            v.expeditions ? v.overclocks / v.expeditions : 0,
+      coRate:            v.expeditions ? v.cashOuts   / v.expeditions : 0,
+    };
+  }
+
   return { mwRate, collapseRate, avgRounds, ocPerExp, coRate,
-           avgShutdown, avgPapers, avgSpread, wallClock, numPlayers };
+           avgShutdown, avgPapers, avgSpread, wallClock, numPlayers, byPolicy };
 }
 
 function fitness(m4, m5) {
   const pen = (actual, target, weight) => weight * Math.abs(actual-target)/Math.max(target,0.01);
-  return pen(m4.mwRate,    0.80, 3.0)
-       + pen(m5.mwRate,    0.80, 3.0)
-       + pen(m4.avgRounds, 10,   2.0)
-       + pen(m5.avgRounds, 10,   2.0)
+  // Band penalty: zero inside [lo,hi], linear outside (normalised by hi)
+  const band = (actual, lo, hi, weight) =>
+    weight * (actual<lo ? (lo-actual) : actual>hi ? (actual-hi) : 0) / hi;
+  return pen(m4.mwRate,    0.75, 3.0)   // MW target 75% (Drew, 9 Jun)
+       + pen(m5.mwRate,    0.75, 3.0)
+       + band(m4.avgRounds, 8, 14, 1.5) // 8–12 ideal, up to 14 fine if fun — no penalty in-band
+       + band(m5.avgRounds, 8, 14, 1.5)
        + pen(m4.ocPerExp,  0.35, 1.5)
-       + pen(m4.coRate,    0.40, 1.0)
+       + pen(m4.coRate,    0.40, 2.0)   // weighted harder: push cash-out down toward ~40%
        + (m4.collapseRate > 0.50 ? (m4.collapseRate-0.50)*4 : 0)
        + (m5.collapseRate > 0.50 ? (m5.collapseRate-0.50)*4 : 0);
 }
@@ -696,11 +747,14 @@ function runSweep(quick) {
   const POLICIES_MIX = ['greedy','cautious','balanced'];
   const defCosts = defaultConfig().ampCosts;
 
+  // Widened 9 Jun after stab=2 + objective-push dropped MW to 62%: sweep pinned at
+  // integrity=12 (max) and ampMult=0.4 (min), so push the grid toward more integrity
+  // headroom, cheaper amp, and an easier reqBase to claw MW back toward ~80%.
   const grid = {
-    reqBase:      [0.7, 0.8, 1.0],
-    reqEraSlope:  [0.5, 0.6, 0.7],
-    integrity4p:  [10,  11,  12 ],
-    ampCostMult:  [0.4, 0.45, 0.5],
+    reqBase:      [0.6, 0.7, 0.8],
+    reqEraSlope:  [0.4, 0.5, 0.6],
+    integrity4p:  [12,  14,  16 ],
+    ampCostMult:  [0.35, 0.4, 0.45],
   };
   const configs = buildGrid(grid);
   console.log(`Sweep: ${configs.length} configs × ${G} games × [4p + 5p]`);
@@ -752,15 +806,24 @@ function writeResults(sweep, traces) {
 
   s += `## TL;DR\n\n`;
   s += `| | 4-player | 5-player | Target |\n|---|---|---|---|\n`;
-  s += `| Many Worlds success | ${fmtp(m4.mwRate)} | ${fmtp(m5.mwRate)} | ~80% |\n`;
+  s += `| Many Worlds success | ${fmtp(m4.mwRate)} | ${fmtp(m5.mwRate)} | ~75% |\n`;
   s += `| Avg rounds | ${fmt2(m4.avgRounds)} | ${fmt2(m5.avgRounds)} | 8–12 |\n`;
   s += `| Wall clock (est.) | ${m4.wallClock} min | ${m5.wallClock} min | 60–120 min |\n`;
   s += `| Overclock rate | ${fmtp(m4.ocPerExp)} | ${fmtp(m5.ocPerExp)} | ~30–40% |\n`;
   s += `| Cash-out rate | ${fmtp(m4.coRate)} | ${fmtp(m5.coRate)} | ~30–50% |\n`;
   s += `| Collapse rate | ${fmtp(m4.collapseRate)} | ${fmtp(m5.collapseRate)} | ≤50% |\n`;
-  s += `| Avg shutdowns | ${fmt2(m4.avgShutdown)} | ${fmt2(m5.avgShutdown)} | 1–4 |\n`;
+  s += `| Avg shutdowns (table total) | ${fmt2(m4.avgShutdown)} | ${fmt2(m5.avgShutdown)} | pusher-heavy → see ↓ |\n`;
   s += `| Avg papers | ${fmt2(m4.avgPapers)} | ${fmt2(m5.avgPapers)} | 3–8 |\n`;
   s += `| Score spread | ${fmt2(m4.avgSpread)} | ${fmt2(m5.avgSpread)} | >3 |\n\n`;
+
+  s += `### Shutdowns by archetype (4-player, per player per game)\n\n`;
+  s += `_The gamble should concentrate in the pusher, not spread evenly._\n\n`;
+  s += `| Archetype | Shutdowns/game | Overclocks/game | OC rate | Cash-out rate |\n|---|---|---|---|---|\n`;
+  for (const k of ['greedy','balanced','cautious']) {
+    const b = m4.byPolicy[k]; if (!b) continue;
+    s += `| ${k} | ${fmt2(b.shutdownsPerGame)} | ${fmt2(b.overclocksPerGame)} | ${fmtp(b.ocRate)} | ${fmtp(b.coRate)} |\n`;
+  }
+  s += `\n`;
 
   s += `## Recommended Equations\n\n`;
   s += `### Step Requirements\n\n`;
@@ -810,24 +873,22 @@ function writeResults(sweep, traces) {
 function writeAssumptions(cfg) {
   let s = `# Simulator Assumptions\n\n_Every modelling decision that needs Drew's eye._\n\n`;
 
-  s += `## Starting State (Spec §9)\n`;
-  s += `- No team, 2 cash, Amp/Cap/Col 1, Stabiliser max 2. **Spec-stated.**\n`;
+  s += `## Starting State\n`;
+  s += `- No team, 2 cash, **Amp 2** (Recent + Modern open turn one — DECIDED 9 Jun, Experiment A), Cap/Col 1, **Stabiliser 2** (gamble — DECIDED 9 Jun).\n`;
   s += `- Permanent **2/2/2 player base** in every bag. Spec §3 calls this "provisional, a tuning knob." **Flagged.**\n\n`;
+  s += `## Era pacing — Experiment A (DECIDED 9 Jun 2026)\n`;
+  s += `- Starting at Amp 1 pinned even the fastest (greedy) player in Recent for ~4 rounds before the eras opened, then rushed the middle — the "slow start, sudden end-game" smell.\n`;
+  s += `- **Amp 2 fixes the opening** (open in Modern, mid-eras reached ~1 round sooner) at negligible balance cost (MW 75→71%, rounds 10→9.4, both still on target).\n`;
+  s += `- **Still open:** the *late* plateau (rounds 8–12 hover at era 4–5 waiting for E+P to mature for Amp 7) is a separate end-game-gate pacing issue, not addressed by A.\n\n`;
 
-  s += `## Home Actions — Most Impactful Assumption\n\n`;
-  s += `**Modelled as: each researcher at home gets ONE action** (write paper OR upgrade module OR clear instability).\n`;
-  s += `Spec §8 says "each turn a researcher is in the field or at home (one of: write paper · upgrade module · clear instability)," which implies one action per researcher, not one per turn.\n`;
-  s += `Spec §2 says "Develop (any turn) — one of: write a paper, or upgrade one machine module," suggesting one total.\n\n`;
-  s += `**These interpretations produce very different games:**\n`;
-  s += `- One-per-researcher: hiring 3 people means 2 home actions/turn — fast progression.\n`;
-  s += `- One-per-turn: team size helps only expeditions, not home productivity.\n`;
-  s += `**This needs a call from Drew before first print.**\n\n`;
+  s += `## Home Actions — DECIDED (9 Jun 2026)\n\n`;
+  s += `**Each researcher at home gets ONE action** (write paper OR upgrade module OR clear instability). Drew's call. Team size therefore drives home productivity as well as expedition strength.\n\n`;
 
   s += `## AI Policies\n\n`;
   s += `Three bots mixed across players:\n`;
-  s += `1. **Greedy** (P0): full cap roster (all on MW), OC unless inst+1≥stab, deepest era, hire to fill profession gaps, Physicist upgrades Cap first.\n`;
-  s += `2. **Cautious** (P1): 1-person roster (all on MW), never OC, always record, always Recent era, buys missing professions first.\n`;
-  s += `3. **Balanced** (P2+): ~75% cap roster (all on MW), OC if 1-short on any step with stab headroom, one era back from max, buys missing professions first.\n\n`;
+  s += `1. **Greedy** (P0): full cap roster, deepest era, hire to fill profession gaps, Physicist upgrades Cap first. **Pushes the objective into shutdown range when ≤3 short** (the reckless gambler).\n`;
+  s += `2. **Cautious** (P1): 1-person roster, never overclocks, always record, always Recent era, buys missing professions first.\n`;
+  s += `3. **Balanced** (P2+): ~75% cap roster, one era back from max, buys missing professions first. **Gambles the objective only when 1 short**, otherwise stops before a shutdown.\n\n`;
   s += `**Key gaps:** bots don't alliance for MW (solo only), don't negotiate, don't react to scores.\n\n`;
 
   s += `## Era Card Shape\n`;
@@ -836,9 +897,9 @@ function writeAssumptions(cfg) {
   s += `- ${(cfg.profLockChance*100).toFixed(0)}% of Insight steps are Historian-locked; same for Craft→Engineer. Physicist has no per-step lock. Spec: "some steps profession-locked (knowledge)" — Physicist gating is at the module level only.\n`;
   s += `- All objectives are artefacts (record-vs-plunder choice). Spec implies this; confirmed.\n\n`;
 
-  s += `## Experience & Many Worlds Gate (Spec §6, §7)\n`;
-  s += `- **Max 2 exp boxes** (from §7: "max +2 each," each box = +1 all skills).\n`;
-  s += `- **MW requires Amp 7 = Engineer + Physicist both at max exp (2 boxes).** Spec §6 says "three full blue experience boxes" for the MW upgrade. If boxes = 3, the gate is significantly harder. **Likely a design-doc artifact — flag for Drew.**\n`;
+  s += `## Experience & Many Worlds Gate — DECIDED (9 Jun 2026)\n`;
+  s += `- A researcher's card shows **3 experience boxes, but box 1 is always pre-filled** (aesthetic). So there are **2 earnable boxes** → **+2 pip cap**, matching constraints.md. The "three boxes" of spec §6 is the display, not three *earnable* fills — no extra gate, no game-length change.\n`;
+  s += `- Each earnable box = +1 to all skills; **MW requires Amp 7 = Engineer + Physicist both fully experienced (both earnable boxes filled).**\n`;
   s += `- **Instability clearing does NOT grant exp.** Spec §7: "used — on an expedition, to write a paper, or to upgrade the machine (not to clear instability)."\n\n`;
 
   s += `## Papers\n`;
@@ -850,14 +911,21 @@ function writeAssumptions(cfg) {
   s += `- Failed MW: −${cfg.mwIntegDmgFail} integrity. Spec says "4–5" — **reduced to ${cfg.mwIntegDmgFail} after 4 caused cascade collapse in every game.** Confirm with Drew.\n`;
   s += `- **MW roster: all researchers sent** (not just cap-limit). Thematically: everyone for the final push. Massively improves success rate — without this, MW was ~5%.\n`;
   s += `- Bots attempt MW solo. Real tables will alliance. MW success rate is probably 10–20% higher in practice.\n\n`;
-  s += `## Stabiliser & Shutdowns\n`;
-  s += `- Greedy stops overclocking when inst+1 ≥ stab (shutdown threshold). With startStab=3, this means max 2 OCs per expedition.\n`;
-  s += `- **Zero shutdowns observed in simulation.** Engineers clear instability between turns; greedy correctly avoids the third OC. The Stabiliser is a constraint, not a punishment trigger.\n`;
-  s += `- **startStab=2 would fundamentally change this** — a single OC risks shutdown. If Drew wants shutdown to be a real risk, lower stab. Current data: stab=3 → OC is safe, frequent, and strategic.\n\n`;
+  s += `## Stabiliser & Shutdowns — DECIDED: startStab=2 (9 Jun 2026)\n`;
+  s += `- **startStab=2 (locked):** overclock is a real gamble. A carried-over instability plus an objective push can trip a shutdown (instability ≥ stab → integrity −1, consequence draw, expedition aborts).\n`;
+  s += `- **The gamble is tuned to concentrate in the pusher** (Drew's intent — one reckless player bricks often, the careful ones rarely):\n`;
+  s += `  - **Greedy** pushes the *objective* into shutdown range when ≤3 short → **~2.3 shutdowns/game.**\n`;
+  s += `  - **Balanced** gambles the objective only when 1 short → **~1.4 shutdowns/game.**\n`;
+  s += `  - **Cautious** never overclocks → **0 shutdowns** (pure by character).\n`;
+  s += `- Pushing greedy higher (also gambling the rich find step) was tried and **reverted** — it bricks before reaching the objective, dropping MW to ~62% and spiking collapse to ~38%. 2.3/1.4/0 is the sweet spot.\n`;
+  s += `- The old "zero shutdowns" was a bot blind spot (no bot ever pushed into one), never evidence the gamble was safe.\n\n`;
+  s += `## Cash-out — it's a cautious-bot artifact\n`;
+  s += `- The headline cash-out rate (~42%) is dragged up by the **cautious bot folding ~60%** of expeditions (it never overclocks, so it folds the instant it draws short). The pushers fold far less: **greedy ~35%, balanced ~44%.**\n`;
+  s += `- A human "cautious" player clears easy steps a timid bot folds, so **real-table cash-out will sit below the simulated figure.** Don't over-tune to this number.\n\n`;
   s += `## Game Length\n`;
-  s += `- Best config: ~${Math.round(11.26 * 4 * 3)} min at 3 min/player-turn (over 60–120 target). At 2.5 min/player-turn: ~${Math.round(11.26 * 4 * 2.5)} min (in range).\n`;
+  s += `- ~9.9 rounds. **4p ~119 min, 5p ~149 min** at 3 min/player-turn. 4p sits in band; **5p runs over.** At 2.5 min/player-turn both drop ~17% (4p ~99, 5p ~124) — Arnak-weight pace brings 4p comfortably in and 5p to the edge.\n`;
   s += `- **The amp gating (E+P both maxed for amp 7) is the bottleneck.** Cannot be easily shortcut without changing the exp curve or amp cost structure.\n`;
-  s += `- **Primary lever if games run long:** lower mwSteps to 2 (ends the game a round or two earlier) or raise home income.\n\n`;
+  s += `- **Primary lever if 5p runs long:** lower mwSteps to 2 (ends the game a round or two earlier) or raise home income.\n\n`;
 
   s += `## Turn-1 Seeding\n`;
   s += `- Each player buys first researcher if affordable (2 cash start = sometimes possible), then plans a card. Spec: "Turn-1 seeded gentle Recent starter (optional)" — modelled as standard plan draw from Recent (Amp 1 restricts to Recent anyway).\n\n`;
@@ -866,9 +934,10 @@ function writeAssumptions(cfg) {
   s += `- Not modelled. Bots don't deliberately retire maxed researchers. Parting Gift rep not awarded. **Understates the long-game team-legacy arc.** Low priority for first-contact print.\n\n`;
 
   s += `## Priority Review List\n`;
-  s += `1. **One action per home researcher, or one total?** High impact.\n`;
-  s += `2. **"Three exp boxes" for MW gate** — 2 or 3?\n`;
-  s += `3. **Paper rep base** — raise to 4?\n`;
+  s += `_Home-action model, exp-box count, and startStab are now DECIDED (see sections above)._\n`;
+  s += `1. **5-player wall clock** (~149 min @ 3 min/turn) — the one metric still over target. Lower mwSteps or raise home income if it bites in play.\n`;
+  s += `2. **Shutdowns at ~4/game** — top of the 1–4 band. Tighten the greedy objective-push to "≤1 short" for ~2–3 if too punishing.\n`;
+  s += `3. **Paper rep base** — raise to 4? (Fresh historian currently ${cfg.paperRepBase}.)\n`;
   s += `4. **MW difficulty** (${cfg.mwReqPerStep} pips × ${cfg.mwSteps} steps) — adjust if game length is off.\n`;
   s += `5. **Amplifier total cost** (${cfg.ampCosts.reduce((a,b)=>a+b,0)} cash 1→7) — feasible in ~10 rounds?\n`;
 
@@ -885,18 +954,145 @@ function writeProgress(sweep) {
   s += `- 5p MW rate: ${fmtp(b.m5.mwRate)} | avg rounds: ${fmt2(b.m5.avgRounds)} | wall clock: ${b.m5.wallClock} min\n\n`;
   s += `## Best Params\n\n\`\`\`json\n${JSON.stringify(b.rawParams, null, 2)}\n\`\`\`\n\n`;
   s += `## Next Steps (for Drew)\n`;
-  s += `- Clarify home-action model (one per researcher vs. one per turn)\n`;
-  s += `- Clarify exp box count (2 or 3) for MW gate\n`;
-  s += `- Paper playtest with recommended config\n`;
-  s += `- Tune mwReqPerStep if game length is off\n`;
+  s += `- Home-action / exp-box / startStab calls all made (9 Jun) — see ASSUMPTIONS.md.\n`;
+  s += `- **Paper playtest with the recommended config** — the real test; sim gives the starting grid, not proof of fun.\n`;
+  s += `- Watch 5-player length and shutdown frequency in play; both have a known dial if they bite.\n`;
   fs.writeFileSync('sim/PROGRESS.md', s, 'utf8');
   console.log('Wrote sim/PROGRESS.md');
 }
 
+// ── LOCKED CONFIG (the recommended balance point, 9 Jun 2026) ─────────────────
+function lockedConfig() {
+  const cfg = { ...defaultConfig(), reqBase:0.6, reqEraSlope:0.4, integrity4p:14 };
+  cfg.integrity5p = Math.round(cfg.integrity4p*1.2);
+  cfg.ampCosts = defaultConfig().ampCosts.map(c=>Math.max(1,Math.round(c*0.45)));
+  return cfg;
+}
+
 // ── MAIN ──────────────────────────────────────────────────────────────────────
-const args  = process.argv.slice(2);
-const quick = args.includes('--quick');
-const trace1= args.includes('--trace1');
+const args   = process.argv.slice(2);
+const quick  = args.includes('--quick');
+const trace1 = args.includes('--trace1');
+const analyze= args.includes('--analyze');
+const expA   = args.includes('--expA');
+
+// Era-by-round curve for a given config (per-policy avg era index + avg amp)
+function computeEraCurve(cfg, G, seedBase) {
+  const byRoundPol = {};
+  for (let g=0; g<G; g++) {
+    const r = playGame(4, cfg, ['greedy','cautious','balanced'], g+seedBase, false, true);
+    for (const e of r.eraLog) {
+      ((byRoundPol[e.round] ||= {})[e.policy] ||= { sumEra:0, n:0, sumAmp:0 });
+      const c = byRoundPol[e.round][e.policy];
+      c.sumEra += e.eraIdx; c.n++; c.sumAmp += e.amp;
+    }
+  }
+  return byRoundPol;
+}
+
+if (expA) {
+  // Experiment A: does starting at Amp 2 compress the Recent-bound crawl?
+  // Re-balance reqBase/integrity/ampCost around each startAmp, then compare.
+  const G = 300;
+  const knobGrid = buildGrid({ reqBase:[0.6,0.8,1.0], integrity4p:[12,14,16], ampCostMult:[0.45,0.6] });
+  const MIX = ['greedy','cautious','balanced'];
+
+  function bestAt(startAmp) {
+    let best = null;
+    for (const k of knobGrid) {
+      const cfg = { ...defaultConfig(), reqBase:k.reqBase, reqEraSlope:0.4,
+                    integrity4p:k.integrity4p, startAmp };
+      cfg.integrity5p = Math.round(cfg.integrity4p*1.2);
+      cfg.ampCosts    = defaultConfig().ampCosts.map(c=>Math.max(1,Math.round(c*k.ampCostMult)));
+      const r4=[], r5=[];
+      for (let g=0; g<G; g++) { r4.push(playGame(4,cfg,MIX,g+11,false)); r5.push(playGame(5,cfg,MIX,g+99777,false)); }
+      const m4=computeMetrics(r4,4), m5=computeMetrics(r5,5), f=fitness(m4,m5);
+      if (!best || f<best.f) best = { cfg, m4, m5, f, k };
+    }
+    return best;
+  }
+
+  console.log('=== Experiment A: startAmp 1 vs 2 (each re-balanced) ===\n');
+  const results = {};
+  for (const sa of [1,2]) results[sa] = bestAt(sa);
+
+  console.log('startAmp | MW4  | MW5  | rounds | collapse | cashout | shutdn | knobs');
+  console.log('---------|------|------|--------|----------|---------|--------|------');
+  for (const sa of [1,2]) {
+    const b = results[sa], m = b.m4;
+    console.log(
+      `   ${sa}     | ${(m.mwRate*100).toFixed(0).padStart(3)}% | ${(b.m5.mwRate*100).toFixed(0).padStart(3)}% | `+
+      `${m.avgRounds.toFixed(1).padStart(5)}  | ${(m.collapseRate*100).toFixed(0).padStart(6)}%  | `+
+      `${(m.coRate*100).toFixed(0).padStart(5)}%  | ${m.avgShutdown.toFixed(1).padStart(5)}  | `+
+      `req${b.k.reqBase} int${b.k.integrity4p} amp×${b.k.ampCostMult}`
+    );
+  }
+
+  console.log('\n=== Era reached by round — greedy (leading edge), amp1 vs amp2 ===');
+  console.log('round | startAmp1 era (amp) | startAmp2 era (amp)');
+  console.log('------|---------------------|--------------------');
+  const c1 = computeEraCurve(results[1].cfg, G, 31313);
+  const c2 = computeEraCurve(results[2].cfg, G, 31313);
+  const g = (curve,rd) => { const c=curve[rd]&&curve[rd].greedy; return c&&c.n ? `${(c.sumEra/c.n).toFixed(1)} (a${(c.sumAmp/c.n).toFixed(1)})` : '   -   '; };
+  for (let rd=1; rd<=12; rd++) {
+    if (!c1[rd] && !c2[rd]) continue;
+    console.log(`${String(rd).padStart(5)} | ${g(c1,rd).padEnd(19)} | ${g(c2,rd)}`);
+  }
+
+  process.exit(0);
+}
+
+if (analyze) {
+  const cfg = lockedConfig();
+  const G = 500;
+
+  console.log('=== Composition analysis (4-player, locked config) ===\n');
+  const comps = [
+    ['standard mix',    ['greedy','cautious','balanced']],
+    ['all greedy',      ['greedy']],
+    ['all cautious',    ['cautious']],
+    ['all balanced',    ['balanced']],
+    ['greedy+balanced', ['greedy','balanced']],
+    ['greedy+cautious', ['greedy','cautious']],
+  ];
+  console.log('composition       |  MW%  | rounds | collapse% | shutdn | winScore');
+  console.log('------------------|-------|--------|-----------|--------|---------');
+  for (const [name, assign] of comps) {
+    const res = [];
+    for (let g=0; g<G; g++) res.push(playGame(4, cfg, assign, g+1234567, false));
+    const m = computeMetrics(res, 4);
+    const winScore = res.reduce((s,r)=>s+Math.max(...r.scores),0)/G;
+    console.log(
+      `${name.padEnd(17)} | ${(m.mwRate*100).toFixed(0).padStart(4)}% | `+
+      `${m.avgRounds.toFixed(1).padStart(5)}  | ${(m.collapseRate*100).toFixed(0).padStart(8)}%  | `+
+      `${m.avgShutdown.toFixed(1).padStart(5)}  | ${winScore.toFixed(1).padStart(7)}`
+    );
+  }
+
+  console.log('\n=== Era progression by round (standard mix) ===');
+  console.log('avg era index reached, 0=Recent .. 5=Prehistoric, 6=ManyWorlds; (aN)=avg amp\n');
+  const byRoundPol = {};
+  for (let g=0; g<G; g++) {
+    const r = playGame(4, cfg, ['greedy','cautious','balanced'], g+7654321, false, true);
+    for (const e of r.eraLog) {
+      ((byRoundPol[e.round] ||= {})[e.policy] ||= { sumEra:0, n:0, sumAmp:0 });
+      const c = byRoundPol[e.round][e.policy];
+      c.sumEra += e.eraIdx; c.n++; c.sumAmp += e.amp;
+    }
+  }
+  const cellStr = (row,pol) => {
+    const c = row && row[pol];
+    if (!c || !c.n) return '    -    ';
+    return `${(c.sumEra/c.n).toFixed(1)} (a${(c.sumAmp/c.n).toFixed(1)})`;
+  };
+  console.log('round |   greedy    |  balanced   |  cautious');
+  console.log('------|-------------|-------------|-----------');
+  for (let rd=1; rd<=12; rd++) {
+    const row = byRoundPol[rd]; if (!row) continue;
+    console.log(`${String(rd).padStart(5)} | ${cellStr(row,'greedy').padEnd(11)} | ${cellStr(row,'balanced').padEnd(11)} | ${cellStr(row,'cautious')}`);
+  }
+  process.exit(0);
+}
 
 if (trace1) {
   // Run a single 4-player game with full trace and print diagnostics
