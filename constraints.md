@@ -86,6 +86,24 @@ dated line whenever Drew states a new preference. Newest at the bottom of each s
   final round (each player one more turn; settle affairs, or attempt a last Many Worlds escape) then
   scoring. The overclock deterrent lives in the **personal** costs (Trace pollution, shutdown,
   consequences, engineer drag), not the shared track. Keystone #3 honoured. (9 Jun 2026)
+- **Home actions are one per researcher, not one per turn.** Each teammate not in the field takes one
+  Develop action (write a paper · upgrade a module · clear instability). Team size therefore drives home
+  productivity as well as field strength. _(9 Jun 2026, balance-sim confirmed.)_
+- **Experience shows 3 boxes, but the first is always pre-filled** — so only **2 are earnable** (the +2
+  pip cap above). Purely so a researcher always looks like they carry some experience; no extra gate, no
+  effect on game length. _(9 Jun 2026.)_
+- **The machine starts at Amp 2** — Recent _and_ Modern reachable from turn one. Starting at Amp 1 left
+  even the boldest player crawling in Recent for ~4 rounds before the game opened up, then rushing the
+  middle eras ("suddenly thrust into the end-game"). Amp 2 removes the dead opening at negligible balance
+  cost; Recent becomes the optional gentle on-ramp, not a forced tier. _(9 Jun 2026, balance-sim
+  confirmed — Experiment A.)_
+- **The Stabiliser starts at 2, so overclock is a genuine gamble.** At Stab 2 a carried-over instability
+  plus one push for the objective can trip a shutdown. The danger should **concentrate in the player who
+  keeps pushing** (sim: the reckless archetype bricks ~2–3×/game while careful players almost never do),
+  not spread evenly across the table. _(9 Jun 2026, balance-sim confirmed.)_
+- **The game should be winnable but never a foregone conclusion — aim for ~75% of tables reaching Many
+  Worlds** (revised down from an initial 80% gut figure). Roughly a quarter of tables should fall short or
+  collapse, so the win means something. _(9 Jun 2026.)_
 
 ## DON'T
 
