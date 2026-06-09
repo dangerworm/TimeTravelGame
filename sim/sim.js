@@ -697,10 +697,10 @@ function runSweep(quick) {
   const defCosts = defaultConfig().ampCosts;
 
   const grid = {
-    reqBase:      [0.8, 1.0, 1.2],
-    reqEraSlope:  [0.6, 0.8, 1.0],
-    integrity4p:  [10,  12,  14 ],
-    ampCostMult:  [0.4, 0.5, 0.6],
+    reqBase:      [0.7, 0.8, 1.0],
+    reqEraSlope:  [0.5, 0.6, 0.7],
+    integrity4p:  [10,  11,  12 ],
+    ampCostMult:  [0.4, 0.45, 0.5],
   };
   const configs = buildGrid(grid);
   console.log(`Sweep: ${configs.length} configs × ${G} games × [4p + 5p]`);
