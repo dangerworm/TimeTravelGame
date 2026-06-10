@@ -3,19 +3,19 @@
 This is a **board game design project** (not a software project yet — though a prototyping tool is
 coming). A competitive game for rival scientists who co-discovered time travel.
 
-> **Status: v4, balance-validated, pre-playtest, mid-consolidation (10 June 2026).** A balance
-> simulator (`sim/`) has tuned the game across 2–6 players. The docs are consolidating into two
-> foundations — **`intentions.md`** (spirit + why) and **`game-design-document.md`** (the game; the
-> skeleton is being rewritten into it). Next up: finish the GDD → paper-playtest content → the
-> renderer. Read the foundation files below — **not** the archive — to understand where the game is.
+> **Status: v4, balance-validated, pre-playtest, docs consolidated (10 June 2026).** A balance
+> simulator (`sim/`) has tuned the game across 2–6 players. The design now lives in two foundations —
+> **`intentions.md`** (spirit + why) and **`game-design-document.md`** (the game). Next up:
+> paper-playtest content → the renderer; one open design thread (the Many Worlds "kingmaker"
+> question). Read the foundation files below — **not** the archive — to understand where the game is.
 
 ## Read these at the start of every session
 
 1. **`intentions.md`** — the spirit (spine + four keystones + the two laws) and the *why* behind every
    decision. The north star + the rationale ledger. _(Consolidates the former `core-goals.md` +
    `constraints.md`, now in `archive/`.)_
-2. **`game-design-document.md`** — the game itself: the full ruleset, one place. _(Until it lands,
-   `design-skeleton.md` is the ruleset, being rewritten into it.)_
+2. **`game-design-document.md`** — the game itself: the full ruleset, one place. _(Supersedes the
+   archived `design-skeleton.md`.)_
 3. **`tasks.md`** — the live backlog (done items in `archive/completed-tasks.md`).
 
 The old design lives in `archive/` — a **content bible to mine**, not a blueprint. It includes
@@ -89,7 +89,7 @@ comparable games, common pitfalls, genre mechanics that fit.
 - Read the foundation files (above). Discuss, challenge, refine — one element at a time.
 - New hard preferences / decisions → add a dated entry to `intentions.md` (Part II — Decisions).
 - Shifts to the spine/keystones → update `intentions.md` (Part I — Spirit); rule changes →
-  `game-design-document.md` (until it lands, `design-skeleton.md`).
+  `game-design-document.md`.
 - Capture decisions in their home doc and open threads in `tasks.md` (the live scratchpad is retired —
   its history is `archive/v2-v3-design-log.md`).
 

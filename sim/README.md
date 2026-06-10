@@ -2,7 +2,7 @@
 
 _A technical reference for `sim/sim.js`. Pairs with `RESULTS.md` (current metrics), `ASSUMPTIONS.md`
 (modelling choices) and `best-config.json` (the saved reference config). For the **game** itself read
-`../design-skeleton.md`; this file is about the **tuning model**._
+`../game-design-document.md`; this file is about the **tuning model**._
 
 > **The single source of numeric truth is `lockedConfig()` in `sim/sim.js`** (mirrored to
 > `best-config.json` via `--dumpconfig`). Every design doc defers to it. If a number here and the code
