@@ -6,6 +6,10 @@ _The active backlog for the redesign. The old task list lives in `archive/tasks.
 
 _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's plan from here:_
 
+> **Status (10 Jun eve):** 1–6 ✅ done · **7** (definitive doc → `rules.md`) **in progress** ·
+> **8** (playtest content) and **9** (renderer) are the remaining future work. The one unfinished
+> *design* thread is the **"who triggers Many Worlds / kingmaker"** question (§10 #5).
+
 1. **Clean up the repo.** Remove what we don't need, consolidate docs where possible, **archive v2
    and v3**, delete `prototypes/`. _(List matches before deleting — confirm with Drew per scope
    discipline.)_
@@ -59,6 +63,12 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
 - **✅ Endgame flavour & reflection — RESOLVED (10 Jun eve).** See the evening resolved block above.
   Remaining = *content polish*, not design: tighten the quiet-legacy speech and write the collective
   vs per-player epilogue variants (skeleton §9).
+- **⚠️ Who triggers Many Worlds / kingmaker — the one open *design* thread.** The endgame is built
+  around a full-table alliance for the MW gauntlet, but the alliance-ending *mechanics* are
+  unspecified: who makes the **winning** jump, and how is the payoff shared, so it's neither a
+  foregone conclusion nor a kingmaker handing one player the game? Rental-Cash-only + individual
+  retirement + visible disrepute soften the *runaway-leader* worry, but not this. Design before
+  playtest (skeleton §10 #5).
 - **Negotiation / alliances** — still the biggest sim blind spot (bots don't ally for the MW push;
   real MW rate likely higher than the sim shows). _(The Negotiate **terms** are now designed — rental,
   Cash-only — but the bots still don't model alliances.)_
@@ -94,8 +104,9 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
       final round (settle affairs, or ally for a last Many Worlds escape) → score; deterrent lives
       in the personal overclock costs. Keystone #3 reconciled in `core-goals.md`; skeleton §9/§10
       updated.
-- [ ] Confirm the small open mechanics: overclock draw amount; whether clearing instability costs
-      the Develop action (see `design-skeleton.md` §10).
+- [x] **Small open mechanics resolved (9 Jun, §10).** Overclock draws **1** card per push; clearing
+      instability **is** a researcher's home/Develop job (one per researcher/turn), so an engineer who
+      cleans can't also paper/upgrade that turn.
 - [x] Spec the **minimal paper prototype** of the core expedition loop. →
       `prototypes/prototype-01.md`
 - [x] Playtest the core loop (guided, Exps 1–2). **Validated** — the spine is fun. Rules refined
@@ -112,10 +123,15 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
       lifecycle; shared field, instant refill; [N] postdoc slots + round-thirds expert slots
       (0→1→2); bought experts = capability without earned legacy; roster cap 8 (anti-runaway, forces
       retire-to-hire). Retirement gains a consolation tier (~3 expeditions → small rep).
-- [ ] **Economy — last piece:** the **machine upgrade tracks** (capacity / era-access /
-      instability-tolerance / precision); then exact instability numbers.
-- [ ] **Then the endgame front:** collapse mode-flip + Many Worlds trigger + final scoring (dodge
-      runaway-leader & "who triggers?" problems).
+- [x] **Machine upgrade tracks done** (skeleton §6 + `best-config.json`): Amplifier (era-access),
+      Capacitor (capacity), Collimator (cards drawn at Plan), Stabiliser (instability tolerance) —
+      all costed; Stabiliser starts max 2, +2/upgrade. _Precision-as-discretion (footprint
+      reduction) stays parked in **Later**._
+- [x] **Endgame front done.** Collapse = the Unravelling fuse (§9/§10); MW trigger = complete the MW
+      card; final scoring = Rep − disrepute + module + artefacts via the portrait scoresheet (10 Jun
+      eve). Runaway-leader softened (rental Cash-only · visible disrepute · individual retirement).
+      ⚠️ **Still genuinely open:** the **"who triggers Many Worlds" / kingmaker** concern for the
+      full-table-alliance ending (§10 #5) — see *Still open* below.
 - [x] **Terminology swept (10 Jun eve).** **Nerve→Grit** already clean (no live occurrences);
       **spoils→Cash** done **selectively** — Cash = currency, *find* = the convertible reward,
       "spoils" kept only as occasional flavour.
@@ -148,11 +164,11 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
       deep-objective completion ~42%, cash-out ~37%**. Recommended config baked into
       `lockedConfig()` / `sim/RESULTS.md`. handBase `+2` confirmed required. core-goals +
       design-skeleton + constraints all updated.
-- [ ] **Open from B (next):** (a) **danger spikes** can't be high requirements (a single high-req
-      step outruns the hand) — design them to bite via instability / consequence instead; (b) **game
-      is long (~13 rounds / ~157 min 4p, ~200 min 5p)** — accepted for now, but shrink deep bands /
-      ease the Amp-7 gate if playtest agrees; (c) **overclock frequency dipped to ~21%** — watch the
-      gamble's pulse in play, nudge reqs up if it feels thin.
+- [x] **Open from B → now playtest-watch, not open design.** (a) **danger spikes can't be high
+      reqs** — documented (skeleton §4 + `sim/README.md`); bite via instability/consequence instead.
+      (b) **game length** ~16–17 rounds / ~200 min — accepted; shrink deep bands / ease the Amp-7
+      gate only if the playtest drags. (c) **overclock ~19%** — a bot-conservatism floor
+      (`--pushprobe`); judge the gamble's *feel* at the table. All three ride into the playtest.
 
 ## Next (once the core loop proves fun)
 
@@ -163,8 +179,10 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
 
 ## Later
 
-- [ ] Build out the scoring model (multiple visible axes; two-axis legacy).
-- [ ] Design the collapse mode-flip (third act) in detail.
+- [x] **Scoring model done (10 Jun eve)** — two-axis legacy via the portrait scoresheet (_what you
+      discovered_ × _how you did it_): Rep − disrepute + highest module level + unresearched artefacts.
+- [x] **Collapse mode-flip — cheap version done** (the Unravelling round, §9/§10). A *richer*
+      third-act Many-Worlds-scramble remains parked until a playtest proves it's wanted.
 - [ ] Re-evaluate parked darlings (age track, instability variety, specials) — add back only what
       playtest proves necessary. _From the archived v2/v3 log:_ **conspicuousness** (bigger party =
       harder to hide), **intervention "threads"** (open/close a change across steps), **multi-turn
