@@ -53,13 +53,12 @@ _The active backlog for the redesign. The old task list lives in `archive/tasks.
       `max(1, floor((rep − 1) / 2))` Reputation (1 for rep 2–4, up to 4 for rep 9–10); **doomed = 0**.
       Locked in `constraints.md`. _Prototype with the formula; promote to printed per-card values only if
       playtests want bespoke numbers._
-- [ ] **Implement the missing plunder-imprint (9 Jun) — the *shared* half of greed's cost.** Disrepute
-      (above) is the **personal** sting; `core-goals.md` also intends plundering a **non-doomed** artefact
-      to scar **Timeline Integrity** (doomed artefacts are the clean exception — same exception as
-      disrepute). `design-skeleton.md` §5 never costs it and the sim doesn't model it, so Record vs
-      Plunder→Publish currently pay the **same** Reputation and Recording has no pull. Add the scar.
-      _Related: reconcile publish paying the historian's paper-rep vs the card's printed rep (see doc-drift
-      item) — the disrepute formula assumes the card's printed rep is the canonical "significance"._
+- [x] **Plunder-imprint implemented (10 Jun) — greed dial complete.** Non-doomed plunder scars Timeline
+      Integrity `[1,1,2,2,3,3,4]` by era; doomed grabs clean. Archetypes plunder differently (greedy
+      ~1.2/game, balanced ~0.5, cautious ~0.1) and greedy-heavy tables now collapse far more. Field choice
+      Record vs Plunder; plundered artefacts Publish (rep) or Sell (cash) at the desk (papers preserved).
+      Re-tuned MW to ~75% across 3/4/5 players (integrity 16, MW 5×4, failed-MW −1). Added `--matrix` and
+      `--retuneMW` sim modes + early-step relief spoils (eras <Ancient, ~15% chance, 1 per card).
 - [ ] **Doc drift to reconcile (noticed 9 Jun):** §6/§9 still say "three full blue experience boxes" and
       "skills baseline 1/1/1" while §7 + the locked decision are **2 earnable boxes (1 pre-filled)** and a
       **2/2/2 player base**; §7's "4th token advances a box" vs the sim's 2-uses-per-box. Align the

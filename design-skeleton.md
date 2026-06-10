@@ -117,7 +117,9 @@ Severity scales with era depth; the real-history flavour lives here.
 - **En-route finds** (steps before the objective) → **converted to Cash** immediately when the
   expedition ends.
 - **The objective** (final step), if all steps succeeded and there's an item to retrieve:
-  - **Plunder it** (doomed or not) → the **era card goes to your Artefacts zone**. It can later be
+  - **Plunder it** → the **era card goes to your Artefacts zone**. **A non-doomed artefact scars Timeline
+    Integrity** when taken (`[1,1,2,2,3,3,4]` by era — deeper finds scar more); **doomed artefacts grab
+    clean** (no scar). It can later be
     **researched** in **Develop** by a **historian who didn't jump that turn** → adds the artefact's
     **printed Reputation** (historian experience does **not** change it — any historian at base writes it
     up), card discarded. Or **sold** → **Cash**, but at a **disrepute** of `max(1, floor((rep−1)/2))`

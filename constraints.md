@@ -140,6 +140,17 @@ dated line whenever Drew states a new preference. Newest at the bottom of each s
   economy) is how we hold the win rate near ~75% without making the deep ladders unreachable. Full
   recommended config lives in `sim/RESULTS.md`; the cost of the gentle-ladder design is a **long game
   (~13 rounds)**, knowingly accepted for the deep-era escalation. (10 Jun 2026)
+- **Plundering a non-doomed artefact scars the timeline — the shared half of the greed dial.** Taking a
+  non-doomed artefact costs **Timeline Integrity**, era-scaled `[1,1,2,2,3,3,4]` (Recent→Many Worlds;
+  deeper finds scar more); **doomed artefacts grab clean** (no scar, no disrepute — the same doomed
+  exception as disrepute). The field choice is **Record** (clean Reputation now) vs **Plunder** (take it,
+  scar now, then at the desk **Publish** for Reputation _or_ **Sell** for Cash). This is what makes a
+  greedy table's collective plundering bend the timeline toward collapse — sim: greedy-heavy tables
+  collapse ~35–43% vs balanced-heavy ~20%, so the ethical axis is now mechanical, not just fiction. The
+  three archetypes plunder very differently (greedy ~1.2/game, balanced ~0.5, cautious ~0.1). (10 Jun 2026)
+- **The game is balanced across player counts (sim --matrix).** Standard mix holds Many Worlds ~79–84%
+  with collapse ~16–24% across **3/4/5 players**; 2p plays a touch easier, 6p a touch harder, both still
+  work. Recommended config: integrity 16, MW **5 steps × 4 pips**, failed-MW −1. (10 Jun 2026)
 
 ## DON'T
 
