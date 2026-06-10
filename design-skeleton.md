@@ -200,6 +200,13 @@ and each module gates on who can do the work:
 - **Score = Reputation + highest module level reached + number of unresearched artefacts (1 each).**
   Papers (4+ rep) dominate artefacts (1), so held artefacts are a consolation, not a hoarding
   strategy.
+- **⚠️ The multiverse is now RARE (~50% of games; balance-sim 10 Jun).** The Many Worlds card is a
+  hard 5×5 gauntlet, so reaching for it and missing frays the timeline. That makes the endgame split
+  roughly **~52% triumph / ~36% collapse / ~12% quiet legacy** — three distinct endings. **Design
+  consequence (TODO): the two non-triumph endings must feel like _"a life well lived,"_ not failure.**
+  Each ending needs flavour text **and a reflection / score-recap beat** that surfaces what the player
+  _built_ — the team they grew, papers published, eras reached, artefacts saved. Collapse must read as
+  a dramatic mode-flip, not a loss. Without this, ~half of playthroughs feel like a 3-hour defeat.
 
 ### Endgame narration (Drew's, keep verbatim)
 

@@ -21,20 +21,33 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
 9. **Build a way to print that content** — using the layout sketch in
    `design/2026-06-09-post-whiteboarding-with-andy.png`. (Vite + React + MUI per the renderer plan.)
 
-### Open questions & ideas to resolve in (2)
+### Resolved this session (10 Jun, cont.)
 
-- **Why so few papers?** `Avg papers ~2.7` is the **game total** (~0.67/player). Rep mostly comes
-  from _recording_; most plunders _sell_ for cash, so papers are a niche outcome. Does the "publish
-  a paper" fantasy need protecting (e.g. a rep premium for publishing vs recording)?
-- **Negotiation / alliances.** Bots don't ally, loan, or deal — the biggest sim blind spot. Model a
-  coalition pooling for the final Many Worlds push and measure the lift (likely +10–20% MW).
-  Freeform negotiation probably isn't worth modelling.
-- **Sim experiment — lift failed-MW penalty.** −1 feels too low. Try **plunder-imprint
-  `[1,1,1,1,2,2,2]`** (flatter/lower → frees integrity budget) and push **failed-MW back up**
-  (toward −2/−3), re-tune.
-- **Sim experiment — growth-shaped step bands.** Make the ladder _feel_ like growth toward MW's 5
-  steps: **Recent 3 · Modern→Medieval 4 · Ancient→Prehistoric & Many Worlds 5**. Re-tune
-  reqs/economy after.
+- **Papers fixed** — recording an objective now *is* a paper (~16/game, was 2.4); the research-group
+  lifeblood is in. _(Still below Drew's "once per turn late game" ideal — a second tier of minor
+  outputs from en-route finds could go higher, if wanted.)_
+- **Researcher model reworked** (SS/NSS pips, total 3–6 postdoc / 9–15 expert), economy re-tuned.
+- **Failed-MW lifted, plunder-imprint `[1,1,1,2,2,3,3]`, growth step bands** all done.
+- **Overclock "softness" RESOLVED — it's a player CHOICE, not a flaw.** The cautious bots fold when
+  short; a *reckless* player overclocks 60%+ of expeditions and bricks the machine 2–4×/game
+  (validated `--pushprobe`). The game survives heavy pushing (even all-reckless: MW 38%, collapse
+  46%), and pushing *summons* collapse — keystone #3 working. The gamble is there for the taking.
+- **MW lowered to ~50% (the multiverse is rare/sacred)** via a 5×5 gauntlet + failed-MW −2. Endgame
+  spread ≈ **52% triumph / 36% collapse / 12% quiet legacy.** Current best in `sim/best-config.json`.
+
+### Still open / new
+
+- **⭐ Endgame flavour & reflection (NEW — important).** With MW now rare, **~half of games end
+  WITHOUT the multiverse** (collapse or quiet legacy). Those endings MUST feel like *"a life well
+  lived,"* not failure — they need **flavour text + a reflection / score-recap moment** so players
+  feel what they built (the team they grew, papers published, eras reached, artefacts saved). The
+  collapse ending especially must read as a **dramatic mode-flip**, not a loss. This is the design
+  job that *rides alongside* the rare-MW decision — without it, half the playthroughs feel like a
+  3-hour loss.
+- **Negotiation / alliances** — still the biggest sim blind spot (bots don't ally for the MW push;
+  real MW rate likely higher than the sim shows).
+- **Game length** — ~16–17 rounds / ~3h. The career-epic earns it narratively, but the table may
+  not; revisit if the playtest drags.
 
 ## Now
 
