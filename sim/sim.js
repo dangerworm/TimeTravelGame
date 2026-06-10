@@ -33,43 +33,41 @@ const ERAS   = ['Recent','Modern','EarlyModern','Medieval','Ancient','Prehistori
 function defaultConfig() {
   return {
     // Step requirement: max(1, round(reqBase + reqEraSlope*eraIdx + reqStepSlope*stepIdx))
-    // Era 0 step 0 = reqBase (want this ~1 so single-researcher turn-1 expeditions work)
-    reqBase:      1.0,
-    reqEraSlope:  0.8,
-    reqStepSlope: 0.4,
+    reqBase: 0.6, reqEraSlope: 0.2, reqStepSlope: 0.0,
 
-    // Rewards — objectives give rep (artefact) OR cash (direct find), 50/50
-    cashFindBase:  3,    cashFindSlope:  1.0,
-    repObjBase:    2,    repObjSlope:    1.5,
-    objCashChance: 0.4,  // fraction of objectives that pay cash instead of artefact
-    findPayoutMult: 1.0, // multiplier on the (now sole) penultimate find — re-tune lever for Exp B
+    // Rewards
+    cashFindBase: 3, cashFindSlope: 1.0,
+    repObjBase: 2,   repObjSlope: 1.5,
+    objCashChance: 0.40,
+    findPayoutMult: 2.0,  // penultimate find pays 2× — reaches MW ~75% (10 Jun)
 
-    // Plunder / record (10 Jun) — plunder a NON-doomed artefact scars the timeline (the shared
-    // half of the greed dial); doomed artefacts grab clean. Bots route plunder -> sell for Cash.
-    doomedChance:   0.35,  // fraction of artefact objectives that are doomed (clean to take)
-    plunderImprint: [1,1,2,2,3,3,4], // Integrity lost per NON-doomed plunder, by era (deeper = worse)
+    // Plunder / record — non-doomed plunder scars the timeline (greed dial); doomed grabs clean.
+    doomedChance: 0.35,
+    plunderImprint: [1,1,1,2,2,3,3],
 
-    // Early-step relief spoils (Exp B follow-up) — a few small spoils on early steps so players
-    // aren't doing pure-gate steps for nothing. Applies to eras below earlySpoilEraMax, on steps
-    // before the penultimate, max one extra per card.
+    // Early-step relief spoils
     earlySpoilChance: 0.15, earlySpoilCashMin: 1, earlySpoilCashMax: 2, earlySpoilEraMax: 4,
 
-    // Era card structure
-    stepsMin: 2, stepsMax: 3, eraCardsPerTier: 8,
-    dangerChance: 0.20, profLockChance: 0.20,
-    // Experiment B: per-era [min,max] step bands (eras 0..5). null = uniform stepsMin/Max.
-    eraStepBands: null,
+    // Era card structure — growth bands by era: Recent 3, Modern 3, EarlyMod 4, Medieval 4,
+    // Ancient 5, Prehistoric 5, (Many Worlds 5 via mwSteps).
+    eraStepBands: [[3,3],[3,3],[4,4],[4,4],[5,5],[5,5],[5,5]],
+    stepsMin: 4, stepsMax: 5, eraCardsPerTier: 12,
+    dangerChance: 0.20, profLockChance: 0.33,
 
-    // Researchers
-    postdocCostMin: 2, postdocCostMax: 3, expertCost: 9,
-    pipSpike: 3, pipFloor: 1,
+    // Researchers — specialist (SS) / non-specialist (NSS) pip model (10 Jun).
+    // SS = Insight for Historian/Physicist, Craft for Engineer; NSS the other; Grit always random.
+    // Each skill rolls in [floor, ceiling]; SS = min(ceiling, NSS + spike); spike random 0/1/2.
+    // Cost = total pips (+1 if any skill is at the ceiling), clamped to [costMin, costMax].
+    postdocCostMin: 3, postdocCostMax: 7, expertCostMin: 9, expertCostMax: 16,
+    postdocPipFloor: 0, postdocPipCeiling: 3,
+    expertPipFloor:  3, expertPipCeiling:  5,
+    postdocTotalMin: 3, postdocTotalMax: 6,  // postdocs: 3–6 total pips (experts run 9–15 via floor 3)
 
     // Module upgrade costs (index = currentLevel-1 → cost to next level)
-    // Total Amp 1→7 with defaults = 2+2+3+3+5+8 = 23 cash (reachable in ~8-10 rounds)
-    ampCosts:  [2, 2, 3, 3, 5, 8],   // Amp levels 1→7 (6 upgrades)
-    capCosts:  [3, 5, 8, 12],         // Cap levels 1→5 (4 upgrades)
-    colCosts:  [3, 5, 8],             // Col levels 1→4 (3 upgrades)
-    stabCosts: [4, 7],                // Stab 2→3→4 (2 upgrades)
+    ampCosts:  [0, 1, 2, 4, 6, 9], // Amp 1→7; 1→2 is free, so the first upgrade only needs a researcher
+    capCosts:  [3, 4, 6, 9],      // Cap 1→5
+    colCosts:  [3, 5, 8],         // Col 1→4
+    stabCosts: [4, 7],            // Stab 2→4→6 (+2 max-instability each upgrade)
 
     // Player base
     baseI: 2, baseC: 2, baseG: 2,
@@ -77,34 +75,29 @@ function defaultConfig() {
     // Hand draw = handPerResearcher × (researchers on expedition) + handBase
     handPerResearcher: 2, handBase: 2,
 
-    // Start state — startStab=2 (locked 9 Jun): overclock must be a real gamble.
-    // A single carried-over instability + one objective push can now trigger a shutdown.
-    // startAmp=2 (locked 9 Jun): Recent + Modern reachable turn one — kills the ~4-round
-    // Recent crawl that left players "suddenly thrust into the end-game" (Experiment A).
-    startCash: 2, startAmp: 2, startCap: 1, startCol: 1, startStab: 2,
+    // Start state
+    startCash: 3, startAmp: 1, startCap: 1, startCol: 1, startStab: 2,
 
-    // Timeline Integrity
-    integrity4p: 12, integrity5p: 14,
+    // Timeline Integrity = (players + 1) × integrityPerPlayerPlus1
+    integrityPerPlayerPlus1: 4,
 
     // Consequence deck weights (relative, normalised to 40 cards)
     consWeights: { int1:20, int2:8, cashLoss:15, cashGain:12,
                    repLoss:10, repGain:10, modLoss:5, nothing:20 },
-    consEraScale: 0.15,
+    consEraScale: 0,  // consequences do NOT scale with era (keep the table maths light)
 
-    // Experience — expPerBox=2 means 4 expedition uses to max (achievable in ~6-8 rounds)
+    // Experience — expPerBox=2 → 4 uses to fully mature (2 earnable boxes)
     expPerBox: 2, expMaxBoxes: 2, expBonus: 1,
 
-    // Papers (Historian publishes artefact → rep)
+    // Papers — vestigial (publishing pays the artefact's printed rep, not these)
     paperRepBase: 4, paperRepBonus: 1,
 
-    // Many Worlds card
-    mwSteps: 3, mwReqPerStep: 3, mwIntegDmgFail: 2,
+    // Many Worlds card — 5×5 makes the multiverse rare (~50%) and the final push genuinely perilous;
+    // failed-MW −2 keeps the endgame spread ~53% triumph / 33% collapse / 14% legacy (not all collapse).
+    mwSteps: 5, mwReqPerStep: 5, mwIntegDmgFail: 2,
 
-    // Parting gift (not actively triggered by bots — see ASSUMPTIONS.md)
     partingRep: 2,
-
-    // Safety cap
-    maxRounds: 60,
+    maxRounds: 30,
   };
 }
 
@@ -168,20 +161,27 @@ function genConsDeck(cfg, rng) {
 }
 
 function genResearcher(profession, isSenior, cfg, rng) {
-  const spike = rng.pick(SKILLS);
-  const pips  = {};
-  for (const s of SKILLS) {
-    const base = s===spike ? cfg.pipSpike : cfg.pipFloor;
-    const v    = rng.next()<0.3 ? 1 : rng.next()<0.3 ? -1 : 0;
-    pips[s]    = Math.max(0, base+v);
+  const floor = isSenior ? cfg.expertPipFloor   : cfg.postdocPipFloor;
+  const ceil  = isSenior ? cfg.expertPipCeiling : cfg.postdocPipCeiling;
+  let pips, total, atCeil;
+  for (let tries=0; ; tries++) {
+    const spike = rng.int(0, 2);                 // 0/1/2 equal — the specialist's edge over NSS
+    const nss   = rng.int(floor, ceil);          // non-specialist skill
+    const ss    = Math.min(ceil, nss + spike);   // specialist ≥ non-specialist, capped at ceiling
+    const grit  = rng.int(floor, ceil);
+    pips = {};
+    if (profession === 'Engineer') { pips.C = ss; pips.I = nss; } // Engineer specialises in Craft
+    else                           { pips.I = ss; pips.C = nss; } // Historian & Physicist → Insight
+    pips.G = grit;
+    total  = pips.I + pips.C + pips.G;
+    atCeil = (pips.I===ceil || pips.C===ceil || pips.G===ceil);
+    // Postdocs: keep total pips in [postdocTotalMin, postdocTotalMax]. Experts use floor/ceiling as-is.
+    if (isSenior || (total>=cfg.postdocTotalMin && total<=cfg.postdocTotalMax) || tries>50) break;
   }
-  return {
-    profession, pips,
-    cost:      isSenior ? cfg.expertCost : rng.int(cfg.postdocCostMin, cfg.postdocCostMax),
-    isSenior,
-    expTokens: 0,
-    expBoxes:  isSenior ? cfg.expMaxBoxes : 0,
-  };
+  const costMin = isSenior ? cfg.expertCostMin : cfg.postdocCostMin;
+  const costMax = isSenior ? cfg.expertCostMax : cfg.postdocCostMax;
+  const cost    = Math.max(costMin, Math.min(costMax, total + (atCeil ? 1 : 0)));
+  return { profession, pips, cost, isSenior, expTokens:0, expBoxes: isSenior ? cfg.expMaxBoxes : 0 };
 }
 
 // ── PLAYER STATE ──────────────────────────────────────────────────────────────
@@ -325,11 +325,13 @@ function runExpedition(player, card, roster, policy, game) {
       cashGained += step.cash||0;
     } else if (!step.isArtefact) {
       repGained += step.rep||0;       // pure-knowledge prize: record-only
+      player.papersWritten++;         // a recorded finding IS a paper
     } else {
       // Artefact objective: record (rep now, clean) vs plunder (take it → scar now, then at the
       // desk a historian publishes it for rep, or sells it for cash if cash-starved).
       if (recordOrPlunder(policy, player, step, game) === 'record') {
         repGained += step.rep||0;
+        player.papersWritten++;       // recording evidence in the field IS a paper
       } else {
         player.plunders++;
         if (!step.isDoomed) {                        // taking a non-doomed artefact scars history
@@ -407,7 +409,7 @@ function tryAmpUpgrade(player, researcher, game) {
                 : nextAmp<=6 ? hasEng && hasPhy
                 : hasEng && hasPhy && engMaxed && phyMaxed;
   const cost = cfg.ampCosts[m.amp-1];
-  if (!canAmp || !cost || player.cash<cost) return false;
+  if (!canAmp || cost == null || player.cash<cost) return false; // cost 0 (free 1→2) is valid
   player.cash -= cost; m.amp++; gainExp(researcher, cfg); return true;
 }
 
@@ -426,11 +428,11 @@ function upgradeModule(player, researcher, game) {
       const cost = cfg.capCosts[m.cap-1];
       if (cost && player.cash>=cost) { player.cash-=cost; m.cap++; gainExp(researcher, cfg); return; }
     }
-    // Stab
-    const stabIdx = m.stab-2;
+    // Stab — each upgrade lifts the max-instability ceiling by +2 (start 2 → 4 → 6)
+    const stabIdx = (m.stab-2)/2;
     if (stabIdx < cfg.stabCosts.length) {
       const cost = cfg.stabCosts[stabIdx];
-      if (cost && player.cash>=cost) { player.cash-=cost; m.stab++; gainExp(researcher, cfg); return; }
+      if (cost && player.cash>=cost) { player.cash-=cost; m.stab+=2; gainExp(researcher, cfg); return; }
     }
     // Amp (fallback)
     tryAmpUpgrade(player, researcher, game);
@@ -451,8 +453,8 @@ function upgradeModule(player, researcher, game) {
 // ── PLAN PHASE ────────────────────────────────────────────────────────────────
 function planStage(player, game) {
   const cfg = game.cfg;
+  // Many Worlds = Amp 7 (the 6→7 upgrade itself is gated on E+P fully experienced, in tryAmpUpgrade).
   if (player.machine.amp >= 7) {
-    // Stage a Many Worlds attempt
     player.staged = { eraIdx:6, isMW:true, steps: genMWSteps(cfg, game.rng) };
     return;
   }
@@ -581,7 +583,12 @@ const pBalanced = {
   },
 };
 
-const ALL_POLICIES = { greedy:pGreedy, cautious:pCautious, balanced:pBalanced };
+// Reckless: greedy in every respect, but it LOVES the gamble — it overclocks on ANY step when
+// up to 3 short, charging into shutdowns rather than folding. Models the keystone-#1 player.
+const pReckless = { ...pGreedy, name:'reckless',
+  shouldOverclock(player, shortfall) { return shortfall <= 3; } };
+
+const ALL_POLICIES = { greedy:pGreedy, cautious:pCautious, balanced:pBalanced, reckless:pReckless };
 
 // Record-vs-plunder decision (10 Jun). Each archetype has a different GATE on whether it will
 // consider plundering at all; the sub-decision (need rep -> record, need cash -> plunder) is shared.
@@ -700,8 +707,8 @@ function playGame(numPlayers, cfg, policyAssignment, seed, withTrace, logEras) {
   );
   const game = {
     cfg, rng, market, eraDecks,
-    integrity: numPlayers<=4 ? cfg.integrity4p : cfg.integrity5p,
-    integrityMax: numPlayers<=4 ? cfg.integrity4p : cfg.integrity5p,
+    integrity:    (numPlayers + 1) * cfg.integrityPerPlayerPlus1,
+    integrityMax: (numPlayers + 1) * cfg.integrityPerPlayerPlus1,
     consDeck:  genConsDeck(cfg, rng),
     players:   Array.from({length:numPlayers}, (_, i) => {
       const p = makePlayer(i, cfg);
@@ -713,7 +720,8 @@ function playGame(numPlayers, cfg, policyAssignment, seed, withTrace, logEras) {
     eraLog: logEras ? [] : null,
   };
 
-  // Initial setup: each player buys first researcher if possible, then plans
+  // Initial setup: each player buys first researcher if possible, then plans.
+  // (startCash 3 affords the cheapest postdoc; the free Amp 1→2 upgrade does the rest.)
   for (const p of game.players) {
     buyIfAffordable(p, game.market, game);
     planStage(p, game);
@@ -896,7 +904,7 @@ function writeResults(sweep, traces) {
 
   s += `## TL;DR\n\n`;
   s += `| | 4-player | 5-player | Target |\n|---|---|---|---|\n`;
-  s += `| Many Worlds success | ${fmtp(m4.mwRate)} | ${fmtp(m5.mwRate)} | ~75% |\n`;
+  s += `| Many Worlds success | ${fmtp(m4.mwRate)} | ${fmtp(m5.mwRate)} | ~50% (rare/sacred) |\n`;
   s += `| Deep-objective completion | ${m4.deepComplete!=null?fmtp(m4.deepComplete):'?'} | ${m5.deepComplete!=null?fmtp(m5.deepComplete):'?'} | ~40% |\n`;
   s += `| Avg rounds | ${fmt2(m4.avgRounds)} | ${fmt2(m5.avgRounds)} | 8–12 |\n`;
   s += `| Wall clock (est.) | ${m4.wallClock} min | ${m5.wallClock} min | 60–120 min |\n`;
@@ -1089,17 +1097,8 @@ function writeProgress(sweep) {
 // The full Experiment-B config on the corrected refill resolution loop:
 // scaled step bands · penultimate-only spoils · 2×roster+2 hand · MW 6×4 gauntlet.
 function lockedConfig() {
-  const cfg = { ...defaultConfig(),
-    eraStepBands:      [[2,3],[2,3],[3,4],[3,4],[5,6],[5,6]], // deeper eras = longer ladders
-    reqBase: 0.6, reqEraSlope: 0.2, reqStepSlope: 0,          // shallow req-1, deep req-2
-    handPerResearcher: 2, handBase: 2,                        // [2×roster + 2] — the +2 is needed
-    findPayoutMult: 1.0,
-    integrity4p: 16, integrity5p: 19,                        // pool absorbs the plunder-imprint scars
-    mwSteps: 5, mwReqPerStep: 4, mwIntegDmgFail: 1,          // MW tuned to ~75% across 3/4/5 players
-  };
-  cfg.ampCosts = defaultConfig().ampCosts.map(c=>Math.max(1,Math.round(c*0.8)));
-  cfg.capCosts = defaultConfig().capCosts.map(c=>Math.max(1,Math.round(c*0.6)));
-  return cfg;
+  // defaultConfig now holds Drew's full hand-set spec (10 Jun), so the locked config is just that.
+  return { ...defaultConfig() };
 }
 
 // ── MAIN ──────────────────────────────────────────────────────────────────────
@@ -1112,6 +1111,54 @@ const expB   = args.includes('--expB');
 const retuneB= args.includes('--retuneB');
 const matrix = args.includes('--matrix');
 const retuneMW = args.includes('--retuneMW');
+const pushprobe = args.includes('--pushprobe');
+
+if (pushprobe) {
+  // Does the game survive players who LOVE the gamble? Pit the reckless archetype against baseline.
+  const cfg = lockedConfig();
+  const G = 400;
+  const comps = [
+    ['std-mix (base)', ['greedy','cautious','balanced']],
+    ['1 reckless',     ['reckless','cautious','balanced','greedy']],
+    ['reckless+bal',   ['reckless','balanced']],
+    ['all reckless',   ['reckless']],
+  ];
+  console.log('=== Push probe (4p): what happens when players embrace the overclock ===\n');
+  console.log('composition      |  MW  | coll | OC% | cash | shutdn/game | reckless OC% / shut');
+  console.log('-----------------|------|------|-----|------|-------------|--------------------');
+  for (const [name, assign] of comps) {
+    const res=[];
+    for (let g=0; g<G; g++) res.push(playGame(4, cfg, assign, g+424242, false));
+    const m = computeMetrics(res, 4);
+    const r = m.byPolicy.reckless;
+    const recStr = r ? `${(r.ocRate*100).toFixed(0)}% / ${r.shutdownsPerGame.toFixed(1)}` : '—';
+    console.log(
+      `${name.padEnd(16)} | ${(m.mwRate*100).toFixed(0).padStart(3)}% | ${(m.collapseRate*100).toFixed(0).padStart(3)}% | `+
+      `${(m.ocPerExp*100).toFixed(0).padStart(2)}% | ${(m.coRate*100).toFixed(0).padStart(3)}% | `+
+      `${m.avgShutdown.toFixed(1).padStart(5)}       | ${recStr}`
+    );
+  }
+  process.exit(0);
+}
+
+if (args.includes('--dumpconfig')) {
+  // Snapshot the live config to a JSON reference (a jumping-off point for tweaking).
+  const out = {
+    _meta: {
+      label: 'best-2026-06-10c',
+      note: 'MULTIVERSE-IS-RARE config. MW ~52% (5×5 gauntlet, failed-MW −2) so the win is sacred; '
+          + 'endgame spread ≈ 52% triumph / 36% collapse / 12% quiet legacy. Papers ~17/game (record = '
+          + 'a paper). Deep ~50%, ~16-17 rounds. Overclock baseline ~19% is a bot-conservatism floor — '
+          + 'a reckless player pushes 60%+ and bricks 2-4×/game (--pushprobe); the gamble is a CHOICE. '
+          + 'TODO riding alongside: make the non-MW endings (collapse, legacy) FEEL worthy (flavour + reflection).',
+      generated: '2026-06-10',
+    },
+    config: lockedConfig(),
+  };
+  fs.writeFileSync('sim/best-config.json', JSON.stringify(out, null, 2));
+  console.log('Wrote sim/best-config.json');
+  process.exit(0);
+}
 
 // Era-by-round curve for a given config (per-policy avg era index + avg amp)
 function computeEraCurve(cfg, G, seedBase) {
@@ -1296,26 +1343,23 @@ if (retuneMW) {
   // plunder-imprint raised the integrity drain. Levers: integrity pool, MW length, failed-MW cost.
   const MIX = ['greedy','cautious','balanced'];
   const G = 250;
-  const grid = buildGrid({ integrity4p:[16,20,24], mwSteps:[4,5,6], mwIntegDmgFail:[1,2] });
-  const mkCfg = p => ({ ...lockedConfig(),
-    integrity4p:p.integrity4p, integrity5p:Math.round(p.integrity4p*1.2),
-    mwSteps:p.mwSteps, mwIntegDmgFail:p.mwIntegDmgFail });
-  const ev = (cfg,n) => { const r=[]; for(let g=0;g<G;g++) r.push(playGame(n,cfg,MIX,g+n*131+cfg.mwSteps*7,false)); return computeMetrics(r,n); };
+  // MW is 5×5 (~47%). Sweep the failed-MW penalty: it splits the non-triumph endings between
+  // COLLAPSE (reality breaks) and LEGACY-timeout (a life well lived, no multiverse). We want a
+  // healthy slice of BOTH, not collapse swallowing everything.
+  const grid = buildGrid({ mwIntegDmgFail:[1,2,3] });
+  const mkCfg = p => ({ ...lockedConfig(), mwIntegDmgFail:p.mwIntegDmgFail });
+  const ev = (cfg,n) => { const r=[]; for(let g=0;g<G;g++) r.push(playGame(n,cfg,MIX,g+n*131+cfg.mwIntegDmgFail*97,false)); return computeMetrics(r,n); };
+  const avg3 = (a,b,c,k) => (a[k]+b[k]+c[k])/3;
   const results = grid.map(p => {
     const cfg=mkCfg(p), m3=ev(cfg,3), m4=ev(cfg,4), m5=ev(cfg,5);
-    const avgMW=(m3.mwRate+m4.mwRate+m5.mwRate)/3;
-    const avgColl=(m3.collapseRate+m4.collapseRate+m5.collapseRate)/3;
-    const avgRnd=(m3.avgRounds+m4.avgRounds+m5.avgRounds)/3;
-    return { p, m3, m4, m5, avgMW, avgColl, avgRnd, f:Math.abs(avgMW-0.75)+ (avgColl>0.5?(avgColl-0.5)*2:0) };
+    const mw=avg3(m3,m4,m5,'mwRate'), coll=avg3(m3,m4,m5,'collapseRate'), rnd=avg3(m3,m4,m5,'avgRounds');
+    return { p, mw, coll, legacy:Math.max(0,1-mw-coll), rnd };
   });
-  results.sort((a,b)=>a.f-b.f);
-  console.log('=== Re-tune MW (std mix, 3/4/5p) ===\n');
-  console.log('int mwStp mwFail | MW3 MW4 MW5  avg | coll | rnd');
-  console.log('-----------------|------------------|------|----');
-  results.slice(0,12).forEach(r => { const {p}=r;
-    console.log(`${String(p.integrity4p).padStart(2)}   ${p.mwSteps}    ${p.mwIntegDmgFail}    | `+
-      `${(r.m3.mwRate*100).toFixed(0).padStart(3)} ${(r.m4.mwRate*100).toFixed(0).padStart(3)} ${(r.m5.mwRate*100).toFixed(0).padStart(3)}  ${(r.avgMW*100).toFixed(0).padStart(3)}% | `+
-      `${(r.avgColl*100).toFixed(0).padStart(3)}% | ${r.avgRnd.toFixed(1)}`);
+  console.log('=== Endgame spread vs failed-MW penalty (5×5 MW, std mix avg 3/4/5p) ===\n');
+  console.log('failed-MW | triumph(MW) | collapse | legacy | rnd');
+  console.log('----------|-------------|----------|--------|----');
+  results.forEach(r => { const {p}=r;
+    console.log(`   −${p.mwIntegDmgFail}     |    ${(r.mw*100).toFixed(0).padStart(3)}%     |   ${(r.coll*100).toFixed(0).padStart(3)}%   |  ${(r.legacy*100).toFixed(0).padStart(3)}%  | ${r.rnd.toFixed(1)}`);
   });
   process.exit(0);
 }

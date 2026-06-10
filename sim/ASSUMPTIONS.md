@@ -13,12 +13,12 @@ _Every modelling decision that needs Drew's eye._
   cash-out spikes to ~62% (constant folding). The +2 is what makes deep ladders climbable.
 
 ## Experiment B — era step-scaling (DECIDED 10 Jun 2026)
-- Deeper eras are **longer ladders**: step bands [[2,3],[2,3],[3,4],[3,4],[5,6],[5,6]] (eras 0..5).
+- Deeper eras are **longer ladders**: step bands [[3,3],[3,3],[4,4],[4,4],[5,5],[5,5],[5,5]] (eras 0..5).
 - **Spoils only on the second-to-last step** (every earlier step pays nothing); the last step is the objective.
 - Req curve is gentle: `max(1, round(0.6 + 0.2×era + 0×step))` → shallow req-1,
   deep req-2. **Caveat:** "danger spikes" can't be much higher than req-2 — a single high-req step still
   outruns the hand, so danger should bite some *other* way (instability / consequence), not via big reqs.
-- **Many Worlds is the win brake:** 5 steps × 4 pips — tuned to land MW success ~75% without
+- **Many Worlds is the win brake:** 5 steps × 5 pips — tuned to land MW success ~75% without
   touching the era economy.
 
 ## Plunder / record & the greed→collapse dial (10 Jun 2026)
@@ -54,9 +54,9 @@ Three bots mixed across players:
 **Key gaps:** bots don't alliance for MW (solo only), don't negotiate, don't react to scores.
 
 ## Era Card Shape
-- 2–3 steps per card (uniform). Spec says "2+ steps" — upper bound chosen.
+- 4–5 steps per card (uniform). Spec says "2+ steps" — upper bound chosen.
 - 20% of steps are forced Grit (danger). Spec: "danger steps open Grit."
-- 20% of Insight steps are Historian-locked; same for Craft→Engineer. Physicist has no per-step lock. Spec: "some steps profession-locked (knowledge)" — Physicist gating is at the module level only.
+- 33% of Insight steps are Historian-locked; same for Craft→Engineer. Physicist has no per-step lock. Spec: "some steps profession-locked (knowledge)" — Physicist gating is at the module level only.
 - All objectives are artefacts (record-vs-plunder choice). Spec implies this; confirmed.
 
 ## Experience & Many Worlds Gate — DECIDED (9 Jun 2026)
@@ -69,8 +69,8 @@ Three bots mixed across players:
 - This matches Record (which always paid the card's rep) and removes the sim's old flat "paperRepBase + boxes" invention. Deep finds are now worth their true significance; "Papers dominate held artefacts (1 each)" still holds.
 
 ## Many Worlds
-- 5 steps × 4 pips each. **Primary game-length tuning knob.**
-- Failed MW: −1 integrity. Spec says "4–5" — **reduced to 1 after 4 caused cascade collapse in every game.** Confirm with Drew.
+- 5 steps × 5 pips each. **Primary game-length tuning knob.**
+- Failed MW: −2 integrity. Spec says "4–5" — **reduced to 2 after 4 caused cascade collapse in every game.** Confirm with Drew.
 - **MW roster: all researchers sent** (not just cap-limit). Thematically: everyone for the final push. Massively improves success rate — without this, MW was ~5%.
 - Bots attempt MW solo. Real tables will alliance. MW success rate is probably 10–20% higher in practice.
 
@@ -107,5 +107,5 @@ _Home-action model, exp-box count, and startStab are now DECIDED (see sections a
 1. **5-player wall clock** (~149 min @ 3 min/turn) — the one metric still over target. Lower mwSteps or raise home income if it bites in play.
 2. **Shutdowns at ~4/game** — top of the 1–4 band. Tighten the greedy objective-push to "≤1 short" for ~2–3 if too punishing.
 3. **Paper rep base** — raise to 4? (Fresh historian currently 4.)
-4. **MW difficulty** (4 pips × 5 steps) — adjust if game length is off.
-5. **Amplifier total cost** (18 cash 1→7) — feasible in ~10 rounds?
+4. **MW difficulty** (5 pips × 5 steps) — adjust if game length is off.
+5. **Amplifier total cost** (22 cash 1→7) — feasible in ~10 rounds?

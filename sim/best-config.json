@@ -1,0 +1,132 @@
+{
+  "_meta": {
+    "label": "best-2026-06-10c",
+    "note": "MULTIVERSE-IS-RARE config. MW ~52% (5×5 gauntlet, failed-MW −2) so the win is sacred; endgame spread ≈ 52% triumph / 36% collapse / 12% quiet legacy. Papers ~17/game (record = a paper). Deep ~50%, ~16-17 rounds. Overclock baseline ~19% is a bot-conservatism floor — a reckless player pushes 60%+ and bricks 2-4×/game (--pushprobe); the gamble is a CHOICE. TODO riding alongside: make the non-MW endings (collapse, legacy) FEEL worthy (flavour + reflection).",
+    "generated": "2026-06-10"
+  },
+  "config": {
+    "reqBase": 0.6,
+    "reqEraSlope": 0.2,
+    "reqStepSlope": 0,
+    "cashFindBase": 3,
+    "cashFindSlope": 1,
+    "repObjBase": 2,
+    "repObjSlope": 1.5,
+    "objCashChance": 0.4,
+    "findPayoutMult": 2,
+    "doomedChance": 0.35,
+    "plunderImprint": [
+      1,
+      1,
+      1,
+      2,
+      2,
+      3,
+      3
+    ],
+    "earlySpoilChance": 0.15,
+    "earlySpoilCashMin": 1,
+    "earlySpoilCashMax": 2,
+    "earlySpoilEraMax": 4,
+    "eraStepBands": [
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        5
+      ]
+    ],
+    "stepsMin": 4,
+    "stepsMax": 5,
+    "eraCardsPerTier": 12,
+    "dangerChance": 0.2,
+    "profLockChance": 0.33,
+    "postdocCostMin": 3,
+    "postdocCostMax": 7,
+    "expertCostMin": 9,
+    "expertCostMax": 16,
+    "postdocPipFloor": 0,
+    "postdocPipCeiling": 3,
+    "expertPipFloor": 3,
+    "expertPipCeiling": 5,
+    "postdocTotalMin": 3,
+    "postdocTotalMax": 6,
+    "ampCosts": [
+      0,
+      1,
+      2,
+      4,
+      6,
+      9
+    ],
+    "capCosts": [
+      3,
+      4,
+      6,
+      9
+    ],
+    "colCosts": [
+      3,
+      5,
+      8
+    ],
+    "stabCosts": [
+      4,
+      7
+    ],
+    "baseI": 2,
+    "baseC": 2,
+    "baseG": 2,
+    "handPerResearcher": 2,
+    "handBase": 2,
+    "startCash": 3,
+    "startAmp": 1,
+    "startCap": 1,
+    "startCol": 1,
+    "startStab": 2,
+    "integrityPerPlayerPlus1": 4,
+    "consWeights": {
+      "int1": 20,
+      "int2": 8,
+      "cashLoss": 15,
+      "cashGain": 12,
+      "repLoss": 10,
+      "repGain": 10,
+      "modLoss": 5,
+      "nothing": 20
+    },
+    "consEraScale": 0,
+    "expPerBox": 2,
+    "expMaxBoxes": 2,
+    "expBonus": 1,
+    "paperRepBase": 4,
+    "paperRepBonus": 1,
+    "mwSteps": 5,
+    "mwReqPerStep": 5,
+    "mwIntegDmgFail": 2,
+    "partingRep": 2,
+    "maxRounds": 30
+  }
+}
