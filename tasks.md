@@ -48,10 +48,11 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
   real MW rate likely higher than the sim shows).
 - **Game length** — ~16–17 rounds / ~3h. The career-epic earns it narratively, but the table may
   not; revisit if the playtest drags.
-- **Title — confirm "Warped"** _(lifted from the archived log, 10 Jun)._ Rikki's suggestion, Drew's
-  front-runner: works on four levels (spacetime warp · imprints warping history · the moral "warped
-  scientist" dial · the loom's _warp_ threads). Confirming triggers a project-wide rename from the
-  "Time Travel" working title.
+- **Title — "Warped" CONFIRMED as the working title (10 Jun)**, but **pending an IP/legal check.**
+  Rikki's suggestion; works on four levels (spacetime warp · imprints warping history · the moral
+  "warped scientist" dial · the loom's _warp_ threads). ⚠️ **Conflicts to clear first:** an existing
+  publisher **"Warped Reality Games"** and an indie maker **"Warped Board Games"** — may force a
+  rethink. **Hold the project-wide rename** (repo/`CLAUDE.md` still say "Time Travel") until IP clears.
 - **Negotiate / lending terms** _(lifted from the archived log)._ v4 has a **Negotiate** phase
   (turn structure), but its terms are unspecified: how does borrowing a rival's specialist (or a
   cash loan) work _without_ letting a leader farm reputation? Design the terms before playtest.
