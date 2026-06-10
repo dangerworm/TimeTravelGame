@@ -2,6 +2,37 @@
 
 _The active backlog for the redesign. The old task list lives in `archive/tasks.md`._
 
+## ⭐ Next session (10 Jun handoff) — priority order
+
+_The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's plan from here:_
+
+1. **Clean up the repo.** Remove what we don't need, consolidate docs where possible, **archive v2 and
+   v3**, delete `prototypes/`. _(List matches before deleting — confirm with Drew per scope discipline.)_
+2. **Answer / discuss the open questions & ideas** (below).
+3. **Run the sim** with any changes that come out of (2).
+4. **Read all _live_ (non-archived) docs end-to-end** and fix inconsistencies, duplication, contradiction,
+   and stale content — add/edit/remove as needed.
+5. **Finish every task we can** — all must be signed off before a paper playtest.
+6. **Document the parameters & control knobs** — each dial, what it does, and worked implications
+   ("a factor of X means Y looks like M/N/O/P/Q at successive points in the game").
+7. **Produce one clean, definitive game-design document.**
+8. **Create enough content for a full playtest.**
+9. **Build a way to print that content** — using the layout sketch in
+   `design/2026-06-09-post-whiteboarding-with-andy.png`. (Vite + React + MUI per the renderer plan.)
+
+### Open questions & ideas to resolve in (2)
+
+- **Why so few papers?** `Avg papers ~2.7` is the **game total** (~0.67/player). Rep mostly comes from
+  *recording*; most plunders *sell* for cash, so papers are a niche outcome. Does the "publish a paper"
+  fantasy need protecting (e.g. a rep premium for publishing vs recording)?
+- **Negotiation / alliances.** Bots don't ally, loan, or deal — the biggest sim blind spot. Model a
+  coalition pooling for the final Many Worlds push and measure the lift (likely +10–20% MW). Freeform
+  negotiation probably isn't worth modelling.
+- **Sim experiment — lift failed-MW penalty.** −1 feels too low. Try **plunder-imprint `[1,1,1,1,2,2,2]`**
+  (flatter/lower → frees integrity budget) and push **failed-MW back up** (toward −2/−3), re-tune.
+- **Sim experiment — growth-shaped step bands.** Make the ladder *feel* like growth toward MW's 5 steps:
+  **Recent 3 · Modern→Medieval 4 · Ancient→Prehistoric & Many Worlds 5**. Re-tune reqs/economy after.
+
 ## Now
 
 > **⚠️ v3 core-resolution redesign (8 Jun 2026):** a real-human playtest found the v2 loop dull; the
