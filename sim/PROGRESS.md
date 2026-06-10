@@ -4,8 +4,8 @@
 
 - 1 configs swept
 - Best fitness: 0.000
-- 4p MW rate: 51.8% | avg rounds: 16.62 | wall clock: 199 min
-- 5p MW rate: 55.8% | avg rounds: 17.29 | wall clock: 259 min
+- 4p MW rate: 49.0% | avg rounds: 17.30 | wall clock: 208 min
+- 5p MW rate: 57.5% | avg rounds: 17.07 | wall clock: 256 min
 
 ## Best Params
 

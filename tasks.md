@@ -35,17 +35,33 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
 - **MW lowered to ~50% (the multiverse is rare/sacred)** via a 5×5 gauntlet + failed-MW −2. Endgame
   spread ≈ **52% triumph / 36% collapse / 12% quiet legacy.** Current best in `sim/best-config.json`.
 
+### Resolved this session (10 Jun, evening — endgame + economy + doc reconciliation)
+
+- **✅ Endgame reflection keystone — DONE.** Score-recap = a two-band **portrait scoresheet** (_what
+  you discovered_ × _how you did it_); ethics **un-baked** into visible **disrepute tokens** (score =
+  Rep − disrepute, netted at scoring; Reputation can still dip honestly, but a discredited paper is
+  *peer review, not* disrepute). Ending structure = **individual retirement** (the 3rd end-trigger) +
+  the *three-fates* framing; quiet-legacy flavour drafted (skeleton §9 — polish before print).
+  Optional told-aloud Epilogue = a rulebook first-plays variant.
+- **✅ Negotiate = researcher rental, Cash-only, no loans.** Kills the leader rep-farm; doubles as the
+  endgame-alliance handle (lend specialists for the MW gauntlet).
+- **✅ En-route find is now Sell-or-Publish (a minor paper)** — lifts paper cadence even for cautious
+  cash-outs, and writing it seasons a researcher. Early-relief spoil (15%, shallow eras, 1–2 Cash,
+  max 1/card) pinned from the sim + documented (skeleton §4/§5).
+- **✅ Doc reconciliation pass.** Threaded all the above into `design-skeleton.md`
+  (§1/§2/§4/§5/§6/§7/§8/§9/§10) + `constraints.md`; fixed stale numbers (failed-MW **−2**, plunder
+  **`[1,1,1,2,2,3,3]`**, start cash **3**, integrity **(players+1)×4**, experience **2 tokens/box · 2
+  earnable**); spoils→Cash done **selectively** (Cash = currency · *find* = convertible reward ·
+  "spoils" = flavour only). Full findings: `sessions/2026-06-10-doc-reconciliation-report.md`.
+
 ### Still open / new
 
-- **⭐ Endgame flavour & reflection (NEW — important).** With MW now rare, **~half of games end
-  WITHOUT the multiverse** (collapse or quiet legacy). Those endings MUST feel like *"a life well
-  lived,"* not failure — they need **flavour text + a reflection / score-recap moment** so players
-  feel what they built (the team they grew, papers published, eras reached, artefacts saved). The
-  collapse ending especially must read as a **dramatic mode-flip**, not a loss. This is the design
-  job that *rides alongside* the rare-MW decision — without it, half the playthroughs feel like a
-  3-hour loss.
+- **✅ Endgame flavour & reflection — RESOLVED (10 Jun eve).** See the evening resolved block above.
+  Remaining = *content polish*, not design: tighten the quiet-legacy speech and write the collective
+  vs per-player epilogue variants (skeleton §9).
 - **Negotiation / alliances** — still the biggest sim blind spot (bots don't ally for the MW push;
-  real MW rate likely higher than the sim shows).
+  real MW rate likely higher than the sim shows). _(The Negotiate **terms** are now designed — rental,
+  Cash-only — but the bots still don't model alliances.)_
 - **Game length** — ~16–17 rounds / ~3h. The career-epic earns it narratively, but the table may
   not; revisit if the playtest drags.
 - **Title — "Warped" CONFIRMED as the working title (10 Jun)**, but **pending an IP/legal check.**
@@ -53,9 +69,8 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
   "warped scientist" dial · the loom's _warp_ threads). ⚠️ **Conflicts to clear first:** an existing
   publisher **"Warped Reality Games"** and an indie maker **"Warped Board Games"** — may force a
   rethink. **Hold the project-wide rename** (repo/`CLAUDE.md` still say "Time Travel") until IP clears.
-- **Negotiate / lending terms** _(lifted from the archived log)._ v4 has a **Negotiate** phase
-  (turn structure), but its terms are unspecified: how does borrowing a rival's specialist (or a
-  cash loan) work _without_ letting a leader farm reputation? Design the terms before playtest.
+- **✅ Negotiate / lending terms — RESOLVED (10 Jun eve).** Researcher rental, **Cash-only, no
+  loans** — see the evening resolved block + `constraints.md` + skeleton §2/§7/§8.
 
 ## Now
 
@@ -101,8 +116,9 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
       instability-tolerance / precision); then exact instability numbers.
 - [ ] **Then the endgame front:** collapse mode-flip + Many Worlds trigger + final scoring (dodge
       runaway-leader & "who triggers?" problems).
-- [ ] Sweep terminology across docs once it settles: **"spoils" → "Cash"** and **"Nerve" → "Grit"**
-      (scratchpad, core-goals, prototype-01, retirement seed cards).
+- [x] **Terminology swept (10 Jun eve).** **Nerve→Grit** already clean (no live occurrences);
+      **spoils→Cash** done **selectively** — Cash = currency, *find* = the convertible reward,
+      "spoils" kept only as occasional flavour.
 - [x] **Repo cleanup (10 Jun).** `prototypes/` deleted (its 5 destination ideas extracted to
       `decks/destinations/seed-cards.md` in the v4 model); `current-idea-scratchpad.md` archived as
       `archive/v2-v3-design-log.md` (open items lifted here); stale sim files removed
@@ -119,10 +135,10 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
       (cash) at the desk (papers preserved). Re-tuned MW to ~75% across 3/4/5 players (integrity 16,
       MW 5×4, failed-MW −1). Added `--matrix` and `--retuneMW` sim modes + early-step relief spoils
       (eras <Ancient, ~15% chance, 1 per card).
-- [ ] **Doc drift to reconcile (noticed 9 Jun):** §6/§9 still say "three full blue experience boxes"
-      and "skills baseline 1/1/1" while §7 + the locked decision are **2 earnable boxes (1
-      pre-filled)** and a **2/2/2 player base**; §7's "4th token advances a box" vs the sim's
-      2-uses-per-box. Align the skeleton wording with the locked rules.
+- [x] **Doc drift reconciled (10 Jun eve).** §6 "three full boxes"→"both fully experienced"; §9
+      "1/1/1"→"2/2/2 base" + start cash **3** + integrity formula `(players+1)×4`; §7 "4th
+      token"→"every 2nd token, 2 earnable boxes". Skeleton now matches the locked rules +
+      `best-config.json`.
 
 - [x] **Experiment B re-tuned + RESOLUTION MODEL CORRECTED (10 Jun).** The "chip-stall" that drove
       the re-tune turned out to be a **bug**: the sim (and the literal spec) drew the hand once and

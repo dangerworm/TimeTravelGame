@@ -143,7 +143,7 @@ dated line whenever Drew states a new preference. Newest at the bottom of each s
   Full recommended config lives in `sim/RESULTS.md`; the cost of the gentle-ladder design is a
   **long game (~13 rounds)**, knowingly accepted for the deep-era escalation. (10 Jun 2026)
 - **Plundering a non-doomed artefact scars the timeline — the shared half of the greed dial.**
-  Taking a non-doomed artefact costs **Timeline Integrity**, era-scaled `[1,1,2,2,3,3,4]`
+  Taking a non-doomed artefact costs **Timeline Integrity**, era-scaled `[1,1,1,2,2,3,3]`
   (Recent→Many Worlds; deeper finds scar more); **doomed artefacts grab clean** (no scar, no
   disrepute — the same doomed exception as disrepute). The field choice is **Record** (clean
   Reputation now) vs **Plunder** (take it, scar now, then at the desk **Publish** for Reputation
@@ -151,10 +151,70 @@ dated line whenever Drew states a new preference. Newest at the bottom of each s
   timeline toward collapse — sim: greedy-heavy tables collapse ~35–43% vs balanced-heavy ~20%, so
   the ethical axis is now mechanical, not just fiction. The three archetypes plunder very
   differently (greedy ~1.2/game, balanced ~0.5, cautious ~0.1). (10 Jun 2026)
-- **The game is balanced across player counts (sim --matrix).** Standard mix holds Many Worlds
-  ~79–84% with collapse ~16–24% across **3/4/5 players**; 2p plays a touch easier, 6p a touch
-  harder, both still work. Recommended config: integrity 16, MW **5 steps × 4 pips**, failed-MW −1.
+- **The game is balanced across player counts (sim --matrix).** Standard mix holds across **3/4/5
+  players** (2p a touch easier, 6p a touch harder, both still work). Recommended config: integrity
+  **(players+1)×4**, MW **5 steps × 5 pips**, failed-MW **−2** — the rare-multiverse tune (MW ~50%,
+  collapse ~30–36%; see `sim/RESULTS.md` / `sim/best-config.json`). _Supersedes the earlier same-day
+  5×4 / failed-MW −1 / integrity-16 figures, which targeted the abandoned ~75–84% MW rate._ (10 Jun
+  2026)
+- **Disrepute is a separate token pile (the moral stain), not a silent Reputation decrement — the
+  ethics axis SHOWS without adding a scoring subsystem.** All **ethics-linked** reputation costs
+  are paid as **disrepute tokens** kept in a pile _beside_ your Reputation, never by removing
+  Reputation: selling a non-doomed artefact = `max(1, floor((rep−1)/2))` tokens (**0 for doomed**),
+  plus any plunder-related hit. **Final score = Reputation − disrepute** (+ highest module level +
+  unresearched artefacts, §9), netted once at scoring. Reputation is earned from a researcher's
+  work and **can still dip for honest, non-moral reasons** — a consequence discrediting a paper is
+  _peer review catching a mistake, not a moral failing_, so it reduces the Reputation pile directly
+  and is **not** disrepute. _Purpose:_ the endgame score-recap becomes a two-band **portrait**
+  (_what you discovered_ × _how you did it_) with no new points-salad; the careful player's reward
+  is a visibly **clean sheet** (0 disrepute), and mid-game the disrepute pile telegraphs a
+  plunderer's true standing beside an inflated Reputation pile (soft catch-up read, zero
+  arithmetic). _Supersedes the earlier 10 Jun wording that took the sell cost out of Reputation
+  directly — it is now tokens._ (10 Jun 2026)
+- **Individual retirement is the game's third end-trigger (the quiet-legacy ending) — not a round
+  cap, not a table vote.** On your turn you may **retire your scientist** instead of acting: read
+  your personal epilogue, **lock your score**, and take no further turns. The game ends on the
+  **first** of: _every player retired_ (→ the quiet-legacy / "a life well lived" ending), _a player
+  completes **Many Worlds**_ (→ triumph), or _**Integrity 0**_ (→ collapse / Unravelling). **No
+  designed round cap** — the sim's `maxRounds` is only a backstop. _Rationale:_ a unanimous "the
+  table agrees to stop" has a contested-concession failure mode (the leader wants to lock the win,
+  the trailer wants one more push) and frames the ending as collective **surrender**, undercutting
+  its dignity. **Individual** retirement is self-regulating (retiring stops you scoring, so nobody
+  quits early), needs no aging bookkeeping, and turns the whole game into a **career-scale overclock
+  gamble** — bank an illustrious, earthbound career now, or push for the multiverse and risk the
+  timeline tearing apart under you. Each retiree gets a personal epilogue beat; when the **last**
+  player ends, the table reads the collective quiet-legacy framing. _Watch in playtest:_ downtime
+  for a player who stalls and wants out early, and the solo-grind tail once all but one have
+  retired. (10 Jun 2026)
+- **Negotiate is researcher rental for Cash only — never a Reputation transfer, and no cash loans.**
+  In the Negotiate phase you may **rent another player's teammate** for the upcoming expedition at a
+  freely-agreed **Cash** fee: their pips join your bag and they count toward your Capacity for that
+  jump; their **owner can't use them at home** that turn (the opportunity cost that prices the fee);
+  **all Reputation from the expedition stays with you** (your jump, your paper, your legacy — the
+  rented researcher is hired help); the researcher **returns** afterwards. _Why this shape:_
+  Reputation is your life's work and must trace to your own team, so it is never rented, sold, or
+  shared — that kills the runaway-leader rep-farm the old machine-lending rule created and keeps the
+  team-legacy keystone pure. Cash loans are cut (repayment bookkeeping + "never repay" exploits) — a
+  parked premium. Bonus: rental is the **mechanical seat of the endgame alliance** — lend a rival
+  your Physicist/Engineer for the Many Worlds gauntlet. _Open detail:_ whether a rented researcher
+  earns an experience token for its owner (lean: no — mercenary work doesn't build your own legacy).
   (10 Jun 2026)
+- **The en-route (penultimate) find is now Sell-or-Publish, like a minor objective.** The single
+  Cash find on the second-to-last step (the back-loaded cash-out point) is no longer auto-Cash: at
+  Process you **Sell it → Cash** _or_ **Publish it → a minor paper (small Reputation)**. Reuses the
+  existing Sell/Publish mechanism (no new subsystem), roughly doubles per-expedition paper
+  potential, and lifts paper cadence **even for cautious cash-outs** (bail at the penultimate step
+  and you can still publish a small paper). Publishing it is a Develop desk-action, so the writing
+  researcher also earns an **experience token** — the minor tier feeds team growth too. The
+  back-load holds (you must still climb to the penultimate step to get the find at all) and the
+  minor paper's Reputation stays well below the objective's. _Distinct from the early-relief spoil,
+  which is pure Cash, no paper._ (10 Jun 2026)
+- **Early-relief spoil (pre-existing, now pinned from the sim).** For eras **below Ancient**
+  (Recent–Medieval), each step _before_ the penultimate has a **15% chance** of a small **1–2 Cash**
+  drop, stopping at the first hit → **at most one per card** (~28–39% of shallow cards carry one).
+  **Pure Cash, no paper.** A shallow-era sweetener that eases the early climb without touching the
+  back-load; deep eras stay lean ladders. (Value lives in `sim/sim.js` `lockedConfig()`:
+  `earlySpoilChance 0.15`, `earlySpoilCashMin/Max 1/2`, `earlySpoilEraMax 4`.) (10 Jun 2026)
 
 ## DON'T
 

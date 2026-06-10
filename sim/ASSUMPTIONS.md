@@ -18,12 +18,12 @@ _Every modelling decision that needs Drew's eye._
 - Req curve is gentle: `max(1, round(0.6 + 0.2×era + 0×step))` → shallow req-1,
   deep req-2. **Caveat:** "danger spikes" can't be much higher than req-2 — a single high-req step still
   outruns the hand, so danger should bite some *other* way (instability / consequence), not via big reqs.
-- **Many Worlds is the win brake:** 5 steps × 5 pips — tuned to land MW success ~75% without
+- **Many Worlds is the win brake:** 5 steps × 5 pips — tuned to land MW success ~50% (rare multiverse) without
   touching the era economy.
 
 ## Plunder / record & the greed→collapse dial (10 Jun 2026)
 - **Field decision (per archetype):** _cautious_ plunders only DOOMED artefacts; _balanced_ considers plunder if integrity ≥60% OR doomed; _greedy_ always considers. Sub-decision: behind on rep → **record** (clean), behind on cash → **plunder**.
-- **Plundering a NON-doomed artefact scars Timeline Integrity** by `[1,1,2,2,3,3,4]` by era (deeper = worse) — the shared half of the greed dial. **Doomed artefacts grab clean** (no scar, no disrepute).
+- **Plundering a NON-doomed artefact scars Timeline Integrity** by `[1,1,1,2,2,3,3]` by era (deeper = worse) — the shared half of the greed dial. **Doomed artefacts grab clean** (no scar, no disrepute).
 - **At the desk a held artefact is published** (Reputation) **or sold** (Cash − disrepute) **if cash-starved** (model b — papers stay alive).
 - **Result (per game, 4p):** greedy ~1.2 plunders, balanced ~0.5, cautious ~0.1. Greedy-heavy tables collapse far more (matrix: ~35–43% vs balanced ~20%) — the ethical axis is now *in the sim*, not just the fiction.
 

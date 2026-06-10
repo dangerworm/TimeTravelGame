@@ -1,21 +1,21 @@
 # Balance Simulator — Results
 
-_Generated 2026-06-10T11:04:30.666Z_
+_Generated 2026-06-10T21:58:56.562Z_
 
 ## TL;DR
 
 | | 4-player | 5-player | Target |
 |---|---|---|---|
-| Many Worlds success | 51.8% | 55.8% | ~75% |
-| Deep-objective completion | 50.2% | 49.5% | ~40% |
-| Avg rounds | 16.62 | 17.29 | 8–12 |
-| Wall clock (est.) | 199 min | 259 min | 60–120 min |
-| Overclock rate | 18.8% | 16.8% | ~30–40% |
-| Cash-out rate | 39.1% | 39.4% | ~30–50% |
-| Collapse rate | 35.6% | 29.2% | ≤50% |
-| Avg shutdowns (table total) | 1.74 | 1.72 | pusher-heavy → see ↓ |
-| Avg papers | 17.35 | 19.09 | 3–8 |
-| Score spread | 27.47 | 29.30 | >3 |
+| Many Worlds success | 49.0% | 57.5% | ~50% (rare/sacred) |
+| Deep-objective completion | 47.5% | 50.3% | ~40% |
+| Avg rounds | 17.30 | 17.07 | 8–12 |
+| Wall clock (est.) | 208 min | 256 min | 60–120 min |
+| Overclock rate | 18.7% | 18.7% | ~30–40% |
+| Cash-out rate | 37.2% | 39.4% | ~30–50% |
+| Collapse rate | 35.0% | 30.0% | ≤50% |
+| Avg shutdowns (table total) | 1.59 | 1.84 | pusher-heavy → see ↓ |
+| Avg papers | 16.95 | 19.50 | 3–8 |
+| Score spread | 27.16 | 30.07 | >3 |
 
 ### Shutdowns by archetype (4-player, per player per game)
 
@@ -23,9 +23,9 @@ _The gamble should concentrate in the pusher, not spread evenly._
 
 | Archetype | Shutdowns/game | Overclocks/game | Plunders/game | OC rate | Cash-out rate |
 |---|---|---|---|---|---|
-| greedy | 0.69 | 3.09 | 1.10 | 34.4% | 43.6% |
-| balanced | 0.37 | 1.03 | 0.48 | 14.7% | 40.2% |
-| cautious | 0.00 | 0.00 | 0.17 | 0.0% | 54.3% |
+| greedy | 0.64 | 3.06 | 1.10 | 35.2% | 43.3% |
+| balanced | 0.32 | 0.93 | 0.50 | 13.9% | 40.2% |
+| cautious | 0.00 | 0.00 | 0.15 | 0.0% | 54.7% |
 
 ## Recommended Equations
 
