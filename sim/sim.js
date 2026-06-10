@@ -44,6 +44,16 @@ function defaultConfig() {
     objCashChance: 0.4,  // fraction of objectives that pay cash instead of artefact
     findPayoutMult: 1.0, // multiplier on the (now sole) penultimate find — re-tune lever for Exp B
 
+    // Plunder / record (10 Jun) — plunder a NON-doomed artefact scars the timeline (the shared
+    // half of the greed dial); doomed artefacts grab clean. Bots route plunder -> sell for Cash.
+    doomedChance:   0.35,  // fraction of artefact objectives that are doomed (clean to take)
+    plunderImprint: [1,1,2,2,3,3,4], // Integrity lost per NON-doomed plunder, by era (deeper = worse)
+
+    // Early-step relief spoils (Exp B follow-up) — a few small spoils on early steps so players
+    // aren't doing pure-gate steps for nothing. Applies to eras below earlySpoilEraMax, on steps
+    // before the penultimate, max one extra per card.
+    earlySpoilChance: 0.15, earlySpoilCashMin: 1, earlySpoilCashMax: 2, earlySpoilEraMax: 4,
+
     // Era card structure
     stepsMin: 2, stepsMax: 3, eraCardsPerTier: 8,
     dangerChance: 0.20, profLockChance: 0.20,
@@ -122,12 +132,24 @@ function genEraCard(eraIdx, cfg, rng) {
     steps.push({ ...genStep(eraIdx, i, cfg, rng), type:'find',
                  cash: isPenultimate ? findCash : 0 });
   }
+  // Early-step relief spoils: eras below earlySpoilEraMax may carry one small extra spoil on a
+  // step before the penultimate (which already holds the main find), max one per card.
+  if (eraIdx < (cfg.earlySpoilEraMax||0)) {
+    for (let i = 0; i < nSteps-2; i++) {   // steps before the penultimate
+      if (rng.next() < (cfg.earlySpoilChance||0)) {
+        steps[i].cash = rng.int(cfg.earlySpoilCashMin, cfg.earlySpoilCashMax);
+        break;                              // at most one extra spoil
+      }
+    }
+  }
+
   const obj = genStep(eraIdx, nSteps-1, cfg, rng);
-  // Some objectives pay cash directly (no artefact), the rest are plunderable artefacts
+  // Some objectives pay cash directly (no artefact), the rest are plunderable artefacts.
   const isCashObj = rng.next() < (cfg.objCashChance||0);
   steps.push({
     ...obj, type:'objective',
     isArtefact: !isCashObj,
+    isDoomed:   !isCashObj && rng.next() < (cfg.doomedChance||0), // clean to take/sell
     rep:  isCashObj ? 0 : Math.round(cfg.repObjBase + cfg.repObjSlope*eraIdx),
     cash: isCashObj ? Math.round((cfg.cashFindBase + cfg.cashFindSlope*eraIdx)*1.5) : 0,
   });
@@ -170,7 +192,7 @@ function makePlayer(id, cfg) {
     machine:{ amp:cfg.startAmp, cap:cfg.startCap, col:cfg.startCol, stab:cfg.startStab },
     staged:null,
     // stats
-    expeditions:0, overclocks:0, shutdowns:0, cashOuts:0, papersWritten:0,
+    expeditions:0, overclocks:0, shutdowns:0, cashOuts:0, papersWritten:0, plunders:0,
   };
 }
 
@@ -296,25 +318,30 @@ function runExpedition(player, card, roster, policy, game) {
   }
 
   // Collect rewards
-  let cashGained=0, repGained=0, artefact=null;
+  let cashGained=0, repGained=0;
   for (let i=0; i<cleared; i++) {
     const step = card.steps[i];
     if (step.type==='find') {
       cashGained += step.cash||0;
+    } else if (!step.isArtefact) {
+      repGained += step.rep||0;       // pure-knowledge prize: record-only
     } else {
-      // objective
-      if (!step.isArtefact || !player.team.some(r=>r.profession==='Historian')) {
-        repGained += step.rep||0; // record immediately
-      } else if (policy.shouldRecord(player, card, game)) {
+      // Artefact objective: record (rep now, clean) vs plunder (take it → scar now, then at the
+      // desk a historian publishes it for rep, or sells it for cash if cash-starved).
+      if (recordOrPlunder(policy, player, step, game) === 'record') {
         repGained += step.rep||0;
       } else {
-        artefact = { rep: step.rep||0 }; // hold to publish later
+        player.plunders++;
+        if (!step.isDoomed) {                        // taking a non-doomed artefact scars history
+          const imp = (cfg.plunderImprint[card.eraIdx] ?? 1);
+          game.integrity = Math.max(0, game.integrity - imp);
+        }
+        player.artefacts.push({ rep: step.rep||0, isDoomed: !!step.isDoomed });
       }
     }
   }
   player.cash += cashGained;
-  player.rep  += repGained;
-  if (artefact) player.artefacts.push(artefact);
+  player.rep   = Math.max(0, player.rep + repGained);
 
   player.overclocks  += overclocks;
   player.expeditions++;
@@ -340,14 +367,23 @@ function doHomeActions(player, home, game) {
     } else if (r.profession==='Physicist') {
       upgradeModule(player, r, game);
     } else {
-      // Historian: publish artefact if available, else upgrade.
-      // Publishing pays the artefact's PRINTED reputation (the find's significance);
-      // historian experience does NOT modify it — any historian at base can write it up.
+      // Historian: dispose a held (plundered) artefact — publish for Reputation, or sell for Cash
+      // if cash-starved — else upgrade. Publishing pays the artefact's PRINTED rep (experience
+      // does not modify it); selling pays Cash but costs disrepute (doomed artefacts sell clean).
       if (player.artefacts.length) {
         const art = player.artefacts.shift();
-        player.rep += art.rep||0;
-        player.papersWritten++;
-        gainExp(r, cfg); // paper writing = researcher used (grows pips, not the paper's rep)
+        const others = game.players.filter(p=>p!==player);
+        const avgCash = others.reduce((s,p)=>s+p.cash,0) / Math.max(1, others.length);
+        if (player.cash < avgCash) {
+          const V = art.rep||0;
+          const disrepute = art.isDoomed ? 0 : Math.max(1, Math.floor((V-1)/2));
+          player.cash += V;
+          player.rep   = Math.max(0, player.rep - disrepute);
+        } else {
+          player.rep += art.rep||0;
+          player.papersWritten++;
+        }
+        gainExp(r, cfg); // researcher used (grows pips, not the paper's rep)
       } else {
         upgradeModule(player, r, game);
       }
@@ -547,6 +583,25 @@ const pBalanced = {
 
 const ALL_POLICIES = { greedy:pGreedy, cautious:pCautious, balanced:pBalanced };
 
+// Record-vs-plunder decision (10 Jun). Each archetype has a different GATE on whether it will
+// consider plundering at all; the sub-decision (need rep -> record, need cash -> plunder) is shared.
+//   cautious  — only ever plunders a DOOMED artefact (never scars the timeline)
+//   balanced  — considers plunder if the timeline is healthy (>=60%) OR the artefact is doomed
+//   greedy    — always considers plunder (non-doomed too, scarring the timeline)
+function recordOrPlunder(policy, player, step, game) {
+  const doomed     = !!step.isDoomed;
+  const integFrac  = game.integrity / Math.max(1, game.integrityMax);
+  const considers  = policy.name === 'cautious' ? doomed
+                   : policy.name === 'balanced' ? (doomed || integFrac >= 0.6)
+                   : true; // greedy
+  if (!considers) return 'record';
+  const others = game.players.filter(p => p !== player);
+  const avg = sel => others.reduce((s,p)=>s+p[sel],0) / Math.max(1, others.length);
+  if (player.rep  < avg('rep'))  return 'record';   // behind on rep -> record (priority)
+  if (player.cash < avg('cash')) return 'plunder';  // behind on cash -> plunder & sell
+  return 'record';                                   // ahead on both -> stay clean
+}
+
 // ── MARKET HELPERS ────────────────────────────────────────────────────────────
 function makeMarket(cfg, rng) {
   return rng.shuffle(PROF.flatMap(p =>
@@ -646,6 +701,7 @@ function playGame(numPlayers, cfg, policyAssignment, seed, withTrace, logEras) {
   const game = {
     cfg, rng, market, eraDecks,
     integrity: numPlayers<=4 ? cfg.integrity4p : cfg.integrity5p,
+    integrityMax: numPlayers<=4 ? cfg.integrity4p : cfg.integrity5p,
     consDeck:  genConsDeck(cfg, rng),
     players:   Array.from({length:numPlayers}, (_, i) => {
       const p = makePlayer(i, cfg);
@@ -680,11 +736,12 @@ function playGame(numPlayers, cfg, policyAssignment, seed, withTrace, logEras) {
   const byPolicy = {};
   for (const p of game.players) {
     const k = p.policy.name;
-    (byPolicy[k] ||= { shutdowns:0, overclocks:0, expeditions:0, cashOuts:0, playerGames:0 });
+    (byPolicy[k] ||= { shutdowns:0, overclocks:0, expeditions:0, cashOuts:0, plunders:0, playerGames:0 });
     byPolicy[k].shutdowns   += p.shutdowns;
     byPolicy[k].overclocks  += p.overclocks;
     byPolicy[k].expeditions += p.expeditions;
     byPolicy[k].cashOuts    += p.cashOuts;
+    byPolicy[k].plunders    += p.plunders;
     byPolicy[k].playerGames += 1;
   }
 
@@ -725,11 +782,12 @@ function computeMetrics(results, numPlayers) {
   // Per-policy shutdowns & overclocks, normalised to per-player-per-game
   const polAgg = {};
   for (const r of results) for (const [k,v] of Object.entries(r.byPolicy)) {
-    (polAgg[k] ||= { shutdowns:0, overclocks:0, expeditions:0, cashOuts:0, playerGames:0 });
+    (polAgg[k] ||= { shutdowns:0, overclocks:0, expeditions:0, cashOuts:0, plunders:0, playerGames:0 });
     polAgg[k].shutdowns   += v.shutdowns;
     polAgg[k].overclocks  += v.overclocks;
     polAgg[k].expeditions += v.expeditions;
     polAgg[k].cashOuts    += v.cashOuts;
+    polAgg[k].plunders    += v.plunders;
     polAgg[k].playerGames += v.playerGames;
   }
   const byPolicy = {};
@@ -737,6 +795,7 @@ function computeMetrics(results, numPlayers) {
     byPolicy[k] = {
       shutdownsPerGame:  v.shutdowns  / v.playerGames,
       overclocksPerGame: v.overclocks / v.playerGames,
+      plundersPerGame:   v.plunders   / v.playerGames,
       ocRate:            v.expeditions ? v.overclocks / v.expeditions : 0,
       coRate:            v.expeditions ? v.cashOuts   / v.expeditions : 0,
     };
@@ -850,10 +909,10 @@ function writeResults(sweep, traces) {
 
   s += `### Shutdowns by archetype (4-player, per player per game)\n\n`;
   s += `_The gamble should concentrate in the pusher, not spread evenly._\n\n`;
-  s += `| Archetype | Shutdowns/game | Overclocks/game | OC rate | Cash-out rate |\n|---|---|---|---|---|\n`;
+  s += `| Archetype | Shutdowns/game | Overclocks/game | Plunders/game | OC rate | Cash-out rate |\n|---|---|---|---|---|---|\n`;
   for (const k of ['greedy','balanced','cautious']) {
     const b = m4.byPolicy[k]; if (!b) continue;
-    s += `| ${k} | ${fmt2(b.shutdownsPerGame)} | ${fmt2(b.overclocksPerGame)} | ${fmtp(b.ocRate)} | ${fmtp(b.coRate)} |\n`;
+    s += `| ${k} | ${fmt2(b.shutdownsPerGame)} | ${fmt2(b.overclocksPerGame)} | ${fmt2(b.plundersPerGame)} | ${fmtp(b.ocRate)} | ${fmtp(b.coRate)} |\n`;
   }
   s += `\n`;
 
@@ -923,6 +982,16 @@ function writeAssumptions(cfg) {
   s += `  outruns the hand, so danger should bite some *other* way (instability / consequence), not via big reqs.\n`;
   s += `- **Many Worlds is the win brake:** ${cfg.mwSteps} steps × ${cfg.mwReqPerStep} pips — tuned to land MW success ~75% without\n`;
   s += `  touching the era economy.\n\n`;
+
+  s += `## Plunder / record & the greed→collapse dial (10 Jun 2026)\n`;
+  s += `- **Field decision (per archetype):** _cautious_ plunders only DOOMED artefacts; _balanced_ considers plunder if integrity ≥60% OR doomed; _greedy_ always considers. Sub-decision: behind on rep → **record** (clean), behind on cash → **plunder**.\n`;
+  s += `- **Plundering a NON-doomed artefact scars Timeline Integrity** by \`[1,1,2,2,3,3,4]\` by era (deeper = worse) — the shared half of the greed dial. **Doomed artefacts grab clean** (no scar, no disrepute).\n`;
+  s += `- **At the desk a held artefact is published** (Reputation) **or sold** (Cash − disrepute) **if cash-starved** (model b — papers stay alive).\n`;
+  s += `- **Result (per game, 4p):** greedy ~1.2 plunders, balanced ~0.5, cautious ~0.1. Greedy-heavy tables collapse far more (matrix: ~35–43% vs balanced ~20%) — the ethical axis is now *in the sim*, not just the fiction.\n\n`;
+
+  s += `## Cross-count balance (the --matrix verdict)\n`;
+  s += `- Std mix holds **MW ~79–84% across 3/4/5 players** with collapse ~16–24% and deep ~38–44% — little variance by player count. **2p plays a touch easier, 6p a touch harder**, both still work (FYI, not tuning targets).\n`;
+  s += `- Composition matters thematically: **all-greedy** trends to collapse, **all-balanced** is the healthiest game, **all-cautious is degenerate** (the bot never leaves Recent and bashes MW — a bot artifact, not a game flaw). Real tables sit near the std mix.\n\n`;
 
   s += `## Starting State\n`;
   s += `- No team, 2 cash, **Amp 2** (Recent + Modern open turn one — DECIDED 9 Jun, Experiment A), Cap/Col 1, **Stabiliser 2** (gamble — DECIDED 9 Jun).\n`;
@@ -1025,8 +1094,8 @@ function lockedConfig() {
     reqBase: 0.6, reqEraSlope: 0.2, reqStepSlope: 0,          // shallow req-1, deep req-2
     handPerResearcher: 2, handBase: 2,                        // [2×roster + 2] — the +2 is needed
     findPayoutMult: 1.0,
-    integrity4p: 14, integrity5p: 17,
-    mwSteps: 6, mwReqPerStep: 4,                              // the brake that hits ~75% MW
+    integrity4p: 16, integrity5p: 19,                        // pool absorbs the plunder-imprint scars
+    mwSteps: 5, mwReqPerStep: 4, mwIntegDmgFail: 1,          // MW tuned to ~75% across 3/4/5 players
   };
   cfg.ampCosts = defaultConfig().ampCosts.map(c=>Math.max(1,Math.round(c*0.8)));
   cfg.capCosts = defaultConfig().capCosts.map(c=>Math.max(1,Math.round(c*0.6)));
@@ -1041,6 +1110,8 @@ const analyze= args.includes('--analyze');
 const expA   = args.includes('--expA');
 const expB   = args.includes('--expB');
 const retuneB= args.includes('--retuneB');
+const matrix = args.includes('--matrix');
+const retuneMW = args.includes('--retuneMW');
 
 // Era-by-round curve for a given config (per-policy avg era index + avg amp)
 function computeEraCurve(cfg, G, seedBase) {
@@ -1220,18 +1291,99 @@ if (retuneB) {
   process.exit(0);
 }
 
+if (retuneMW) {
+  // Re-tune MW success to ~75% on the STD MIX averaged over 3/4/5 players, after the era-scaled
+  // plunder-imprint raised the integrity drain. Levers: integrity pool, MW length, failed-MW cost.
+  const MIX = ['greedy','cautious','balanced'];
+  const G = 250;
+  const grid = buildGrid({ integrity4p:[16,20,24], mwSteps:[4,5,6], mwIntegDmgFail:[1,2] });
+  const mkCfg = p => ({ ...lockedConfig(),
+    integrity4p:p.integrity4p, integrity5p:Math.round(p.integrity4p*1.2),
+    mwSteps:p.mwSteps, mwIntegDmgFail:p.mwIntegDmgFail });
+  const ev = (cfg,n) => { const r=[]; for(let g=0;g<G;g++) r.push(playGame(n,cfg,MIX,g+n*131+cfg.mwSteps*7,false)); return computeMetrics(r,n); };
+  const results = grid.map(p => {
+    const cfg=mkCfg(p), m3=ev(cfg,3), m4=ev(cfg,4), m5=ev(cfg,5);
+    const avgMW=(m3.mwRate+m4.mwRate+m5.mwRate)/3;
+    const avgColl=(m3.collapseRate+m4.collapseRate+m5.collapseRate)/3;
+    const avgRnd=(m3.avgRounds+m4.avgRounds+m5.avgRounds)/3;
+    return { p, m3, m4, m5, avgMW, avgColl, avgRnd, f:Math.abs(avgMW-0.75)+ (avgColl>0.5?(avgColl-0.5)*2:0) };
+  });
+  results.sort((a,b)=>a.f-b.f);
+  console.log('=== Re-tune MW (std mix, 3/4/5p) ===\n');
+  console.log('int mwStp mwFail | MW3 MW4 MW5  avg | coll | rnd');
+  console.log('-----------------|------------------|------|----');
+  results.slice(0,12).forEach(r => { const {p}=r;
+    console.log(`${String(p.integrity4p).padStart(2)}   ${p.mwSteps}    ${p.mwIntegDmgFail}    | `+
+      `${(r.m3.mwRate*100).toFixed(0).padStart(3)} ${(r.m4.mwRate*100).toFixed(0).padStart(3)} ${(r.m5.mwRate*100).toFixed(0).padStart(3)}  ${(r.avgMW*100).toFixed(0).padStart(3)}% | `+
+      `${(r.avgColl*100).toFixed(0).padStart(3)}% | ${r.avgRnd.toFixed(1)}`);
+  });
+  process.exit(0);
+}
+
+if (matrix) {
+  // The balance matrix: every composition × 2..6 players, on the locked config.
+  // Tuning targets are 3/4/5 players; 2 & 6 are FYI (how far the game stretches at the edges).
+  const cfg = lockedConfig();
+  const G = 200;
+  const counts = [2,3,4,5,6];
+  const comps = [
+    ['std-mix',  ['greedy','cautious','balanced']],
+    ['greedy',   ['greedy']],
+    ['cautious', ['cautious']],
+    ['balanced', ['balanced']],
+    ['grd+bal',  ['greedy','balanced']],
+    ['grd+cau',  ['greedy','cautious']],
+    ['bal+cau',  ['balanced','cautious']],
+  ];
+  const cells = {};
+  comps.forEach(([name,assign], ci) => {
+    counts.forEach(n => {
+      const res=[], deep=[];
+      for (let g=0; g<G; g++) {
+        const r = playGame(n, cfg, assign, g + n*100003 + ci*1000003, false, true);
+        res.push(r); for (const e of r.eraLog) if (e.eraIdx>=4 && e.eraIdx<=5) deep.push(e);
+      }
+      const m = computeMetrics(res, n);
+      m.deep = deep.length ? deep.filter(e=>e.success).length/deep.length : 0;
+      cells[name+'|'+n] = m;
+    });
+  });
+
+  const grid = (title, fmt) => {
+    console.log(`\n=== ${title} ===`);
+    console.log('composition |    2      3      4      5      6');
+    for (const [name] of comps) {
+      let row = name.padEnd(11)+' |';
+      for (const n of counts) row += '  '+fmt(cells[name+'|'+n]).padStart(5);
+      console.log(row);
+    }
+  };
+  console.log('=== Balance matrix (composition × players), locked config ===');
+  console.log('Tuning targets: 3/4/5 players. [2] & [6] are FYI (edge stretch).');
+  grid('Many Worlds success %', m=>`${(m.mwRate*100).toFixed(0)}%`);
+  grid('Collapse rate %',        m=>`${(m.collapseRate*100).toFixed(0)}%`);
+  grid('Avg rounds',             m=>m.avgRounds.toFixed(1));
+  grid('Deep-objective compl. %',m=>`${(m.deep*100).toFixed(0)}%`);
+
+  // Headline tuning number: std-mix MW averaged over 3/4/5 players.
+  const stdAvg = [3,4,5].reduce((s,n)=>s+cells['std-mix|'+n].mwRate,0)/3;
+  console.log(`\n>>> Std-mix MW, avg over 3/4/5 players = ${(stdAvg*100).toFixed(1)}%  (target ~75%)`);
+  process.exit(0);
+}
+
 if (analyze) {
   const cfg = lockedConfig();
   const G = 500;
 
   console.log('=== Composition analysis (4-player, locked config) ===\n');
   const comps = [
-    ['standard mix',    ['greedy','cautious','balanced']],
-    ['all greedy',      ['greedy']],
-    ['all cautious',    ['cautious']],
-    ['all balanced',    ['balanced']],
-    ['greedy+balanced', ['greedy','balanced']],
-    ['greedy+cautious', ['greedy','cautious']],
+    ['standard mix',      ['greedy','cautious','balanced']],
+    ['all greedy',        ['greedy']],
+    ['all cautious',      ['cautious']],
+    ['all balanced',      ['balanced']],
+    ['greedy+balanced',   ['greedy','balanced']],
+    ['greedy+cautious',   ['greedy','cautious']],
+    ['balanced+cautious', ['balanced','cautious']],
   ];
   console.log('composition       |  MW%  | rounds | collapse% | shutdn | winScore');
   console.log('------------------|-------|--------|-----------|--------|---------');

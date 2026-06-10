@@ -18,8 +18,18 @@ _Every modelling decision that needs Drew's eye._
 - Req curve is gentle: `max(1, round(0.6 + 0.2×era + 0×step))` → shallow req-1,
   deep req-2. **Caveat:** "danger spikes" can't be much higher than req-2 — a single high-req step still
   outruns the hand, so danger should bite some *other* way (instability / consequence), not via big reqs.
-- **Many Worlds is the win brake:** 6 steps × 4 pips — tuned to land MW success ~75% without
+- **Many Worlds is the win brake:** 5 steps × 4 pips — tuned to land MW success ~75% without
   touching the era economy.
+
+## Plunder / record & the greed→collapse dial (10 Jun 2026)
+- **Field decision (per archetype):** _cautious_ plunders only DOOMED artefacts; _balanced_ considers plunder if integrity ≥60% OR doomed; _greedy_ always considers. Sub-decision: behind on rep → **record** (clean), behind on cash → **plunder**.
+- **Plundering a NON-doomed artefact scars Timeline Integrity** by `[1,1,2,2,3,3,4]` by era (deeper = worse) — the shared half of the greed dial. **Doomed artefacts grab clean** (no scar, no disrepute).
+- **At the desk a held artefact is published** (Reputation) **or sold** (Cash − disrepute) **if cash-starved** (model b — papers stay alive).
+- **Result (per game, 4p):** greedy ~1.2 plunders, balanced ~0.5, cautious ~0.1. Greedy-heavy tables collapse far more (matrix: ~35–43% vs balanced ~20%) — the ethical axis is now *in the sim*, not just the fiction.
+
+## Cross-count balance (the --matrix verdict)
+- Std mix holds **MW ~79–84% across 3/4/5 players** with collapse ~16–24% and deep ~38–44% — little variance by player count. **2p plays a touch easier, 6p a touch harder**, both still work (FYI, not tuning targets).
+- Composition matters thematically: **all-greedy** trends to collapse, **all-balanced** is the healthiest game, **all-cautious is degenerate** (the bot never leaves Recent and bashes MW — a bot artifact, not a game flaw). Real tables sit near the std mix.
 
 ## Starting State
 - No team, 2 cash, **Amp 2** (Recent + Modern open turn one — DECIDED 9 Jun, Experiment A), Cap/Col 1, **Stabiliser 2** (gamble — DECIDED 9 Jun).
@@ -59,8 +69,8 @@ Three bots mixed across players:
 - This matches Record (which always paid the card's rep) and removes the sim's old flat "paperRepBase + boxes" invention. Deep finds are now worth their true significance; "Papers dominate held artefacts (1 each)" still holds.
 
 ## Many Worlds
-- 6 steps × 4 pips each. **Primary game-length tuning knob.**
-- Failed MW: −2 integrity. Spec says "4–5" — **reduced to 2 after 4 caused cascade collapse in every game.** Confirm with Drew.
+- 5 steps × 4 pips each. **Primary game-length tuning knob.**
+- Failed MW: −1 integrity. Spec says "4–5" — **reduced to 1 after 4 caused cascade collapse in every game.** Confirm with Drew.
 - **MW roster: all researchers sent** (not just cap-limit). Thematically: everyone for the final push. Massively improves success rate — without this, MW was ~5%.
 - Bots attempt MW solo. Real tables will alliance. MW success rate is probably 10–20% higher in practice.
 
@@ -97,5 +107,5 @@ _Home-action model, exp-box count, and startStab are now DECIDED (see sections a
 1. **5-player wall clock** (~149 min @ 3 min/turn) — the one metric still over target. Lower mwSteps or raise home income if it bites in play.
 2. **Shutdowns at ~4/game** — top of the 1–4 band. Tighten the greedy objective-push to "≤1 short" for ~2–3 if too punishing.
 3. **Paper rep base** — raise to 4? (Fresh historian currently 4.)
-4. **MW difficulty** (4 pips × 6 steps) — adjust if game length is off.
+4. **MW difficulty** (4 pips × 5 steps) — adjust if game length is off.
 5. **Amplifier total cost** (18 cash 1→7) — feasible in ~10 rounds?
