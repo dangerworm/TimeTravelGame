@@ -59,16 +59,23 @@ Capacity**, then build a one-shot **skills deck (bag)** from:
 > **Example (Drew's):** roster = one historian (I 2 / C 2 / G 2), 2 instability tokens →
 > bag = **2 Trace + 4 Insight + 4 Craft + 4 Grit**.
 
-Then **draw a hand of `2 × (researchers on the expedition) + 2`** cards. The hand is **visible** — your
-legible floor. "Who do I send?" is a real recurring decision: it sets your bag's composition *and* your
-hand size, and sent researchers can't also work at home this turn (§6).
+Then **draw a hand of `2 × (researchers on the expedition) + 2`** cards — and **top it back up to that
+size at the start of every step**, reshuffling the discard (played cards and traces) back in when the
+deck runs dry (corrected 10 Jun: the hand is *refilled each step*, not drawn once and depleted across the
+whole expedition). The hand is **visible** — your legible floor. "Who do I send?" is a real recurring
+decision: it sets your bag's composition *and* your hand size, and sent researchers can't also work at
+home this turn (§6). _The `+2` is load-bearing — the sim shows deep expeditions stall without it._
 
 ---
 
 ## 4. Resolving the expedition (Jump)
 
-An era card is a left-to-right path of **2+ steps**, each printing a skill requirement (an amount of one
-skill). Play matching cards from your hand to meet each step.
+An era card is a left-to-right path of **steps**, each printing a skill requirement (an amount of one
+skill). **Deeper eras are longer ladders of gentler gates** — step bands ≈ **2–3 / 3–4 / 5–6** by era pair
+(Recent…Prehistoric); requirements stay low (shallow ≈1, deep ≈2) so a long climb is the challenge, not
+each wall. **Spoils (Cash) sit only on the second-to-last step**; every earlier step is a pure gate, and
+the last step is the objective. At each step you top the hand up (§3) and play matching cards to meet the
+requirement; played cards go to the discard and recycle.
 
 - **Overclock** — if your hand can't cover the next step, you may overclock: **+1 instability token**,
   **+1 Trace card to the deck**, and **draw 1 card** into your hand (the gamble that the draw turns up the
@@ -111,8 +118,10 @@ Severity scales with era depth; the real-history flavour lives here.
   expedition ends.
 - **The objective** (final step), if all steps succeeded and there's an item to retrieve:
   - **Plunder it** (doomed or not) → the **era card goes to your Artefacts zone**. It can later be
-    **researched** in **Develop** by a **historian who didn't jump that turn** → adds **Reputation**,
-    card discarded. Or **sold** → **Cash**, but **−1 Reputation (or +1 disrepute)**.
+    **researched** in **Develop** by a **historian who didn't jump that turn** → adds the artefact's
+    **printed Reputation** (historian experience does **not** change it — any historian at base writes it
+    up), card discarded. Or **sold** → **Cash**, but at a **disrepute** of `max(1, floor((rep−1)/2))`
+    Reputation (**0 for doomed** artefacts). _(Both clarified 10 Jun 2026.)_
   - **Bring back evidence** (a copy, a photo — not the artefact) → the era card is **processed
     immediately**, **Reputation** added, card discarded.
 

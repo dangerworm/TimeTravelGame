@@ -82,14 +82,15 @@ These sit above any individual mechanic. A rule that breaks one of these is the 
   chips = deeper challenges accessible = bigger rewards. The team is the engine; the **draw** is the
   chaos. Profession (Historian / Engineer / Physicist) is flavour + gating, not a second currency;
   **Grit is a temperament any scientist can have**, not a soldier class.
-- **Push-your-luck = a banked, back-loaded path (not just an overclock toggle).** An expedition
-  banks **escalating finds** as you descend, with the **objective holding the bulk** of the value.
-  Before any step you may **cash out** and keep what you've banked — so every gate is a genuine
-  "push deeper for the growing prize, or take my floor and walk?" decision, with a floor that grows
-  as you go. The **overclock** is the reach _at_ a gate (more reward, more risk, a cost paid in
-  instability — one track, not two). Failing a gate forfeits everything downstream but not what's
-  banked; footprint already left is never refunded. _(This shape replaces the earlier "reward sits
-  only at the objective" idea; refined from the Exp 5 playtest, 5 Jun 2026.)_
+- **Push-your-luck = climb the ladder to the back-loaded prize.** An expedition is a ladder of gate
+  steps that pay **nothing** until the **second-to-last step** (the one Cash "find") and the **last
+  step** (the objective — the bulk of the value). So the decision is sharp: **bail early and walk away
+  empty, or climb the whole ladder to bank the cache and then gamble the final objective.** The
+  **overclock** is the reach _at_ a gate (more reward, more risk, a cost paid in instability — one
+  track, not two). Failing or cashing out forfeits everything past where you stopped; footprint already
+  left is never refunded. _(Revised 10 Jun 2026: spoils-only-on-the-penultimate-step replaces the
+  earlier "escalating banked finds at every gate" shape — that let players get rich bailing after 1–2
+  steps. Deeper eras are longer ladders of gentler gates.)_
 - **Shared Timeline Integrity.** Aggressive approaches (smash-and-grab, overclock failures,
   interference) shave a shared integrity track. As it drops, _everyone's_ jumps get harder — which
   feeds the spine (more challenge) rather than being a flat penalty.

@@ -104,6 +104,42 @@ dated line whenever Drew states a new preference. Newest at the bottom of each s
 - **The game should be winnable but never a foregone conclusion — aim for ~75% of tables reaching Many
   Worlds** (revised down from an initial 80% gut figure). Roughly a quarter of tables should fall short or
   collapse, so the win means something. _(9 Jun 2026.)_
+- **An artefact is Cash XOR legacy — Sell _or_ keep-for-points, never both (Model B).** Selling pays Cash
+  now and **forfeits** every end-game point the artefact would have scored — its paper's Reputation if
+  Published, or **1 point** if held unresearched (scoring per `design-skeleton.md` §9). _Considered
+  allowing a paper **and** a sale ("both", real-life style); rejected — free Cash + free Reputation
+  collapses the cash-vs-legacy tension that is the economy's spine._ (9 Jun 2026)
+- **Sell disrepute scales with the find's significance, and doomed artefacts sell clean.** Selling a
+  **non-doomed** artefact costs **`max(1, floor((rep − 1) / 2))` Reputation**, where `rep` is the
+  artefact's **printed Reputation value** (the find's significance, not the publishing historian's
+  output) → 1 for rep 2–4, 2 for 5–6, 3 for 7–8, 4 for 9–10. Flogging a treasure stings more than a
+  trinket, while disrepute stays well below the paper value so **Sell remains the cash-desperate lifeline,
+  never a trap**. **Doomed artefacts have 0 disrepute** — clean to grab _and_ clean to sell (the same
+  doomed exception as the plunder Integrity-scar). (10 Jun 2026)
+- **Spoils (Cash) appear only on the _second-to-last_ step of an era card.** Every earlier step is a
+  **pure gate that pays nothing**; the penultimate step holds the one cash "find," the last step holds the
+  objective (rep/artefact). You **can't get rich bailing after 1–2 steps** — you must climb almost the
+  whole ladder to bank anything, then choose whether to gamble the final objective. _(Sharpens the
+  push-your-luck to one real cash-out point; revises the earlier "escalating banked finds" shape — update
+  `core-goals.md`.)_ (10 Jun 2026)
+- **Deep eras are long ladders of _gentle_ gates, not short brutal walls.** Ancient / Prehistoric cards
+  have **more steps but low, flat per-step requirements** (plus the odd Grit danger spike); the challenge
+  is the **length of the climb and the final gamble**, not each step being a wall. _Narrative:_ civilised
+  eras gate on political / social control — security, secrecy, power — that didn't exist deep in time,
+  where the difficulty is instead the long, blind search through near-nonexistent records. Step bands
+  ≈ **2–3 / 3–4 / 5–6** by era pair, requirements re-tuned to keep deep objectives reachable. (10 Jun 2026)
+- **Expedition resolution is a refill-each-step deck draw, not a one-shot depletion.** At the start of
+  **every step** you top the hand back up to **`2 × roster + 2`**, reshuffling the discard (played cards +
+  traces) when the deck runs dry; overclock draws beyond the cap. _Corrects a 10 Jun discovery: the
+  written spec and the sim had the hand drawn **once** and depleted across the whole expedition — **not**
+  the intent, and the reason deep multi-step cards looked impossible. The earlier v3 "bag = stamina / no
+  reshuffle" line is **dropped**; stamina now lives in accumulating **Trace pollution + instability toward
+  shutdown**._ The **`+2` is load-bearing** — at `[2×roster]` the sim shows deep completion cratering and
+  constant folding. (10 Jun 2026)
+- **Many Worlds is the win-rate brake: a 6-step × 4-pip gauntlet.** Tuning MW difficulty (not the era
+  economy) is how we hold the win rate near ~75% without making the deep ladders unreachable. Full
+  recommended config lives in `sim/RESULTS.md`; the cost of the gentle-ladder design is a **long game
+  (~13 rounds)**, knowingly accepted for the deep-era escalation. (10 Jun 2026)
 
 ## DON'T
 

@@ -49,6 +49,34 @@ _The active backlog for the redesign. The old task list lives in `archive/tasks.
 - [ ] Cleanup: **re-spec `prototypes/prototype-01.md`** for the new reward model — banked escalating
       finds, objective-holds-the-paper, voluntary cash-out, Record-vs-Take prize. (The old "N
       spoils + Paper at the objective only" lines are now superseded, not just mis-worded.)
+- [x] **Sell disrepute now scales with artefact value (10 Jun).** Non-doomed sell cost =
+      `max(1, floor((rep − 1) / 2))` Reputation (1 for rep 2–4, up to 4 for rep 9–10); **doomed = 0**.
+      Locked in `constraints.md`. _Prototype with the formula; promote to printed per-card values only if
+      playtests want bespoke numbers._
+- [ ] **Implement the missing plunder-imprint (9 Jun) — the *shared* half of greed's cost.** Disrepute
+      (above) is the **personal** sting; `core-goals.md` also intends plundering a **non-doomed** artefact
+      to scar **Timeline Integrity** (doomed artefacts are the clean exception — same exception as
+      disrepute). `design-skeleton.md` §5 never costs it and the sim doesn't model it, so Record vs
+      Plunder→Publish currently pay the **same** Reputation and Recording has no pull. Add the scar.
+      _Related: reconcile publish paying the historian's paper-rep vs the card's printed rep (see doc-drift
+      item) — the disrepute formula assumes the card's printed rep is the canonical "significance"._
+- [ ] **Doc drift to reconcile (noticed 9 Jun):** §6/§9 still say "three full blue experience boxes" and
+      "skills baseline 1/1/1" while §7 + the locked decision are **2 earnable boxes (1 pre-filled)** and a
+      **2/2/2 player base**; §7's "4th token advances a box" vs the sim's 2-uses-per-box. Align the
+      skeleton wording with the locked rules.
+
+- [x] **Experiment B re-tuned + RESOLUTION MODEL CORRECTED (10 Jun).** The "chip-stall" that drove the
+      re-tune turned out to be a **bug**: the sim (and the literal spec) drew the hand once and depleted it
+      across all steps. Drew's real intent — **refill the hand to `2×roster+2` at the start of every step,
+      reshuffling the discard** — is now implemented. With that fixed: scaled bands + penultimate spoils +
+      gentle reqs (eraSlope 0.2) + MW 6×4 gauntlet land **MW ~72%, deep-objective completion ~42%,
+      cash-out ~37%**. Recommended config baked into `lockedConfig()` / `sim/RESULTS.md`. handBase `+2`
+      confirmed required. core-goals + design-skeleton + constraints all updated.
+- [ ] **Open from B (next):** (a) **danger spikes** can't be high requirements (a single high-req step
+      outruns the hand) — design them to bite via instability / consequence instead; (b) **game is long
+      (~13 rounds / ~157 min 4p, ~200 min 5p)** — accepted for now, but shrink deep bands / ease the Amp-7
+      gate if playtest agrees; (c) **overclock frequency dipped to ~21%** — watch the gamble's pulse in
+      play, nudge reqs up if it feels thin.
 
 ## Next (once the core loop proves fun)
 
