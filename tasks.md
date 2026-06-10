@@ -21,20 +21,29 @@ _Only what's still ahead. Done items are in
 
 ## Before the paper playtest
 
-- [ ] **Content for a full playtest** (the handoff's task 8) — destination cards across the era
-      ladder, the researcher decks, retirement / parting-gift cards, consequence cards. Tonal +
-      structural benchmarks live in `decks/`; calibrate numbers against `sim/RESULTS.md`.
+- [ ] **Content for a full playtest — authored as JSON from the start** (task 8): destination cards
+      across the era ladder, the researcher decks, retirement / parting-gift cards, consequence
+      cards. **JSON is the single source of truth** (Drew's a dev; it feeds the renderer + scripts,
+      no later transcription). _Guardrails:_ (1) keep the schema **minimal and expect it to churn**
+      — first content is ~90% throwaway; (2) **don't let the renderer become a prerequisite to
+      playing** — hand-copy / crude-print from JSON for the first table; (3) the first playtest's
+      job is proving the **full v4 loop is _fun_** (the sim proved balance, not fun), so author
+      **minimal-viable** content, not a polished set. The paper-first guard is _satisfied_ (core
+      validated + iterating on content/numbers = exactly when `intentions.md` says to build the JSON
+      pipeline). Tonal + structural benchmarks live in `decks/`; calibrate numbers against
+      `sim/RESULTS.md`.
 - [ ] **Polish the endgame flavour** — tighten the quiet-legacy speech; write the per-player vs
       collective epilogue variants. Content, not design.
-- [ ] **Honey-Trap retirement card** — decide whether its −3 reputation should be **disrepute** (the
-      deception is an ethics-linked act). (`decks/retirement/seed-cards.md`)
 
-## The renderer (the handoff's task 9 — once content exists)
+## The renderer (task 9 — schema now defined _with_ the content, above)
 
-- [ ] Define the minimal JSON content schema (one card type to start).
+- [ ] Define the **minimal JSON content schema** (one card type to start) — done alongside authoring
+      the first content, since JSON is now the master format.
 - [ ] Scaffold the prototype renderer: **Vite + React + MUI**. Loads JSON, renders print-ready A4
       sheets (3×3 card grids, cut lines, page breaks, print-to-PDF). Use the layout sketch in
       `design/2026-06-09-post-whiteboarding-with-andy.png`. Start with one card type, then widen.
+      _Not a blocker for the first playtest — crude-print from JSON is fine until the content
+      structure settles._
 
 ## Playtest-watch (can't be closed at a desk — judge them at the table)
 
@@ -45,11 +54,16 @@ _Only what's still ahead. Done items are in
 - **Alliances** — the sim's biggest blind spot (bots attempt MW solo), so real MW success is likely
   higher than the sim shows. Tied to the kingmaker thread above.
 
-## External / blocked
+## Title — "Warped" (cleared for hobby use, 11 Jun)
 
-- **Title — "Warped" (working), pending IP/legal check.** Conflicts to clear: an existing publisher
-  **"Warped Reality Games"** and an indie **"Warped Board Games."** Hold the project-wide rename
-  (repo + `CLAUDE.md` still say "Time Travel") until IP clears.
+- **UK register checked (trademarks.ipo.gov.uk): no live "Warped" in Class 28** (board games) —
+  clear to proceed for a hobby / small-run project. _Residual, eyes-open:_ (1) the unregistered
+  **"Warped Board Games" / "Warped Reality Games"** traders are a softer _passing-off_ risk the
+  register can't surface (worth a glance at how established they are); (2) if it goes commercial,
+  **register Class 28 yourself** and run separate **Class 9** (digital) / **Class 41** (events)
+  searches — and a short paid clearance check before real print-run money.
+- **The project-wide rename (Time Travel → Warped) is now UNBLOCKED** — repo name, `CLAUDE.md`,
+  etc., whenever you want it. _(Not done yet — your call on timing.)_
 
 ## Later / parked darlings (add back only what a playtest proves necessary)
 

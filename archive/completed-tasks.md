@@ -20,6 +20,20 @@ _(8 = playtest content, 9 = renderer — still in the live backlog.)_
 
 ---
 
+## Resolved 11 Jun (quick cleanups)
+
+- **Title "Warped" cleared for hobby use.** UK register (trademarks.ipo.gov.uk) has no live "Warped"
+  in Class 28. Residuals noted (unregistered passing-off; register Class 28 + Class 9/41 if it goes
+  commercial). The project-wide rename is now unblocked. (Drew ran the check.)
+- **Honey-Trap retirement card → all-positive.** The disrepute / reputation cost was removed; the
+  effect is now "recruit any available researcher at half Cash." Principle: **Parting Gifts are
+  all-positive** — retirement reads as a reward (the team-legacy keystone). Karma covers the fiction
+  (the rival organisation brought it on itself).
+- **Content will be authored as JSON from the start** — single source of truth feeding the renderer +
+  scripts, minimal-churn schema, renderer not a prerequisite to the first playtest. (See `tasks.md`.)
+
+---
+
 ## Resolved this session (10 Jun, daytime)
 
 - **Papers fixed** — recording an objective now _is_ a paper (~16/game, was 2.4); the research-group

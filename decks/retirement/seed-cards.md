@@ -35,9 +35,7 @@ _These four are Drew's originals (5 Jun 2026), kept as the tonal benchmark for t
 > left open) with misinformation, leading to that organisation's demise. The sudden uptick in
 > unemployment means you get your pick of researchers!
 
-**Effect:** Recruit any one available researcher, at −4 Cash and −3 reputation. _(Open: should the
-−3 be **disrepute tokens** rather than a rep loss? The honey-trap deception is an ethics-linked act —
-Drew to rule.)_
+**Effect:** Recruit any one available researcher at half the normal Cash value.
 
 ## The Circuit (reputation bonus)
 
