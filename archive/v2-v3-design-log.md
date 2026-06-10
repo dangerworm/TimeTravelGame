@@ -1,9 +1,11 @@
-# Current Idea — Scratchpad
+# v2–v3 Design Log (archived 10 Jun 2026)
 
-_Working space for the **one** part of the game under active discussion. Keep this focused on a
-single topic at a time. When a topic resolves, fold the conclusion into `core-goals.md` (if it
-shifts the spine/targets) or into the eventual design doc, record any new hard preference in
-`constraints.md`, then clear this file for the next topic._
+_This began as the live "current-idea scratchpad" during the v2 and v3 design and grew into a full
+**decision log + rationale archive** — why each mechanic was chosen, what was rejected, and the
+playtest findings behind them. It is **superseded by `design-skeleton.md` (v4) + `constraints.md`**,
+and kept as a **goldmine to mine** for the reasoning behind locked decisions. Genuine still-open
+items were lifted into `tasks.md` when this was archived; a few use old terms (spoils → Cash,
+Nerve → Grit, Discretion, Die A/B) that the v4 model has since replaced._
 
 ---
 

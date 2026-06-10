@@ -3,18 +3,20 @@
 This is a **board game design project** (not a software project yet — though a prototyping tool is
 coming). A competitive game for rival scientists who co-discovered time travel.
 
-> **Status: mid-redesign as of 5 June 2026.** The first design (six sessions) was archived and the
-> skeleton is being rebuilt from the ground up. Read the new foundation files below — **not** the
-> archive — to understand where the game is going.
+> **Status: v4, balance-validated, pre-playtest (10 June 2026).** The whole game now lives in
+> `design-skeleton.md`, and a balance simulator (`sim/`) has tuned it across 2–6 players. Next up:
+> repo/doc consolidation → one definitive design doc → paper-playtest content → the renderer. Read
+> the foundation files below — **not** the archive — to understand where the game is.
 
 ## Read these at the start of every session
 
 1. **`core-goals.md`** — the spine and the four emotional keystones. The north star.
 2. **`constraints.md`** — explicit do/don't boundaries Drew has stated. Treat as fixed.
-3. **`current-idea-scratchpad.md`** — the one part of the game under active discussion right now.
+3. **`design-skeleton.md`** — the full v4 ruleset (the game, one place).
+4. **`tasks.md`** — the active backlog; recent decisions and open items live here.
 
-`tasks.md` is the active backlog. The old design lives in `archive/` (see `archive/README.md`) — it
-is a **content bible to mine**, not a blueprint to follow.
+The old design lives in `archive/` — a **content bible to mine**, not a blueprint. It includes
+`archive/v2-v3-design-log.md` (the rationale behind every locked v2/v3 decision) and the v1 material.
 
 ## What the game is (one paragraph)
 
@@ -81,11 +83,11 @@ comparable games, common pitfalls, genre mechanics that fit.
 
 ## How sessions work
 
-- Read the three foundation files (above). Discuss, challenge, refine — one element at a time.
+- Read the foundation files (above). Discuss, challenge, refine — one element at a time.
 - New hard preferences → add a dated line to `constraints.md`.
-- Shifts to the spine/targets → update `core-goals.md`.
-- When the current scratchpad topic resolves, fold the conclusion into the right home and clear the
-  scratchpad for the next topic.
+- Shifts to the spine/targets → update `core-goals.md`; rule changes → `design-skeleton.md`.
+- Capture decisions in their home doc and open threads in `tasks.md` (the live scratchpad is retired —
+  its history is `archive/v2-v3-design-log.md`).
 
 ## Prototyping plan
 

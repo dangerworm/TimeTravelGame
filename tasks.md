@@ -48,6 +48,13 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
   real MW rate likely higher than the sim shows).
 - **Game length** — ~16–17 rounds / ~3h. The career-epic earns it narratively, but the table may
   not; revisit if the playtest drags.
+- **Title — confirm "Warped"** _(lifted from the archived log, 10 Jun)._ Rikki's suggestion, Drew's
+  front-runner: works on four levels (spacetime warp · imprints warping history · the moral "warped
+  scientist" dial · the loom's _warp_ threads). Confirming triggers a project-wide rename from the
+  "Time Travel" working title.
+- **Negotiate / lending terms** _(lifted from the archived log)._ v4 has a **Negotiate** phase
+  (turn structure), but its terms are unspecified: how does borrowing a rival's specialist (or a
+  cash loan) work _without_ letting a leader farm reputation? Design the terms before playtest.
 
 ## Now
 
@@ -95,9 +102,11 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
       runaway-leader & "who triggers?" problems).
 - [ ] Sweep terminology across docs once it settles: **"spoils" → "Cash"** and **"Nerve" → "Grit"**
       (scratchpad, core-goals, prototype-01, retirement seed cards).
-- [ ] Cleanup: **re-spec `prototypes/prototype-01.md`** for the new reward model — banked escalating
-      finds, objective-holds-the-paper, voluntary cash-out, Record-vs-Take prize. (The old "N
-      spoils + Paper at the objective only" lines are now superseded, not just mis-worded.)
+- [x] **Repo cleanup (10 Jun).** `prototypes/` deleted (its 5 destination ideas extracted to
+      `decks/destinations/seed-cards.md` in the v4 model); `current-idea-scratchpad.md` archived as
+      `archive/v2-v3-design-log.md` (open items lifted here); stale sim files removed
+      (INSTRUCTIONS, note-to-next-instance, debug.js, trace_single.js); `CLAUDE.md` read-list + status
+      updated.
 - [x] **Sell disrepute now scales with artefact value (10 Jun).** Non-doomed sell cost =
       `max(1, floor((rep − 1) / 2))` Reputation (1 for rep 2–4, up to 4 for rep 9–10); **doomed =
       0**. Locked in `constraints.md`. _Prototype with the formula; promote to printed per-card
@@ -140,6 +149,9 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
 - [ ] Build out the scoring model (multiple visible axes; two-axis legacy).
 - [ ] Design the collapse mode-flip (third act) in detail.
 - [ ] Re-evaluate parked darlings (age track, instability variety, specials) — add back only what
-      playtest proves necessary.
+      playtest proves necessary. _From the archived v2/v3 log:_ **conspicuousness** (bigger party =
+      harder to hide), **intervention "threads"** (open/close a change across steps), **multi-turn
+      expeditions** for deep late jumps, and a concrete mechanic for **Precision / the Collimator as
+      the machine's "discretion"** (cleaner drops = less footprint).
 - [ ] Mine `archive/game-design.md` for reusable content (mystery tiers, real-history finds,
       fiction).
