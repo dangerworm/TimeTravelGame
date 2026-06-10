@@ -72,85 +72,89 @@ dated line whenever Drew states a new preference. Newest at the bottom of each s
   "scientists, not soldiers" anchor — a combat type would turn the co-discovery team into a
   mercenary crew. (8 Jun 2026)
 - **Resolution is a per-expedition bag-builder (Option B).** Each jump, pick a roster up to machine
-  **Capacity**, build a one-shot bag from their pips + a permanent **player base (2/2/2, provisional)** +
-  one **Trace per instability token**; draw `2 × researchers-on-expedition + 2`. The bag is rebuilt every
-  jump (not persistent); "who do I send?" stays a live decision. Full ruleset in `design-skeleton.md`.
-  (9 Jun 2026)
+  **Capacity**, build a one-shot bag from their pips + a permanent **player base (2/2/2,
+  provisional)** + one **Trace per instability token**; draw `2 × researchers-on-expedition + 2`.
+  The bag is rebuilt every jump (not persistent); "who do I send?" stays a live decision. Full
+  ruleset in `design-skeleton.md`. (9 Jun 2026)
 - **Overclock's cost is personal and persistent.** Overclock = +1 instability token **and** +1 Trace
-  card (1:1); Traces dilute every future bag until an engineer clears the tokens. Instability is a debt
-  you pay, capped by the **Stabiliser** (shutdown forces a cash-out — never an unbounded brick). (9 Jun
-  2026)
+  card (1:1); Traces dilute every future bag until an engineer clears the tokens. Instability is a
+  debt you pay, capped by the **Stabiliser** (shutdown forces a cash-out — never an unbounded
+  brick). (9 Jun 2026)
 - **Experience grows all three skills** (+1 per blue box, max +2 each) — veterans rise uniformly and
   keep their spike. Paper-writing lives in **Develop**. (9 Jun 2026)
-- **Timeline collapse is a one-round "Unravelling" fuse, never a cold game-over.** Integrity 0 triggers a
-  final round (each player one more turn; settle affairs, or attempt a last Many Worlds escape) then
-  scoring. The overclock deterrent lives in the **personal** costs (Trace pollution, shutdown,
-  consequences, engineer drag), not the shared track. Keystone #3 honoured. (9 Jun 2026)
-- **Home actions are one per researcher, not one per turn.** Each teammate not in the field takes one
-  Develop action (write a paper · upgrade a module · clear instability). Team size therefore drives home
-  productivity as well as field strength. _(9 Jun 2026, balance-sim confirmed.)_
-- **Experience shows 3 boxes, but the first is always pre-filled** — so only **2 are earnable** (the +2
-  pip cap above). Purely so a researcher always looks like they carry some experience; no extra gate, no
-  effect on game length. _(9 Jun 2026.)_
-- **The machine starts at Amp 2** — Recent _and_ Modern reachable from turn one. Starting at Amp 1 left
-  even the boldest player crawling in Recent for ~4 rounds before the game opened up, then rushing the
-  middle eras ("suddenly thrust into the end-game"). Amp 2 removes the dead opening at negligible balance
-  cost; Recent becomes the optional gentle on-ramp, not a forced tier. _(9 Jun 2026, balance-sim
-  confirmed — Experiment A.)_
-- **The Stabiliser starts at 2, so overclock is a genuine gamble.** At Stab 2 a carried-over instability
-  plus one push for the objective can trip a shutdown. The danger should **concentrate in the player who
-  keeps pushing** (sim: the reckless archetype bricks ~2–3×/game while careful players almost never do),
-  not spread evenly across the table. _(9 Jun 2026, balance-sim confirmed.)_
-- **The game should be winnable but never a foregone conclusion — aim for ~75% of tables reaching Many
-  Worlds** (revised down from an initial 80% gut figure). Roughly a quarter of tables should fall short or
-  collapse, so the win means something. _(9 Jun 2026.)_
-- **An artefact is Cash XOR legacy — Sell _or_ keep-for-points, never both (Model B).** Selling pays Cash
-  now and **forfeits** every end-game point the artefact would have scored — its paper's Reputation if
-  Published, or **1 point** if held unresearched (scoring per `design-skeleton.md` §9). _Considered
-  allowing a paper **and** a sale ("both", real-life style); rejected — free Cash + free Reputation
-  collapses the cash-vs-legacy tension that is the economy's spine._ (9 Jun 2026)
+- **Timeline collapse is a one-round "Unravelling" fuse, never a cold game-over.** Integrity 0
+  triggers a final round (each player one more turn; settle affairs, or attempt a last Many Worlds
+  escape) then scoring. The overclock deterrent lives in the **personal** costs (Trace pollution,
+  shutdown, consequences, engineer drag), not the shared track. Keystone #3 honoured. (9 Jun 2026)
+- **Home actions are one per researcher, not one per turn.** Each teammate not in the field takes
+  one Develop action (write a paper · upgrade a module · clear instability). Team size therefore
+  drives home productivity as well as field strength. _(9 Jun 2026, balance-sim confirmed.)_
+- **Experience shows 3 boxes, but the first is always pre-filled** — so only **2 are earnable** (the
+  +2 pip cap above). Purely so a researcher always looks like they carry some experience; no extra
+  gate, no effect on game length. _(9 Jun 2026.)_
+- **The machine starts at Amp 2** — Recent _and_ Modern reachable from turn one. Starting at Amp 1
+  left even the boldest player crawling in Recent for ~4 rounds before the game opened up, then
+  rushing the middle eras ("suddenly thrust into the end-game"). Amp 2 removes the dead opening at
+  negligible balance cost; Recent becomes the optional gentle on-ramp, not a forced tier. _(9 Jun
+  2026, balance-sim confirmed — Experiment A.)_
+- **The Stabiliser starts at 2, so overclock is a genuine gamble.** At Stab 2 a carried-over
+  instability plus one push for the objective can trip a shutdown. The danger should **concentrate
+  in the player who keeps pushing** (sim: the reckless archetype bricks ~2–3×/game while careful
+  players almost never do), not spread evenly across the table. _(9 Jun 2026, balance-sim
+  confirmed.)_
+- **The game should be winnable but never a foregone conclusion — aim for ~75% of tables reaching
+  Many Worlds** (revised down from an initial 80% gut figure). Roughly a quarter of tables should
+  fall short or collapse, so the win means something. _(9 Jun 2026.)_
+- **An artefact is Cash XOR legacy — Sell _or_ keep-for-points, never both (Model B).** Selling pays
+  Cash now and **forfeits** every end-game point the artefact would have scored — its paper's
+  Reputation if Published, or **1 point** if held unresearched (scoring per `design-skeleton.md`
+  §9). _Considered allowing a paper **and** a sale ("both", real-life style); rejected — free Cash +
+  free Reputation collapses the cash-vs-legacy tension that is the economy's spine._ (9 Jun 2026)
 - **Sell disrepute scales with the find's significance, and doomed artefacts sell clean.** Selling a
   **non-doomed** artefact costs **`max(1, floor((rep − 1) / 2))` Reputation**, where `rep` is the
   artefact's **printed Reputation value** (the find's significance, not the publishing historian's
   output) → 1 for rep 2–4, 2 for 5–6, 3 for 7–8, 4 for 9–10. Flogging a treasure stings more than a
-  trinket, while disrepute stays well below the paper value so **Sell remains the cash-desperate lifeline,
-  never a trap**. **Doomed artefacts have 0 disrepute** — clean to grab _and_ clean to sell (the same
-  doomed exception as the plunder Integrity-scar). (10 Jun 2026)
+  trinket, while disrepute stays well below the paper value so **Sell remains the cash-desperate
+  lifeline, never a trap**. **Doomed artefacts have 0 disrepute** — clean to grab _and_ clean to
+  sell (the same doomed exception as the plunder Integrity-scar). (10 Jun 2026)
 - **Spoils (Cash) appear only on the _second-to-last_ step of an era card.** Every earlier step is a
-  **pure gate that pays nothing**; the penultimate step holds the one cash "find," the last step holds the
-  objective (rep/artefact). You **can't get rich bailing after 1–2 steps** — you must climb almost the
-  whole ladder to bank anything, then choose whether to gamble the final objective. _(Sharpens the
-  push-your-luck to one real cash-out point; revises the earlier "escalating banked finds" shape — update
-  `core-goals.md`.)_ (10 Jun 2026)
-- **Deep eras are long ladders of _gentle_ gates, not short brutal walls.** Ancient / Prehistoric cards
-  have **more steps but low, flat per-step requirements** (plus the odd Grit danger spike); the challenge
-  is the **length of the climb and the final gamble**, not each step being a wall. _Narrative:_ civilised
-  eras gate on political / social control — security, secrecy, power — that didn't exist deep in time,
-  where the difficulty is instead the long, blind search through near-nonexistent records. Step bands
-  ≈ **2–3 / 3–4 / 5–6** by era pair, requirements re-tuned to keep deep objectives reachable. (10 Jun 2026)
-- **Expedition resolution is a refill-each-step deck draw, not a one-shot depletion.** At the start of
-  **every step** you top the hand back up to **`2 × roster + 2`**, reshuffling the discard (played cards +
-  traces) when the deck runs dry; overclock draws beyond the cap. _Corrects a 10 Jun discovery: the
-  written spec and the sim had the hand drawn **once** and depleted across the whole expedition — **not**
-  the intent, and the reason deep multi-step cards looked impossible. The earlier v3 "bag = stamina / no
-  reshuffle" line is **dropped**; stamina now lives in accumulating **Trace pollution + instability toward
-  shutdown**._ The **`+2` is load-bearing** — at `[2×roster]` the sim shows deep completion cratering and
-  constant folding. (10 Jun 2026)
-- **Many Worlds is the win-rate brake: a 6-step × 4-pip gauntlet.** Tuning MW difficulty (not the era
-  economy) is how we hold the win rate near ~75% without making the deep ladders unreachable. Full
-  recommended config lives in `sim/RESULTS.md`; the cost of the gentle-ladder design is a **long game
-  (~13 rounds)**, knowingly accepted for the deep-era escalation. (10 Jun 2026)
-- **Plundering a non-doomed artefact scars the timeline — the shared half of the greed dial.** Taking a
-  non-doomed artefact costs **Timeline Integrity**, era-scaled `[1,1,2,2,3,3,4]` (Recent→Many Worlds;
-  deeper finds scar more); **doomed artefacts grab clean** (no scar, no disrepute — the same doomed
-  exception as disrepute). The field choice is **Record** (clean Reputation now) vs **Plunder** (take it,
-  scar now, then at the desk **Publish** for Reputation _or_ **Sell** for Cash). This is what makes a
-  greedy table's collective plundering bend the timeline toward collapse — sim: greedy-heavy tables
-  collapse ~35–43% vs balanced-heavy ~20%, so the ethical axis is now mechanical, not just fiction. The
-  three archetypes plunder very differently (greedy ~1.2/game, balanced ~0.5, cautious ~0.1). (10 Jun 2026)
-- **The game is balanced across player counts (sim --matrix).** Standard mix holds Many Worlds ~79–84%
-  with collapse ~16–24% across **3/4/5 players**; 2p plays a touch easier, 6p a touch harder, both still
-  work. Recommended config: integrity 16, MW **5 steps × 4 pips**, failed-MW −1. (10 Jun 2026)
+  **pure gate that pays nothing**; the penultimate step holds the one cash "find," the last step
+  holds the objective (rep/artefact). You **can't get rich bailing after 1–2 steps** — you must
+  climb almost the whole ladder to bank anything, then choose whether to gamble the final objective.
+  _(Sharpens the push-your-luck to one real cash-out point; revises the earlier "escalating banked
+  finds" shape — update `core-goals.md`.)_ (10 Jun 2026)
+- **Deep eras are long ladders of _gentle_ gates, not short brutal walls.** Ancient / Prehistoric
+  cards have **more steps but low, flat per-step requirements** (plus the odd Grit danger spike);
+  the challenge is the **length of the climb and the final gamble**, not each step being a wall.
+  _Narrative:_ civilised eras gate on political / social control — security, secrecy, power — that
+  didn't exist deep in time, where the difficulty is instead the long, blind search through
+  near-nonexistent records. Step bands ≈ **2–3 / 3–4 / 5–6** by era pair, requirements re-tuned to
+  keep deep objectives reachable. (10 Jun 2026)
+- **Expedition resolution is a refill-each-step deck draw, not a one-shot depletion.** At the start
+  of **every step** you top the hand back up to **`2 × roster + 2`**, reshuffling the discard
+  (played cards + traces) when the deck runs dry; overclock draws beyond the cap. _Corrects a 10 Jun
+  discovery: the written spec and the sim had the hand drawn **once** and depleted across the whole
+  expedition — **not** the intent, and the reason deep multi-step cards looked impossible. The
+  earlier v3 "bag = stamina / no reshuffle" line is **dropped**; stamina now lives in accumulating
+  **Trace pollution + instability toward shutdown**._ The **`+2` is load-bearing** — at `[2×roster]`
+  the sim shows deep completion cratering and constant folding. (10 Jun 2026)
+- **Many Worlds is the win-rate brake: a 6-step × 4-pip gauntlet.** Tuning MW difficulty (not the
+  era economy) is how we hold the win rate near ~75% without making the deep ladders unreachable.
+  Full recommended config lives in `sim/RESULTS.md`; the cost of the gentle-ladder design is a
+  **long game (~13 rounds)**, knowingly accepted for the deep-era escalation. (10 Jun 2026)
+- **Plundering a non-doomed artefact scars the timeline — the shared half of the greed dial.**
+  Taking a non-doomed artefact costs **Timeline Integrity**, era-scaled `[1,1,2,2,3,3,4]`
+  (Recent→Many Worlds; deeper finds scar more); **doomed artefacts grab clean** (no scar, no
+  disrepute — the same doomed exception as disrepute). The field choice is **Record** (clean
+  Reputation now) vs **Plunder** (take it, scar now, then at the desk **Publish** for Reputation
+  _or_ **Sell** for Cash). This is what makes a greedy table's collective plundering bend the
+  timeline toward collapse — sim: greedy-heavy tables collapse ~35–43% vs balanced-heavy ~20%, so
+  the ethical axis is now mechanical, not just fiction. The three archetypes plunder very
+  differently (greedy ~1.2/game, balanced ~0.5, cautious ~0.1). (10 Jun 2026)
+- **The game is balanced across player counts (sim --matrix).** Standard mix holds Many Worlds
+  ~79–84% with collapse ~16–24% across **3/4/5 players**; 2p plays a touch easier, 6p a touch
+  harder, both still work. Recommended config: integrity 16, MW **5 steps × 4 pips**, failed-MW −1.
+  (10 Jun 2026)
 
 ## DON'T
 

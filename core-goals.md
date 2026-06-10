@@ -84,13 +84,13 @@ These sit above any individual mechanic. A rule that breaks one of these is the 
   **Grit is a temperament any scientist can have**, not a soldier class.
 - **Push-your-luck = climb the ladder to the back-loaded prize.** An expedition is a ladder of gate
   steps that pay **nothing** until the **second-to-last step** (the one Cash "find") and the **last
-  step** (the objective — the bulk of the value). So the decision is sharp: **bail early and walk away
-  empty, or climb the whole ladder to bank the cache and then gamble the final objective.** The
+  step** (the objective — the bulk of the value). So the decision is sharp: **bail early and walk
+  away empty, or climb the whole ladder to bank the cache and then gamble the final objective.** The
   **overclock** is the reach _at_ a gate (more reward, more risk, a cost paid in instability — one
-  track, not two). Failing or cashing out forfeits everything past where you stopped; footprint already
-  left is never refunded. _(Revised 10 Jun 2026: spoils-only-on-the-penultimate-step replaces the
-  earlier "escalating banked finds at every gate" shape — that let players get rich bailing after 1–2
-  steps. Deeper eras are longer ladders of gentler gates.)_
+  track, not two). Failing or cashing out forfeits everything past where you stopped; footprint
+  already left is never refunded. _(Revised 10 Jun 2026: spoils-only-on-the-penultimate-step
+  replaces the earlier "escalating banked finds at every gate" shape — that let players get rich
+  bailing after 1–2 steps. Deeper eras are longer ladders of gentler gates.)_
 - **Shared Timeline Integrity.** Aggressive approaches (smash-and-grab, overclock failures,
   interference) shave a shared integrity track. As it drops, _everyone's_ jumps get harder — which
   feeds the spine (more challenge) rather than being a flat penalty.
@@ -121,10 +121,11 @@ These sit above any individual mechanic. A rule that breaks one of these is the 
   before reality unravels. An uneasy scramble — keep the timeline limping while you each race your
   own escape. Stakes and alliances change; nobody's effort is erased.
   - **✅ Resolved (9 Jun 2026):** Integrity 0 does **not** end the game cold — it triggers a final
-    **"Unravelling" round** (each player takes one more turn at max peril; the collapse flavour fires).
-    Players use it to get their affairs in order before scoring, or — if close — ally for one last
-    **Many Worlds** escape attempt. Then the game ends and everyone scores. This *is* the mode-flip in
-    its cheapest form; the overclock deterrent lives in the personal costs, not this shared track.
+    **"Unravelling" round** (each player takes one more turn at max peril; the collapse flavour
+    fires). Players use it to get their affairs in order before scoring, or — if close — ally for
+    one last **Many Worlds** escape attempt. Then the game ends and everyone scores. This _is_ the
+    mode-flip in its cheapest form; the overclock deterrent lives in the personal costs, not this
+    shared track.
 - **Multiple visible scoring axes.** No player should realise on round 3 that they cannot win.
   Several legible paths to legacy, a telegraphed endgame everyone can see approaching, and ideally a
   two-axis legacy (what you discovered × how you did it) so different playstyles are all viable.

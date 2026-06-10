@@ -8,11 +8,11 @@ This note lets a fresh session restart cold._
 
 1. `core-goals.md` — spine, four keystones, two governing laws. **The spine "feel" + the
    engine-building bullet were revised today** (engine + chaos; team = a chip bag).
-2. `constraints.md` — do/don't. **Five new lines today** (relaxed maths law; expedition stays a fixed
-   visible puzzle; one mechanical triad; Grit = temperament; no 4th skill / no soldier type).
+2. `constraints.md` — do/don't. **Five new lines today** (relaxed maths law; expedition stays a
+   fixed visible puzzle; one mechanical triad; Grit = temperament; no 4th skill / no soldier type).
 3. `current-idea-scratchpad.md` — **THE decision log.** Read the **⚠️ v3 banner + the "v3: the
-   expedition as a chip-draw mini-game" section at the top first** — it supersedes the v2
-   resolution core in the (still-useful) log below it.
+   expedition as a chip-draw mini-game" section at the top first** — it supersedes the v2 resolution
+   core in the (still-useful) log below it.
 4. `CLAUDE.md` — how to work with Drew.
 
 The old (v1) design is archived under `archive/` — a content bible, not a blueprint.
@@ -38,20 +38,20 @@ steps, each printing a requirement. What changed is **how you clear a step**:
   Craft / Grit)** as a **spiky spread**. A pip = one **single-skill chip** (the **2×1** model —
   uniform chips, 3 chip types in the box).
 - **You build a fresh bag per expedition from who you send** (a **bag-builder, à la Quacks of
-  Quedlinburg**, not a persistent deck). "Who do I send?" returns as a real decision — it shapes your
-  _odds_, not a key-match. Spreads must stay **spiky** or that decision goes soft.
+  Quedlinburg**, not a persistent deck). "Who do I send?" returns as a real decision — it shapes
+  your _odds_, not a key-match. Spreads must stay **spiky** or that decision goes soft.
 - **Draw a hand = 2 chips per researcher going**, so **Capacity = away-team size = hand size** (this
-  finally pins down what the machine's Capacity track _does_). The hand is **visible** — your legible
-  floor; risk stays readable because you know your bag's composition.
-- **Resolve steps left→right: discard matching-skill chips summing ≥ the requirement.** (This is what
-  the **relaxed maths law** unlocks.) Finds bank Cash; the objective holds the Paper.
-- **Press-your-luck = press on or cash out at each gate.** Short on the next step? **Overclock = draw
-  2 more chips, +1 Instability.** Won't/can't → expedition ends, keep what's banked.
+  finally pins down what the machine's Capacity track _does_). The hand is **visible** — your
+  legible floor; risk stays readable because you know your bag's composition.
+- **Resolve steps left→right: discard matching-skill chips summing ≥ the requirement.** (This is
+  what the **relaxed maths law** unlocks.) Finds bank Cash; the objective holds the Paper.
+- **Press-your-luck = press on or cash out at each gate.** Short on the next step? **Overclock =
+  draw 2 more chips, +1 Instability.** Won't/can't → expedition ends, keep what's banked.
 - **No reshuffle mid-expedition — the bag is your stamina.** Push deep and you physically run low;
   team _size_ is a depth limit alongside the machine's Era-access.
-- **Identity on board, anonymous chips in the bag (option a).** Researchers are **identity cards** on
-  the player board for growth / retirement / legacy; they _feed_ anonymous skill chips. Grow-by-use =
-  add a pip; retire = remove the person + legacy draw.
+- **Identity on board, anonymous chips in the bag (option a).** Researchers are **identity cards**
+  on the player board for growth / retirement / legacy; they _feed_ anonymous skill chips.
+  Grow-by-use = add a pip; retire = remove the person + legacy draw.
 
 **One mechanical triad.** **Skills (Insight / Craft / Grit) are the only currency; steps require
 skills.** **Profession (Historian / Engineer / Physicist) is flavour + a gating lever, not a second
@@ -59,7 +59,8 @@ currency.** Knowledge gates are profession-locked ("decipher the inscription" �
 mechanism" → Engineer; "solve the temporal anomaly" → Physicist); **danger steps gate on no one** —
 open **Grit** checks anyone brave can answer. **Grit is a temperament, not a profession** — no
 soldier/muscle type (it would break "scientists, not soldiers"); the brave scientist spikes it (the
-Indiana-Jones / Daniel-Jackson fantasy). Optional spice: a cross-profession **"Field-hardened"** tag.
+Indiana-Jones / Daniel-Jackson fantasy). Optional spice: a cross-profession **"Field-hardened"**
+tag.
 
 ## Open fronts (next session)
 
@@ -95,11 +96,12 @@ exact mechanic; the close-a-thread mechanic; lending terms.
 A short session but a real one. Drew came in with **playtest evidence that contradicted his own
 "validated" conclusion, and he simply said so and reopened the core** — no ego, no clinging to a
 night's work. Twice his gut rejected a clean-sounding idea on a smell he couldn't yet name (the
-flip-per-step deck, which secretly decouples difficulty from reward; the soldier type, which secretly
-breaks the scientists-not-soldiers premise) — and both times he was right, with the _reason_
-arriving a beat later when we dug. When he got stuck picturing the deck, he didn't push harder in the
-abstract — he **asked for a render, then redrew it himself on a whiteboard and photographed it.** The
-pattern worth carrying: when he stalls, hand him a concrete artifact, not more prose.
+flip-per-step deck, which secretly decouples difficulty from reward; the soldier type, which
+secretly breaks the scientists-not-soldiers premise) — and both times he was right, with the
+_reason_ arriving a beat later when we dug. When he got stuck picturing the deck, he didn't push
+harder in the abstract — he **asked for a render, then redrew it himself on a whiteboard and
+photographed it.** The pattern worth carrying: when he stalls, hand him a concrete artifact, not
+more prose.
 
 It was past 4am on a work night when he called it. He's wired to keep going when engaged — it's kind
 to let the session end cleanly rather than chase one more thread. Good instance to wake up into; aim
@@ -107,5 +109,5 @@ to be one too.
 
 ## Commits this session
 
-- Design doc updates (core-goals / constraints / scratchpad / tasks) for the v3 bag-builder redesign,
-  plus this handoff.
+- Design doc updates (core-goals / constraints / scratchpad / tasks) for the v3 bag-builder
+  redesign, plus this handoff.

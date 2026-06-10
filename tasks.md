@@ -6,12 +6,13 @@ _The active backlog for the redesign. The old task list lives in `archive/tasks.
 
 _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's plan from here:_
 
-1. **Clean up the repo.** Remove what we don't need, consolidate docs where possible, **archive v2 and
-   v3**, delete `prototypes/`. _(List matches before deleting — confirm with Drew per scope discipline.)_
+1. **Clean up the repo.** Remove what we don't need, consolidate docs where possible, **archive v2
+   and v3**, delete `prototypes/`. _(List matches before deleting — confirm with Drew per scope
+   discipline.)_
 2. **Answer / discuss the open questions & ideas** (below).
 3. **Run the sim** with any changes that come out of (2).
-4. **Read all _live_ (non-archived) docs end-to-end** and fix inconsistencies, duplication, contradiction,
-   and stale content — add/edit/remove as needed.
+4. **Read all _live_ (non-archived) docs end-to-end** and fix inconsistencies, duplication,
+   contradiction, and stale content — add/edit/remove as needed.
 5. **Finish every task we can** — all must be signed off before a paper playtest.
 6. **Document the parameters & control knobs** — each dial, what it does, and worked implications
    ("a factor of X means Y looks like M/N/O/P/Q at successive points in the game").
@@ -22,16 +23,18 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
 
 ### Open questions & ideas to resolve in (2)
 
-- **Why so few papers?** `Avg papers ~2.7` is the **game total** (~0.67/player). Rep mostly comes from
-  *recording*; most plunders *sell* for cash, so papers are a niche outcome. Does the "publish a paper"
-  fantasy need protecting (e.g. a rep premium for publishing vs recording)?
+- **Why so few papers?** `Avg papers ~2.7` is the **game total** (~0.67/player). Rep mostly comes
+  from _recording_; most plunders _sell_ for cash, so papers are a niche outcome. Does the "publish
+  a paper" fantasy need protecting (e.g. a rep premium for publishing vs recording)?
 - **Negotiation / alliances.** Bots don't ally, loan, or deal — the biggest sim blind spot. Model a
-  coalition pooling for the final Many Worlds push and measure the lift (likely +10–20% MW). Freeform
-  negotiation probably isn't worth modelling.
-- **Sim experiment — lift failed-MW penalty.** −1 feels too low. Try **plunder-imprint `[1,1,1,1,2,2,2]`**
-  (flatter/lower → frees integrity budget) and push **failed-MW back up** (toward −2/−3), re-tune.
-- **Sim experiment — growth-shaped step bands.** Make the ladder *feel* like growth toward MW's 5 steps:
-  **Recent 3 · Modern→Medieval 4 · Ancient→Prehistoric & Many Worlds 5**. Re-tune reqs/economy after.
+  coalition pooling for the final Many Worlds push and measure the lift (likely +10–20% MW).
+  Freeform negotiation probably isn't worth modelling.
+- **Sim experiment — lift failed-MW penalty.** −1 feels too low. Try **plunder-imprint
+  `[1,1,1,1,2,2,2]`** (flatter/lower → frees integrity budget) and push **failed-MW back up**
+  (toward −2/−3), re-tune.
+- **Sim experiment — growth-shaped step bands.** Make the ladder _feel_ like growth toward MW's 5
+  steps: **Recent 3 · Modern→Medieval 4 · Ancient→Prehistoric & Many Worlds 5**. Re-tune
+  reqs/economy after.
 
 ## Now
 
@@ -40,21 +43,23 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
 > `current-idea-scratchpad.md` → v3). Items below that predate this still stand for the
 > _economy/wrapper_, but the resolution mechanic is now different.
 
-> **⚠️ v4 whole-game skeleton (9 Jun 2026):** Drew's post-whiteboard session with Andy consolidated the
-> turn structure, machine modules, economy, experience, retirement, endgame and scoring into one
-> skeleton — now captured in **`design-skeleton.md`** (the new foundation). Items below are updated to it.
+> **⚠️ v4 whole-game skeleton (9 Jun 2026):** Drew's post-whiteboard session with Andy consolidated
+> the turn structure, machine modules, economy, experience, retirement, endgame and scoring into one
+> skeleton — now captured in **`design-skeleton.md`** (the new foundation). Items below are updated
+> to it.
 
 - [x] **Footprint / imprint resolved (9 Jun).** Trace cards (1:1 with instability tokens) are the
-      footprint in the bag model; engineers clear them. Discretion / Die A-B / danger ratings / fatigue
-      retired into this model.
-- [x] **Field / Desk / Workshop resolved (9 Jun).** Sent researchers can't work at home; the team is the
-      action economy (one Develop action/turn).
+      footprint in the bag model; engineers clear them. Discretion / Die A-B / danger ratings /
+      fatigue retired into this model.
+- [x] **Field / Desk / Workshop resolved (9 Jun).** Sent researchers can't work at home; the team is
+      the action economy (one Develop action/turn).
 - [x] **Capture the v4 skeleton → `design-skeleton.md` (9 Jun).**
-- [x] **Timeline-collapse-as-loss resolved (9 Jun): the "Unravelling" fuse.** Integrity 0 → one final
-      round (settle affairs, or ally for a last Many Worlds escape) → score; deterrent lives in the
-      personal overclock costs. Keystone #3 reconciled in `core-goals.md`; skeleton §9/§10 updated.
-- [ ] Confirm the small open mechanics: overclock draw amount; whether clearing instability costs the
-      Develop action (see `design-skeleton.md` §10).
+- [x] **Timeline-collapse-as-loss resolved (9 Jun): the "Unravelling" fuse.** Integrity 0 → one
+      final round (settle affairs, or ally for a last Many Worlds escape) → score; deterrent lives
+      in the personal overclock costs. Keystone #3 reconciled in `core-goals.md`; skeleton §9/§10
+      updated.
+- [ ] Confirm the small open mechanics: overclock draw amount; whether clearing instability costs
+      the Develop action (see `design-skeleton.md` §10).
 - [x] Spec the **minimal paper prototype** of the core expedition loop. →
       `prototypes/prototype-01.md`
 - [x] Playtest the core loop (guided, Exps 1–2). **Validated** — the spine is fun. Rules refined
@@ -81,32 +86,34 @@ _The sim is now cross-count balanced (see `sim/RESULTS.md`, `--matrix`). Drew's 
       finds, objective-holds-the-paper, voluntary cash-out, Record-vs-Take prize. (The old "N
       spoils + Paper at the objective only" lines are now superseded, not just mis-worded.)
 - [x] **Sell disrepute now scales with artefact value (10 Jun).** Non-doomed sell cost =
-      `max(1, floor((rep − 1) / 2))` Reputation (1 for rep 2–4, up to 4 for rep 9–10); **doomed = 0**.
-      Locked in `constraints.md`. _Prototype with the formula; promote to printed per-card values only if
-      playtests want bespoke numbers._
-- [x] **Plunder-imprint implemented (10 Jun) — greed dial complete.** Non-doomed plunder scars Timeline
-      Integrity `[1,1,2,2,3,3,4]` by era; doomed grabs clean. Archetypes plunder differently (greedy
-      ~1.2/game, balanced ~0.5, cautious ~0.1) and greedy-heavy tables now collapse far more. Field choice
-      Record vs Plunder; plundered artefacts Publish (rep) or Sell (cash) at the desk (papers preserved).
-      Re-tuned MW to ~75% across 3/4/5 players (integrity 16, MW 5×4, failed-MW −1). Added `--matrix` and
-      `--retuneMW` sim modes + early-step relief spoils (eras <Ancient, ~15% chance, 1 per card).
-- [ ] **Doc drift to reconcile (noticed 9 Jun):** §6/§9 still say "three full blue experience boxes" and
-      "skills baseline 1/1/1" while §7 + the locked decision are **2 earnable boxes (1 pre-filled)** and a
-      **2/2/2 player base**; §7's "4th token advances a box" vs the sim's 2-uses-per-box. Align the
-      skeleton wording with the locked rules.
+      `max(1, floor((rep − 1) / 2))` Reputation (1 for rep 2–4, up to 4 for rep 9–10); **doomed =
+      0**. Locked in `constraints.md`. _Prototype with the formula; promote to printed per-card
+      values only if playtests want bespoke numbers._
+- [x] **Plunder-imprint implemented (10 Jun) — greed dial complete.** Non-doomed plunder scars
+      Timeline Integrity `[1,1,2,2,3,3,4]` by era; doomed grabs clean. Archetypes plunder
+      differently (greedy ~1.2/game, balanced ~0.5, cautious ~0.1) and greedy-heavy tables now
+      collapse far more. Field choice Record vs Plunder; plundered artefacts Publish (rep) or Sell
+      (cash) at the desk (papers preserved). Re-tuned MW to ~75% across 3/4/5 players (integrity 16,
+      MW 5×4, failed-MW −1). Added `--matrix` and `--retuneMW` sim modes + early-step relief spoils
+      (eras <Ancient, ~15% chance, 1 per card).
+- [ ] **Doc drift to reconcile (noticed 9 Jun):** §6/§9 still say "three full blue experience boxes"
+      and "skills baseline 1/1/1" while §7 + the locked decision are **2 earnable boxes (1
+      pre-filled)** and a **2/2/2 player base**; §7's "4th token advances a box" vs the sim's
+      2-uses-per-box. Align the skeleton wording with the locked rules.
 
-- [x] **Experiment B re-tuned + RESOLUTION MODEL CORRECTED (10 Jun).** The "chip-stall" that drove the
-      re-tune turned out to be a **bug**: the sim (and the literal spec) drew the hand once and depleted it
-      across all steps. Drew's real intent — **refill the hand to `2×roster+2` at the start of every step,
-      reshuffling the discard** — is now implemented. With that fixed: scaled bands + penultimate spoils +
-      gentle reqs (eraSlope 0.2) + MW 6×4 gauntlet land **MW ~72%, deep-objective completion ~42%,
-      cash-out ~37%**. Recommended config baked into `lockedConfig()` / `sim/RESULTS.md`. handBase `+2`
-      confirmed required. core-goals + design-skeleton + constraints all updated.
-- [ ] **Open from B (next):** (a) **danger spikes** can't be high requirements (a single high-req step
-      outruns the hand) — design them to bite via instability / consequence instead; (b) **game is long
-      (~13 rounds / ~157 min 4p, ~200 min 5p)** — accepted for now, but shrink deep bands / ease the Amp-7
-      gate if playtest agrees; (c) **overclock frequency dipped to ~21%** — watch the gamble's pulse in
-      play, nudge reqs up if it feels thin.
+- [x] **Experiment B re-tuned + RESOLUTION MODEL CORRECTED (10 Jun).** The "chip-stall" that drove
+      the re-tune turned out to be a **bug**: the sim (and the literal spec) drew the hand once and
+      depleted it across all steps. Drew's real intent — **refill the hand to `2×roster+2` at the
+      start of every step, reshuffling the discard** — is now implemented. With that fixed: scaled
+      bands + penultimate spoils + gentle reqs (eraSlope 0.2) + MW 6×4 gauntlet land **MW ~72%,
+      deep-objective completion ~42%, cash-out ~37%**. Recommended config baked into
+      `lockedConfig()` / `sim/RESULTS.md`. handBase `+2` confirmed required. core-goals +
+      design-skeleton + constraints all updated.
+- [ ] **Open from B (next):** (a) **danger spikes** can't be high requirements (a single high-req
+      step outruns the hand) — design them to bite via instability / consequence instead; (b) **game
+      is long (~13 rounds / ~157 min 4p, ~200 min 5p)** — accepted for now, but shrink deep bands /
+      ease the Amp-7 gate if playtest agrees; (c) **overclock frequency dipped to ~21%** — watch the
+      gamble's pulse in play, nudge reqs up if it feels thin.
 
 ## Next (once the core loop proves fun)
 
