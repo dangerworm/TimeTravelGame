@@ -1,7 +1,7 @@
 {
   "_meta": {
     "label": "best-2026-06-10c",
-    "note": "MULTIVERSE-IS-RARE config. MW ~52% (5×5 gauntlet, failed-MW −2) so the win is sacred; endgame spread ≈ 52% triumph / 36% collapse / 12% quiet legacy. Papers ~17/game (record = a paper). Deep ~50%, ~16-17 rounds. Overclock baseline ~19% is a bot-conservatism floor — a reckless player pushes 60%+ and bricks 2-4×/game (--pushprobe); the gamble is a CHOICE. TODO riding alongside: make the non-MW endings (collapse, legacy) FEEL worthy (flavour + reflection).",
+    "note": "MULTIVERSE-IS-RARE config. MW ~52% (5×5 gauntlet, failed-MW −2) so the win is sacred; endgame spread ≈ 52% triumph / 36% collapse / 12% quiet legacy. Papers ~17/game (record = a paper). Deep ~50%, ~16-17 rounds. Overclock baseline ~19% is a bot-conservatism floor — a reckless player pushes 60%+ and bricks 2-4×/game (--pushprobe); the gamble is a CHOICE. RESOLVED 10 Jun eve: the non-MW endings now have flavour + a two-band portrait scoresheet (ethics shown via disrepute tokens) + individual-retirement as the quiet-legacy trigger.",
     "generated": "2026-06-10"
   },
   "config": {

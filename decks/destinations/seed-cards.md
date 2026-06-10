@@ -2,8 +2,8 @@
 
 _A destination card is an **era card**: a left-to-right **path of steps**, each printing a single
 **skill requirement** (Insight / Craft / Grit) you meet by playing matching chips from your hand.
-Most steps are pure **gates** (no reward); the **second-to-last** step holds a **find** (Cash); the
-**last** step is the **objective**. **Danger** steps are open **Grit** checks (anyone brave can
+Most steps are pure **gates** (no reward); the **second-to-last** step holds a **find** (Sell it for
+Cash, or Publish it as a minor paper); the **last** step is the **objective**. **Danger** steps are open **Grit** checks (anyone brave can
 answer); **knowledge** steps are **profession-locked** (only the right mind unlocks them). The
 objective is claimed by **Recording** it (evidence → Reputation, history intact) or **Plundering**
 it (take it → Sell for Cash or Publish for Reputation later) — and plundering a **non-doomed**
@@ -28,7 +28,7 @@ _Era: **Modern**_
 **The path (→):**
 
 1. Decipher the unpublished schematics — **Insight 2** _(Historian-locked)_
-2. Slip into the half-built pumping works — **Grit 2** _(danger)_ · _find: Cash_
+2. Slip into the half-built pumping works — **Grit 2** _(danger)_ · _find: Sell or Publish_
 3. Retrieve the prototype valve — **Craft 3** · _objective_
 
 **Prize:** the valve is a real, surviving artefact. **Record** it (measure and document, leave it in
@@ -47,7 +47,7 @@ _Era: **Medieval**_
 
 1. Read the marginal cipher — **Insight 2** _(Historian-locked)_
 2. Cross the cathedral works unseen — **Grit 2** _(danger)_
-3. Win the confidence of the workshop apprentice — **Insight 2** · _find: Cash_
+3. Win the confidence of the workshop apprentice — **Insight 2** · _find: Sell or Publish_
 4. Copy the hidden notes — **Insight 3** · _objective_
 
 **Prize:** pure knowledge — there is no object to take, only marginalia to transcribe. **Record-only**
@@ -65,7 +65,7 @@ _Era: **Early Modern**_
 
 1. Locate the cellar from the half-burned records — **Insight 2** _(Historian-locked)_
 2. Divert the rioters from the east door — **Grit 3** _(danger)_
-3. Work the cellar lock before the smoke thickens — **Craft 2** · _find: Cash_
+3. Work the cellar lock before the smoke thickens — **Craft 2** · _find: Sell or Publish_
 4. Lift the sealed apparatus clear — **Craft 2** · _objective_
 
 **Prize:** **doomed** — the lab burns to the ground hours later, apparatus and all. **Plundering it is
@@ -84,7 +84,7 @@ _Era: **Ancient**_
 1. Talk your way past the librarians — **Insight 3** _(Historian-locked)_
 2. A scholar realises you don't belong — slip the question — **Grit 2** _(danger)_
 3. Navigate the unlit lower stacks — **Insight 2**
-4. Gather the loose ostraca as cover — **Craft 2** · _find: Cash_
+4. Gather the loose ostraca as cover — **Craft 2** · _find: Sell or Publish_
 5. Seize the doomed scroll — **Insight 3** · _objective_
 
 **Prize:** **doomed** — the library is ash within days. Why copy what's about to burn? **Grab it** —
@@ -101,7 +101,7 @@ _Era: **Early Modern**_
 
 1. Find the notes in the failing light — **Insight 2**
 2. Brace the collapsing stair — **Craft 3** _(danger)_
-3. Cross the buckling floor to the desk — **Grit 2** · _find: Cash_
+3. Cross the buckling floor to the desk — **Grit 2** · _find: Sell or Publish_
 4. Escape the tremor with the notes — **Grit 2** · _objective_
 
 **Prize:** **doomed** — desk, study and street are gone minutes later. **Take the notes clean** (Cash
