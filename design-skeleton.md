@@ -5,8 +5,9 @@ _Captured 9 Jun 2026, straight off Drew's post-whiteboard session with Andy (raw
 **current full skeleton** — it supersedes the v3 chip-draw sketch in `current-idea-scratchpad.md`.
 **All numbers are provisional** and exist to be playtested, not defended._
 
-> Read `core-goals.md` (spine + keystones) and `constraints.md` (do/don't) first — those still
-> govern. This doc is the ruleset that hangs off them.
+> Read `intentions.md` (the spirit + the *why* behind every decision) first — it still governs. This
+> doc is the ruleset that hangs off it. _(Being rewritten into `game-design-document.md`; `core-goals.md`
+> + `constraints.md` were consolidated into `intentions.md` and now live in `archive/`.)_
 
 ---
 

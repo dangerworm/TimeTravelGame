@@ -3,17 +3,20 @@
 This is a **board game design project** (not a software project yet — though a prototyping tool is
 coming). A competitive game for rival scientists who co-discovered time travel.
 
-> **Status: v4, balance-validated, pre-playtest (10 June 2026).** The whole game now lives in
-> `design-skeleton.md`, and a balance simulator (`sim/`) has tuned it across 2–6 players. Next up:
-> repo/doc consolidation → one definitive design doc → paper-playtest content → the renderer. Read
-> the foundation files below — **not** the archive — to understand where the game is.
+> **Status: v4, balance-validated, pre-playtest, mid-consolidation (10 June 2026).** A balance
+> simulator (`sim/`) has tuned the game across 2–6 players. The docs are consolidating into two
+> foundations — **`intentions.md`** (spirit + why) and **`game-design-document.md`** (the game; the
+> skeleton is being rewritten into it). Next up: finish the GDD → paper-playtest content → the
+> renderer. Read the foundation files below — **not** the archive — to understand where the game is.
 
 ## Read these at the start of every session
 
-1. **`core-goals.md`** — the spine and the four emotional keystones. The north star.
-2. **`constraints.md`** — explicit do/don't boundaries Drew has stated. Treat as fixed.
-3. **`design-skeleton.md`** — the full v4 ruleset (the game, one place).
-4. **`tasks.md`** — the active backlog; recent decisions and open items live here.
+1. **`intentions.md`** — the spirit (spine + four keystones + the two laws) and the *why* behind every
+   decision. The north star + the rationale ledger. _(Consolidates the former `core-goals.md` +
+   `constraints.md`, now in `archive/`.)_
+2. **`game-design-document.md`** — the game itself: the full ruleset, one place. _(Until it lands,
+   `design-skeleton.md` is the ruleset, being rewritten into it.)_
+3. **`tasks.md`** — the live backlog (done items in `archive/completed-tasks.md`).
 
 The old design lives in `archive/` — a **content bible to mine**, not a blueprint. It includes
 `archive/v2-v3-design-log.md` (the rationale behind every locked v2/v3 decision) and the v1 material.
@@ -24,7 +27,7 @@ A competitive expedition / engine-building game. You build a **team and a machin
 to **solve the challenge each destination presents** (a tactical puzzle, with an optional
 push-your-luck gamble), racing for the greatest scientific legacy — while a **shared timeline**
 quietly remembers how greedy the table has been and can tip into a dramatic third-act collapse.
-Touchstones: **Lost Ruins of Arnak** and **Clank!**. Full detail in `core-goals.md`.
+Touchstones: **Lost Ruins of Arnak** and **Clank!**. Full detail in `intentions.md`.
 
 ## How to work with Drew
 
@@ -59,7 +62,7 @@ comparable games, common pitfalls, genre mechanics that fit.
   and 2–4 friends. The remaining ~20% is the legitimate ego reward of "_you_ made this?" Acknowledge
   both; they're real and valid.
 - Keeping the **specific thrills** he named: the overclock gamble, and the team-legacy feeling. See
-  the keystones in `core-goals.md`.
+  the keystones in `intentions.md`.
 
 **General working rules (from Drew's global config):**
 
@@ -84,8 +87,9 @@ comparable games, common pitfalls, genre mechanics that fit.
 ## How sessions work
 
 - Read the foundation files (above). Discuss, challenge, refine — one element at a time.
-- New hard preferences → add a dated line to `constraints.md`.
-- Shifts to the spine/targets → update `core-goals.md`; rule changes → `design-skeleton.md`.
+- New hard preferences / decisions → add a dated entry to `intentions.md` (Part II — Decisions).
+- Shifts to the spine/keystones → update `intentions.md` (Part I — Spirit); rule changes →
+  `game-design-document.md` (until it lands, `design-skeleton.md`).
 - Capture decisions in their home doc and open threads in `tasks.md` (the live scratchpad is retired —
   its history is `archive/v2-v3-design-log.md`).
 
