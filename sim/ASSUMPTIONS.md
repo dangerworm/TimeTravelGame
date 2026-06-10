@@ -2,6 +2,25 @@
 
 _Every modelling decision that needs Drew's eye._
 
+## Resolution model — REFILL (corrected 10 Jun 2026)
+- The hand is **topped up to [2×roster + 2] at the start of every step**; when the draw
+  deck empties it is refilled by **reshuffling the discard** (played cards + live Trace cards). Overclock
+  draws beyond the cap. _This replaced an earlier bug where the hand was drawn ONCE and depleted across
+  all steps (matching the literal text of the post-whiteboard note but not Drew's intent)._
+- "Bag = stamina / no reshuffle" is **dropped**; stamina now lives in accumulating Trace pollution +
+  instability climbing toward shutdown.
+- **handBase = 2 is needed:** at handBase 0 (`[2×roster]`) deep completion craters to ~21% and
+  cash-out spikes to ~62% (constant folding). The +2 is what makes deep ladders climbable.
+
+## Experiment B — era step-scaling (DECIDED 10 Jun 2026)
+- Deeper eras are **longer ladders**: step bands [[2,3],[2,3],[3,4],[3,4],[5,6],[5,6]] (eras 0..5).
+- **Spoils only on the second-to-last step** (every earlier step pays nothing); the last step is the objective.
+- Req curve is gentle: `max(1, round(0.6 + 0.2×era + 0×step))` → shallow req-1,
+  deep req-2. **Caveat:** "danger spikes" can't be much higher than req-2 — a single high-req step still
+  outruns the hand, so danger should bite some *other* way (instability / consequence), not via big reqs.
+- **Many Worlds is the win brake:** 6 steps × 4 pips — tuned to land MW success ~75% without
+  touching the era economy.
+
 ## Starting State
 - No team, 2 cash, **Amp 2** (Recent + Modern open turn one — DECIDED 9 Jun, Experiment A), Cap/Col 1, **Stabiliser 2** (gamble — DECIDED 9 Jun).
 - Permanent **2/2/2 player base** in every bag. Spec §3 calls this "provisional, a tuning knob." **Flagged.**
@@ -35,12 +54,12 @@ Three bots mixed across players:
 - Each earnable box = +1 to all skills; **MW requires Amp 7 = Engineer + Physicist both fully experienced (both earnable boxes filled).**
 - **Instability clearing does NOT grant exp.** Spec §7: "used — on an expedition, to write a paper, or to upgrade the machine (not to clear instability)."
 
-## Papers
-- Paper rep = 4 + historian_boxes × 1. Fresh historian: 4. Veteran: 6.
-- Spec says "Papers (4+ rep) dominate artefacts (1)." Fresh historian at 4 doesn't quite hit 4. **Consider raising paperRepBase to 4.**
+## Papers — DECIDED (10 Jun 2026)
+- **Publishing pays the artefact's PRINTED reputation** (= the objective's rep value, 2–10 by era). **Historian experience does NOT modify it** — any historian at base writes it up; experience grows their pips, not the paper's worth.
+- This matches Record (which always paid the card's rep) and removes the sim's old flat "paperRepBase + boxes" invention. Deep finds are now worth their true significance; "Papers dominate held artefacts (1 each)" still holds.
 
 ## Many Worlds
-- 3 steps × 3 pips each. **Primary game-length tuning knob.**
+- 6 steps × 4 pips each. **Primary game-length tuning knob.**
 - Failed MW: −2 integrity. Spec says "4–5" — **reduced to 2 after 4 caused cascade collapse in every game.** Confirm with Drew.
 - **MW roster: all researchers sent** (not just cap-limit). Thematically: everyone for the final push. Massively improves success rate — without this, MW was ~5%.
 - Bots attempt MW solo. Real tables will alliance. MW success rate is probably 10–20% higher in practice.
@@ -58,10 +77,14 @@ Three bots mixed across players:
 - The headline cash-out rate (~42%) is dragged up by the **cautious bot folding ~60%** of expeditions (it never overclocks, so it folds the instant it draws short). The pushers fold far less: **greedy ~35%, balanced ~44%.**
 - A human "cautious" player clears easy steps a timid bot folds, so **real-table cash-out will sit below the simulated figure.** Don't over-tune to this number.
 
-## Game Length
-- ~9.9 rounds. **4p ~119 min, 5p ~149 min** at 3 min/player-turn. 4p sits in band; **5p runs over.** At 2.5 min/player-turn both drop ~17% (4p ~99, 5p ~124) — Arnak-weight pace brings 4p comfortably in and 5p to the edge.
-- **The amp gating (E+P both maxed for amp 7) is the bottleneck.** Cannot be easily shortcut without changing the exp curve or amp cost structure.
-- **Primary lever if 5p runs long:** lower mwSteps to 2 (ends the game a round or two earlier) or raise home income.
+## Game Length & the overclock frequency (watch items)
+- **Experiment B runs longer: ~13 rounds, ~157 min (4p) at 3 min/player-turn**, and deep expeditions
+  (5–6 steps) take longer per turn too. This is the cost of the gentle-ladder escalation — a long, epic
+  game, over the original 60–120 target. Drew accepted this trade for the richer deep-era experience.
+- **Overclock frequency dropped to ~21%** (vs ~35% pre-B): with a full hand refilled each step you're short
+  less often, so the gamble fires less. Cash-out (~37%) keeps push-your-luck present, but if the overclock
+  thrill feels thin in play, nudge the req curve up a touch to force more short-by-one moments.
+- **Length levers if needed:** shrink the deep bands (4–5 not 5–6), drop an era tier, or ease the Amp-7 gate.
 
 ## Turn-1 Seeding
 - Each player buys first researcher if affordable (2 cash start = sometimes possible), then plans a card. Spec: "Turn-1 seeded gentle Recent starter (optional)" — modelled as standard plan draw from Recent (Amp 1 restricts to Recent anyway).
@@ -74,5 +97,5 @@ _Home-action model, exp-box count, and startStab are now DECIDED (see sections a
 1. **5-player wall clock** (~149 min @ 3 min/turn) — the one metric still over target. Lower mwSteps or raise home income if it bites in play.
 2. **Shutdowns at ~4/game** — top of the 1–4 band. Tighten the greedy objective-push to "≤1 short" for ~2–3 if too punishing.
 3. **Paper rep base** — raise to 4? (Fresh historian currently 4.)
-4. **MW difficulty** (3 pips × 3 steps) — adjust if game length is off.
-5. **Amplifier total cost** (9 cash 1→7) — feasible in ~10 rounds?
+4. **MW difficulty** (4 pips × 6 steps) — adjust if game length is off.
+5. **Amplifier total cost** (18 cash 1→7) — feasible in ~10 rounds?

@@ -2,19 +2,16 @@
 
 ## Status: Complete
 
-- 81 configs swept
-- Best fitness: 0.684
-- 4p MW rate: 72.2% | avg rounds: 9.40 | wall clock: 113 min
-- 5p MW rate: 78.4% | avg rounds: 9.58 | wall clock: 144 min
+- 1 configs swept
+- Best fitness: 0.000
+- 4p MW rate: 68.4% | avg rounds: 13.10 | wall clock: 157 min
+- 5p MW rate: 80.6% | avg rounds: 13.33 | wall clock: 200 min
 
 ## Best Params
 
 ```json
 {
-  "reqBase": 0.6,
-  "reqEraSlope": 0.4,
-  "integrity4p": 14,
-  "ampCostMult": 0.4
+  "config": "locked B (refill model)"
 }
 ```
 

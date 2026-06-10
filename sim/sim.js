@@ -42,10 +42,13 @@ function defaultConfig() {
     cashFindBase:  3,    cashFindSlope:  1.0,
     repObjBase:    2,    repObjSlope:    1.5,
     objCashChance: 0.4,  // fraction of objectives that pay cash instead of artefact
+    findPayoutMult: 1.0, // multiplier on the (now sole) penultimate find — re-tune lever for Exp B
 
     // Era card structure
     stepsMin: 2, stepsMax: 3, eraCardsPerTier: 8,
     dangerChance: 0.20, profLockChance: 0.20,
+    // Experiment B: per-era [min,max] step bands (eras 0..5). null = uniform stepsMin/Max.
+    eraStepBands: null,
 
     // Researchers
     postdocCostMin: 2, postdocCostMax: 3, expertCost: 9,
@@ -60,6 +63,9 @@ function defaultConfig() {
 
     // Player base
     baseI: 2, baseC: 2, baseG: 2,
+
+    // Hand draw = handPerResearcher × (researchers on expedition) + handBase
+    handPerResearcher: 2, handBase: 2,
 
     // Start state — startStab=2 (locked 9 Jun): overclock must be a real gamble.
     // A single carried-over instability + one objective push can now trigger a shutdown.
@@ -104,11 +110,17 @@ function genStep(eraIdx, stepIdx, cfg, rng) {
 }
 
 function genEraCard(eraIdx, cfg, rng) {
-  const nSteps = rng.int(cfg.stepsMin, cfg.stepsMax);
+  const band   = cfg.eraStepBands && cfg.eraStepBands[eraIdx];
+  const nSteps  = band ? rng.int(band[0], band[1]) : rng.int(cfg.stepsMin, cfg.stepsMax);
   const steps  = [];
   for (let i = 0; i < nSteps-1; i++) {
+    // Spoils (Cash) only on the SECOND-TO-LAST step (10 Jun): every earlier step is a pure
+    // gate paying nothing, so you can't get rich bailing after 1-2 steps — you must climb the
+    // ladder to the cache, then decide whether to gamble the final objective.
+    const isPenultimate = (i === nSteps-2);
+    const findCash = Math.round((cfg.cashFindBase + cfg.cashFindSlope*eraIdx) * (cfg.findPayoutMult||1));
     steps.push({ ...genStep(eraIdx, i, cfg, rng), type:'find',
-                 cash: Math.round(cfg.cashFindBase + cfg.cashFindSlope*eraIdx) });
+                 cash: isPenultimate ? findCash : 0 });
   }
   const obj = genStep(eraIdx, nSteps-1, cfg, rng);
   // Some objectives pay cash directly (no artefact), the rest are plunderable artefacts
@@ -214,11 +226,25 @@ function applyCons(type, player, game, eraIdx) {
 
 // ── EXPEDITION ────────────────────────────────────────────────────────────────
 function runExpedition(player, card, roster, policy, game) {
-  const cfg      = game.cfg;
-  const shuffled = game.rng.shuffle(buildBag(player, roster, cfg));
-  const handSize = 2*roster.length + 2;
-  let hand       = shuffled.slice(0, handSize);
-  let remaining  = shuffled.slice(handSize);
+  const cfg = game.cfg;
+
+  // Refill model (Drew's intent, 10 Jun): a persistent draw deck + discard. The hand is topped
+  // back up to handSize at the START of every step; when the deck empties it is refilled by
+  // reshuffling the discard (played cards + live Trace cards) back in. Overclock draws beyond the
+  // cap. "Stamina" lives in accumulating Trace pollution + instability, not in hard depletion.
+  let deck    = game.rng.shuffle(buildBag(player, roster, cfg));
+  let discard = [];
+  let hand    = [];
+  const handSize = cfg.handPerResearcher*roster.length + cfg.handBase;
+
+  const draw = () => {
+    if (deck.length === 0) {
+      if (discard.length === 0) return null;       // whole bag is in hand — nothing left to draw
+      deck = game.rng.shuffle(discard); discard = [];
+    }
+    return deck.pop();
+  };
+  const topUp = () => { while (hand.length < handSize) { const c = draw(); if (c === null) break; hand.push(c); } };
 
   let cleared=0, overclocks=0, shutdown=false, cashOut=false;
 
@@ -231,20 +257,20 @@ function runExpedition(player, card, roster, policy, game) {
       cashOut=true; break;
     }
 
+    topUp(); // fresh full hand for this step
     let have = hand.filter(c=>c===step.skill).length;
 
     while (have < step.req) {
       if (!policy.shouldOverclock(player, step.req-have, si, card, game)) {
         cashOut=true; break outer;
       }
-      // Overclock: +1 instability, draw 1 from remaining
+      // Overclock: +1 instability (persists), +1 live Trace into the deck (dilutes the rest of
+      // this expedition too), and draw 1 extra card beyond the hand cap — the gamble.
       player.instability++;
       overclocks++;
-      if (remaining.length) {
-        const drawn = remaining.splice(0,1)[0];
-        hand.push(drawn);
-        if (drawn===step.skill) have++;
-      }
+      discard.push('T');
+      const drawn = draw();
+      if (drawn !== null) { hand.push(drawn); if (drawn===step.skill) have++; }
       // Shutdown check
       if (player.instability >= player.machine.stab) {
         game.integrity = Math.max(0, game.integrity-1);
@@ -258,10 +284,10 @@ function runExpedition(player, card, roster, policy, game) {
 
     if (have >= step.req) {
       cleared++;
-      // Spend the required cards (remove from hand — they are played, not reusable)
+      // Play the required cards → discard (they recycle via reshuffle, not consumed)
       let toSpend = step.req;
       hand = hand.filter(c => {
-        if (toSpend > 0 && c === step.skill) { toSpend--; return false; }
+        if (toSpend > 0 && c === step.skill) { toSpend--; discard.push(c); return false; }
         return true;
       });
     } else {
@@ -314,12 +340,14 @@ function doHomeActions(player, home, game) {
     } else if (r.profession==='Physicist') {
       upgradeModule(player, r, game);
     } else {
-      // Historian: publish artefact if available, else upgrade
+      // Historian: publish artefact if available, else upgrade.
+      // Publishing pays the artefact's PRINTED reputation (the find's significance);
+      // historian experience does NOT modify it — any historian at base can write it up.
       if (player.artefacts.length) {
         const art = player.artefacts.shift();
-        player.rep += cfg.paperRepBase + r.expBoxes*cfg.paperRepBonus;
+        player.rep += art.rep||0;
         player.papersWritten++;
-        gainExp(r, cfg); // paper writing = researcher used
+        gainExp(r, cfg); // paper writing = researcher used (grows pips, not the paper's rep)
       } else {
         upgradeModule(player, r, game);
       }
@@ -553,11 +581,14 @@ function doTurn(player, game, withTrace) {
     const roster = policy.selectRoster(player, card);
     const home   = player.team.filter(r=>!roster.includes(r));
 
-    // Era-by-round diagnostic (only allocated in --analyze mode)
-    if (game.eraLog) game.eraLog.push({ round: game.round, eraIdx: card.eraIdx,
-                                        amp: player.machine.amp, policy: policy.name });
-
     expResult = runExpedition(player, card, roster, policy, game);
+
+    // Era-by-round diagnostic (only allocated in --analyze/--expB mode)
+    if (game.eraLog) game.eraLog.push({
+      round: game.round, eraIdx: card.eraIdx, amp: player.machine.amp, policy: policy.name,
+      cleared: expResult.cleared, total: expResult.total, success: expResult.success,
+      steps: card.steps.length,
+    });
 
     // Consequence if any overclock (and not already drawn on shutdown)
     if (expResult.overclocks>0 && !expResult.shutdown) {
@@ -807,6 +838,7 @@ function writeResults(sweep, traces) {
   s += `## TL;DR\n\n`;
   s += `| | 4-player | 5-player | Target |\n|---|---|---|---|\n`;
   s += `| Many Worlds success | ${fmtp(m4.mwRate)} | ${fmtp(m5.mwRate)} | ~75% |\n`;
+  s += `| Deep-objective completion | ${m4.deepComplete!=null?fmtp(m4.deepComplete):'?'} | ${m5.deepComplete!=null?fmtp(m5.deepComplete):'?'} | ~40% |\n`;
   s += `| Avg rounds | ${fmt2(m4.avgRounds)} | ${fmt2(m5.avgRounds)} | 8–12 |\n`;
   s += `| Wall clock (est.) | ${m4.wallClock} min | ${m5.wallClock} min | 60–120 min |\n`;
   s += `| Overclock rate | ${fmtp(m4.ocPerExp)} | ${fmtp(m5.ocPerExp)} | ~30–40% |\n`;
@@ -836,7 +868,7 @@ function writeResults(sweep, traces) {
   s += `\n### Rewards\n\n`;
   s += `- Find step cash: \`${cfg.cashFindBase} + ${cfg.cashFindSlope}×eraIdx\` → Recent: ${cfg.cashFindBase}, Prehistoric: ${Math.round(cfg.cashFindBase+cfg.cashFindSlope*5)}\n`;
   s += `- Objective rep: \`${cfg.repObjBase} + ${cfg.repObjSlope}×eraIdx\` → Recent: ${cfg.repObjBase}, Prehistoric: ${Math.round(cfg.repObjBase+cfg.repObjSlope*5)}\n`;
-  s += `- Paper rep: \`${cfg.paperRepBase} + historian_boxes × ${cfg.paperRepBonus}\` (veteran historian: ${cfg.paperRepBase+cfg.expMaxBoxes*cfg.paperRepBonus})\n\n`;
+  s += `- Publishing an artefact pays its **printed Reputation** (= the objective rep, ${cfg.repObjBase}–${Math.round(cfg.repObjBase+cfg.repObjSlope*5)} by era); historian experience does **not** modify it (DECIDED 10 Jun)\n\n`;
   s += `### Costs\n\n`;
   s += `- Postdocs: ${cfg.postdocCostMin}–${cfg.postdocCostMax} | Experts: ${cfg.expertCost}\n`;
   s += `- Amplifier: [${cfg.ampCosts.join(', ')}] (levels 1→2 through 6→7, total ${cfg.ampCosts.reduce((a,b)=>a+b,0)} cash)\n`;
@@ -873,6 +905,25 @@ function writeResults(sweep, traces) {
 function writeAssumptions(cfg) {
   let s = `# Simulator Assumptions\n\n_Every modelling decision that needs Drew's eye._\n\n`;
 
+  s += `## Resolution model — REFILL (corrected 10 Jun 2026)\n`;
+  s += `- The hand is **topped up to [2×roster + ${cfg.handBase}] at the start of every step**; when the draw\n`;
+  s += `  deck empties it is refilled by **reshuffling the discard** (played cards + live Trace cards). Overclock\n`;
+  s += `  draws beyond the cap. _This replaced an earlier bug where the hand was drawn ONCE and depleted across\n`;
+  s += `  all steps (matching the literal text of the post-whiteboard note but not Drew's intent)._\n`;
+  s += `- "Bag = stamina / no reshuffle" is **dropped**; stamina now lives in accumulating Trace pollution +\n`;
+  s += `  instability climbing toward shutdown.\n`;
+  s += `- **handBase = ${cfg.handBase} is needed:** at handBase 0 (\`[2×roster]\`) deep completion craters to ~21% and\n`;
+  s += `  cash-out spikes to ~62% (constant folding). The +2 is what makes deep ladders climbable.\n\n`;
+
+  s += `## Experiment B — era step-scaling (DECIDED 10 Jun 2026)\n`;
+  s += `- Deeper eras are **longer ladders**: step bands ${JSON.stringify(cfg.eraStepBands)} (eras 0..5).\n`;
+  s += `- **Spoils only on the second-to-last step** (every earlier step pays nothing); the last step is the objective.\n`;
+  s += `- Req curve is gentle: \`max(1, round(${cfg.reqBase} + ${cfg.reqEraSlope}×era + ${cfg.reqStepSlope}×step))\` → shallow req-1,\n`;
+  s += `  deep req-2. **Caveat:** "danger spikes" can't be much higher than req-2 — a single high-req step still\n`;
+  s += `  outruns the hand, so danger should bite some *other* way (instability / consequence), not via big reqs.\n`;
+  s += `- **Many Worlds is the win brake:** ${cfg.mwSteps} steps × ${cfg.mwReqPerStep} pips — tuned to land MW success ~75% without\n`;
+  s += `  touching the era economy.\n\n`;
+
   s += `## Starting State\n`;
   s += `- No team, 2 cash, **Amp 2** (Recent + Modern open turn one — DECIDED 9 Jun, Experiment A), Cap/Col 1, **Stabiliser 2** (gamble — DECIDED 9 Jun).\n`;
   s += `- Permanent **2/2/2 player base** in every bag. Spec §3 calls this "provisional, a tuning knob." **Flagged.**\n\n`;
@@ -902,9 +953,9 @@ function writeAssumptions(cfg) {
   s += `- Each earnable box = +1 to all skills; **MW requires Amp 7 = Engineer + Physicist both fully experienced (both earnable boxes filled).**\n`;
   s += `- **Instability clearing does NOT grant exp.** Spec §7: "used — on an expedition, to write a paper, or to upgrade the machine (not to clear instability)."\n\n`;
 
-  s += `## Papers\n`;
-  s += `- Paper rep = ${cfg.paperRepBase} + historian_boxes × ${cfg.paperRepBonus}. Fresh historian: ${cfg.paperRepBase}. Veteran: ${cfg.paperRepBase+cfg.expMaxBoxes*cfg.paperRepBonus}.\n`;
-  s += `- Spec says "Papers (4+ rep) dominate artefacts (1)." Fresh historian at ${cfg.paperRepBase} doesn't quite hit 4. **Consider raising paperRepBase to 4.**\n\n`;
+  s += `## Papers — DECIDED (10 Jun 2026)\n`;
+  s += `- **Publishing pays the artefact's PRINTED reputation** (= the objective's rep value, ${cfg.repObjBase}–${Math.round(cfg.repObjBase+cfg.repObjSlope*5)} by era). **Historian experience does NOT modify it** — any historian at base writes it up; experience grows their pips, not the paper's worth.\n`;
+  s += `- This matches Record (which always paid the card's rep) and removes the sim's old flat "paperRepBase + boxes" invention. Deep finds are now worth their true significance; "Papers dominate held artefacts (1 each)" still holds.\n\n`;
 
   s += `## Many Worlds\n`;
   s += `- ${cfg.mwSteps} steps × ${cfg.mwReqPerStep} pips each. **Primary game-length tuning knob.**\n`;
@@ -922,10 +973,14 @@ function writeAssumptions(cfg) {
   s += `## Cash-out — it's a cautious-bot artifact\n`;
   s += `- The headline cash-out rate (~42%) is dragged up by the **cautious bot folding ~60%** of expeditions (it never overclocks, so it folds the instant it draws short). The pushers fold far less: **greedy ~35%, balanced ~44%.**\n`;
   s += `- A human "cautious" player clears easy steps a timid bot folds, so **real-table cash-out will sit below the simulated figure.** Don't over-tune to this number.\n\n`;
-  s += `## Game Length\n`;
-  s += `- ~9.9 rounds. **4p ~119 min, 5p ~149 min** at 3 min/player-turn. 4p sits in band; **5p runs over.** At 2.5 min/player-turn both drop ~17% (4p ~99, 5p ~124) — Arnak-weight pace brings 4p comfortably in and 5p to the edge.\n`;
-  s += `- **The amp gating (E+P both maxed for amp 7) is the bottleneck.** Cannot be easily shortcut without changing the exp curve or amp cost structure.\n`;
-  s += `- **Primary lever if 5p runs long:** lower mwSteps to 2 (ends the game a round or two earlier) or raise home income.\n\n`;
+  s += `## Game Length & the overclock frequency (watch items)\n`;
+  s += `- **Experiment B runs longer: ~13 rounds, ~157 min (4p) at 3 min/player-turn**, and deep expeditions\n`;
+  s += `  (5–6 steps) take longer per turn too. This is the cost of the gentle-ladder escalation — a long, epic\n`;
+  s += `  game, over the original 60–120 target. Drew accepted this trade for the richer deep-era experience.\n`;
+  s += `- **Overclock frequency dropped to ~21%** (vs ~35% pre-B): with a full hand refilled each step you're short\n`;
+  s += `  less often, so the gamble fires less. Cash-out (~37%) keeps push-your-luck present, but if the overclock\n`;
+  s += `  thrill feels thin in play, nudge the req curve up a touch to force more short-by-one moments.\n`;
+  s += `- **Length levers if needed:** shrink the deep bands (4–5 not 5–6), drop an era tier, or ease the Amp-7 gate.\n\n`;
 
   s += `## Turn-1 Seeding\n`;
   s += `- Each player buys first researcher if affordable (2 cash start = sometimes possible), then plans a card. Spec: "Turn-1 seeded gentle Recent starter (optional)" — modelled as standard plan draw from Recent (Amp 1 restricts to Recent anyway).\n\n`;
@@ -961,11 +1016,20 @@ function writeProgress(sweep) {
   console.log('Wrote sim/PROGRESS.md');
 }
 
-// ── LOCKED CONFIG (the recommended balance point, 9 Jun 2026) ─────────────────
+// ── LOCKED CONFIG (the recommended balance point, refill model, 10 Jun 2026) ──
+// The full Experiment-B config on the corrected refill resolution loop:
+// scaled step bands · penultimate-only spoils · 2×roster+2 hand · MW 6×4 gauntlet.
 function lockedConfig() {
-  const cfg = { ...defaultConfig(), reqBase:0.6, reqEraSlope:0.4, integrity4p:14 };
-  cfg.integrity5p = Math.round(cfg.integrity4p*1.2);
-  cfg.ampCosts = defaultConfig().ampCosts.map(c=>Math.max(1,Math.round(c*0.45)));
+  const cfg = { ...defaultConfig(),
+    eraStepBands:      [[2,3],[2,3],[3,4],[3,4],[5,6],[5,6]], // deeper eras = longer ladders
+    reqBase: 0.6, reqEraSlope: 0.2, reqStepSlope: 0,          // shallow req-1, deep req-2
+    handPerResearcher: 2, handBase: 2,                        // [2×roster + 2] — the +2 is needed
+    findPayoutMult: 1.0,
+    integrity4p: 14, integrity5p: 17,
+    mwSteps: 6, mwReqPerStep: 4,                              // the brake that hits ~75% MW
+  };
+  cfg.ampCosts = defaultConfig().ampCosts.map(c=>Math.max(1,Math.round(c*0.8)));
+  cfg.capCosts = defaultConfig().capCosts.map(c=>Math.max(1,Math.round(c*0.6)));
   return cfg;
 }
 
@@ -975,6 +1039,8 @@ const quick  = args.includes('--quick');
 const trace1 = args.includes('--trace1');
 const analyze= args.includes('--analyze');
 const expA   = args.includes('--expA');
+const expB   = args.includes('--expB');
+const retuneB= args.includes('--retuneB');
 
 // Era-by-round curve for a given config (per-policy avg era index + avg amp)
 function computeEraCurve(cfg, G, seedBase) {
@@ -1039,6 +1105,118 @@ if (expA) {
     console.log(`${String(rd).padStart(5)} | ${g(c1,rd).padEnd(19)} | ${g(c2,rd)}`);
   }
 
+  process.exit(0);
+}
+
+if (expB) {
+  // Experiment B: era step-scaling. Show what happens to objective completion when deep
+  // eras get more steps WITHOUT re-tuning requirements (expected: deep cards go uncompletable).
+  const G = 400;
+  const MIX = ['greedy','cautious','balanced'];
+  const base   = lockedConfig();
+  const scaled = { ...lockedConfig(), eraStepBands: [[2,3],[2,3],[3,4],[3,4],[5,6],[5,6]] };
+
+  function run(cfg) {
+    const res=[], log=[];
+    for (let g=0; g<G; g++) {
+      const r = playGame(4, cfg, MIX, g+222333, false, true);
+      res.push(r); for (const e of r.eraLog) if (e.eraIdx<=5) log.push(e);
+    }
+    const m = computeMetrics(res, 4);
+    const band = los => {
+      const es = log.filter(e=>los.includes(e.eraIdx)), n = es.length||1;
+      return { n: es.length, succ: es.filter(e=>e.success).length/n,
+               avgCleared: es.reduce((s,e)=>s+e.cleared,0)/n,
+               avgSteps:   es.reduce((s,e)=>s+e.steps,0)/n };
+    };
+    return { m, shallow:band([0,1]), mid:band([2,3]), deep:band([4,5]) };
+  }
+
+  const U = run(base), S = run(scaled);
+
+  console.log('=== Experiment B: era step-scaling (current reqs, UNtuned) ===\n');
+  console.log('variant | MW%  | rounds | collapse | cashout | deep-obj completion');
+  console.log('--------|------|--------|----------|---------|--------------------');
+  const row = (lab,B) =>
+    `${lab.padEnd(7)} | ${(B.m.mwRate*100).toFixed(0).padStart(3)}% | ${B.m.avgRounds.toFixed(1).padStart(5)}  | `+
+    `${(B.m.collapseRate*100).toFixed(0).padStart(6)}%  | ${(B.m.coRate*100).toFixed(0).padStart(5)}%  | `+
+    `${(B.deep.succ*100).toFixed(0)}%`;
+  console.log(row('uniform', U));
+  console.log(row('scaled',  S));
+
+  console.log('\n=== Objective completion by era band (succ% — avg steps cleared / steps on card) ===');
+  console.log('band        | uniform              | scaled');
+  console.log('------------|----------------------|----------------------');
+  for (const [name,key] of [['shallow 0-1','shallow'],['mid 2-3','mid'],['deep 4-5','deep']]) {
+    const u=U[key], s=S[key];
+    console.log(`${name.padEnd(11)} | ${(u.succ*100).toFixed(0).padStart(3)}%  (${u.avgCleared.toFixed(1)} / ${u.avgSteps.toFixed(1)})      | `+
+                `${(s.succ*100).toFixed(0).padStart(3)}%  (${s.avgCleared.toFixed(1)} / ${s.avgSteps.toFixed(1)})`);
+  }
+  process.exit(0);
+}
+
+if (retuneB) {
+  // Re-tune for the new reward model (penultimate-only spoils + scaled step bands).
+  // Levers: flatten/lower per-step reqs (gentle ladder), boost the lone find payout.
+  // Target: MW ~75%, deep-objective completion ~40%, rounds 8-14, collapse manageable.
+  const G = 200;
+  const MIX = ['greedy','cautious','balanced'];
+  const BANDS = [[2,3],[2,3],[3,4],[3,4],[5,6],[5,6]];
+  // MW-brake pass: lock the deep-completable era config (handBase 2, era-slope 0.2 → deep ~40%),
+  // then brake MW success to ~75% via the Many Worlds card itself (steps × pips) — not the economy.
+  const grid = buildGrid({
+    mwSteps:      [5, 6, 7],     // pin the MW gauntlet length for ~75% win rate
+    mwReqPerStep: [4],
+    ampCostMult:  [0.6, 0.8],    // secondary progression brake
+  });
+
+  const mkCfg = p => {
+    const cfg = { ...lockedConfig(), eraStepBands: BANDS,
+      reqBase:0.6, reqEraSlope:0.2, reqStepSlope:0,
+      findPayoutMult:1.0, handPerResearcher:2, handBase:2,
+      mwSteps:p.mwSteps, mwReqPerStep:p.mwReqPerStep,
+      integrity4p:14, integrity5p:17 };
+    cfg.ampCosts = defaultConfig().ampCosts.map(c=>Math.max(1,Math.round(c*p.ampCostMult)));
+    cfg.capCosts = defaultConfig().capCosts.map(c=>Math.max(1,Math.round(c*0.6)));
+    return cfg;
+  };
+
+  function evalCfg(cfg) {
+    const r4=[], r5=[], deepLog=[];
+    for (let g=0; g<G; g++) {
+      const a = playGame(4, cfg, MIX, g+555, false, true);
+      r4.push(a); for (const e of a.eraLog) if (e.eraIdx>=4 && e.eraIdx<=5) deepLog.push(e);
+      r5.push(playGame(5, cfg, MIX, g+888777, false));
+    }
+    const m4=computeMetrics(r4,4), m5=computeMetrics(r5,5);
+    const deep = deepLog.length ? deepLog.filter(e=>e.success).length/deepLog.length : 0;
+    return { m4, m5, deep };
+  }
+  function fit(e) {
+    const pen  = (a,t,w)=>w*Math.abs(a-t)/Math.max(t,0.01);
+    const band = (a,lo,hi,w)=>w*(a<lo?lo-a:a>hi?a-hi:0)/hi;
+    return pen(e.m4.mwRate,0.75,3) + pen(e.m5.mwRate,0.75,3)
+         + pen(e.deep,0.40,3)
+         + band(e.m4.avgRounds,8,14,1.5) + band(e.m5.avgRounds,8,14,1.5)
+         + pen(e.m4.coRate,0.40,1)
+         + (e.m4.collapseRate>0.45 ? (e.m4.collapseRate-0.45)*4 : 0);
+  }
+
+  const results = grid.map(p => { const e=evalCfg(mkCfg(p)); return { p, e, f:fit(e) }; });
+  results.sort((a,b)=>a.f-b.f);
+
+  console.log('=== Re-tune B: configs (scaled bands + penultimate spoils) ===\n');
+  console.log('rk | mwStp mwReq amp  | MW4 MW5 | rnd  | deep | coll cash | fit  (refill, handBase 2)');
+  console.log('---|------------------|---------|------|------|-----------|-----');
+  results.slice(0,12).forEach((r,i) => {
+    const {p,e}=r;
+    console.log(
+      `${String(i+1).padStart(2)} | ${p.mwSteps}     ${p.mwReqPerStep}     ${p.ampCostMult} | `+
+      `${(e.m4.mwRate*100).toFixed(0).padStart(3)}%${(e.m5.mwRate*100).toFixed(0).padStart(4)}% | `+
+      `${e.m4.avgRounds.toFixed(1).padStart(4)} | ${(e.deep*100).toFixed(0).padStart(3)}% | `+
+      `${(e.m4.collapseRate*100).toFixed(0).padStart(3)}%${(e.m4.coRate*100).toFixed(0).padStart(4)}% | ${r.f.toFixed(2)}`
+    );
+  });
   process.exit(0);
 }
 
@@ -1110,11 +1288,33 @@ if (trace1) {
 }
 
 console.log('=== Time Travel — Balance Simulator ===');
-const t0    = Date.now();
-const sweep = runSweep(quick);
-console.log(`\nSweep complete in ${((Date.now()-t0)/1000).toFixed(1)}s`);
 
-console.log('\nRunning trace samples on best config...');
+let sweep;
+if (args.includes('--sweep')) {
+  // Exploratory grid sweep (legacy path; the balance is now hand-tuned via --retuneB).
+  const t0 = Date.now();
+  sweep = runSweep(quick);
+  console.log(`\nSweep complete in ${((Date.now()-t0)/1000).toFixed(1)}s`);
+} else {
+  // Default: regenerate the docs from the LOCKED (recommended) config.
+  const cfg = lockedConfig();
+  const MIX = ['greedy','cautious','balanced'];
+  const G = quick ? 200 : 500;
+  const r4=[], r5=[], deep4=[], deep5=[];
+  for (let g=0; g<G; g++) {
+    const a = playGame(4, cfg, MIX, g, false, true);
+    r4.push(a); for (const e of a.eraLog) if (e.eraIdx>=4 && e.eraIdx<=5) deep4.push(e);
+    const b = playGame(5, cfg, MIX, g+500000, false, true);
+    r5.push(b); for (const e of b.eraLog) if (e.eraIdx>=4 && e.eraIdx<=5) deep5.push(e);
+  }
+  const m4=computeMetrics(r4,4), m5=computeMetrics(r5,5);
+  m4.deepComplete = deep4.length ? deep4.filter(e=>e.success).length/deep4.length : 0;
+  m5.deepComplete = deep5.length ? deep5.filter(e=>e.success).length/deep5.length : 0;
+  const best = { cfg, m4, m5, fitness:0, rawParams:{ config:'locked B (refill model)' } };
+  sweep = { best, all:[best] };
+}
+
+console.log('\nRunning trace samples on locked config...');
 const traces = [0,1,2].map(i =>
   playGame(4, sweep.best.cfg, ['greedy','cautious','balanced'], i*999983, true)
 );
@@ -1124,7 +1324,7 @@ writeAssumptions(sweep.best.cfg);
 writeProgress(sweep);
 
 const m = sweep.best.m4;
-console.log('\n=== Best config (4p) ===');
+console.log('\n=== Locked config (4p) ===');
 console.log(`  MW rate:     ${fmtp(m.mwRate)}`);
 console.log(`  Avg rounds:  ${fmt2(m.avgRounds)}`);
 console.log(`  Wall clock:  ~${m.wallClock} min`);
