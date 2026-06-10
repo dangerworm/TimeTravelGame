@@ -155,22 +155,22 @@ dated line whenever Drew states a new preference. Newest at the bottom of each s
   players** (2p a touch easier, 6p a touch harder, both still work). Recommended config: integrity
   **(players+1)×4**, MW **5 steps × 5 pips**, failed-MW **−2** — the rare-multiverse tune (MW ~50%,
   collapse ~30–36%; see `sim/RESULTS.md` / `sim/best-config.json`). _Supersedes the earlier same-day
-  5×4 / failed-MW −1 / integrity-16 figures, which targeted the abandoned ~75–84% MW rate._ (10 Jun
-  2026)
+  5×4 / failed-MW −1 / integrity-16 figures, which targeted the abandoned ~75–84% MW rate._ (10
+  Jun 2026)
 - **Disrepute is a separate token pile (the moral stain), not a silent Reputation decrement — the
-  ethics axis SHOWS without adding a scoring subsystem.** All **ethics-linked** reputation costs
-  are paid as **disrepute tokens** kept in a pile _beside_ your Reputation, never by removing
+  ethics axis SHOWS without adding a scoring subsystem.** All **ethics-linked** reputation costs are
+  paid as **disrepute tokens** kept in a pile _beside_ your Reputation, never by removing
   Reputation: selling a non-doomed artefact = `max(1, floor((rep−1)/2))` tokens (**0 for doomed**),
   plus any plunder-related hit. **Final score = Reputation − disrepute** (+ highest module level +
-  unresearched artefacts, §9), netted once at scoring. Reputation is earned from a researcher's
-  work and **can still dip for honest, non-moral reasons** — a consequence discrediting a paper is
-  _peer review catching a mistake, not a moral failing_, so it reduces the Reputation pile directly
-  and is **not** disrepute. _Purpose:_ the endgame score-recap becomes a two-band **portrait**
-  (_what you discovered_ × _how you did it_) with no new points-salad; the careful player's reward
-  is a visibly **clean sheet** (0 disrepute), and mid-game the disrepute pile telegraphs a
-  plunderer's true standing beside an inflated Reputation pile (soft catch-up read, zero
-  arithmetic). _Supersedes the earlier 10 Jun wording that took the sell cost out of Reputation
-  directly — it is now tokens._ (10 Jun 2026)
+  unresearched artefacts, §9), netted once at scoring. Reputation is earned from a researcher's work
+  and **can still dip for honest, non-moral reasons** — a consequence discrediting a paper is _peer
+  review catching a mistake, not a moral failing_, so it reduces the Reputation pile directly and is
+  **not** disrepute. _Purpose:_ the endgame score-recap becomes a two-band **portrait** (_what you
+  discovered_ × _how you did it_) with no new points-salad; the careful player's reward is a visibly
+  **clean sheet** (0 disrepute), and mid-game the disrepute pile telegraphs a plunderer's true
+  standing beside an inflated Reputation pile (soft catch-up read, zero arithmetic). _Supersedes the
+  earlier 10 Jun wording that took the sell cost out of Reputation directly — it is now tokens._ (10
+  Jun 2026)
 - **Individual retirement is the game's third end-trigger (the quiet-legacy ending) — not a round
   cap, not a table vote.** On your turn you may **retire your scientist** instead of acting: read
   your personal epilogue, **lock your score**, and take no further turns. The game ends on the

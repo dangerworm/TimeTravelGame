@@ -5,9 +5,11 @@ _Captured 9 Jun 2026, straight off Drew's post-whiteboard session with Andy (raw
 **current full skeleton** — it supersedes the v3 chip-draw sketch in `current-idea-scratchpad.md`.
 **All numbers are provisional** and exist to be playtested, not defended._
 
-> Read `intentions.md` (the spirit + the *why* behind every decision) first — it still governs. This
-> doc is the ruleset that hangs off it. _(Being rewritten into `game-design-document.md`; `core-goals.md`
-> + `constraints.md` were consolidated into `intentions.md` and now live in `archive/`.)_
+> Read `intentions.md` (the spirit + the _why_ behind every decision) first — it still governs. This
+> doc is the ruleset that hangs off it. \_(Being rewritten into `game-design-document.md`;
+> `core-goals.md`
+>
+> - `constraints.md` were consolidated into `intentions.md` and now live in `archive/`.)\_
 
 ---
 
@@ -84,7 +86,7 @@ expeditions stall without it._
 An era card is a left-to-right path of **steps**, each printing a skill requirement (an amount of
 one skill). **Deeper eras are longer ladders of gentler gates** — step bands ≈ **2–3 / 3–4 / 5–6**
 by era pair (Recent…Prehistoric); requirements stay low (shallow ≈1, deep ≈2) so a long climb is the
-challenge, not each wall. **The one en-route *find* sits on the second-to-last step** (Sell it for
+challenge, not each wall. **The one en-route _find_ sits on the second-to-last step** (Sell it for
 Cash or Publish it as a minor paper — §5); every earlier step is a pure gate, and the last step is
 the objective. **Early-relief spoil:** in the four shallow eras (Recent–Medieval) a step _before_
 the penultimate has a **15% chance** (at most one per card) of a small **1–2 Cash** drop — pure
@@ -143,9 +145,10 @@ Severity scales with era depth; the real-history flavour lives here.
     artefacts grab clean** (no scar). It can later be **researched** in **Develop** by a **historian
     who didn't jump that turn** → adds the artefact's **printed Reputation** (historian experience
     does **not** change it — any historian at base writes it up), card discarded. Or **sold** →
-    **Cash**, but you take **disrepute tokens** equal to `max(1, floor((rep−1)/2))` (**0 for doomed**
-    artefacts) — moral-stain tokens kept in a pile beside your Reputation, netted against it only at
-    scoring (§9), never subtracted from Reputation directly. _(Disrepute-as-tokens, 10 Jun 2026.)_
+    **Cash**, but you take **disrepute tokens** equal to `max(1, floor((rep−1)/2))` (**0 for
+    doomed** artefacts) — moral-stain tokens kept in a pile beside your Reputation, netted against
+    it only at scoring (§9), never subtracted from Reputation directly. _(Disrepute-as-tokens, 10
+    Jun 2026.)_
   - **Record it** (a copy, a photo — not the artefact) → the era card is **processed immediately**,
     **Reputation** added, card discarded. **Clean** — no scar, no disrepute.
 
@@ -172,8 +175,8 @@ and each module gates on who can do the work:
 - Recent → Modern: **no researcher needed**.
 - Modern → Early Modern, Early Modern → Medieval: **Engineer**.
 - Medieval → Ancient, Ancient → Prehistoric: **Engineer + Physicist**.
-- Prehistoric → Many Worlds: **Engineer + Physicist, both fully experienced** (both _earnable_
-  boxes filled — i.e. at the max box; see §7).
+- Prehistoric → Many Worlds: **Engineer + Physicist, both fully experienced** (both _earnable_ boxes
+  filled — i.e. at the max box; see §7).
 
 ---
 
@@ -185,8 +188,8 @@ and each module gates on who can do the work:
   a minor en-route paper, §5), or to upgrade the machine (**not** to clear instability) — they gain
   **1 experience token**. **Every 2nd token** advances them **one blue box** (envisioned: a plastic
   clip up the card edge). A card **shows 3 boxes, but the first is always pre-filled — only 2 are
-  earnable**, so **4 uses** take a fresh recruit to the max. Each _earned_ box adds **+1 to all three
-  skills** (max **+2 each**), so a veteran rises uniformly and keeps their spike.
+  earnable**, so **4 uses** take a fresh recruit to the max. Each _earned_ box adds **+1 to all
+  three skills** (max **+2 each**), so a veteran rises uniformly and keeps their spike.
 - **Rented researchers (open detail):** a teammate rented out via Negotiate (§2/§8) earns **no**
   experience for its owner — mercenary work on a rival's expedition doesn't build your own legacy
   (provisional; revisit in playtest).
@@ -203,9 +206,9 @@ and each module gates on who can do the work:
   (the score, never spent). The only bridge is what you do with a find/artefact (Sell → Cash **XOR**
   Publish → Reputation).
 - **Disrepute is Reputation's moral shadow** — a separate token pile, never spent and never mixed
-  into Reputation; **final score = Reputation − disrepute** (§9). Earned only from ethics-linked acts
-  (selling a non-doomed artefact; the plunder scar is the shared-track half). An honest setback (a
-  discredited paper) just lowers Reputation — peer review, not a moral failing — and is **not**
+  into Reputation; **final score = Reputation − disrepute** (§9). Earned only from ethics-linked
+  acts (selling a non-doomed artefact; the plunder scar is the shared-track half). An honest setback
+  (a discredited paper) just lowers Reputation — peer review, not a moral failing — and is **not**
   disrepute.
 - **The team is the action economy.** Each turn a researcher is in the field (jumping) **or** at
   home (one of: write a paper · upgrade a module · clear instability). Sent researchers can't work
@@ -231,8 +234,8 @@ and each module gates on who can do the work:
      travel matured into a discipline and the pioneers retire respected.
   3. **Collapse** — **Timeline Integrity hits 0**, triggering a final **"Unravelling" round**: each
      player takes one more turn at max peril (collapse flavour firing) to settle their affairs, or
-     ally for one last **Many Worlds** escape — then everyone scores. (Not a cold game-over; resolved
-     9 Jun, see §10.)
+     ally for one last **Many Worlds** escape — then everyone scores. (Not a cold game-over;
+     resolved 9 Jun, see §10.)
 - **Score = (Reputation − disrepute) + highest module level reached + unresearched artefacts (1
   each).** Reputation rises only from a researcher's work (Recording / Publishing); **disrepute** (a
   separate token pile) is its moral counterweight, netted in only here; papers dominate held
@@ -248,8 +251,8 @@ and each module gates on who can do the work:
   rulebook as a first-few-plays variant.)_
 - **⚠️ The multiverse is RARE (~50% of games; balance-sim 10 Jun)** — the 5×5 gauntlet means
   reaching for it and missing frays the timeline, so the endgame splits roughly **~52% triumph /
-  ~36% collapse / ~12% quiet legacy**. All three are built to feel like _"a life well lived"_ via the
-  portrait scoresheet above and the narration below.
+  ~36% collapse / ~12% quiet legacy**. All three are built to feel like _"a life well lived"_ via
+  the portrait scoresheet above and the narration below.
 
 ### Endgame narration (Drew's, keep verbatim)
 

@@ -22,34 +22,34 @@ _(8 = playtest content, 9 = renderer — still in the live backlog.)_
 
 ## Resolved this session (10 Jun, daytime)
 
-- **Papers fixed** — recording an objective now *is* a paper (~16/game, was 2.4); the research-group
+- **Papers fixed** — recording an objective now _is_ a paper (~16/game, was 2.4); the research-group
   lifeblood is in.
 - **Researcher model reworked** (SS/NSS pips, total 3–6 postdoc / 9–15 expert), economy re-tuned.
 - **Failed-MW lifted, plunder-imprint, growth step bands** all done.
 - **Overclock "softness" RESOLVED — it's a player CHOICE, not a flaw.** Cautious bots fold when
-  short; a *reckless* player overclocks 60%+ and bricks the machine 2–4×/game (validated
+  short; a _reckless_ player overclocks 60%+ and bricks the machine 2–4×/game (validated
   `--pushprobe`). The game survives heavy pushing (all-reckless: MW 38%, collapse 46%), and pushing
-  *summons* collapse — keystone #3 working.
+  _summons_ collapse — keystone #3 working.
 - **MW lowered to ~50% (the multiverse is rare/sacred)** via a 5×5 gauntlet + failed-MW −2. Endgame
   spread ≈ **52% triumph / 36% collapse / 12% quiet legacy.** Config in `sim/best-config.json`.
 
 ## Resolved this session (10 Jun, evening — endgame + economy + doc reconciliation)
 
 - **✅ Endgame reflection keystone — DONE.** Score-recap = a two-band **portrait scoresheet** (_what
-  you discovered_ × _how you did it_); ethics **un-baked** into visible **disrepute tokens** (score =
-  Rep − disrepute, netted at scoring; Reputation can still dip honestly, but a discredited paper is
-  *peer review, not* disrepute). Ending structure = **individual retirement** (the 3rd end-trigger) +
-  the *three-fates* framing; quiet-legacy flavour drafted.
-- **✅ Negotiate = researcher rental, Cash-only, no loans.** Kills the leader rep-farm; doubles as the
-  endgame-alliance handle (lend specialists for the MW gauntlet).
-- **✅ En-route find is now Sell-or-Publish (a minor paper)** — lifts paper cadence even for cautious
-  cash-outs, and writing it seasons a researcher. Early-relief spoil (15%, shallow eras, 1–2 Cash,
-  max 1/card) pinned from the sim + documented.
-- **✅ Doc reconciliation pass.** Fixed stale numbers (failed-MW **−2**, plunder **`[1,1,1,2,2,3,3]`**,
-  start cash **3**, integrity **(players+1)×4**, experience **2 tokens/box · 2 earnable**);
-  spoils→Cash done **selectively** (Cash = currency · *find* = convertible reward · "spoils" =
-  flavour only). Findings: `../sessions/2026-06-10-doc-reconciliation-report.md`.
-- **✅ Endgame flavour & reflection** — RESOLVED; remaining is *content polish* (now in the live
+  you discovered_ × _how you did it_); ethics **un-baked** into visible **disrepute tokens** (score
+  = Rep − disrepute, netted at scoring; Reputation can still dip honestly, but a discredited paper
+  is _peer review, not_ disrepute). Ending structure = **individual retirement** (the 3rd
+  end-trigger) + the _three-fates_ framing; quiet-legacy flavour drafted.
+- **✅ Negotiate = researcher rental, Cash-only, no loans.** Kills the leader rep-farm; doubles as
+  the endgame-alliance handle (lend specialists for the MW gauntlet).
+- **✅ En-route find is now Sell-or-Publish (a minor paper)** — lifts paper cadence even for
+  cautious cash-outs, and writing it seasons a researcher. Early-relief spoil (15%, shallow eras,
+  1–2 Cash, max 1/card) pinned from the sim + documented.
+- **✅ Doc reconciliation pass.** Fixed stale numbers (failed-MW **−2**, plunder
+  **`[1,1,1,2,2,3,3]`**, start cash **3**, integrity **(players+1)×4**, experience **2 tokens/box ·
+  2 earnable**); spoils→Cash done **selectively** (Cash = currency · _find_ = convertible reward ·
+  "spoils" = flavour only). Findings: `../sessions/2026-06-10-doc-reconciliation-report.md`.
+- **✅ Endgame flavour & reflection** — RESOLVED; remaining is _content polish_ (now in the live
   backlog).
 - **✅ Negotiate / lending terms** — RESOLVED (researcher rental, Cash-only, no loans).
 
@@ -59,7 +59,8 @@ _(8 = playtest content, 9 = renderer — still in the live backlog.)_
   model; engineers clear them. Discretion / Die A-B / danger ratings / fatigue retired into this.
 - **Field / Desk / Workshop** — sent researchers can't work at home; the team is the action economy
   (one Develop action/turn).
-- **Captured the v4 skeleton** → `design-skeleton.md` (later superseded by `game-design-document.md`).
+- **Captured the v4 skeleton** → `design-skeleton.md` (later superseded by
+  `game-design-document.md`).
 - **Timeline-collapse-as-loss → the "Unravelling" fuse.** Integrity 0 → one final round → score;
   deterrent lives in the personal overclock costs. Keystone #3 reconciled.
 - **Small open mechanics** — overclock draws **1** card per push; clearing instability **is** a
@@ -95,8 +96,8 @@ _(8 = playtest content, 9 = renderer — still in the live backlog.)_
   implemented. `handBase +2` confirmed load-bearing.
 - **Doc drift reconciled** — §6/§7/§9 wording aligned to the locked rules (2 earnable boxes / 2-2-2
   base / start cash 3 / integrity formula).
-- **Open-from-B items** reclassified as **playtest-watch** (danger spikes documented; game length and
-  overclock feel ride into the playtest).
+- **Open-from-B items** reclassified as **playtest-watch** (danger spikes documented; game length
+  and overclock feel ride into the playtest).
 
 ---
 

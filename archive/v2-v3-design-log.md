@@ -4,8 +4,8 @@ _This began as the live "current-idea scratchpad" during the v2 and v3 design an
 **decision log + rationale archive** — why each mechanic was chosen, what was rejected, and the
 playtest findings behind them. It is **superseded by `design-skeleton.md` (v4) + `constraints.md`**,
 and kept as a **goldmine to mine** for the reasoning behind locked decisions. Genuine still-open
-items were lifted into `tasks.md` when this was archived; a few use old terms (spoils → Cash,
-Nerve → Grit, Discretion, Die A/B) that the v4 model has since replaced._
+items were lifted into `tasks.md` when this was archived; a few use old terms (spoils → Cash, Nerve
+→ Grit, Discretion, Die A/B) that the v4 model has since replaced._
 
 ---
 
