@@ -10,6 +10,20 @@ _Only what's still ahead. Done items are in
 
 ---
 
+## A last-minute change
+
+Under _Rewards & the prize (Process)_, the game design document states: "**Record it** (copy,
+photograph, measure) → **Reputation** added immediately, history intact, **clean**. Pure-knowledge
+prizes (a cipher, a calculation) are **Record-only**."
+
+This breaks the narrative as any reputation gain would come from a paper, and so reputation cannot
+be added immediately.
+
+My first impression is that players should still keep the era card representing the artefact, but I
+suspect we'll need another section on the player board, thus visually tracking which are actual
+artefacts brought back and which are pure data. These will then be turned into papers as per the
+existing 'historian stays at base' rule.
+
 ## ⚠️ The one open design thread
 
 - **Who triggers Many Worlds / kingmaker.** The endgame is built around a full-table alliance for

@@ -53,13 +53,13 @@ mode-flip, never a dead stop.
   **Parting Gift** deck (retirement payoffs).
 - **Consequence deck** (shared).
 - **Timeline Integrity track** (one, shared by the whole table).
-- **Skill chips** in three skills: **Insight · Craft · Grit** (the bag-builder currency).
+- **Skill cards** in three skills: **Insight · Craft · Grit** (the deck-builder currency).
 - **Each player board:**
   - **Time Machine** — four modules (§8) + accumulated **instability tokens**.
   - **Team** — the researcher cards you own.
   - **Cash** · **Reputation** (the score, never spent) · a separate **Disrepute** pile (moral-stain
     tokens) · an **Artefacts** zone.
-  - A **skills bag**, built fresh each expedition (§6).
+  - A **skills deck**, built fresh each expedition (§6).
 
 ---
 
@@ -68,7 +68,7 @@ mode-flip, never a dead stop.
 - Each player starts with **no team, no artefacts, no reputation, no disrepute, and 3 Cash**.
 - Machine: **Amplifier, Capacitor, Collimator at level 1; Stabiliser at max-instability 2.** The
   Amplifier's **first upgrade is free**, so **Recent and Modern are both reachable from turn one**.
-- A permanent **player base of 2 Insight / 2 Craft / 2 Grit** goes into every bag you ever build.
+- A permanent **player base of 2 Insight / 2 Craft / 2 Grit** goes into every deck you ever build.
 - **Timeline Integrity = (players + 1) × 4** → 16 (3p) · 20 (4p) · 24 (5p).
 - The first player begins their turn at **React** in the **Recent** era.
 
@@ -91,39 +91,39 @@ downtime stays low.
   so team size drives home productivity.)
 - **Plan** — draw era cards up to your **Collimator** level and stage your next jump.
 
-**Retire** _(instead of a turn, whenever you choose)_ — end your scientist's career: read your
+**Retire from the game** _(instead of a turn, whenever you choose)_ — end your career: read your
 epilogue, **lock your score**, and take no further turns (§12). The game's third end-trigger.
 
 ---
 
 ## 6. The expedition
 
-### Building the bag
+### Building the deck
 
-At the **start of each expedition**, pick a **roster** of teammates up to your machine's
-**Capacity**, then build a one-shot **bag of skill chips** from:
+At the **start of each expedition**, pick a **roster** of researchers up to your machine's
+**Capacity**, then build a one-shot **deck of skill cards** from:
 
-- **the roster's pips** — one chip per pip (Insight / Craft / Grit), plus
+- **the roster's pips** — one skill card per pip (Insight / Craft / Grit), plus
 - **the player base** — a permanent 2 / 2 / 2, plus
-- **traces** — one **Trace chip** per instability token currently on your machine.
+- **traces** — one **Trace card** per instability token currently on your machine.
 
-The bag is **rebuilt every jump** — so "who do I send?" is a live decision that sets both your bag's
-composition _and_ your hand size.
+The deck is **rebuilt every jump** — so "who do I send?" is a live decision that sets both your
+deck's composition _and_ your hand size.
 
-> _Example:_ roster = one historian (I 2 / C 2 / G 2), 2 instability tokens → bag = 2 Trace + 4
+> _Example:_ roster = one historian (I 2 / C 2 / G 2), 2 instability tokens → deck = 2 Trace + 4
 > Insight + 4 Craft + 4 Grit.
 
 ### The hand (refilled every step)
 
-Draw a **hand of `2 × (researchers on the expedition) + 2`** chips. At the **start of every step**
-you **top the hand back up** to that size, reshuffling the discard (played chips and Traces) when
-the bag runs dry. Your hand is **visible** — it's your legible floor. _(The `+2` is load-bearing:
-without it, deep multi-step expeditions stall.)_
+Draw a **hand of `2 × (researchers on the expedition) + 2`** skill cards. At the **start of every
+step** you **top the hand back up** to that size, reshuffling the discard (played skill cards and
+Traces) when the deck runs dry. Your hand is **visible** — it's your legible floor. _(The `+2` is
+load-bearing: without it, deep multi-step expeditions stall.)_
 
 ### Resolving steps
 
 An era card is a path of **steps**, each printing a single **skill requirement**. Play matching
-chips from your hand to meet it; played chips go to the discard and recycle.
+skill cards from your hand to meet it; played skill cards go to the discard and recycle.
 
 - **Deeper eras are longer ladders of gentler gates** — more steps, low flat requirements (plus the
   odd Grit danger spike). The challenge is the length of the climb and the final gamble, not each
@@ -135,9 +135,9 @@ chips from your hand to meet it; played chips go to the discard and recycle.
 ### Overclock — the gamble
 
 If your hand can't cover the next step, you may **overclock**: take **+1 instability token**, add
-**+1 Trace** to your bag, and **draw 1 chip** into your hand — betting the draw turns up what you
-need. The cost is **personal and persistent**: Traces pollute every future bag until an engineer
-clears the tokens.
+**+1 Trace** to your deck, and **draw 1 skill card** into your hand — betting the draw turns up what
+you need. The cost is **personal and persistent**: Traces pollute every future deck until an
+engineer clears the tokens.
 
 ### Cash out, or push on
 
@@ -156,7 +156,7 @@ is bounded.
 Instability is a debt you actively pay down, not a meter that self-drains.
 
 1. **Engineer at base** — an engineer who did **not** jump this turn removes up to **[their Craft
-   pips]** instability tokens (a matching number of Traces leave your bag) as their Develop action.
+   pips]** instability tokens (a matching number of Traces leave your deck) as their Develop action.
 2. **Skip the Jump** — stay home and go straight to Develop to use your engineers.
 3. **Early-game safety valve** — a player with **no engineer and no Stabiliser upgrade** may spend a
    minimal turn to clear **all** instability. The moment you own an engineer or upgrade the
@@ -167,7 +167,7 @@ Instability is a debt you actively pay down, not a meter that self-drains.
 
 At the end of **any turn in which you overclocked at least once**, draw **one** consequence card
 (clean runs draw none; a shutdown draws an extra). Consequences can shave Timeline Integrity, swing
-Cash or Reputation, hand you a junk chip, or (rarely) cost a module level or a teammate. The
+Cash or Reputation, hand you a junk skill card, or (rarely) cost a module level or a teammate. The
 real-history flavour lives here. _(A consequence that docks Reputation is an honest setback — peer
 review catching a mistake — **not** disrepute.)_
 
@@ -185,8 +185,10 @@ pays nothing, so you can't get rich bailing early:
 - **Early-relief spoil** — in the four shallow eras (Recent–Medieval) a step may carry a small extra
   **1–2 Cash** drop (~15% per eligible step, at most one per card). Pure Cash, no paper.
 - **The objective** (final step), if all steps succeeded and there's something to claim:
-  - **Record it** (copy, photograph, measure) → **Reputation** added immediately, history intact,
-    **clean**. Pure-knowledge prizes (a cipher, a calculation) are **Record-only**.
+  - **Record it** (copy, photograph, measure) → the era card enters your **Data** zone; history
+    intact, **clean** return. **Reputation** comes from a historian **Publish**ing it which adds the
+    corresponding reputation to the player's pool. Pure-knowledge prizes (a cipher, a calculation)
+    are **Record-only**.
   - **Plunder it** → the artefact enters your **Artefacts** zone. A **non-doomed** artefact **scars
     Timeline Integrity** when taken (era-scaled `[1,1,1,2,2,3,3]` — deeper finds scar more); a
     **doomed** artefact (about to burn or be lost) **grabs clean** (no scar). Later, at the desk, a
@@ -196,17 +198,17 @@ pays nothing, so you can't get rich bailing early:
 ### Record vs Plunder, Sell vs Publish
 
 The objective's fork is **fiction-gated**: the take/copy choice exists only where the fiction
-supports it. A held artefact is **Cash XOR legacy** — selling pays Cash now and **forfeits** the
-points it would have scored (its paper's Reputation if Published, or 1 point if held unresearched).
-You never get both.
+supports it. A held artefact is **Cash XOR Reputation** but **not both** — selling pays **Cash** now
+and **forfeits** the points it would have scored (its paper's Reputation if Published, or 1 point if
+held unresearched). You never get both.
 
 ### Disrepute (the moral cost, made visible)
 
 Every **ethics-linked** reputation cost is paid as **disrepute tokens** — a separate pile beside
 your Reputation, never subtracted from it directly:
 
-- **Selling a non-doomed artefact** → `max(1, floor((rep − 1) / 2))` disrepute (1 for a rep-2–4
-  find, up to 4 for rep 9–10).
+- **Selling a non-doomed artefact** → `max(1, floor((rep − 1) / 2))` disrepute (printed on the era
+  card; 1 for a rep-2–4 find, up to 4 for rep 9–10).
 - **Doomed artefacts** → **0 disrepute** (clean to grab _and_ clean to sell).
 
 Disrepute stays well below the paper value, so **Sell is the cash-desperate lifeline, never a trap**
@@ -232,16 +234,17 @@ action gated on who does the work:
 - Recent → Modern: **free, no researcher** (the free first upgrade).
 - Modern → Early Modern, Early Modern → Medieval: **Engineer**.
 - Medieval → Ancient, Ancient → Prehistoric: **Engineer + Physicist**.
-- Prehistoric → **Many Worlds**: **Engineer + Physicist, both fully experienced** (both earnable
+- Prehistoric → Many Worlds: **Engineer + Physicist, both fully experienced** (both earnable
   experience boxes filled).
 
 ---
 
 ## 9. Your team
 
-- **Buying a researcher** adds **one skill chip per pip** to your bags from then on. Juniors
-  (**Researchers** deck) carry **3–6 total pips** (cost ≈ total pips, 3–7 Cash); **Experts** carry
-  **9–15** (cost 9–16) — capability you can buy, but not legacy.
+- **Buying a researcher** adds **one skill card per pip** to your decks from then on if that
+  researcher joins the expedition. Juniors (**Researchers** deck) carry **3–6 total pips** (cost ≈
+  total pips, 3–7 Cash); **Experts** carry **9–15** (cost 9–16) — capability you can buy, but not
+  reputation.
 - **Experience.** Each time a researcher is **used** — on an expedition, to write a paper (including
   a minor en-route paper), or to upgrade the machine (**not** to clear instability) — they gain one
   experience token. **Every 2nd token advances one blue box.** A card shows **3 boxes, but the first
@@ -252,8 +255,8 @@ action gated on who does the work:
   bonus, or a protégé). **Experts start at the max and cannot be retired** — capability you buy,
   legacy you grow.
 - **Rental (Negotiate).** You may **rent another player's teammate** for one expedition at a
-  freely-agreed **Cash** fee: their pips join your bag (counting toward Capacity), their owner can't
-  use them at home that turn, and **all Reputation stays with you** (your jump, your legacy —
+  freely-agreed **Cash** fee: their pips join your deck (counting toward Capacity), their owner
+  can't use them at home that turn, and **all Reputation stays with you** (your jump, your legacy —
   they're hired help). The researcher returns after. **Cash only — Reputation is never rented, sold,
   or shared.** Rental is also the seat of the endgame alliance: lend a rival your specialist for the
   Many Worlds gauntlet. _(Open detail: whether a rented researcher earns experience for its owner —
@@ -311,15 +314,14 @@ There is **no round cap.** The game ends because someone wins it, retires from i
 
 Every ending closes on the same **score-recap sheet**, read as a career in two bands:
 
-```
-  WHAT YOU DISCOVERED            HOW YOU DID IT
-   Papers published               Disrepute carried   (subtract)
-   Deepest era reached            Veterans retired with honour
-   Artefacts saved
-   Many Worlds reached?
+| WHAT YOU DISCOVERED  | HOW YOU DID IT               |
+| -------------------- | ---------------------------- |
+| Papers published     | Disrepute carried (subtract) |
+| Deepest era reached  | Veterans retired with honour |
+| Artefacts saved      |                              |
+| Many Worlds reached? |                              |
 
-  SCORE = Reputation − Disrepute + highest module level reached + unresearched artefacts (1 each)
-```
+SCORE = Reputation − Disrepute + highest module level reached + unresearched artefacts (1 each)
 
 Papers dominate held artefacts, so hoarding isn't a strategy. **Glory and shame show as two visible
 piles** — restraint _shows_ in the portrait without needing its own scoring axis, and the careful
@@ -333,22 +335,23 @@ bow out; when the last player ends, the table reads the collective ending narrat
 **Triumph (a successful Many Worlds):** _"You did it! Humanity now has the power to access the
 furthest reaches of infinite universes. Technology advances rapidly, time travel becomes a new field
 of training similar to that for astronauts, and governments around the world scramble to draw up
-safety guidelines for an enthusiastic public. The only thing to do now is to ponder whether we
-should explore the future…"_
+safety guidelines for an enthusiastic private sector. The only thing to do now is to ponder whether
+we should explore the future or let it come to us…"_
 
-**Collapse (the timeline unravels):** _"It starts small — sightings of confused medieval warriors in
-town centers, Benjamin Franklin wandering the streets of New York — and unravels further as the
-minutes go by. Egyptian pharaohs are seen arguing with each other outside the pyramids of Egypt.
-Later, a herd of triceratops is spotted by a group on an African safari. It's only when the
-atmosphere starts changing that the entire population starts noticing. Within an hour, astrological
-objects are hurtling through each other and the laws of nature themselves come apart at the seams."_
+**Collapse (the timeline unravels):** _"It starts small. People in the present start reporting odd
+sightings -- confused medieval warriors in town centers, Benjamin Franklin wandering the streets of
+New York -- and things unravel further as the minutes go by. Egyptian pharaohs are seen arguing with
+each other outside the pyramids of Egypt. Later, a herd of triceratops is spotted by a group on an
+African safari. It's only when the atmosphere starts changing that the entire population starts
+noticing. Within an hour, astrological objects are hurtling into and through each other and the laws
+of nature themselves come apart at the seams."_
 
 **Quiet legacy (you retire) — _draft, polish before print_:** _"Your work gave birth to a new field.
-You had an illustrious career in one of the most exciting domains in science — and now, with the
-multiverse still beyond reach but the timeline whole, you retire to live out your own. The torch
-passes to a new generation of temporal scientists; what you built — the minds you gathered, the
-histories you saved, the papers that bear your name — endures."_ _(Read per-player as each retires;
-the table reads a collective version when the last player bows out.)_
+You had an illustrious career in one of the most exciting domains in science -- and now, with the
+multiverse still beyond reach but the timeline whole, you retire to live out your own history. The
+torch passes to a new generation of temporal scientists; what you built -- the minds you gathered,
+the histories you saved, the papers that bear your name -- endures."_ _(Read per-player as each
+retires; the table reads a collective version when the last player bows out.)_
 
 ---
 
@@ -387,3 +390,7 @@ For groups who enjoy the roleplay, each player's retirement can be narrated alou
 fill-in-the-blank Epilogue card (lead researcher, deepest era, papers published, artefacts saved,
 how cleanly they played). It's magic the first time or two and becomes optional thereafter — the
 portrait scoresheet (§12) carries the same payoff every play without it.
+
+```
+
+```
