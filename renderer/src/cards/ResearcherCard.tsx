@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import type { Researcher } from '../types';
-import { professionColor } from '../theme';
+import { professionColor, skillColor } from '../theme';
 import { CardShell, Pill, PipRow, XpBoxes } from './parts';
 
 export function ResearcherCard({ card }: { card: Researcher }) {
@@ -45,9 +45,9 @@ export function ResearcherCard({ card }: { card: Researcher }) {
       </Box>
 
       <Box sx={{ px: '2mm' }}>
-        <PipRow label="Insight" value={card.pips.insight} color="#2f5d99" />
-        <PipRow label="Craft" value={card.pips.craft} color="#b8860b" />
-        <PipRow label="Grit" value={card.pips.grit} color="#b0392b" />
+        <PipRow label="Insight" value={card.pips.insight} color={skillColor.Insight} />
+        <PipRow label="Craft" value={card.pips.craft} color={skillColor.Craft} />
+        <PipRow label="Grit" value={card.pips.grit} color={skillColor.Grit} />
       </Box>
 
       <Box sx={{ px: '2mm', mt: '0.8mm', flexGrow: 1 }}>

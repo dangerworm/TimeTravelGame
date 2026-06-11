@@ -20,22 +20,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Trace the surviving print through the studio vault ledgers"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Reach the nitrate vault before the fire takes hold"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Spool the fragile reel onto a safe carrier as the heat rises"
     }
    ],
    "findStep": 2,
@@ -67,22 +70,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Work the exposure times from the expedition notes"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Hold the camp steady as the clouds close in"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Physicist",
-     "objective": true
+     "objective": true,
+     "text": "Capture the star-shift on the plates at totality"
     }
    ],
    "findStep": 2,
@@ -114,21 +120,24 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Piece together the flight's last bearings"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Search the atoll's far shore"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Document the castaway camp"
     }
    ],
    "findStep": 2,
@@ -160,14 +169,16 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the panels among the castle cellars"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Move through the collapsing city"
     },
     {
      "n": 3,
@@ -175,7 +186,8 @@
      "req": 1,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Work the amber panels loose"
     }
    ],
    "findStep": 2,
@@ -210,14 +222,16 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Read the recovery reports before the cordon tightens"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Slip the military cordon"
     },
     {
      "n": 3,
@@ -225,7 +239,8 @@
      "req": 1,
      "type": "knowledge",
      "lock": "Physicist",
-     "objective": true
+     "objective": true,
+     "text": "Study the foil's impossible behaviour"
     }
    ],
    "findStep": 2,
@@ -257,22 +272,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Decipher the unpublished schematics"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Slip into the half-built pumping works"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Free the prototype valve from its setting"
     }
    ],
    "findStep": 2,
@@ -304,22 +322,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the card-programs in the cluttered workshop"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Reach the workshop before the clear-out"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Box up the punched cards before they're scattered"
     }
    ],
    "findStep": 2,
@@ -351,22 +372,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Work out where the log is stowed"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
+     "req": 2,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Cross the pack ice to the abandoned ship"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Prise the log from the frozen chart room"
     }
    ],
    "findStep": 2,
@@ -398,22 +422,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Learn which pages Darwin means to burn"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Reach the study unseen"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Historian",
-     "objective": true
+     "objective": true,
+     "text": "Transcribe the suppressed pages before the grate"
     }
    ],
    "findStep": 2,
@@ -448,22 +475,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Read Tesla's working notes"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
+     "req": 2,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Cross the bolt-strewn laboratory floor"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Physicist",
-     "objective": true
+     "objective": true,
+     "text": "Grasp the resonance principle — or take the book"
     }
    ],
    "findStep": 2,
@@ -495,29 +525,33 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Locate the cellar from the half-burned records"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Divert the gathering rioters from the east door"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Work the cellar lock before the smoke thickens"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Lift the sealed apparatus clear as the timbers catch"
     }
    ],
    "findStep": 3,
@@ -549,28 +583,32 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the engineer's desk in the failing light"
     },
     {
      "n": 2,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Engineer"
+     "lock": "Engineer",
+     "text": "Brace the buckling doorway"
     },
     {
      "n": 3,
      "skill": "Grit",
      "req": 2,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Cross the heaving floor"
     },
     {
      "n": 4,
      "skill": "Grit",
-     "req": 1,
+     "req": 3,
      "type": "danger",
-     "objective": true
+     "objective": true,
+     "text": "Escape with the seismic notes as the city falls"
     }
    ],
    "findStep": 3,
@@ -602,28 +640,32 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Win the master's trust"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Keep your place in the busy workshop"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Watch the ground coat go on, brush by brush"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Record the varnish recipe by eye and ear"
     }
    ],
    "findStep": 3,
@@ -658,29 +700,33 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Learn which night the lamp overturns"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Reach the chamber as the fire starts"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Historian",
-     "find": true
+     "find": true,
+     "text": "Find the alchemical notebook among the flames"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Pull the notebook clear of the blaze"
     }
    ],
    "findStep": 3,
@@ -713,30 +759,34 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Confirm the boy's identity from the prison record"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Slip the Temple prison's guard"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "find": true
+     "find": true,
+     "text": "Locate the doctor's quiet keeping-place"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Physicist",
-     "objective": true
+     "objective": true,
+     "text": "Take the preserved heart — proof of a king"
     }
    ],
    "findStep": 3,
@@ -768,28 +818,32 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the hidden second set of notes"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Cross the cathedral works unseen"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Historian",
-     "find": true
+     "find": true,
+     "text": "Read the marginal cipher"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Copy the calculations centuries early"
     }
    ],
    "findStep": 3,
@@ -819,30 +873,34 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the missing quire in the binding"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Slip into the candlelit scriptorium"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Ease the unbound pages free"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Take the pages that unlock the cipher"
     }
    ],
    "findStep": 3,
@@ -874,28 +932,32 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Read the siphonists' closely guarded order-book"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Keep your footing on the burning sea wall"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Physicist",
-     "find": true
+     "find": true,
+     "text": "Watch the siphon fire and judge the secret mixture"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 4,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Reconstruct the lost formula step by step"
     }
    ],
    "findStep": 3,
@@ -930,29 +992,33 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Earn a place at the forge"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Work the heat of the smithy"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Time the quench and the folding"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Record the cycle that made wootz steel"
     }
    ],
    "findStep": 3,
@@ -987,28 +1053,32 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Learn the perfecti's escape route"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 3,
+     "type": "danger",
+     "text": "Descend the fortress cliff in the dark"
     },
     {
      "n": 3,
      "skill": "Grit",
-     "req": 1,
+     "req": 2,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Hold the rope under the treasure's weight"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Carry the Cathar treasure out before the fall"
     }
    ],
    "findStep": 3,
@@ -1038,36 +1108,41 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Talk your way past the librarians"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Slip a scholar's suspicious question"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
-     "type": "knowledge"
+     "req": 2,
+     "type": "knowledge",
+     "text": "Navigate the unlit lower stacks"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Gather loose ostraca as cover"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Seize the doomed scroll as the shelves begin to burn"
     }
    ],
    "findStep": 4,
@@ -1097,38 +1172,43 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the mechanism in the Rhodian workshop"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Keep your place as it is demonstrated"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "lock": "Physicist"
+     "lock": "Physicist",
+     "text": "Follow the gear-trains as they turn"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Trace every tooth and ratio"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 1,
+     "req": 4,
      "type": "knowledge",
      "lock": "Physicist",
-     "objective": true
+     "objective": true,
+     "text": "Record the whole mechanism before the ship sinks"
     }
    ],
    "findStep": 4,
@@ -1158,37 +1238,42 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Earn a place on the harbour works"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Work the sea-wall in the surf"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Engineer"
+     "lock": "Engineer",
+     "text": "Watch the moles being poured"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "find": true
+     "find": true,
+     "text": "Note the proportions as they mix"
     },
     {
      "n": 5,
      "skill": "Craft",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Record the self-healing recipe"
     }
    ],
    "findStep": 4,
@@ -1221,36 +1306,41 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the last wild stand"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Cross the harvested hills"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
-     "type": "knowledge"
+     "req": 2,
+     "type": "knowledge",
+     "text": "Identify a viable plant"
     },
     {
      "n": 4,
      "skill": "Grit",
-     "req": 1,
+     "req": 3,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Dig it out root and all"
     },
     {
      "n": 5,
      "skill": "Craft",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Lift a living silphium clear before extinction"
     }
    ],
    "findStep": 4,
@@ -1280,36 +1370,41 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the right cave above the sea"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Reach it before the legions"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
-     "type": "knowledge"
+     "req": 2,
+     "type": "knowledge",
+     "text": "Read the jars' markings"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Open the sealed jar"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 1,
+     "req": 4,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Take the scroll our scholars never read"
     }
    ],
    "findStep": 4,
@@ -1344,20 +1439,23 @@
      "skill": "Insight",
      "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Make sense of a people who left no written word"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 2,
-     "type": "danger"
+     "type": "danger",
+     "text": "Endure the exposed hilltop dig"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 2,
+     "req": 3,
      "type": "knowledge",
-     "lock": "Physicist"
+     "lock": "Physicist",
+     "text": "Read the stones' astronomical alignment"
     },
     {
      "n": 4,
@@ -1365,14 +1463,16 @@
      "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Survey how the megaliths were raised without metal"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 2,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Record why they built it"
     }
    ],
    "findStep": 4,
@@ -1404,34 +1504,39 @@
      "skill": "Insight",
      "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Read the drowned land's old shoreline"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 2,
-     "type": "danger"
+     "type": "danger",
+     "text": "Reach the plain before the wave"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 2,
-     "type": "knowledge"
+     "type": "knowledge",
+     "text": "Find the hearth among the reeds"
     },
     {
      "n": 4,
      "skill": "Grit",
      "req": 2,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Dig the tools from the hearth"
     },
     {
      "n": 5,
      "skill": "Craft",
-     "req": 2,
+     "req": 4,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Lift the tools clear as the sea pours in"
     }
    ],
    "findStep": 4,
@@ -1463,20 +1568,23 @@
      "skill": "Insight",
      "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Track the last herd on the island"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 2,
-     "type": "danger"
+     "type": "danger",
+     "text": "Cross the frozen island"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 2,
+     "req": 3,
      "type": "knowledge",
-     "lock": "Physicist"
+     "lock": "Physicist",
+     "text": "Judge the herd for a healthy calf"
     },
     {
      "n": 4,
@@ -1484,14 +1592,16 @@
      "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Sedate one and take tissue and tusk"
     },
     {
      "n": 5,
      "skill": "Grit",
-     "req": 2,
+     "req": 3,
      "type": "danger",
-     "objective": true
+     "objective": true,
+     "text": "Bring a living calf back through the door"
     }
    ],
    "findStep": 4,
@@ -1521,21 +1631,24 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 2,
+     "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the merchant's house in the town"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 2,
-     "type": "danger"
+     "req": 3,
+     "type": "danger",
+     "text": "Cross the shaking streets"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 2,
-     "type": "knowledge"
+     "type": "knowledge",
+     "text": "Identify the bronze hoard"
     },
     {
      "n": 4,
@@ -1543,14 +1656,16 @@
      "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Break open the merchant's store"
     },
     {
      "n": 5,
      "skill": "Grit",
-     "req": 2,
+     "req": 4,
      "type": "danger",
-     "objective": true
+     "objective": true,
+     "text": "Take the hoard and run for the boats"
     }
    ],
    "findStep": 4,
@@ -1585,19 +1700,22 @@
      "skill": "Insight",
      "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the painted chamber deep in the cave"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 2,
-     "type": "danger"
+     "type": "danger",
+     "text": "Crawl the tallow-lit passages"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 2,
-     "type": "knowledge"
+     "type": "knowledge",
+     "text": "Watch the artists at work"
     },
     {
      "n": 4,
@@ -1605,14 +1723,16 @@
      "req": 2,
      "type": "knowledge",
      "lock": "Physicist",
-     "find": true
+     "find": true,
+     "text": "Read the lamplight and the pigments"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 2,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Record the oldest masters before the lamps gutter"
     }
    ],
    "findStep": 4,
@@ -1644,22 +1764,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Predict the window from the telescope's drift"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Hold the control room's nerve"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Physicist",
-     "objective": true
+     "objective": true,
+     "text": "Log the signal's source before it falls silent"
     }
    ],
    "findStep": 2,
@@ -1691,22 +1814,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Mark the doped panel from the crew's notes"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Work the mooring apron unnoticed"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Cut a skin sample minutes before the spark"
     }
    ],
    "findStep": 2,
@@ -1738,22 +1864,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Plot the blast's centre from the felled trees"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Cross the shattered taiga"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Physicist",
-     "objective": true
+     "objective": true,
+     "text": "Recover a fragment of whatever fell"
     }
    ],
    "findStep": 2,
@@ -1785,21 +1914,24 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Reconstruct the hikers' route"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Endure the −30° night on the slope"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Record what drives them from the tent"
     }
    ],
    "findStep": 2,
@@ -1831,22 +1963,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Trace the crates to the rail yard"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Reach the convoy as the war closes in"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Intercept the crates before they vanish"
     }
    ],
    "findStep": 2,
@@ -1881,21 +2016,24 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Reconstruct the brig's last hours"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Board the silent ship mid-Atlantic"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Witness and record why they abandon her"
     }
    ],
    "findStep": 2,
@@ -1927,22 +2065,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Follow Anning's eye along the cliff"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
+     "req": 2,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Work the crumbling Dorset cliff face"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Free the sea-dragon from the rock"
     }
    ],
    "findStep": 2,
@@ -1977,14 +2118,16 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the ward's mortality records"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Move through the hostile hospital"
     },
     {
      "n": 3,
@@ -1992,7 +2135,8 @@
      "req": 1,
      "type": "knowledge",
      "lock": "Historian",
-     "objective": true
+     "objective": true,
+     "text": "Copy the ledger that proves him right"
     }
    ],
    "findStep": 2,
@@ -2024,22 +2168,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Locate the explorer's field journals"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
+     "req": 2,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Wade into the fever-swamp camp"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Save the journals history loses"
     }
    ],
    "findStep": 2,
@@ -2071,22 +2218,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the flaw in the engineer's calculations"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Reach the bridge office as the gale rises"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Take the notes before the spans drop"
     }
    ],
    "findStep": 2,
@@ -2118,29 +2268,33 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Read the colony's last messages"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Walk the emptying stockade"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Search the dismantled houses for a sign"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Historian",
-     "objective": true
+     "objective": true,
+     "text": "Record where a hundred souls went"
     }
    ],
    "findStep": 3,
@@ -2172,28 +2326,32 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find where the master's instruments are kept"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Get below as she heels over"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Work the cabinet open against the list"
     },
     {
      "n": 4,
      "skill": "Grit",
-     "req": 2,
+     "req": 3,
      "type": "danger",
-     "objective": true
+     "objective": true,
+     "text": "Haul the instruments clear before the Solent closes"
     }
    ],
    "findStep": 3,
@@ -2228,29 +2386,33 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Learn the automaton's touring schedule"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Get into the cabinet between matches"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Trace the clockwork linkages"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Physicist",
-     "objective": true
+     "objective": true,
+     "text": "Record how the trick really works"
     }
    ],
    "findStep": 3,
@@ -2282,13 +2444,15 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the rented lodgings before the sale"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Reach the rooms ahead of the dealers"
     },
     {
      "n": 3,
@@ -2296,15 +2460,17 @@
      "req": 1,
      "type": "knowledge",
      "lock": "Historian",
-     "find": true
+     "find": true,
+     "text": "Sort the opera scores from the waste"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Carry the bound scores out"
     }
    ],
    "findStep": 3,
@@ -2336,28 +2502,32 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Reconstruct the astronomer's last days"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Reach the deathbed unchallenged"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "find": true
+     "find": true,
+     "text": "Judge the symptoms at the bedside"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Physicist",
-     "objective": true
+     "objective": true,
+     "text": "Take a sample to end the murder debate"
     }
    ],
    "findStep": 3,
@@ -2389,29 +2559,33 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Map the royal apartments"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Move through the Tower unseen"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Work past the locked apartments"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 4,
      "type": "knowledge",
      "lock": "Historian",
-     "objective": true
+     "objective": true,
+     "text": "Record what becomes of the princes"
     }
    ],
    "findStep": 3,
@@ -2443,29 +2617,33 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Study the monk's wing design"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Climb to the abbey tower"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Examine the strapped wings"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Copy the contraption — or carry it home"
     }
    ],
    "findStep": 3,
@@ -2497,28 +2675,32 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Learn which ships sail that night"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Reach the harbour before the king's men"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Break the strongboxes from the vault"
     },
     {
      "n": 4,
      "skill": "Grit",
-     "req": 1,
+     "req": 3,
      "type": "danger",
-     "objective": true
+     "objective": true,
+     "text": "Run the treasure aboard before dawn"
     }
    ],
    "findStep": 3,
@@ -2551,37 +2733,42 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find Archimedes' house in the falling city"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 3,
+     "type": "danger",
+     "text": "Reach it ahead of the legionaries"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
-     "type": "knowledge"
+     "req": 3,
+     "type": "knowledge",
+     "text": "Make sense of the impossible machines"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Pack the apparatus to move"
     },
     {
      "n": 5,
      "skill": "Craft",
-     "req": 1,
+     "req": 4,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Carry the machines out of the burning city"
     }
    ],
    "findStep": 4,
@@ -2614,37 +2801,42 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the craftsman's bench"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Wait out the busy workshop"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
-     "type": "knowledge"
+     "req": 3,
+     "type": "knowledge",
+     "text": "Watch how he uses the thing"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Measure its holes and knobs"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Physicist",
-     "objective": true
+     "objective": true,
+     "text": "Take the dodecahedron — or record its use"
     }
    ],
    "findStep": 4,
@@ -2676,20 +2868,23 @@
      "skill": "Insight",
      "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Make sense of a people with no writing"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 2,
-     "type": "danger"
+     "type": "danger",
+     "text": "Stand among the hauling crews"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 2,
+     "req": 3,
      "type": "knowledge",
-     "lock": "Engineer"
+     "lock": "Engineer",
+     "text": "Study how the sarsens are dressed"
     },
     {
      "n": 4,
@@ -2697,15 +2892,17 @@
      "req": 2,
      "type": "knowledge",
      "lock": "Physicist",
-     "find": true
+     "find": true,
+     "text": "Read the ring's alignment to the sky"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 2,
+     "req": 3,
      "type": "knowledge",
      "lock": "Historian",
-     "objective": true
+     "objective": true,
+     "text": "Record how and why they raise the stones"
     }
    ],
    "findStep": 4,
@@ -2735,29 +2932,33 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 5,
+     "req": 3,
      "type": "knowledge",
-     "lock": "Physicist"
+     "lock": "Physicist",
+     "text": "Hold the branch point steady in the mathematics"
     },
     {
      "n": 2,
      "skill": "Craft",
-     "req": 5,
+     "req": 3,
      "type": "knowledge",
-     "lock": "Engineer"
+     "lock": "Engineer",
+     "text": "Tune every machine at the table in unison"
     },
     {
      "n": 3,
      "skill": "Grit",
-     "req": 5,
-     "type": "danger"
+     "req": 4,
+     "type": "danger",
+     "text": "Withstand the crossing's tearing forces"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 5,
+     "req": 4,
      "type": "knowledge",
-     "lock": "Physicist"
+     "lock": "Physicist",
+     "text": "Read the door's shifting geometry"
     },
     {
      "n": 5,
@@ -2765,7 +2966,8 @@
      "req": 5,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Hold the door open long enough to cross"
     }
    ],
    "findStep": null,
@@ -2793,28 +2995,32 @@
     {
      "n": 1,
      "skill": "Grit",
-     "req": 5,
-     "type": "danger"
+     "req": 3,
+     "type": "danger",
+     "text": "Hold the threshold's tearing light"
     },
     {
      "n": 2,
      "skill": "Insight",
-     "req": 5,
+     "req": 3,
      "type": "knowledge",
-     "lock": "Physicist"
+     "lock": "Physicist",
+     "text": "Read the converging paths"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 5,
+     "req": 4,
      "type": "knowledge",
-     "lock": "Engineer"
+     "lock": "Engineer",
+     "text": "Lock every machine to the same instant"
     },
     {
      "n": 4,
      "skill": "Grit",
-     "req": 5,
-     "type": "danger"
+     "req": 4,
+     "type": "danger",
+     "text": "Withstand the crossing together"
     },
     {
      "n": 5,
@@ -2822,7 +3028,8 @@
      "req": 5,
      "type": "knowledge",
      "lock": "Physicist",
-     "objective": true
+     "objective": true,
+     "text": "Step through before the threshold closes"
     }
    ],
    "findStep": null,
@@ -2852,21 +3059,24 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Match the man to a missing name"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Search the body before the case is filed"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Copy the torn page and its pencilled code"
     }
    ],
    "findStep": 2,
@@ -2898,14 +3108,16 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Read the keepers' last entries"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Climb to the sealed light room"
     },
     {
      "n": 3,
@@ -2913,7 +3125,8 @@
      "req": 1,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Save the logbook before the storm"
     }
    ],
    "findStep": 2,
@@ -2945,21 +3158,24 @@
      "skill": "Craft",
      "req": 1,
      "type": "knowledge",
-     "lock": "Engineer"
+     "lock": "Engineer",
+     "text": "Force the jammed hold doors"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Keep your feet on the canting deck"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Find the manifest before she goes down"
     }
    ],
    "findStep": 2,
@@ -2991,22 +3207,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Plot the plane's track over the Channel"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Reach the wreck in the cold water"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Pull the flight log from the flooded cockpit"
     }
    ],
    "findStep": 2,
@@ -3038,7 +3257,8 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Read the thief's deathbed letter"
     },
     {
      "n": 2,
@@ -3046,14 +3266,16 @@
      "req": 1,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Work into the panel's hidden recess"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Photograph the Just Judges where it hides"
     }
    ],
    "findStep": 2,
@@ -3084,7 +3306,8 @@
      "n": 1,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Endure the deep jungle"
     },
     {
      "n": 2,
@@ -3092,14 +3315,16 @@
      "req": 1,
      "type": "knowledge",
      "lock": "Historian",
-     "find": true
+     "find": true,
+     "text": "Find the expedition's last camp"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Recover Fawcett's final notebook"
     }
    ],
    "findStep": 2,
@@ -3131,14 +3356,16 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Trace the diamond through the fallen court"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Move unseen among the fleeing household"
     },
     {
      "n": 3,
@@ -3146,7 +3373,8 @@
      "req": 1,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Lift the Florentine into the dark"
     }
    ],
    "findStep": 2,
@@ -3178,14 +3406,16 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Physicist"
+     "lock": "Physicist",
+     "text": "Work out which reels hold the originals"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Reach the tracking station's vault"
     },
     {
      "n": 3,
@@ -3193,7 +3423,8 @@
      "req": 1,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Copy the original Moon-landing tapes"
     }
    ],
    "findStep": 2,
@@ -3225,21 +3456,24 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Map the hundred-mile trail of prints"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Follow the prints across the frozen night"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Record the trail before the thaw"
     }
    ],
    "findStep": 2,
@@ -3270,7 +3504,8 @@
      "n": 1,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Ride with the revolution's column"
     },
     {
      "n": 2,
@@ -3278,14 +3513,16 @@
      "req": 1,
      "type": "knowledge",
      "lock": "Historian",
-     "find": true
+     "find": true,
+     "text": "Find Bierce among the marching men"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Snatch his final dispatch before the ambush"
     }
    ],
    "findStep": 2,
@@ -3317,22 +3554,25 @@
      "skill": "Craft",
      "req": 1,
      "type": "knowledge",
-     "lock": "Engineer"
+     "lock": "Engineer",
+     "text": "Work below as the ship labours"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
+     "req": 2,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Hold on through the mountainous swell"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Historian",
-     "objective": true
+     "objective": true,
+     "text": "Get the bridge log before she founders"
     }
    ],
    "findStep": 2,
@@ -3364,21 +3604,24 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Trace the foundling's few known facts"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Reach him before the assassin does"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Copy the papers he carried"
     }
    ],
    "findStep": 2,
@@ -3410,22 +3653,25 @@
      "skill": "Craft",
      "req": 1,
      "type": "knowledge",
-     "lock": "Engineer"
+     "lock": "Engineer",
+     "text": "Open the sunken hatch"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
+     "req": 2,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Hold your air in the silted dark"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Physicist",
-     "objective": true
+     "objective": true,
+     "text": "Recover the mechanism before it settles"
     }
    ],
    "findStep": 2,
@@ -3457,22 +3703,25 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find where the pages went"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Reach the diary under guard"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Photograph the eighteen pages before they are cut"
     }
    ],
    "findStep": 2,
@@ -3504,21 +3753,24 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Track the treasury train's route"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Reach the burial site ahead of the pursuers"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Count the crates — or carry them off"
     }
    ],
    "findStep": 2,
@@ -3550,21 +3802,24 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Physicist"
+     "lock": "Physicist",
+     "text": "Calculate the eruption's force"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
+     "req": 2,
      "type": "danger",
-     "find": true
+     "find": true,
+     "text": "Stand off the erupting mountain"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Measure the ash column at its height"
     }
    ],
    "findStep": 2,
@@ -3596,28 +3851,32 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the company's records in the stockade"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Endure the fever-coast jungle"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Break into the locked counting-house"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Take the last ledger before the survivors burn it"
     }
    ],
    "findStep": 3,
@@ -3647,31 +3906,35 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Read Vasari's records for the wall"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Work the great hall after hours"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Sound the wall for the hidden surface"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
      "lock": "Engineer",
-     "objective": true
+     "objective": true,
+     "text": "Record the mural — or cut it free"
     }
    ],
    "findStep": 3,
@@ -3703,27 +3966,31 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find which company holds the play"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Slip backstage at the playhouse"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "find": true
+     "find": true,
+     "text": "Locate the prompt-book"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Copy the prompt-book before the fire"
     }
    ],
    "findStep": 3,
@@ -3753,30 +4020,34 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Trace the casket to its keeper"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Reach the locked study"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Historian",
-     "find": true
+     "find": true,
+     "text": "Read the letters' contested hand"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Transcribe them — or take the casket whole"
     }
    ],
    "findStep": 3,
@@ -3808,28 +4079,32 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the strongroom on the carrack's plan"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Reach the wreck on the reef"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Force the flooded strongroom door"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Take the treasure before she breaks apart"
     }
    ],
    "findStep": 3,
@@ -3861,13 +4136,15 @@
      "skill": "Craft",
      "req": 1,
      "type": "knowledge",
-     "lock": "Engineer"
+     "lock": "Engineer",
+     "text": "Work the wreck on the reef"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Hold on as the hull works apart"
     },
     {
      "n": 3,
@@ -3875,14 +4152,16 @@
      "req": 1,
      "type": "knowledge",
      "lock": "Historian",
-     "find": true
+     "find": true,
+     "text": "Find the captain's log in the flooding cabin"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Salvage the account before she breaks up"
     }
    ],
    "findStep": 3,
@@ -3914,28 +4193,32 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the most precious shelves"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Push through the sacked streets"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Historian",
-     "find": true
+     "find": true,
+     "text": "Choose what to save in moments"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 4,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Pull the manuscripts before the river takes them"
     }
    ],
    "findStep": 3,
@@ -3967,27 +4250,31 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Trace the plague to its first dancer"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Move among the dancing crowd"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "find": true
+     "find": true,
+     "text": "Watch the dancers to exhaustion"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Record the affliction before it's erased"
     }
    ],
    "findStep": 3,
@@ -4019,28 +4306,32 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Read the sagas for the landing site"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Cross the fog-bound coast"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Survey the turf halls"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Measure the settlement — or take its ironwork"
     }
    ],
    "findStep": 3,
@@ -4072,28 +4363,32 @@
      "skill": "Craft",
      "req": 1,
      "type": "knowledge",
-     "lock": "Engineer"
+     "lock": "Engineer",
+     "text": "Work the wreck in the bay"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 3,
+     "type": "danger",
+     "text": "Dive the typhoon-scattered fleet"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Historian",
-     "find": true
+     "find": true,
+     "text": "Find the flagship among the wrecks"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Reach the hold before the wind finishes"
     }
    ],
    "findStep": 3,
@@ -4125,27 +4420,31 @@
      "skill": "Insight",
      "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the field where they appeared"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 1,
-     "type": "danger"
+     "type": "danger",
+     "text": "Win the wary children’s trust"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "find": true
+     "find": true,
+     "text": "Make sense of their unknown tongue"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Record their account before it turns to folktale"
     }
    ],
    "findStep": 3,
@@ -4175,37 +4474,42 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the disc in the palace stores"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Move through the palace unseen"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Study the spiral of stamped signs"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Take a careful impression"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Copy both faces before the palace burns"
     }
    ],
    "findStep": 4,
@@ -4235,36 +4539,41 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the archive in the burning city"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 3,
+     "type": "danger",
+     "text": "Reach it as the raiders close in"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
-     "type": "knowledge"
+     "req": 2,
+     "type": "knowledge",
+     "text": "Sort the diplomatic tablets"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Save the tablets from the flames"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Read who brought the kingdoms down"
     }
    ],
    "findStep": 4,
@@ -4294,37 +4603,42 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Read the court records for the tomb's plan"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 3,
+     "type": "danger",
+     "text": "Cross the mercury moat's poisoned vapours"
     },
     {
      "n": 3,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Engineer"
+     "lock": "Engineer",
+     "text": "Disarm the buried crossbow triggers"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Physicist",
-     "find": true
+     "find": true,
+     "text": "Map the mercury rivers and their strange currents"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 1,
+     "req": 4,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Breach the sealed inner chamber"
     }
    ],
    "findStep": 4,
@@ -4354,36 +4668,41 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the fort's record room"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "March north into the mist"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
-     "type": "knowledge"
+     "req": 2,
+     "type": "knowledge",
+     "text": "Trace the legion's last orders"
     },
     {
      "n": 4,
      "skill": "Craft",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Break into the strong-room"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Recover the last muster before it's struck out"
     }
    ],
    "findStep": 4,
@@ -4413,35 +4732,40 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 1,
+     "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find your bearings on the empty pampa"
     },
     {
      "n": 2,
      "skill": "Grit",
-     "req": 1,
-     "type": "danger"
+     "req": 2,
+     "type": "danger",
+     "text": "Walk the lines under the desert sun"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 1,
-     "type": "knowledge"
+     "req": 2,
+     "type": "knowledge",
+     "text": "Trace a single figure end to end"
     },
     {
      "n": 4,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "find": true
+     "find": true,
+     "text": "Map the figures from the heights"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 1,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Survey them before the wind blurs the edges"
     }
    ],
    "findStep": 4,
@@ -4473,20 +4797,23 @@
      "skill": "Insight",
      "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Place the cave's deep layers in order"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 2,
-     "type": "danger"
+     "type": "danger",
+     "text": "Work the unstable dig"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 2,
+     "req": 3,
      "type": "knowledge",
-     "lock": "Physicist"
+     "lock": "Physicist",
+     "text": "Identify the Denisovan layer"
     },
     {
      "n": 4,
@@ -4494,14 +4821,16 @@
      "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Extract the fingerbone intact"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 2,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Recover a living trace before the layer is lost"
     }
    ],
    "findStep": 4,
@@ -4531,21 +4860,24 @@
     {
      "n": 1,
      "skill": "Insight",
-     "req": 2,
+     "req": 1,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Find the ochre piece in the cave fill"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 2,
-     "type": "danger"
+     "type": "danger",
+     "text": "Work the coastal cave"
     },
     {
      "n": 3,
      "skill": "Insight",
      "req": 2,
-     "type": "knowledge"
+     "type": "knowledge",
+     "text": "Make out the cross-hatched marks"
     },
     {
      "n": 4,
@@ -4553,14 +4885,16 @@
      "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Steady the crumbling ochre"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 2,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Record the first mark before it turns to dust"
     }
    ],
    "findStep": 4,
@@ -4592,19 +4926,22 @@
      "skill": "Insight",
      "req": 2,
      "type": "knowledge",
-     "lock": "Historian"
+     "lock": "Historian",
+     "text": "Date the cave's strange remains"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 2,
-     "type": "danger"
+     "type": "danger",
+     "text": "Shore up the failing cave roof"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 2,
-     "type": "knowledge"
+     "req": 3,
+     "type": "knowledge",
+     "text": "Read the ancient features in the bones"
     },
     {
      "n": 4,
@@ -4612,14 +4949,16 @@
      "req": 2,
      "type": "knowledge",
      "lock": "Physicist",
-     "find": true
+     "find": true,
+     "text": "Judge how a vanished people survived"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 2,
+     "req": 4,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Take a specimen before the roof comes down"
     }
    ],
    "findStep": 4,
@@ -4651,19 +4990,22 @@
      "skill": "Insight",
      "req": 2,
      "type": "knowledge",
-     "lock": "Physicist"
+     "lock": "Physicist",
+     "text": "Locate the buried impact horizon"
     },
     {
      "n": 2,
      "skill": "Grit",
      "req": 2,
-     "type": "danger"
+     "type": "danger",
+     "text": "Cross the meltwater channels"
     },
     {
      "n": 3,
      "skill": "Insight",
-     "req": 2,
-     "type": "knowledge"
+     "req": 3,
+     "type": "knowledge",
+     "text": "Read the dark layer in the ice"
     },
     {
      "n": 4,
@@ -4671,14 +5013,16 @@
      "req": 2,
      "type": "knowledge",
      "lock": "Engineer",
-     "find": true
+     "find": true,
+     "text": "Core the impact layer"
     },
     {
      "n": 5,
      "skill": "Insight",
-     "req": 2,
+     "req": 3,
      "type": "knowledge",
-     "objective": true
+     "objective": true,
+     "text": "Measure it before the meltwater scours it"
     }
    ],
    "findStep": 4,

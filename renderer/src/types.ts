@@ -11,6 +11,7 @@ export interface Step {
   lock?: Profession;
   find?: boolean;
   objective?: boolean;
+  text?: string; // per-step flavour: what the team is doing here (justifies the skill + any lock)
 }
 
 export interface Objective {

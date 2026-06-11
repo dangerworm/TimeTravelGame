@@ -26,9 +26,9 @@ export const eraAccent: Record<string, string> = {
 };
 
 export const skillColor: Record<Skill, string> = {
-  Insight: '#2f5d99',
-  Craft: '#b8860b',
-  Grit: '#b0392b',
+  Insight: '#b8860b', // gold
+  Craft: '#2f5d99', // blue
+  Grit: '#b0392b', // red
 };
 export const professionColor: Record<string, string> = {
   Historian: '#6a4caf',
