@@ -1,0 +1,51 @@
+@page {
+  size: A4 portrait;
+  margin: 7mm;
+}
+
+* {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen {
+  body {
+    background: #4a4a4a;
+  }
+  .sheet {
+    background: #fff;
+    margin: 14px auto;
+    box-shadow: 0 3px 18px rgba(0, 0, 0, 0.45);
+  }
+  .sheets-scroll {
+    padding: 80px 0 60px;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+  .sheets-scroll {
+    padding: 0;
+  }
+  .sheet {
+    margin: 0 !important;
+    box-shadow: none !important;
+    page-break-after: always;
+    break-after: page;
+  }
+  .sheet:last-of-type {
+    page-break-after: auto;
+    break-after: auto;
+  }
+}

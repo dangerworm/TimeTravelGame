@@ -1,0 +1,16 @@
+{
+  "label": "tune — progression (Amp2 start, handBase 3)",
+  "note": "Targets gradual progression: startAmp 2 (the GDD's free first upgrade pre-applied → Modern reachable turn 1), and handBase 3 to ease overclock pressure so Engineers aren't stuck clearing instability and the Amp can climb steadily. Builds on adopted + integrity x3.",
+  "overrides": {
+    "startCash": 4,
+    "startCap": 2,
+    "startAmp": 2,
+    "handBase": 3,
+    "integrityPerPlayerPlus1": 3
+  },
+  "options": {
+    "gateTiers": true,
+    "reqs": "proposed",
+    "findMult": 1
+  }
+}

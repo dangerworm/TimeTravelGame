@@ -1,0 +1,13 @@
+{
+  "label": "adopted — Cash4/Cap2, gated, proposed reqs",
+  "note": "The bootstrap fix that unstuck the early game (11 Jun): start Cash 4, Capacity 2, the depth-graded gating (Recent/Modern ungated · Early Modern Historian-only · deeper eras at most 2 gates), and the proposed RNG req bands. Triumph overshoots (~99%) — this is the tune-down starting point.",
+  "overrides": {
+    "startCash": 4,
+    "startCap": 2
+  },
+  "options": {
+    "gateTiers": true,
+    "reqs": "proposed",
+    "findMult": 1
+  }
+}

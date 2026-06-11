@@ -3,10 +3,16 @@
 _Only what's still ahead. Done items are in
 [`archive/completed-tasks.md`](archive/completed-tasks.md)._
 
-> **Where we are (10 Jun eve):** the game is balance-validated and the design is consolidated into
-> two foundation docs — **`intentions.md`** (the spirit + the _why_ behind every decision) and
-> **`game-design-document.md`** (the game itself). One open _design_ thread remains (kingmaker); the
-> rest is content, tooling, and the paper playtest.
+> **Where we are (11 Jun, overnight):** balance-validated, design consolidated, and now **a first full
+> playtest set exists**. Authored content as JSON in `decks/` (32 destinations across all 7 eras, 18
+> researchers, 9 experts, 8 parting gifts, 18 consequence designs → 24-card deck) + a working **Vite +
+> React + MUI renderer** in `renderer/` that prints A4 sheets incl. **double-sided era cards** (build +
+> typecheck pass). Kingmaker thread → a proposal written for review (`kingmaker-rule-suggestion.md`).
+> **Remaining:** expand the destination deck toward ~12/era so a 4-player game can't run dry (the
+> overnight loop is doing this); review the kingmaker proposal; eyeball the rendered cards; play it.
+
+> **Earlier (10 Jun eve):** the design was consolidated into two foundation docs — **`intentions.md`**
+> (spirit + _why_) and **`game-design-document.md`** (the game). One open _design_ thread (kingmaker).
 
 ---
 
@@ -32,10 +38,18 @@ existing 'historian stays at base' rule.
   one player the game? Rental-Cash-only + individual retirement + visible disrepute soften the
   _runaway-leader_ worry, but not this. **Design before playtest** (see the endgame section of the
   GDD; was `design-skeleton.md` §10 #5).
+  - **→ A proposal is now written for review: `kingmaker-rule-suggestion.md`** (11 Jun, overnight).
+    Core idea: an _open_ MW jump where Cash is negotiated but **Reputation is an automatic co-author
+    credit by contribution, the host gets no bonus** — converting the ending from "who gets handed the
+    lump" into "who dares commit hardest to the last jump." **Read it and react.**
 
 ## Before the paper playtest
 
-- [ ] **Content for a full playtest — authored as JSON from the start** (task 8): destination cards
+- [x] **Content for a full playtest — authored as JSON** (task 8): **DONE (first pass, 11 Jun
+      overnight)** — `decks/destinations|researchers|experts|retirement|consequences/cards.json`, schema
+      in `decks/SCHEMA.md`, assembly guide in `decks/PLAYTEST.md`. Numbers calibrated to
+      `sim/best-config.json`. _Still ahead: grow the destination deck toward ~12/era (don't-run-dry)._
+- [~] (original brief, kept for reference) **Content for a full playtest — authored as JSON from the start** (task 8): destination cards
       across the era ladder, the researcher decks, retirement / parting-gift cards, consequence
       cards. **JSON is the single source of truth** (Drew's a dev; it feeds the renderer + scripts,
       no later transcription). _Guardrails:_ (1) keep the schema **minimal and expect it to churn**
@@ -49,15 +63,16 @@ existing 'historian stays at base' rule.
 - [ ] **Polish the endgame flavour** — tighten the quiet-legacy speech; write the per-player vs
       collective epilogue variants. Content, not design.
 
-## The renderer (task 9 — schema now defined _with_ the content, above)
+## The renderer (task 9)
 
-- [ ] Define the **minimal JSON content schema** (one card type to start) — done alongside authoring
-      the first content, since JSON is now the master format.
-- [ ] Scaffold the prototype renderer: **Vite + React + MUI**. Loads JSON, renders print-ready A4
-      sheets (3×3 card grids, cut lines, page breaks, print-to-PDF). Use the layout sketch in
-      `design/2026-06-09-post-whiteboarding-with-andy.png`. Start with one card type, then widen.
-      _Not a blocker for the first playtest — crude-print from JSON is fine until the content
-      structure settles._
+- [x] Define the **minimal JSON content schema** — `decks/SCHEMA.md` (all five card types). (11 Jun)
+- [x] Scaffold the prototype renderer: **Vite + React + MUI** in `renderer/`. Loads JSON, renders
+      print-ready A4 sheets (3×3 grids, cut-line borders, page breaks, print-to-PDF) for all five
+      decks, with **double-sided / duplex-mirrored era cards**. `npm run build` + `tsc --noEmit` pass.
+      (11 Jun)
+- [ ] **Eyeball the rendered cards in a browser** — authored without a browser in the loop, so check
+      the on-screen sheets fit/wrap correctly before a big print run, and prettify (portraits are
+      placeholders; layout is functional not final).
 
 ## Playtest-watch (can't be closed at a desk — judge them at the table)
 

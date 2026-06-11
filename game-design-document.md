@@ -182,8 +182,10 @@ pays nothing, so you can't get rich bailing early:
   or **Publish it → a minor paper (small Reputation)**. Publishing is a desk write-up, so the
   writing researcher also earns experience (§9). _(This lifts paper cadence even for a cautious
   cash-out.)_
-- **Early-relief spoil** — in the four shallow eras (Recent–Medieval) a step may carry a small extra
-  **1–2 Cash** drop (~15% per eligible step, at most one per card). Pure Cash, no paper.
+- **Early-relief spoil** — on **any** era card, each step **before the last two** (i.e. every pure
+  gate, not the find or the objective) carries a ~**15%** chance of a small **1–2 Cash** drop, **at
+  most one per card**. Pure Cash, no paper. _(Extended from shallow-only to all eras — Drew, 11 Jun;
+  watch that the tiny deep-era drops don't soften the back-load.)_
 - **The objective** (final step), if all steps succeeded and there's something to claim:
   - **Record it** (copy, photograph, measure) → the era card enters your **Data** zone; history
     intact, **clean** return. **Reputation** comes from a historian **Publish**ing it which adds the
@@ -298,9 +300,9 @@ aggregate of everyone's greed: **plunder scars** (non-doomed takes), **overclock
 ### The three end-triggers (whichever comes first)
 
 1. **Triumph** — a player **completes all steps on a Many Worlds card** (a **5-step × 5-pip**
-   gauntlet, likely via a full-table alliance). A Many Worlds expedition that **fails** any step
-   costs **−2 Integrity**. The multiverse is **rare and sacred** — reaching for it and missing frays
-   the timeline, so most games do _not_ end this way.
+   gauntlet, via the full-table alliance of §14). A Many Worlds expedition that **fails** any step
+   costs **`−2 × (host instability + 1)` Integrity** (§14). The multiverse is **rare and sacred** —
+   reaching for it and missing frays the timeline, so most games do _not_ end this way.
 2. **Quiet legacy** — **every player has retired.** Retiring is a voluntary, individual choice on
    your turn: read your epilogue, lock your score, take no more turns. It's self-regulating
    (retiring stops you scoring, so nobody quits early) and turns the whole game into a
@@ -355,14 +357,36 @@ retires; the table reads a collective version when the last player bows out.)_
 
 ---
 
-## 14. ⚠️ The one open design question
+## 14. The Many Worlds alliance (RESOLVED — Drew, 11 Jun 2026)
 
-**Who triggers Many Worlds — and how is an alliance's win shared?** The endgame is built around a
-full-table alliance attempting the Many Worlds gauntlet, but the alliance-ending _mechanics_ are not
-yet specified: **who makes the winning jump, and how is the payoff split, so the ending is neither a
-foregone conclusion nor a kingmaker handing one player the game?** Rental-being-Cash-only,
-individual retirement, and visible disrepute soften the _runaway-leader_ worry, but not this. **This
-is the one genuinely unfinished piece of design — resolve it before the paper playtest.**
+The endgame is a **full-table alliance** attempting the Many Worlds gauntlet. The rule answers "who
+makes the winning jump, and how is the payoff shared" so the ending is **neither a foregone
+conclusion nor a kingmaker**:
+
+- **Open, declared jump.** Any player at **Amp 7** may **declare** a Many Worlds attempt on their
+  turn (their machine opens the door — hosting carries **no scoring bonus**). Once declared, **every
+  player commits** their researchers to the push (**Capacity is ignored** — everyone, for the final
+  jump).
+- **Reputation is automatic, by contribution — not negotiated, not a lump.** On success the
+  multiverse opening pays a **co-author credit: +1 Reputation per researcher you committed, capped
+  at +6**. Every contributor is credited only for **their own** researchers' work (the two laws
+  hold: rep traces to your own team; nothing is shared or transferred). There is **no single ~11-pt
+  prize** to hand the host — the glory is divided by who actually pushed.
+- **Only the host's machine traces** pollute the combined deck (it's their door).
+- **Failure tears the timeline in proportion to the host's machine state:** a failed Many Worlds
+  attempt costs **`−2 × (host instability + 1)` Integrity** (clean machine → −2 floor; a rattling,
+  overclocked machine → a far worse tear). _This makes running the climactic jump on a **stable**
+  machine matter enormously, and gives the endgame one last overclock-keystone decision: vent first,
+  or push now?_ (Drew, 11 Jun — supersedes the flat −2.)
+
+_Why this kills all three failure modes:_ contribution is **open to all** (no kingmaker — no one to
+bribe or freeze out); the payoff is **divided by contribution** (no winner-take-the-lump — the final
+jump isn't worth points by itself); and the trailing players have the **most to gain by going
+all-in** (a real, earned catch-up, so the leader can't coast to the door). The cash-rental
+**Negotiate** layer (§9) still rides underneath for the table-talk. _Co-author currency is
+researcher **count**, not pips — legible, near-zero arithmetic; the +6 cap guards against swarm-gaming
+with cheap juniors. The +6 cap and the −2×(inst+1) rate are provisional, untuned — the full-game sim
+(`sim/full-game.js`) models the alliance but its numbers want a balance pass._
 
 ---
 
@@ -378,7 +402,8 @@ is the one genuinely unfinished piece of design — resolve it before the paper 
 | Objective Reputation                 | ~2 (Recent) → ~10–11 (Prehistoric / MW)              |
 | Sell disrepute                       | `max(1, floor((rep−1)/2))`; doomed = 0               |
 | Plunder Integrity scar               | `[1,1,1,2,2,3,3]` by era; doomed = 0                 |
-| Many Worlds gauntlet                 | 5 steps × 5 pips; fail = −2 Integrity                |
+| Many Worlds gauntlet                 | 5 steps × 5 pips; fail = −2×(host instab.+1) Integrity |
+| MW co-author Reputation              | +1 per committed researcher per owner, cap +6        |
 | Experience                           | 2 earnable boxes, 2 uses each, +1 all skills per box |
 
 Outcome at the recommended config (sim, std mix): **~52% triumph · ~36% collapse · ~12% quiet

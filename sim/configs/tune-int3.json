@@ -1,0 +1,14 @@
+{
+  "label": "tune — adopted + integrity (n+1)x3",
+  "note": "Tune-down step 1: drop the Timeline Integrity pool from (players+1)x4 to x3 to bring collapse up and triumph down toward the ~52/36/12 target. Earlier coarse test (fixed mix) landed 3p ~59/36/6.",
+  "overrides": {
+    "startCash": 4,
+    "startCap": 2,
+    "integrityPerPlayerPlus1": 3
+  },
+  "options": {
+    "gateTiers": true,
+    "reqs": "proposed",
+    "findMult": 1
+  }
+}

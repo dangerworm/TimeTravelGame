@@ -144,6 +144,12 @@ stated first; superseded figures are noted in italics._
   before the penultimate has a **15% chance** of a small **1–2 Cash** drop, at most one per card —
   **pure Cash, no paper**. Eases the early climb without touching the back-load; deep eras stay
   lean. (10 Jun)
+- **Early-relief spoil extended to ALL eras (supersedes the shallow-only bullet above).** Each step
+  **before the last two** on **any** era card has a **15%** chance of a small **1–2 Cash** item that
+  converts directly to Cash, **max one per card**. _Why:_ Drew's intention (11 Jun) — the relief is a
+  general texture, not a shallow-only crutch. _Trade-off noted:_ this nudges small Cash into the deep
+  gates the earlier decision kept lean; the drops stay tiny (1–2) vs the deep find (7–8) so the
+  back-load should hold, but **watch it in playtest**. (11 Jun)
 - **The objective is Record _or_ Plunder, fiction-gated.** **Record** it (copy/photo) → Reputation,
   history intact, clean. **Plunder** it → the artefact enters your zone to later **Publish** (rep)
   or **Sell** (cash). The take/copy choice exists **only where the fiction supports it** (doomed or
@@ -246,6 +252,20 @@ stated first; superseded figures are noted in italics._
   collapse / ~12% quiet legacy** — three distinct endings. _Supersedes the earlier "aim ~75% MW"
   target and the "6-step × 4-pip" gauntlet; the rarer win was a deliberate 10 Jun decision to make
   the multiverse feel earned._ (10 Jun)
+- **The Many Worlds alliance is OPEN, and its payoff is divided by contribution (resolves the one
+  open question).** Any player at **Amp 7** declares the jump (hosting earns no bonus); **everyone
+  commits** (Capacity ignored). Success pays **co-author Reputation = +1 per researcher you
+  committed, cap +6** — each player credited only for **their own** team's work, never a lump to the
+  host. Only the **host's traces** pollute the combined deck. Failure costs **`−2 × (host
+  instability + 1)` Integrity** — a clean machine tears gently (−2 floor), a rattling one
+  catastrophically. _Why:_ open contribution kills the **kingmaker** (no one to bribe/freeze out);
+  dividing by contribution kills **winner-take-the-lump** (the final jump isn't worth points by
+  itself); and trailing players gain most by going all-in, killing the **foregone conclusion** — the
+  ending becomes a final scramble of nerve, the team-legacy keystone firing one last time. The
+  instability-scaled failure makes the endgame one more overclock gamble (vent first, or push now?).
+  _Co-author currency is researcher **count**, not pips (legible; +6 cap guards swarm-gaming). +6 and
+  the −2×(inst+1) rate are provisional — `sim/full-game.js` models the alliance; numbers want a
+  balance pass._ (11 Jun — full detail in GDD §14, which this supersedes.)
 - **All three endings must feel like "a life well lived."** Every ending closes on the same two-band
   **portrait scoresheet** (_what you discovered_ × _how you did it_), scored as \*\*Reputation −
   disrepute

@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "deck": "researchers",
+    "authored": "2026-06-11",
+    "note": "Junior 'Researchers' deck. Total pips 3-6, per-skill 0-3, cost = total pips (3-7). earnableBoxes:2 (the 3-box display has box 1 pre-filled; 2 earnable, +1 to all skills each, 4 uses to max). Professions: 6 Historian / 6 Engineer / 6 Physicist, each with one 'brave' Grit-spiked member. Calibrated to sim postdoc bounds.",
+    "schema": "../SCHEMA.md"
+  },
+  "cards": [
+    { "id": "res-elena-foss", "name": "Dr. Elena Foss", "deck": "Researchers", "profession": "Historian", "pips": { "insight": 2, "craft": 1, "grit": 0 }, "totalPips": 3, "cost": 3, "earnableBoxes": 2, "flavour": "Archivist's daughter; reads dead hands like print." },
+    { "id": "res-mira-castellanos", "name": "Dr. Mira Castellanos", "deck": "Researchers", "profession": "Historian", "pips": { "insight": 3, "craft": 0, "grit": 1 }, "totalPips": 4, "cost": 4, "earnableBoxes": 2, "flavour": "Palaeographer who never met a cipher she liked losing to." },
+    { "id": "res-tomas-bly", "name": "Dr. Tomás Bly", "deck": "Researchers", "profession": "Historian", "pips": { "insight": 2, "craft": 0, "grit": 2 }, "totalPips": 4, "cost": 4, "earnableBoxes": 2, "flavour": "Field historian; happiest where the records are on fire. (Brave.)" },
+    { "id": "res-priya-anand", "name": "Dr. Priya Anand", "deck": "Researchers", "profession": "Historian", "pips": { "insight": 2, "craft": 2, "grit": 1 }, "totalPips": 5, "cost": 5, "earnableBoxes": 2, "flavour": "Conservator-historian; she can date a varnish by smell." },
+    { "id": "res-aldo-renn", "name": "Prof. Aldo Renn", "deck": "Researchers", "profession": "Historian", "pips": { "insight": 3, "craft": 1, "grit": 1 }, "totalPips": 5, "cost": 5, "earnableBoxes": 2, "flavour": "Emeritus, allegedly. Keeps publishing anyway." },
+    { "id": "res-kwame-osei", "name": "Dr. Kwame Osei", "deck": "Researchers", "profession": "Historian", "pips": { "insight": 3, "craft": 1, "grit": 2 }, "totalPips": 6, "cost": 6, "earnableBoxes": 2, "flavour": "Maritime historian; chased the Franklin wrecks for real, once." },
+
+    { "id": "res-jun-park", "name": "Jun Park", "deck": "Researchers", "profession": "Engineer", "pips": { "insight": 1, "craft": 2, "grit": 0 }, "totalPips": 3, "cost": 3, "earnableBoxes": 2, "flavour": "Apprentice machinist; learns a lock by listening to it." },
+    { "id": "res-sam-whitlock", "name": "Sam Whitlock", "deck": "Researchers", "profession": "Engineer", "pips": { "insight": 0, "craft": 3, "grit": 1 }, "totalPips": 4, "cost": 4, "earnableBoxes": 2, "flavour": "Keeps the Stabiliser honest; keeps the coffee strong." },
+    { "id": "res-yusuf-demir", "name": "Dr. Yusuf Demir", "deck": "Researchers", "profession": "Engineer", "pips": { "insight": 0, "craft": 2, "grit": 2 }, "totalPips": 4, "cost": 4, "earnableBoxes": 2, "flavour": "Structural engineer; the one who braces the stair as it goes. (Brave.)" },
+    { "id": "res-greta-ohms", "name": "Greta Ohms", "deck": "Researchers", "profession": "Engineer", "pips": { "insight": 1, "craft": 2, "grit": 2 }, "totalPips": 5, "cost": 5, "earnableBoxes": 2, "flavour": "Electrician by trade; calm in a room full of arcs." },
+    { "id": "res-rosa-lind", "name": "Dr. Rosa Lind", "deck": "Researchers", "profession": "Engineer", "pips": { "insight": 1, "craft": 3, "grit": 1 }, "totalPips": 5, "cost": 5, "earnableBoxes": 2, "flavour": "Built half the modules on your machine; resents the other half." },
+    { "id": "res-nadia-voss", "name": "Dr. Nadia Voss", "deck": "Researchers", "profession": "Engineer", "pips": { "insight": 1, "craft": 3, "grit": 2 }, "totalPips": 6, "cost": 6, "earnableBoxes": 2, "flavour": "Salvage engineer; can open anything frozen, flooded, or buried." },
+
+    { "id": "res-ines-marlow", "name": "Dr. Inés Marlow", "deck": "Researchers", "profession": "Physicist", "pips": { "insight": 2, "craft": 1, "grit": 0 }, "totalPips": 3, "cost": 3, "earnableBoxes": 2, "flavour": "Postdoc on the original team; she did the maths that started all this." },
+    { "id": "res-lena-hartmann", "name": "Dr. Lena Hartmann", "deck": "Researchers", "profession": "Physicist", "pips": { "insight": 2, "craft": 1, "grit": 1 }, "totalPips": 4, "cost": 4, "earnableBoxes": 2, "flavour": "Reads instability like weather; trusts the Capacitor more than people." },
+    { "id": "res-cyrus-vale", "name": "Dr. Cyrus Vale", "deck": "Researchers", "profession": "Physicist", "pips": { "insight": 1, "craft": 1, "grit": 2 }, "totalPips": 4, "cost": 4, "earnableBoxes": 2, "flavour": "Tests his own theories in the field, which terrifies the funders. (Brave.)" },
+    { "id": "res-owen-tsai", "name": "Dr. Owen Tsai", "deck": "Researchers", "profession": "Physicist", "pips": { "insight": 2, "craft": 2, "grit": 1 }, "totalPips": 5, "cost": 5, "earnableBoxes": 2, "flavour": "Experimentalist; happiest soldering at 3 a.m. with the door open." },
+    { "id": "res-felix-brandt", "name": "Dr. Felix Brandt", "deck": "Researchers", "profession": "Physicist", "pips": { "insight": 3, "craft": 1, "grit": 1 }, "totalPips": 5, "cost": 5, "earnableBoxes": 2, "flavour": "Theory man. Will explain the wavefunction whether you asked or not." },
+    { "id": "res-mei-lin", "name": "Dr. Mei Lin", "deck": "Researchers", "profession": "Physicist", "pips": { "insight": 2, "craft": 2, "grit": 2 }, "totalPips": 6, "cost": 6, "earnableBoxes": 2, "flavour": "The all-rounder; the one you send when you can only send one." }
+  ]
+}

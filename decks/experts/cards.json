@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "deck": "experts",
+    "authored": "2026-06-11",
+    "note": "Veteran 'Experts' deck. Total pips 9-15, per-skill 3-5, cost 9-16. earnableBoxes:0 — experts start maxed and CANNOT be retired (capability you buy, not legacy you grow). 3 per profession. Calibrated to sim expert bounds.",
+    "schema": "../SCHEMA.md"
+  },
+  "cards": [
+    { "id": "exp-vivienne-hale", "name": "Prof. Vivienne Hale", "deck": "Experts", "profession": "Historian", "pips": { "insight": 5, "craft": 3, "grit": 3 }, "totalPips": 11, "cost": 12, "earnableBoxes": 0, "flavour": "Three honorary doctorates and a forger's eye. Publishes faster than peer review can keep up." },
+    { "id": "exp-roland-ash", "name": "Sir Roland Ash", "deck": "Experts", "profession": "Historian", "pips": { "insight": 5, "craft": 4, "grit": 3 }, "totalPips": 12, "cost": 13, "earnableBoxes": 0, "flavour": "Spent forty years in archives no one else was allowed into. Knows where the bodies are filed." },
+    { "id": "exp-octavia-crane", "name": "Dr. Octavia Crane", "deck": "Experts", "profession": "Historian", "pips": { "insight": 4, "craft": 3, "grit": 3 }, "totalPips": 10, "cost": 11, "earnableBoxes": 0, "flavour": "War correspondent turned historian; reads a riot the way you read a footnote." },
+
+    { "id": "exp-magnus-steel", "name": "Dr. Magnus Steel", "deck": "Experts", "profession": "Engineer", "pips": { "insight": 3, "craft": 5, "grit": 3 }, "totalPips": 11, "cost": 12, "earnableBoxes": 0, "flavour": "Designed two of the four modules. The Stabiliser obeys him out of respect." },
+    { "id": "exp-inez-fuller", "name": "Inez Fuller", "deck": "Experts", "profession": "Engineer", "pips": { "insight": 4, "craft": 5, "grit": 4 }, "totalPips": 13, "cost": 14, "earnableBoxes": 0, "flavour": "Bomb-disposal background. Clears instability the way other people clear a table." },
+    { "id": "exp-hari-bose", "name": "Dr. Hari Bose", "deck": "Experts", "profession": "Engineer", "pips": { "insight": 3, "craft": 4, "grit": 3 }, "totalPips": 10, "cost": 11, "earnableBoxes": 0, "flavour": "Can build the Collimator a level higher than the manual says is possible." },
+
+    { "id": "exp-cordelia-wexford", "name": "Prof. Cordelia Wexford", "deck": "Experts", "profession": "Physicist", "pips": { "insight": 5, "craft": 4, "grit": 4 }, "totalPips": 13, "cost": 14, "earnableBoxes": 0, "flavour": "Co-discovered time travel with you, once. Left to run her own lab. Hireable, for a price." },
+    { "id": "exp-anton-reyes", "name": "Dr. Antón Reyes", "deck": "Experts", "profession": "Physicist", "pips": { "insight": 4, "craft": 4, "grit": 3 }, "totalPips": 11, "cost": 12, "earnableBoxes": 0, "flavour": "The one who proved Many Worlds was reachable. Wants to be there when the door opens." },
+    { "id": "exp-sable-quint", "name": "Dr. Sable Quint", "deck": "Experts", "profession": "Physicist", "pips": { "insight": 4, "craft": 3, "grit": 5 }, "totalPips": 12, "cost": 13, "earnableBoxes": 0, "flavour": "Has overclocked machines no one else would touch and walked away every time. So far. (Brave.)" }
+  ]
+}

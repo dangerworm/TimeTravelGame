@@ -1,0 +1,15 @@
+{
+  "label": "tune — amp costs [0,1,1,2,3,5], Amp1 start",
+  "note": "Isolates cash vs team as the progression bottleneck: cheaper Amplifier upgrades. startAmp 1 (Recent is the start; the free 1->2 is still needed to reach Modern). Builds on adopted + integrity x3.",
+  "overrides": {
+    "startCash": 4,
+    "startCap": 2,
+    "integrityPerPlayerPlus1": 3,
+    "ampCosts": [0, 1, 1, 2, 3, 5]
+  },
+  "options": {
+    "gateTiers": true,
+    "reqs": "proposed",
+    "findMult": 1
+  }
+}

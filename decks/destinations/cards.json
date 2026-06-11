@@ -1,0 +1,4700 @@
+{
+ "_meta": {
+  "deck": "destinations",
+  "authored": "2026-06-11",
+  "note": "First full playtest set. Real historical mysteries (the marketable hook). Numbers calibrated to sim/best-config.json: find cash 3+eraIdx, objective rep by mystery tier within the era band, plunder scar [1,1,1,2,2,3,3], sell disrepute max(1,floor((rep-1)/2)), doomed=0. Step counts per eraStepBands [3,3,4,4,5,5,5]; reqs gentle (1 shallow, 2 prehistoric, 5 ManyWorlds). All provisional — playtest, don't defend.",
+  "schema": "../SCHEMA.md"
+ },
+ "cards": [
+  {
+   "id": "rec-the-lost-reel",
+   "name": "The Lost Reel",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Culver City, 1927",
+   "mysteryTier": 2,
+   "fiction": "The last surviving print of London After Midnight sits in the MGM nitrate vault — the most famous lost film ever made. In our timeline it burns in the 1965 vault fire; reach it first and it never has to.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 2,
+    "sellCash": 3,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "rec-eddington-plates",
+   "name": "The Eddington Plates",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Príncipe, 1919",
+   "mysteryTier": 2,
+   "fiction": "Eddington's eclipse expedition is about to photograph starlight bending around the sun and prove Einstein right — if the clouds break. There is nothing to take here, only the plates to record before the weather closes in.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 2,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "rec-amelias-signal",
+   "name": "Amelia's Last Signal",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Nikumaroro, 1937",
+   "mysteryTier": 3,
+   "fiction": "Earhart's final radio calls trail off somewhere over the Pacific. A castaway camp on a coral atoll holds the answer to a mystery the record never solved — document it, and let history keep its bones.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 3,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "rec-amber-room",
+   "name": "The Amber Room Panels",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Königsberg, 1945",
+   "mysteryTier": 3,
+   "fiction": "The Amber Room is crated in the castle cellars as the front collapses around the city. It vanishes from history this winter. You can copy and measure it — or crate the panels yourself, and let the gap in the record be yours to keep.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": {
+    "step": 1,
+    "cash": 1
+   },
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 3,
+    "sellCash": 5,
+    "scar": 1,
+    "disrepute": 1
+   }
+  },
+  {
+   "id": "rec-roswell-fragment",
+   "name": "The Roswell Fragment",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Lincoln County, 1947",
+   "mysteryTier": 4,
+   "fiction": "A debris field of foil that unfolds back to flat after you crush it lies under a military cordon for the few hours before the clean-up. Whatever it is, no metallurgist alive can explain it. Study its behaviour — or pocket a piece.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 4,
+    "sellCash": 6,
+    "scar": 1,
+    "disrepute": 1
+   }
+  },
+  {
+   "id": "mod-the-great-stink",
+   "name": "The Great Stink",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "London, 1858",
+   "mysteryTier": 2,
+   "fiction": "Bazalgette's prototype relief valve was cast at the Deptford works weeks before the official design was filed. Recover it before the record catches up — and decide whether the world should ever know it existed.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 3,
+    "sellCash": 5,
+    "scar": 1,
+    "disrepute": 1
+   }
+  },
+  {
+   "id": "mod-babbages-cards",
+   "name": "Babbage's Lost Cards",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "London, 1871",
+   "mysteryTier": 3,
+   "fiction": "In the cluttered Dorset Street workshop, the punched-card programs for the Analytical Engine sit days from being scattered and lost forever after Babbage's death. The first software ever written — and history is about to throw it out.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 4,
+    "sellCash": 6,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mod-franklin-log",
+   "name": "The Franklin Log",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "King William Island, 1848",
+   "mysteryTier": 3,
+   "fiction": "The Erebus is abandoned in the pack ice and her crew are dying on the march south. The ship's log — the whole record of what went wrong — will never be recovered in our timeline. Prise it from the frozen chart room before the ice takes her.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 4,
+    "sellCash": 6,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mod-darwins-pages",
+   "name": "Darwin's Suppressed Pages",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "Down House, 1859",
+   "mysteryTier": 2,
+   "fiction": "Days before On the Origin of Species goes to the printer, Darwin burns a sheaf of pages he judges too dangerous to publish. There is nothing to take but the words — transcribe them before they go in the grate.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": {
+    "step": 1,
+    "cash": 1
+   },
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 3,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mod-tesla-notebook",
+   "name": "The Tesla Notebook",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "Colorado Springs, 1899",
+   "mysteryTier": 4,
+   "fiction": "Inside the experiment station the magnifying transmitter throws bolts across the room while Tesla fills a notebook with resonance figures he will never publish — wireless power, complete. Record the principle, or take the book.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 5,
+    "sellCash": 8,
+    "scar": 1,
+    "disrepute": 2
+   }
+  },
+  {
+   "id": "em-priestley-apparatus",
+   "name": "Priestley's Lost Apparatus",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "Birmingham, 1791",
+   "mysteryTier": 3,
+   "fiction": "Days before the Birmingham rioters burn his laboratory, Priestley seals an experimental apparatus in the cellar. Reaching it means slipping past a gathering mob — and the building won't survive the night.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 5,
+    "sellCash": 8,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "em-lisbon-warning",
+   "name": "The Engineer's Warning",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "Lisbon, 1755",
+   "mysteryTier": 3,
+   "fiction": "Moments before the great earthquake, an engineer's seismic notes still lie on his desk. Grab them and get out as the ground opens and the city comes down around you.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer"
+    },
+    {
+     "n": 3,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 5,
+    "sellCash": 8,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "em-stradivari-varnish",
+   "name": "The Stradivari Varnish",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "Cremona, 1715",
+   "mysteryTier": 3,
+   "fiction": "In the master's workshop the ground coat goes on a half-finished violin — the varnish whose recipe dies with him and has never been reproduced. Win his trust, watch closely, and record what your ears already know is irreplaceable.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 2
+   },
+   "earlySpoil": {
+    "step": 1,
+    "cash": 1
+   },
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 5,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "em-newton-papers",
+   "name": "Newton's Burned Papers",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "Cambridge, 1693",
+   "mysteryTier": 3,
+   "fiction": "A candle, an overturned lamp, and a decade of alchemical notebooks gone in an evening — legend blames his dog, Diamond. Reach the chamber on the right night and rescue the notebook history says we lost.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 2
+   },
+   "earlySpoil": {
+    "step": 2,
+    "cash": 1
+   },
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 5,
+    "sellCash": 8,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "em-dauphins-heart",
+   "name": "The Dauphin's Heart",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "Paris, 1795",
+   "mysteryTier": 4,
+   "fiction": "In the Temple prison a doctor quietly preserves the heart of a dead ten-year-old said to be the lost king Louis XVII. Two centuries of rumour hang on whether it is really his. Take it — and you hold the answer to a question France never settled.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 6,
+    "sellCash": 9,
+    "scar": 1,
+    "disrepute": 2
+   }
+  },
+  {
+   "id": "med-astronomers-margins",
+   "name": "The Astronomer's Margins",
+   "era": "Medieval",
+   "eraIndex": 3,
+   "place": "Nuremberg, 1471",
+   "mysteryTier": 3,
+   "fiction": "Regiomontanus kept a second set of notes he never published — calculations decades ahead of their time. A footprint in the wrong cathedral courtyard here would be unlike anything the night watch has ever seen.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 6,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 7,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "med-voynich-quire",
+   "name": "The Voynich Quire",
+   "era": "Medieval",
+   "eraIndex": 3,
+   "place": "Northern Italy, c.1420",
+   "mysteryTier": 4,
+   "fiction": "In a candlelit scriptorium a scribe is binding the manuscript no one will ever read — an entire quire of which is missing from the copy that survives to our day. Take those lost pages and the world's most stubborn cipher is yours to crack.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 6,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 8,
+    "sellCash": 12,
+    "scar": 2,
+    "disrepute": 3
+   }
+  },
+  {
+   "id": "med-greek-fire",
+   "name": "Greek Fire",
+   "era": "Medieval",
+   "eraIndex": 3,
+   "place": "Constantinople, 717",
+   "mysteryTier": 3,
+   "fiction": "As the Arab fleet burns in the Golden Horn, the imperial siphonists guard a secret so well kept it died with the empire and has never been reconstructed. Watch the apparatus work and record the formula no chemist since has matched.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 6,
+    "publishRep": 2
+   },
+   "earlySpoil": {
+    "step": 1,
+    "cash": 2
+   },
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 7,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "med-damascus-steel",
+   "name": "The Damascus Crucible",
+   "era": "Medieval",
+   "eraIndex": 3,
+   "place": "Damascus, 1200",
+   "mysteryTier": 3,
+   "fiction": "A swordsmith draws a blade with a watered pattern no modern forge can reproduce — wootz steel, its process lost for centuries. Earn a place at the forge and record the cycle that made the finest steel of the age.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 6,
+    "publishRep": 2
+   },
+   "earlySpoil": {
+    "step": 2,
+    "cash": 1
+   },
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 7,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "med-cathar-casket",
+   "name": "The Cathar Casket",
+   "era": "Medieval",
+   "eraIndex": 3,
+   "place": "Montségur, 1244",
+   "mysteryTier": 3,
+   "fiction": "On the last night before the fortress falls and the perfecti walk into the fire, four men are said to slip down the cliff carrying the Cathars' treasure into legend. Be on the rope beside them and carry out what history only ever rumoured.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 6,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 7,
+    "sellCash": 11,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "anc-before-the-fire",
+   "name": "Before the Fire",
+   "era": "Ancient",
+   "eraIndex": 4,
+   "place": "Alexandria, 48 BC",
+   "mysteryTier": 3,
+   "fiction": "A scroll catalogued exactly once, the week before the great library burns. This is deep time — the record is gone, so you cannot know everything you'll meet down there. Why copy what's about to be ash? Seize it.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge"
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 7,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 8,
+    "sellCash": 12,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "anc-antikythera",
+   "name": "The Antikythera Mechanism",
+   "era": "Ancient",
+   "eraIndex": 4,
+   "place": "Aegean Sea, 76 BC",
+   "mysteryTier": 4,
+   "fiction": "In a Rhodian workshop the bronze gears turn and the model of the heavens runs — a computer two thousand years early. It survives to our age only because the ship sinks; take it now and you erase it. So watch it run, and record every tooth.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist"
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 7,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 9,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "anc-roman-concrete",
+   "name": "The Roman Mix",
+   "era": "Ancient",
+   "eraIndex": 4,
+   "place": "Pozzuoli, 50 AD",
+   "mysteryTier": 2,
+   "fiction": "The harbour moles have stood in the sea for a century and grown stronger — concrete that heals itself, a recipe argued over and only recently half-recovered. Stand on the works while they pour and record the proportions.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer"
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 7,
+    "publishRep": 2
+   },
+   "earlySpoil": {
+    "step": 3,
+    "cash": 2
+   },
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 7,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "anc-silphium",
+   "name": "The Last Silphium",
+   "era": "Ancient",
+   "eraIndex": 4,
+   "place": "Cyrene, 50 BC",
+   "mysteryTier": 4,
+   "fiction": "The plant that built a kingdom's fortune — and the only effective contraceptive of the ancient world — is being harvested toward an extinction it will not survive. No botanist has ever seen it grow. Lift one living specimen clear before the last wild stand is gone.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge"
+    },
+    {
+     "n": 4,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 7,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 9,
+    "sellCash": 14,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "anc-dead-sea-scroll",
+   "name": "The Unread Scroll",
+   "era": "Ancient",
+   "eraIndex": 4,
+   "place": "Qumran, 60 AD",
+   "mysteryTier": 3,
+   "fiction": "In the caves above the Dead Sea a community seals its library in jars against the coming legions. One scroll holds a text that never reaches our scholars. Take it, and a gap opens in a record the whole world will one day study.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge"
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 7,
+    "publishRep": 3
+   },
+   "earlySpoil": {
+    "step": 3,
+    "cash": 2
+   },
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 8,
+    "sellCash": 12,
+    "scar": 2,
+    "disrepute": 3
+   }
+  },
+  {
+   "id": "pre-gobekli-tepe",
+   "name": "The Stone Rings",
+   "era": "Prehistoric",
+   "eraIndex": 5,
+   "place": "Anatolia, 9500 BC",
+   "mysteryTier": 4,
+   "fiction": "Hunter-gatherers with no farms, no writing and no metal have raised carved megaliths in rings on a hilltop — a temple built before agriculture, which no one can explain. This is the deepest blind there is. Record why they built it.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Physicist"
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 8,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 10,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "pre-doggerland",
+   "name": "The Drowned Hearth",
+   "era": "Prehistoric",
+   "eraIndex": 5,
+   "place": "Doggerland, 6200 BC",
+   "mysteryTier": 4,
+   "fiction": "A people live on the green plain that is now the bed of the North Sea — and a tsunami is hours away from drowning their world forever. Lift their tools from the hearth before the wave erases a country no map remembers.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge"
+    },
+    {
+     "n": 4,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Craft",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 8,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 10,
+    "sellCash": 15,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "pre-last-mammoth",
+   "name": "The Last Mammoth",
+   "era": "Prehistoric",
+   "eraIndex": 5,
+   "place": "Wrangel Island, 2000 BC",
+   "mysteryTier": 4,
+   "fiction": "On a cold island the very last mammoths on Earth still walk, long after the mainland forgot them. You could sedate one, take tissue and a tusk — or bring a living calf back through the door. Pulling a creature out of its own time leaves the deepest mark of all.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Physicist"
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 8,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 10,
+    "sellCash": 15,
+    "scar": 3,
+    "disrepute": 4
+   }
+  },
+  {
+   "id": "pre-akrotiri",
+   "name": "Before Thera",
+   "era": "Prehistoric",
+   "eraIndex": 5,
+   "place": "Akrotiri, 1600 BC",
+   "mysteryTier": 3,
+   "fiction": "A Bronze-Age town of running water and painted walls sits in the shadow of a volcano that is about to bury it whole. The ground is already shaking. Take the bronze hoard from the merchant's house and run for the boats.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge"
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 8,
+    "publishRep": 3
+   },
+   "earlySpoil": {
+    "step": 3,
+    "cash": 2
+   },
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 9,
+    "sellCash": 14,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "pre-chauvet",
+   "name": "The Painters of Chauvet",
+   "era": "Prehistoric",
+   "eraIndex": 5,
+   "place": "Ardèche, 30000 BC",
+   "mysteryTier": 3,
+   "fiction": "Deep in a cave lit by tallow lamps, Ice-Age artists draw lions and horses with a sophistication that will not be matched for thirty thousand years. There is nothing to carry out — only the impossible chance to record the oldest masters at work.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge"
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 8,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 9,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "rec-wow-signal",
+   "name": "The Wow! Signal",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Delaware, Ohio, 1977",
+   "mysteryTier": 4,
+   "fiction": "For 72 seconds a radio telescope catches a narrowband signal so strong the astronomer scrawls 'Wow!' in the margin. It never repeats, and no one has ever explained it. Be in the control room and record the source before it falls silent.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 4,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "rec-hindenburg-skin",
+   "name": "The Doped Skin",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Lakehurst, 1937",
+   "mysteryTier": 2,
+   "fiction": "Why the Hindenburg burned so fast is still argued — the hydrogen, or the aluminium-laced fabric of its skin. Cut a sample from the airship on the apron, minutes before the spark, and the question is answerable at last.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 2,
+    "sellCash": 3,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "rec-tunguska-core",
+   "name": "The Tunguska Core",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Podkamennaya Tunguska, 1908",
+   "mysteryTier": 3,
+   "fiction": "Something flattens two thousand square kilometres of Siberian forest and leaves no crater — comet, asteroid, or stranger. Reach the blast site in the days after and a fragment of whatever fell would settle a century of argument.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 3,
+    "sellCash": 5,
+    "scar": 1,
+    "disrepute": 1
+   }
+  },
+  {
+   "id": "rec-dyatlov-pass",
+   "name": "Dyatlov Pass",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Ural Mountains, 1959",
+   "mysteryTier": 4,
+   "fiction": "Nine experienced hikers cut their way out of their tent into a −30° night and die scattered across the slope, some with injuries no one can explain. There is nothing to carry home — only the chance to watch what really happened and record it.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 4,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "rec-peking-man",
+   "name": "The Peking Man Crates",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Qinhuangdao, 1941",
+   "mysteryTier": 3,
+   "fiction": "The Peking Man fossils — humanity's own deep past — are crated for evacuation as the war closes in, and somewhere on the road to the coast they vanish from history for good. Intercept the crates before they're lost and carry our ancestors home.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": {
+    "step": 1,
+    "cash": 1
+   },
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 3,
+    "sellCash": 5,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mod-mary-celeste",
+   "name": "The Mary Celeste",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "Azores, 1872",
+   "mysteryTier": 4,
+   "fiction": "A merchant brig is found mid-Atlantic in perfect order — sails set, cargo intact, and not a soul aboard, the lifeboat gone and no explanation ever found. Step onto the deck in the hours before the crew abandon it and record why.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 5,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mod-mary-anning-fossil",
+   "name": "Anning's Ichthyosaur",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "Lyme Regis, 1823",
+   "mysteryTier": 2,
+   "fiction": "On the crumbling Dorset cliffs the greatest fossil-hunter of the age prises a sea-dragon from the rock — and gets none of the credit her gentleman buyers will claim. Copy her method and her find, or lift the specimen yourself.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": {
+    "step": 1,
+    "cash": 1
+   },
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 3,
+    "sellCash": 5,
+    "scar": 1,
+    "disrepute": 1
+   }
+  },
+  {
+   "id": "mod-semmelweis-ledger",
+   "name": "Semmelweis's Ledger",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "Vienna, 1847",
+   "mysteryTier": 2,
+   "fiction": "A young doctor halves the deaths on his ward simply by making everyone wash their hands — and the medical establishment ruins him for the insult of it. Copy the mortality ledger that proves he was right, decades too early.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 3,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mod-livingstone-journals",
+   "name": "Livingstone's Last Journals",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "Lake Bangweulu, 1873",
+   "mysteryTier": 3,
+   "fiction": "Dying in a swamp far beyond any map, the explorer fills the last of his field journals — pages his companions will carry a thousand miles, and some that will never arrive. Reach the camp and save the ones history loses.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 4,
+    "sellCash": 6,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mod-tay-bridge",
+   "name": "The Tay Bridge Notes",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "Dundee, 1879",
+   "mysteryTier": 3,
+   "fiction": "On a storm night the longest bridge in the world buckles and drops a train and seventy-five souls into the firth. The engineer's calculations — and the flaw hidden in them — go down with the central spans. Take the notes from his desk before the gale hits.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 4,
+    "sellCash": 6,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "em-roanoke",
+   "name": "The Lost Colony",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "Roanoke Island, 1590",
+   "mysteryTier": 4,
+   "fiction": "The relief ship returns to find the colony gone — the houses dismantled, no graves, no struggle, only the word CROATOAN carved into a post. Walk the empty stockade in the weeks before they vanish and record where a hundred souls went.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 6,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "em-mary-rose",
+   "name": "The Mary Rose",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "The Solent, 1545",
+   "mysteryTier": 2,
+   "fiction": "Henry's great warship heels in a turn, takes water through her open gunports, and goes down in minutes within sight of the king. Get below as she rolls and haul the master's instruments clear before the Solent closes over them.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 1
+   },
+   "earlySpoil": {
+    "step": 1,
+    "cash": 1
+   },
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 4,
+    "sellCash": 6,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "em-mechanical-turk",
+   "name": "The Mechanical Turk",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "Vienna, 1770",
+   "mysteryTier": 3,
+   "fiction": "A clockwork automaton in a turban beats noblemen at chess and tours the courts of Europe as a wonder — and the secret of how it really works dies with its maker. Get inside the cabinet between matches and record the trick before the lid closes.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 5,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "em-vivaldi-scores",
+   "name": "Vivaldi's Lost Operas",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "Vienna, 1741",
+   "mysteryTier": 3,
+   "fiction": "The most famous composer in Europe dies forgotten and penniless in a rented room, and the bound scores of operas no one will ever hear again are about to be sold off as waste paper. Reach the lodgings first and carry the music out.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 5,
+    "sellCash": 8,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "em-tycho-death",
+   "name": "The Astronomer's Death",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "Prague, 1601",
+   "mysteryTier": 3,
+   "fiction": "Tycho Brahe dies eleven days after a banquet, in agony, and the centuries will argue whether it was a burst bladder, mercury, or murder by a rival who wanted his data. A sample from the deathbed would end the debate — if you can stomach taking it.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 5,
+    "sellCash": 8,
+    "scar": 1,
+    "disrepute": 2
+   }
+  },
+  {
+   "id": "med-princes-tower",
+   "name": "The Princes in the Tower",
+   "era": "Medieval",
+   "eraIndex": 3,
+   "place": "Tower of London, 1483",
+   "mysteryTier": 4,
+   "fiction": "Two boy-kings are lodged in the Tower 'for their safety' and are never seen alive again — and England will argue for five hundred years over who killed them, and whether anyone did. Walk the royal apartments in the weeks they vanish and record the truth.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 6,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 8,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "med-eilmer-glider",
+   "name": "The Flying Monk",
+   "era": "Medieval",
+   "eraIndex": 3,
+   "place": "Malmesbury, 1010",
+   "mysteryTier": 3,
+   "fiction": "A monk straps wings to his arms and feet, leaps from the abbey tower, and glides the length of a furlong before he falls and breaks his legs — five centuries before anyone else dares try. Watch the launch and you can copy the contraption, or carry it home.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 6,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 7,
+    "sellCash": 11,
+    "scar": 2,
+    "disrepute": 3
+   }
+  },
+  {
+   "id": "med-templar-fleet",
+   "name": "The Templar Fleet",
+   "era": "Medieval",
+   "eraIndex": 3,
+   "place": "La Rochelle, 1307",
+   "mysteryTier": 3,
+   "fiction": "On the night before Friday the thirteenth, when the king's men come for every Templar in France, eighteen ships slip out of the harbour loaded with the order's treasure and sail into legend, never seen again. Be on the quay and run the strongboxes aboard.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 6,
+    "publishRep": 2
+   },
+   "earlySpoil": {
+    "step": 1,
+    "cash": 2
+   },
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 7,
+    "sellCash": 11,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "anc-archimedes-syracuse",
+   "name": "The Sack of Syracuse",
+   "era": "Ancient",
+   "eraIndex": 4,
+   "place": "Syracuse, 212 BC",
+   "mysteryTier": 3,
+   "fiction": "The Romans are pouring over the walls and a soldier is minutes from running the old geometer through mid-proof, his workshop of impossible machines about to be looted and lost. Reach the house first and carry Archimedes' apparatus out of the burning city.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge"
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 7,
+    "publishRep": 3
+   },
+   "earlySpoil": {
+    "step": 1,
+    "cash": 2
+   },
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 8,
+    "sellCash": 12,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "anc-roman-dodecahedron",
+   "name": "The Bronze Dodecahedron",
+   "era": "Ancient",
+   "eraIndex": 4,
+   "place": "Roman Gaul, 200 AD",
+   "mysteryTier": 4,
+   "fiction": "A hollow bronze twelve-sided object, knobbed at every corner and bored with holes of carefully different sizes, sits on a craftsman's bench — and no one in eighteen centuries will agree what it is for. Watch him use it, or take the thing itself.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge"
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 7,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 9,
+    "sellCash": 14,
+    "scar": 2,
+    "disrepute": 4
+   }
+  },
+  {
+   "id": "pre-stonehenge",
+   "name": "The Raising of the Stones",
+   "era": "Prehistoric",
+   "eraIndex": 5,
+   "place": "Salisbury Plain, 2500 BC",
+   "mysteryTier": 4,
+   "fiction": "A people with no metal, no wheel and no writing are hauling bluestones a hundred and fifty miles and standing them in a ring aligned to the turning sky — and how, and why, is a question that outlives every theory. Stand on the plain while they raise a lintel and record it.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Engineer"
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Historian",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 8,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 10,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mw-the-first-door",
+   "name": "The First Door",
+   "era": "ManyWorlds",
+   "eraIndex": 6,
+   "place": "The Multiverse",
+   "mysteryTier": 4,
+   "fiction": "Not a place in history but a place beside it — the branch point where every timeline that could have been still runs. Crossing needs every mind and every machine the table can muster. Open the door and humanity reaches the furthest it ever will.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 5,
+     "type": "knowledge",
+     "lock": "Physicist"
+    },
+    {
+     "n": 2,
+     "skill": "Craft",
+     "req": 5,
+     "type": "knowledge",
+     "lock": "Engineer"
+    },
+    {
+     "n": 3,
+     "skill": "Grit",
+     "req": 5,
+     "type": "danger"
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 5,
+     "type": "knowledge",
+     "lock": "Physicist"
+    },
+    {
+     "n": 5,
+     "skill": "Craft",
+     "req": 5,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": null,
+   "find": null,
+   "earlySpoil": null,
+   "failIntegrity": 2,
+   "objective": {
+    "mode": "triumph",
+    "doomed": false,
+    "rep": 11,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mw-the-converging-paths",
+   "name": "The Converging Paths",
+   "era": "ManyWorlds",
+   "eraIndex": 6,
+   "place": "The Multiverse",
+   "mysteryTier": 4,
+   "fiction": "Every path you and your rivals ever walked converges on a single threshold of light. It will not hold open long, and it will not open at all for anyone who comes alone. Step through together — or fray the timeline trying.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Grit",
+     "req": 5,
+     "type": "danger"
+    },
+    {
+     "n": 2,
+     "skill": "Insight",
+     "req": 5,
+     "type": "knowledge",
+     "lock": "Physicist"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 5,
+     "type": "knowledge",
+     "lock": "Engineer"
+    },
+    {
+     "n": 4,
+     "skill": "Grit",
+     "req": 5,
+     "type": "danger"
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 5,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "objective": true
+    }
+   ],
+   "findStep": null,
+   "find": null,
+   "earlySpoil": null,
+   "failIntegrity": 2,
+   "objective": {
+    "mode": "triumph",
+    "doomed": false,
+    "rep": 11,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "rec-somerton-man",
+   "name": "The Somerton Man",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Adelaide, 1948",
+   "mysteryTier": 3,
+   "fiction": "A dead man on a beach, no name, and a scrap in his fob pocket reading \"Tamám Shud.\" Copy the torn page and the code pencilled beneath it before the case goes cold forever.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 3,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "rec-flannan-isles",
+   "name": "The Flannan Light",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Outer Hebrides, 1900",
+   "mysteryTier": 3,
+   "fiction": "Three keepers gone from a sealed lighthouse, the table set, one chair toppled. Reach the last log entry before the next storm takes the logbook with it.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 3,
+    "sellCash": 5,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "rec-uss-cyclops",
+   "name": "The Cyclops",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "off Barbados, 1918",
+   "mysteryTier": 2,
+   "fiction": "A Navy collier and three hundred men vanished without a wreck or a distress call. Get aboard and grab the manifest in the hours before she goes down.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 2,
+    "sellCash": 3,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "rec-glenn-miller",
+   "name": "Miller's Flight",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "English Channel, 1944",
+   "mysteryTier": 2,
+   "fiction": "The bandleader's plane left for Paris and never arrived. Pull the flight log from the cockpit before the Channel swallows it.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 2,
+    "sellCash": 3,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "rec-just-judges",
+   "name": "The Just Judges",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Ghent, 1934",
+   "mysteryTier": 3,
+   "fiction": "A single panel cut from the Ghent Altarpiece, never recovered, its location taunted in a deathbed letter. Photograph it where it hides — or lift it for yourself.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 3,
+    "sellCash": 5,
+    "scar": 1,
+    "disrepute": 1
+   }
+  },
+  {
+   "id": "rec-fawcett-z",
+   "name": "The Road to Z",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Mato Grosso, 1925",
+   "mysteryTier": 3,
+   "fiction": "Colonel Fawcett walked into the Amazon chasing a lost city and was never seen again. Recover his last notebook from the camp before the jungle erases it.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 2,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 3,
+    "sellCash": 5,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "rec-florentine-diamond",
+   "name": "The Florentine",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Vienna, 1918",
+   "mysteryTier": 3,
+   "fiction": "A 137-carat yellow diamond vanished as the Habsburg empire fell. Catalogue it as it changes hands — or simply take it into the dark.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 3,
+    "sellCash": 5,
+    "scar": 1,
+    "disrepute": 1
+   }
+  },
+  {
+   "id": "rec-apollo-tapes",
+   "name": "The Erased Tapes",
+   "era": "Recent",
+   "eraIndex": 0,
+   "place": "Honeysuckle Creek, 1969",
+   "mysteryTier": 2,
+   "fiction": "The original slow-scan tapes of the first Moon landing, taped over by accident and lost. Copy the master reels before they are wiped clean.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 3,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 2,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mod-devils-footprints",
+   "name": "The Devil's Footprints",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "Devon, 1855",
+   "mysteryTier": 3,
+   "fiction": "A hundred miles of cloven hoofprints crossing roofs and walled gardens, made in a single frozen night. Record the trail before the thaw takes it.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 4,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mod-ambrose-bierce",
+   "name": "Bierce's Last Dispatch",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "Chihuahua, 1913",
+   "mysteryTier": 2,
+   "fiction": "The writer rode into a revolution and out of all record. Snatch his final dispatch from the saddlebag before the column is ambushed.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 2,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 3,
+    "sellCash": 5,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mod-ss-waratah",
+   "name": "The Waratah",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "off Durban, 1909",
+   "mysteryTier": 2,
+   "fiction": "The \"Titanic of the South\" steamed into a swell with 211 aboard and was never found. Get the bridge log before she founders.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 3,
+    "sellCash": 5,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mod-kaspar-hauser",
+   "name": "The Foundling",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "Nuremberg, 1828",
+   "mysteryTier": 3,
+   "fiction": "A youth appeared in the square able to write one name and nothing else, then was murdered before anyone learned his. Copy the papers he carried.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 4,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mod-hunley",
+   "name": "The Hunley",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "Charleston, 1864",
+   "mysteryTier": 3,
+   "fiction": "The first submarine to sink a warship then sank itself, crew at their stations, for reasons unknown. Recover the mechanism before it settles in the silt.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 4,
+    "sellCash": 6,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mod-booth-diary",
+   "name": "The Missing Pages",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "Washington, 1865",
+   "mysteryTier": 3,
+   "fiction": "Eighteen pages cut from the assassin's diary, their fate a century of accusation. Photograph them before they are excised.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 4,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "mod-confederate-gold",
+   "name": "The Treasury Train",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "Georgia, 1865",
+   "mysteryTier": 2,
+   "fiction": "The Confederate treasury left Richmond by rail and never reached its destination. Tally the crates where they were buried — or carry them off.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 3,
+    "sellCash": 5,
+    "scar": 1,
+    "disrepute": 1
+   }
+  },
+  {
+   "id": "mod-tambora-year",
+   "name": "The Year Without Summer",
+   "era": "Modern",
+   "eraIndex": 1,
+   "place": "Sumbawa, 1815",
+   "mysteryTier": 2,
+   "fiction": "A mountain erupted and stole a summer from the whole world the next year. Measure the ash column before the records of the blast are buried with it.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger",
+     "find": true
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 2,
+   "find": {
+    "cash": 4,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 3,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "em-darien",
+   "name": "The Darien Venture",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "Panama, 1698",
+   "mysteryTier": 2,
+   "fiction": "Scotland staked its wealth on a colony in the fever-coast jungle, and lost both. Take the company's last ledger before the survivors burn the stockade.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 4,
+    "sellCash": 6,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "em-anghiari",
+   "name": "The Lost Battle",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "Florence, 1505",
+   "mysteryTier": 3,
+   "fiction": "Leonardo's unfinished mural, perhaps still sealed behind a later wall in the great hall. Record the surface that hides it — or cut it free.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 5,
+    "sellCash": 8,
+    "scar": 1,
+    "disrepute": 2
+   }
+  },
+  {
+   "id": "em-cardenio",
+   "name": "Cardenio",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "London, 1613",
+   "mysteryTier": 3,
+   "fiction": "A play by Shakespeare, performed at court and then gone from every shelf. Copy the prompt-book before the playhouse fire claims it.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 5,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "em-casket-letters",
+   "name": "The Casket Letters",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "Edinburgh, 1567",
+   "mysteryTier": 3,
+   "fiction": "The letters that sent a queen to the block — authentic, or forged to fit. Transcribe them, or spirit the casket away whole.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 5,
+    "sellCash": 8,
+    "scar": 1,
+    "disrepute": 2
+   }
+  },
+  {
+   "id": "em-flor-de-la-mar",
+   "name": "Flor de la Mar",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "Strait of Malacca, 1511",
+   "mysteryTier": 3,
+   "fiction": "A carrack so laden with a sultanate's plunder she could not be saved, lost on the homeward reef. Reach the strongroom before she breaks apart.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 5,
+    "sellCash": 8,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "em-sea-venture",
+   "name": "The Sea Venture",
+   "era": "EarlyModern",
+   "eraIndex": 2,
+   "place": "Bermuda, 1609",
+   "mysteryTier": 2,
+   "fiction": "Wrecked on a reef thought to be devils, her castaways built two new ships and a legend. Salvage the captain’s account as the hull works apart.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 5,
+    "publishRep": 1
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 4,
+    "sellCash": 6,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "med-house-of-wisdom",
+   "name": "The House of Wisdom",
+   "era": "Medieval",
+   "eraIndex": 3,
+   "place": "Baghdad, 1258",
+   "mysteryTier": 4,
+   "fiction": "The Mongols emptied the great libraries into the Tigris until it ran black with ink. Pull what you can from the shelves before the river takes the rest.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 6,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 8,
+    "sellCash": 12,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "med-dancing-plague",
+   "name": "The Dancing Plague",
+   "era": "Medieval",
+   "eraIndex": 3,
+   "place": "Strasbourg, 1518",
+   "mysteryTier": 3,
+   "fiction": "Hundreds danced in the streets for days, some until they dropped dead, and no one knows why. Record the affliction before the city erases the shame.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 6,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 7,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "med-vinland",
+   "name": "The Vinland Houses",
+   "era": "Medieval",
+   "eraIndex": 3,
+   "place": "Newfoundland, c.1000",
+   "mysteryTier": 3,
+   "fiction": "Norse turf halls on a coast five centuries before Columbus, then abandoned to the fog. Measure the settlement — or carry off its ironwork.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 6,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 7,
+    "sellCash": 11,
+    "scar": 2,
+    "disrepute": 3
+   }
+  },
+  {
+   "id": "med-kublai-fleet",
+   "name": "The Divine Wind",
+   "era": "Medieval",
+   "eraIndex": 3,
+   "place": "Hakata Bay, 1281",
+   "mysteryTier": 3,
+   "fiction": "The largest armada the world had seen, scattered and drowned by a typhoon overnight. Reach a flagship's hold before the wind finishes its work.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 6,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 7,
+    "sellCash": 11,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "med-green-children",
+   "name": "The Green Children",
+   "era": "Medieval",
+   "eraIndex": 3,
+   "place": "Woolpit, c.1150",
+   "mysteryTier": 3,
+   "fiction": "Two children, skin tinged green, speaking no known tongue, found at the edge of a harvest field. Record their account before it passes into folktale.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "find": true
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 3,
+   "find": {
+    "cash": 6,
+    "publishRep": 2
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 7,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "anc-phaistos-disc",
+   "name": "The Phaistos Spiral",
+   "era": "Ancient",
+   "eraIndex": 4,
+   "place": "Crete, c.1700 BC",
+   "mysteryTier": 4,
+   "fiction": "A clay disc stamped in a spiral with signs no scholar can read, alone of its kind. Copy both faces before the palace burns around it.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 7,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 9,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "anc-sea-peoples",
+   "name": "The Sea Peoples",
+   "era": "Ancient",
+   "eraIndex": 4,
+   "place": "Ugarit, c.1177 BC",
+   "mysteryTier": 4,
+   "fiction": "Raiders no one could name brought a dozen kingdoms down in a single generation. Read the last tablets baked in the burning city before it falls.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge"
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 7,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 9,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "anc-mercury-sea",
+   "name": "The Mercury Sea",
+   "era": "Ancient",
+   "eraIndex": 4,
+   "place": "Xi'an, 210 BC",
+   "mysteryTier": 4,
+   "fiction": "The first emperor's tomb, sealed over rivers of mercury and a buried army. Map the chamber — or breach it and take what the crossbows guard.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer"
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 7,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "plunder-or-record",
+    "doomed": false,
+    "rep": 9,
+    "sellCash": 14,
+    "scar": 2,
+    "disrepute": 4
+   }
+  },
+  {
+   "id": "anc-ninth-legion",
+   "name": "The Ninth",
+   "era": "Ancient",
+   "eraIndex": 4,
+   "place": "Eboracum, c.120 AD",
+   "mysteryTier": 3,
+   "fiction": "Five thousand legionaries marched north into the mist and vanished from every roll. Recover the fort’s last muster before the record is struck out.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge"
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 7,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 8,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "anc-nazca",
+   "name": "The Sky Drawings",
+   "era": "Ancient",
+   "eraIndex": 4,
+   "place": "Nazca, c.500 AD",
+   "mysteryTier": 3,
+   "fiction": "Lines miles long, shaped into creatures only the sky can see in full. Survey them before the desert wind blurs their edges for good.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 1,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge"
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 1,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 7,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 8,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "pre-denisovan",
+   "name": "The Denisovan",
+   "era": "Prehistoric",
+   "eraIndex": 5,
+   "place": "Altai, c.50,000 BP",
+   "mysteryTier": 4,
+   "fiction": "A whole kind of human known from a single fingerbone in a cave. Recover a living trace before the layer is lost to the dig.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Physicist"
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 8,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 10,
+    "sellCash": 15,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "pre-blombos",
+   "name": "The First Mark",
+   "era": "Prehistoric",
+   "eraIndex": 5,
+   "place": "Blombos, c.73,000 BP",
+   "mysteryTier": 4,
+   "fiction": "A cross-hatch scratched in ochre — the oldest drawing a human hand ever made. Record it before the ochre crumbles to dust.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge"
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 8,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 10,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "pre-red-deer-cave",
+   "name": "The Red Deer People",
+   "era": "Prehistoric",
+   "eraIndex": 5,
+   "place": "Yunnan, c.14,000 BP",
+   "mysteryTier": 3,
+   "fiction": "People with ancient features who should have been gone for ages, yet were not. Take a specimen before the cave roof comes down.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Historian"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge"
+    },
+    {
+     "n": 4,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Physicist",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 8,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "doomed-grab",
+    "doomed": true,
+    "rep": 9,
+    "sellCash": 14,
+    "scar": 0,
+    "disrepute": 0
+   }
+  },
+  {
+   "id": "pre-long-winter",
+   "name": "The Long Winter",
+   "era": "Prehistoric",
+   "eraIndex": 5,
+   "place": "Hiawatha, c.12,800 BP",
+   "mysteryTier": 4,
+   "fiction": "A sky-fire that may have plunged the warming world back into ice for a thousand years. Measure the impact layer before the meltwater scours it away.",
+   "steps": [
+    {
+     "n": 1,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Physicist"
+    },
+    {
+     "n": 2,
+     "skill": "Grit",
+     "req": 2,
+     "type": "danger"
+    },
+    {
+     "n": 3,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge"
+    },
+    {
+     "n": 4,
+     "skill": "Craft",
+     "req": 2,
+     "type": "knowledge",
+     "lock": "Engineer",
+     "find": true
+    },
+    {
+     "n": 5,
+     "skill": "Insight",
+     "req": 2,
+     "type": "knowledge",
+     "objective": true
+    }
+   ],
+   "findStep": 4,
+   "find": {
+    "cash": 8,
+    "publishRep": 3
+   },
+   "earlySpoil": null,
+   "objective": {
+    "mode": "record-only",
+    "doomed": false,
+    "rep": 10,
+    "sellCash": 0,
+    "scar": 0,
+    "disrepute": 0
+   }
+  }
+ ]
+}
