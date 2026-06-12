@@ -103,3 +103,15 @@ comparable games, common pitfalls, genre mechanics that fit.
    content/numbers, build a **Vite + React + MUI** tool that loads JSON content and renders
    print-ready A4 component sheets (card grids, cut lines, print-to-PDF). It is a prototype
    generator, not a playable game. Start with one card type, then widen. See `tasks.md`.
+
+## Standing orders
+
+- **Keep an up-to-date PDF set committed.** Whenever the renderer is updated (content or design)
+  **and is in a known working state** (build + typecheck pass, eyeballed), regenerate PDFs for **all**
+  components — every card deck, the player board, tokens, and the machine level diamonds — and **commit
+  them to the repo** so a current set is always available from the cloud (GitHub). Steps: ensure the
+  app is being served (`npm run dev`, port 5173), run `node renderer/scripts/export-pdfs.mjs`, then
+  commit the refreshed `renderer/exports/*.pdf`. The set is overwritten in place (one folder, no dated
+  subfolders) — **git history is the snapshot trail**, so each export's date lives in its commit.
+  _(Drive was considered and dropped: the MCP `create_file` tool only takes inline base64, far too
+  large for these multi-MB PDFs.)_

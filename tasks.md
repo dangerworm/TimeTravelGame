@@ -80,6 +80,12 @@ existing 'historian stays at base' rule.
       colour-matched, level-numbered set per player — Amplifier 1–7 w/ era, Capacitor 1–5, Collimator
       1–4, Stabiliser caps 2/4/6 — the diamonds you stack on each quadrant as it upgrades). All furniture
       constants live in `renderer/src/furniture.ts`. Build + typecheck pass; all eyeballed in-browser.
+- [x] **PDF export pipeline + committed set** (12 Jun) — views are URL-addressable
+      (`?view=&face=&players=`); `renderer/scripts/export-pdfs.mjs` (zero-dep headless Chrome) prints
+      one PDF per component to `renderer/exports/`, which is **committed** so a current set is always
+      available from GitHub. **Standing order** (see `CLAUDE.md`): regenerate + commit whenever the
+      renderer changes and is in a known-good state. _(Google Drive was considered and dropped — the
+      MCP `create_file` tool only accepts inline base64, far too large for these multi-MB PDFs.)_
 - [ ] **Eyeball the rendered cards in a browser** — authored without a browser in the loop, so check
       the on-screen sheets fit/wrap correctly before a big print run, and prettify (portraits are
       placeholders; layout is functional not final). _(Boards + tokens already eyeballed 12 Jun.)_

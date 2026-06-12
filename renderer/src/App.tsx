@@ -133,10 +133,23 @@ function OrientationStyle({ landscape }: { landscape: boolean }) {
   return <style>{`@page { size: A4 landscape; margin: 7mm; }`}</style>;
 }
 
+// Initial view from URL params (?view=&face=&players=) so each sheet is directly addressable —
+// used by scripts/export-pdfs.mjs to print every view headlessly. Falls back to sane defaults.
+function urlDefaults(): { deck: DeckKey; face: Face; players: number } {
+  const p = new URLSearchParams(window.location.search);
+  const view = p.get('view') as DeckKey | null;
+  const deck = view && view in DECK_LABEL ? view : 'destinations';
+  const faceParam = p.get('face') as Face | null;
+  const face: Face = faceParam === 'fronts' || faceParam === 'backs' ? faceParam : 'duplex';
+  const players = Math.min(MAX_PLAYERS, Math.max(2, Number(p.get('players')) || 4));
+  return { deck, face, players };
+}
+
 export default function App() {
-  const [deck, setDeck] = useState<DeckKey>('destinations');
-  const [face, setFace] = useState<Face>('duplex');
-  const [players, setPlayers] = useState(4);
+  const initial = urlDefaults();
+  const [deck, setDeck] = useState<DeckKey>(initial.deck);
+  const [face, setFace] = useState<Face>(initial.face);
+  const [players, setPlayers] = useState(initial.players);
 
   const sheets = useMemo(() => renderSheets(deck, face, players), [deck, face, players]);
   const isDest = deck === 'destinations';
