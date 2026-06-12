@@ -89,9 +89,12 @@ existing 'historian stays at base' rule.
 - [ ] **Eyeball the rendered cards in a browser** — authored without a browser in the loop, so check
       the on-screen sheets fit/wrap correctly before a big print run, and prettify (portraits are
       placeholders; layout is functional not final). _(Boards + tokens already eyeballed 12 Jun.)_
-- [ ] **Skill / Trace cards not yet rendered** — the deck-builder currency (Insight/Craft/Grit skill
-      cards + Trace cards) is the only remaining physical component the renderer doesn't produce. Add a
-      view when convenient (out of scope for the 12 Jun tokens+boards pass).
+- [x] **Skill / Trace cards rendered** (12 Jun) — the deck-builder currency (Insight/Craft/Grit +
+      Trace) now has a renderer view: a shared bank of **mini cards (44×67mm)**, 4×4 per A4 page,
+      expanded from `SKILL_CARDS` in `src/furniture.ts` (48/48/48 + 30 Trace = 174 cards, sized for
+      2–4 players; Many Worlds all-commit may need pooling). URL-addressable (`?view=skills`) and in
+      the PDF export pipeline (`warped-skills.pdf`). _Still TODO: eyeball + prettify the glyphs with
+      the rest of the deck._
 
 ## Playtest-watch (can't be closed at a desk — judge them at the table)
 

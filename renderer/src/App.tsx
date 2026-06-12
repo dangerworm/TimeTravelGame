@@ -28,6 +28,7 @@ import { ConsequenceCard } from './cards/ConsequenceCard';
 import { PlayerBoard } from './cards/PlayerBoard';
 import { TokenSheets, TOKEN_TOTAL } from './print/TokenSheet';
 import { LevelDiamondSheets } from './print/LevelDiamonds';
+import { SkillSheets, SKILL_TOTAL } from './print/SkillSheet';
 import { DIAMONDS_PER_PLAYER } from './furniture';
 
 const destinations = (destinationsJson as Deck<Destination>).cards;
@@ -42,6 +43,7 @@ type DeckKey =
   | 'experts'
   | 'retirement'
   | 'consequences'
+  | 'skills'
   | 'boards'
   | 'tokens'
   | 'levels';
@@ -53,6 +55,7 @@ const DECK_LABEL: Record<DeckKey, string> = {
   experts: 'Experts',
   retirement: 'Parting Gifts',
   consequences: 'Consequences',
+  skills: 'Skill / Trace cards',
   boards: 'Player boards',
   tokens: 'Tokens (punch-out)',
   levels: 'Machine level diamonds',
@@ -79,6 +82,8 @@ function deckCount(deck: DeckKey, players: number): number {
       return partingGifts.length;
     case 'consequences':
       return consequenceCards.length;
+    case 'skills':
+      return SKILL_TOTAL;
     case 'boards':
       return players;
     case 'tokens':
@@ -98,6 +103,7 @@ function renderSheets(deck: DeckKey, face: Face, players: number): ReactNode[] {
   }
   if (deck === 'tokens') return [<TokenSheets key="tokens" />];
   if (deck === 'levels') return [<LevelDiamondSheets key="levels" players={players} />];
+  if (deck === 'skills') return [<SkillSheets key="skills" />];
 
   if (deck === 'destinations') {
     const groups = chunk(destinations, PER_SHEET);
@@ -156,6 +162,7 @@ export default function App() {
   const isBoards = deck === 'boards';
   const isTokens = deck === 'tokens';
   const isLevels = deck === 'levels';
+  const isSkills = deck === 'skills';
   const usesPlayers = isBoards || isLevels;
 
   return (
@@ -213,7 +220,9 @@ export default function App() {
                   ? `${players} player set(s) · ${deckCount(deck, players)} diamonds`
                   : isTokens
                     ? `${deckCount(deck, players)} tokens · print on card`
-                    : `${deckCount(deck, players)} cards · ${sheets.length} A4 page(s)`
+                    : isSkills
+                      ? `${deckCount(deck, players)} mini cards · print on card`
+                      : `${deckCount(deck, players)} cards · ${sheets.length} A4 page(s)`
             }
           />
 
@@ -248,6 +257,15 @@ export default function App() {
             One set per player — the colour-matched diamonds you stack on each machine quadrant as it
             upgrades (Amplifier shows the era, Stabiliser the instability cap). Sized to overlay the
             board quadrants.
+          </Box>
+        )}
+        {isSkills && (
+          <Box sx={{ px: 2, pb: 1, fontSize: 13, color: 'text.secondary' }}>
+            The deck-builder currency (GDD §6) — a <b>shared bank</b> of mini cards (44×67mm). Each
+            player draws their one-shot expedition deck from these: the permanent <b>2/2/2 base</b> +
+            one card per <b>roster pip</b> + one <b>Trace</b> per instability token, returned after
+            each jump. Print on card and cut; counts are generous for 2–4 players (tune in{' '}
+            <code>src/furniture.ts</code>).
           </Box>
         )}
       </AppBar>

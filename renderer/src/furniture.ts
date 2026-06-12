@@ -107,3 +107,30 @@ export const MODULE_DIAMONDS: ModuleDiamonds[] = [
 ];
 
 export const DIAMONDS_PER_PLAYER = MODULE_DIAMONDS.reduce((n, m) => n + m.levels.length, 0);
+
+// Skill / Trace cards — the deck-builder currency (GDD §6). Only four designs, but printed in a
+// generous shared bank: each player draws their one-shot expedition deck from these (player base
+// 2/2/2 + one card per roster pip + one Trace per instability token), returning them after each
+// jump. Counts are sized for a comfortable 2–4-player game; the Many Worlds finale (all commit at
+// once) may need pooling. These are pure currency — no per-card authoring — so they live here with
+// the other furniture, not in decks/*.json. Colours echo the theme's skillColor.
+export interface SkillCardSpec {
+  id: string;
+  kind: 'Insight' | 'Craft' | 'Grit' | 'Trace';
+  name: string;
+  glyph: string; // big central icon
+  note: string; // one-line footer
+  fill: string; // card background tint
+  band: string; // top accent band
+  ink: string; // glyph / heading colour
+  count: number; // copies to print
+}
+
+export const SKILL_CARDS: SkillCardSpec[] = [
+  { id: 'skill-insight', kind: 'Insight', name: 'Insight', glyph: '◆', note: 'Knowledge & deduction', fill: '#fdf6e3', band: '#b8860b', ink: '#8a6400', count: 48 },
+  { id: 'skill-craft', kind: 'Craft', name: 'Craft', glyph: '⬢', note: 'Building & repair', fill: '#eef4fb', band: '#2f5d99', ink: '#1c3e6b', count: 48 },
+  { id: 'skill-grit', kind: 'Grit', name: 'Grit', glyph: '▲', note: 'Nerve & endurance', fill: '#fbeeec', band: '#b0392b', ink: '#7a2018', count: 48 },
+  { id: 'skill-trace', kind: 'Trace', name: 'Trace', glyph: '⊘', note: 'Dead weight · matches nothing', fill: '#eceae7', band: '#8a8a8a', ink: '#777', count: 30 },
+];
+
+export const SKILL_TOTAL = SKILL_CARDS.reduce((n, s) => n + s.count, 0);

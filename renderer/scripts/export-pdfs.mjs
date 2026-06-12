@@ -24,6 +24,7 @@ const VIEWS = [
   { name: 'warped-experts', q: 'view=experts' },
   { name: 'warped-parting-gifts', q: 'view=retirement' },
   { name: 'warped-consequences', q: 'view=consequences' },
+  { name: 'warped-skills', q: 'view=skills' },
   { name: 'warped-player-boards', q: 'view=boards&players=6' },
   { name: 'warped-tokens', q: 'view=tokens' },
   { name: 'warped-level-diamonds', q: 'view=levels&players=6' },
