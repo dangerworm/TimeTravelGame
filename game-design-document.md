@@ -67,7 +67,8 @@ mode-flip, never a dead stop.
 
 - Each player starts with **no team, no artefacts, no reputation, no disrepute, and 3 Cash**.
 - Machine: **Amplifier, Capacitor, Collimator at level 1; Stabiliser at max-instability 2.** The
-  Amplifier's **first upgrade is free**, so **Recent and Modern are both reachable from turn one**.
+  Amplifier's **first upgrade is free**, so **Recent** is always the first era visited but Modern
+  is reachable by turn two**.
 - A permanent **player base of 2 Insight / 2 Craft / 2 Grit** goes into every deck you ever build.
 - **Timeline Integrity = (players + 1) × 4** → 16 (3p) · 20 (4p) · 24 (5p).
 - The first player begins their turn at **React** in the **Recent** era.
@@ -80,19 +81,20 @@ A turn runs in order: **(React) → (Negotiate) → Jump → Process → Develop
 the _end_ of your turn for your _next_ turn, so most prep happens during other players' turns —
 downtime stays low.
 
-- **React** _(only if you have a jump staged)_ — cancel a jump a consequence has invalidated, **or**
-  improvise a last-minute jump (a last-minute jump may draw **max 1** era card).
-- **Negotiate** _(if jumping)_ — **rent another player's teammate** for this jump (§9). Cash only,
-  never Reputation, no loans.
+- **React** _If you have a jump staged_ — cancel a jump a consequence has invalidated, **or** _if
+  you don't have a jump staged_ — improvise a last-minute jump (drawing **max 1** era card).
+- **Negotiate** _(if jumping)_ — **rent another player's teammate** for this jump (§9). Cash only
+  (never Reputation), no repayable loans.
 - **Jump** — attempt the steps on your era card (§6).
 - **Process** _(if you jumped and ≥1 step succeeded)_ — collect your rewards (§7).
-- **Develop** _(any turn)_ — each teammate **not in the field** may take **one** home action:
-  **write a paper · upgrade one machine module · clear instability.** (One action _per researcher_,
+- **Develop** _(any turn)_ — each teammate who was **not on the jump** may take **one** home action:
+  **write a paper · upgrade one machine module · clear instability**. (One action _per researcher_,
   so team size drives home productivity.)
-- **Plan** — draw era cards up to your **Collimator** level and stage your next jump.
+- **Plan** — draw era cards up to your **Collimator** level, choose one, stage your next jump.
 
 **Retire from the game** _(instead of a turn, whenever you choose)_ — end your career: read your
-epilogue, **lock your score**, and take no further turns (§12). The game's third end-trigger.
+epilogue, **lock your score**, and take no further turns (§12). The game's third end-trigger. This
+allows for quiet withdrawal from long games.
 
 ---
 
