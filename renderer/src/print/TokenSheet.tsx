@@ -10,7 +10,7 @@ function Token({ spec }: { spec: TokenSpec }) {
   const isDiamond = spec.shape === 'diamond';
   const cell = isDiamond ? `${(spec.size * 1.42).toFixed(1)}mm` : s;
   return (
-    <Box sx={{ width: cell, height: cell, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <Box sx={{ width: cell, height: cell, display: 'flex', alignItems: 'center', justifyContent: 'center', breakInside: 'avoid' }}>
       <Box
         sx={{
           width: s,

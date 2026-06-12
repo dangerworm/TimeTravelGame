@@ -8,7 +8,7 @@ function Diamond({ mod, level }: { mod: ModuleDiamonds; level: LevelDiamond }) {
   const s = `${mod.size}mm`;
   const cell = `${(mod.size * 1.42).toFixed(1)}mm`;
   return (
-    <Box sx={{ width: cell, height: cell, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <Box sx={{ width: cell, height: cell, display: 'flex', alignItems: 'center', justifyContent: 'center', breakInside: 'avoid' }}>
       <Box
         sx={{
           width: s,
