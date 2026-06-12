@@ -70,9 +70,22 @@ existing 'historian stays at base' rule.
       print-ready A4 sheets (3×3 grids, cut-line borders, page breaks, print-to-PDF) for all five
       decks, with **double-sided / duplex-mirrored era cards**. `npm run build` + `tsc --noEmit` pass.
       (11 Jun)
+- [x] **Tokens, player boards + machine level diamonds in the renderer** (12 Jun) — three new views:
+      **Player boards** (full-A4 landscape, reproducing the
+      `design/2026-06-09-post-whiteboarding-with-andy.png` draft — Team / Skills / Roster / Reputation /
+      Cash + the four-quadrant Time-Machine diamond, quadrants showing the **starting level**; **plus
+      new Artefacts (sell or paper) and Data (paper only) zones** so era cards brought back are split by
+      kind; 2–6p selector); **Tokens (punch-out)** (Cash & Reputation ×1/×5, Instability, Disrepute,
+      Experience, Timeline-Integrity + first-player markers); and **Machine level diamonds** (one
+      colour-matched, level-numbered set per player — Amplifier 1–7 w/ era, Capacitor 1–5, Collimator
+      1–4, Stabiliser caps 2/4/6 — the diamonds you stack on each quadrant as it upgrades). All furniture
+      constants live in `renderer/src/furniture.ts`. Build + typecheck pass; all eyeballed in-browser.
 - [ ] **Eyeball the rendered cards in a browser** — authored without a browser in the loop, so check
       the on-screen sheets fit/wrap correctly before a big print run, and prettify (portraits are
-      placeholders; layout is functional not final).
+      placeholders; layout is functional not final). _(Boards + tokens already eyeballed 12 Jun.)_
+- [ ] **Skill / Trace cards not yet rendered** — the deck-builder currency (Insight/Craft/Grit skill
+      cards + Trace cards) is the only remaining physical component the renderer doesn't produce. Add a
+      view when convenient (out of scope for the 12 Jun tokens+boards pass).
 
 ## Playtest-watch (can't be closed at a desk — judge them at the table)
 

@@ -25,6 +25,10 @@ import { DestinationBack } from './cards/DestinationBack';
 import { ResearcherCard } from './cards/ResearcherCard';
 import { PartingGiftCard } from './cards/PartingGiftCard';
 import { ConsequenceCard } from './cards/ConsequenceCard';
+import { PlayerBoard } from './cards/PlayerBoard';
+import { TokenSheets, TOKEN_TOTAL } from './print/TokenSheet';
+import { LevelDiamondSheets } from './print/LevelDiamonds';
+import { DIAMONDS_PER_PLAYER } from './furniture';
 
 const destinations = (destinationsJson as Deck<Destination>).cards;
 const researchers = (researchersJson as Deck<Researcher>).cards;
@@ -32,7 +36,15 @@ const experts = (expertsJson as Deck<Researcher>).cards;
 const partingGifts = (retirementJson as Deck<PartingGift>).cards;
 const consequences = (consequencesJson as Deck<Consequence>).cards;
 
-type DeckKey = 'destinations' | 'researchers' | 'experts' | 'retirement' | 'consequences';
+type DeckKey =
+  | 'destinations'
+  | 'researchers'
+  | 'experts'
+  | 'retirement'
+  | 'consequences'
+  | 'boards'
+  | 'tokens'
+  | 'levels';
 type Face = 'fronts' | 'backs' | 'duplex';
 
 const DECK_LABEL: Record<DeckKey, string> = {
@@ -41,14 +53,21 @@ const DECK_LABEL: Record<DeckKey, string> = {
   experts: 'Experts',
   retirement: 'Parting Gifts',
   consequences: 'Consequences',
+  boards: 'Player boards',
+  tokens: 'Tokens (punch-out)',
+  levels: 'Machine level diamonds',
 };
+
+// Player boards print landscape; everything else stays portrait. Selecting the boards view injects
+// an @page landscape rule (see <OrientationStyle/>), since each print job is one view.
+const MAX_PLAYERS = 6;
 
 // Expand the consequence designs into physical cards per their `copies` count.
 const consequenceCards: Consequence[] = consequences.flatMap((c) =>
   Array.from({ length: Math.max(1, c.copies ?? 1) }, () => c),
 );
 
-function deckCount(deck: DeckKey): number {
+function deckCount(deck: DeckKey, players: number): number {
   switch (deck) {
     case 'destinations':
       return destinations.length;
@@ -60,10 +79,26 @@ function deckCount(deck: DeckKey): number {
       return partingGifts.length;
     case 'consequences':
       return consequenceCards.length;
+    case 'boards':
+      return players;
+    case 'tokens':
+      return TOKEN_TOTAL;
+    case 'levels':
+      return players * DIAMONDS_PER_PLAYER;
   }
 }
 
-function renderSheets(deck: DeckKey, face: Face): ReactNode[] {
+function renderSheets(deck: DeckKey, face: Face, players: number): ReactNode[] {
+  if (deck === 'boards') {
+    return Array.from({ length: players }, (_, i) => (
+      <Box key={i} className="board-page">
+        <PlayerBoard />
+      </Box>
+    ));
+  }
+  if (deck === 'tokens') return [<TokenSheets key="tokens" />];
+  if (deck === 'levels') return [<LevelDiamondSheets key="levels" players={players} />];
+
   if (deck === 'destinations') {
     const groups = chunk(destinations, PER_SHEET);
     if (face === 'fronts')
@@ -91,15 +126,28 @@ function renderSheets(deck: DeckKey, face: Face): ReactNode[] {
   return chunk(cards, PER_SHEET).map((g, i) => <Sheet key={i} cards={g} />);
 }
 
+// Injects a landscape @page rule while the boards view is active. Mounted after print.css, so it
+// overrides the global portrait rule via cascade order.
+function OrientationStyle({ landscape }: { landscape: boolean }) {
+  if (!landscape) return null;
+  return <style>{`@page { size: A4 landscape; margin: 7mm; }`}</style>;
+}
+
 export default function App() {
   const [deck, setDeck] = useState<DeckKey>('destinations');
   const [face, setFace] = useState<Face>('duplex');
+  const [players, setPlayers] = useState(4);
 
-  const sheets = useMemo(() => renderSheets(deck, face), [deck, face]);
+  const sheets = useMemo(() => renderSheets(deck, face, players), [deck, face, players]);
   const isDest = deck === 'destinations';
+  const isBoards = deck === 'boards';
+  const isTokens = deck === 'tokens';
+  const isLevels = deck === 'levels';
+  const usesPlayers = isBoards || isLevels;
 
   return (
     <Box>
+      <OrientationStyle landscape={isBoards} />
       <AppBar position="sticky" color="default" className="no-print" elevation={2}>
         <Toolbar sx={{ gap: 2, flexWrap: 'wrap' }}>
           <Typography variant="h6" sx={{ fontWeight: 700, mr: 1 }}>
@@ -129,7 +177,32 @@ export default function App() {
             </ToggleButtonGroup>
           )}
 
-          <Chip label={`${deckCount(deck)} cards · ${sheets.length} A4 page(s)`} />
+          {usesPlayers && (
+            <ToggleButtonGroup
+              size="small"
+              exclusive
+              value={players}
+              onChange={(_, v) => v && setPlayers(v as number)}
+            >
+              {Array.from({ length: MAX_PLAYERS - 1 }, (_, i) => i + 2).map((n) => (
+                <ToggleButton key={n} value={n}>
+                  {n}p
+                </ToggleButton>
+              ))}
+            </ToggleButtonGroup>
+          )}
+
+          <Chip
+            label={
+              isBoards
+                ? `${deckCount(deck, players)} board(s) · landscape A4`
+                : isLevels
+                  ? `${players} player set(s) · ${deckCount(deck, players)} diamonds`
+                  : isTokens
+                    ? `${deckCount(deck, players)} tokens · print on card`
+                    : `${deckCount(deck, players)} cards · ${sheets.length} A4 page(s)`
+            }
+          />
 
           <Box sx={{ flexGrow: 1 }} />
           <Button variant="contained" onClick={() => window.print()}>
@@ -141,6 +214,27 @@ export default function App() {
             Duplex tip: print double-sided, <b>flip on long edge</b>. Pages alternate front, back, front,
             back — the backs are pre-mirrored so they line up. If alignment is off, switch your printer to
             short-edge binding or use “Backs only”.
+          </Box>
+        )}
+        {isBoards && (
+          <Box sx={{ px: 2, pb: 1, fontSize: 13, color: 'text.secondary' }}>
+            Boards print <b>landscape</b> (one per page) — set your print dialog to <b>Landscape</b> and
+            “Fit to page”. Print onto card or mount on board. Era cards brought back split into{' '}
+            <b>Artefacts</b> (sell or paper) and <b>Data</b> (paper only). Stack the matching{' '}
+            <b>level diamonds</b> on each machine quadrant as it upgrades.
+          </Box>
+        )}
+        {isTokens && (
+          <Box sx={{ px: 2, pb: 1, fontSize: 13, color: 'text.secondary' }}>
+            Punch-out tokens — print on card, cut on the borders. Counts are generous for up to{' '}
+            {MAX_PLAYERS} players; tune supply in <code>src/furniture.ts</code>.
+          </Box>
+        )}
+        {isLevels && (
+          <Box sx={{ px: 2, pb: 1, fontSize: 13, color: 'text.secondary' }}>
+            One set per player — the colour-matched diamonds you stack on each machine quadrant as it
+            upgrades (Amplifier shows the era, Stabiliser the instability cap). Sized to overlay the
+            board quadrants.
           </Box>
         )}
       </AppBar>

@@ -18,14 +18,38 @@ body {
   body {
     background: #4a4a4a;
   }
-  .sheet {
+  .sheet,
+  .board-page,
+  .token-flow {
     background: #fff;
     margin: 14px auto;
     box-shadow: 0 3px 18px rgba(0, 0, 0, 0.45);
   }
+  .board-page {
+    width: 297mm;
+    padding: 7mm;
+    box-sizing: border-box;
+  }
+  .token-flow {
+    width: 210mm;
+    padding: 7mm;
+    box-sizing: border-box;
+  }
   .sheets-scroll {
     padding: 80px 0 60px;
   }
+}
+
+/* One player board per landscape page. */
+.board-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Keep a token group together on a page where it can. */
+.token-group {
+  break-inside: avoid;
 }
 
 @media print {
@@ -38,14 +62,20 @@ body {
   .sheets-scroll {
     padding: 0;
   }
-  .sheet {
+  .sheet,
+  .board-page {
     margin: 0 !important;
     box-shadow: none !important;
     page-break-after: always;
     break-after: page;
   }
-  .sheet:last-of-type {
+  .sheet:last-of-type,
+  .board-page:last-of-type {
     page-break-after: auto;
     break-after: auto;
+  }
+  .token-flow {
+    margin: 0 !important;
+    box-shadow: none !important;
   }
 }
