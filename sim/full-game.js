@@ -89,11 +89,11 @@ const patternMap = reqs === "proposed" ? PROPOSED : null;
 const opts = { patternMap, findMult, gateTiers };
 const configLabel = fileCfg.label || (configPath ? path.basename(configPath) : "best-config");
 
-function runCombo(n, combo) {
+async function runCombo(n, combo) {
   const out = [];
   for (let g = 0; g < games; g++) {
     const rng = makePRNG(g * 7919 + n * 104729 + 1);
-    out.push(playGame(n, combo, cfg, rng, opts));
+    out.push(await playGame(n, combo, cfg, rng, opts));
   }
   return out;
 }
@@ -171,25 +171,27 @@ const row = (label, m) =>
   `  ${label} │    ${pct(m.triumph)}     ${pct(m.collapse)}  ${pct(m.quiet)}    ${pct(m.timeout)} │ ` +
   ` ${f1(m.rounds)}   ${f1(m.deepest)} ${f1(m.overclocks)}  ${f1(m.shutdowns)}  ${f1(m.papers)}  ${f1(m.spread)} ${String(Math.round(m.wallClock)).padStart(5)}`;
 
-console.log(
-  `\nWarped full-game sim — ${games} games/composition — config: ${configLabel}  (reqs:${reqs} gates:${gateTiers} findMult:${findMult})\n`
-);
-const HEAD =
-  "  table    │ triumph collapse quiet timeout │ rounds deepest  OC/g shut/g papers spread  ~min";
-for (const n of playerCounts) {
-  console.log(`── ${n} players ${"─".repeat(80)}`);
-  console.log(HEAD);
-  const rows = [];
-  for (const combo of getPlayerCombinations(n)) {
-    const m = metrics(runCombo(n, combo), n);
-    rows.push(m);
-    console.log(row(comboLabel(combo), m));
+(async () => {
+  console.log(
+    `\nWarped full-game sim — ${games} games/composition — config: ${configLabel}  (reqs:${reqs} gates:${gateTiers} findMult:${findMult})\n`
+  );
+  const HEAD =
+    "  table    │ triumph collapse quiet timeout │ rounds deepest  OC/g shut/g papers spread  ~min";
+  for (const n of playerCounts) {
+    console.log(`── ${n} players ${"─".repeat(80)}`);
+    console.log(HEAD);
+    const rows = [];
+    for (const combo of getPlayerCombinations(n)) {
+      const m = metrics(await runCombo(n, combo), n);
+      rows.push(m);
+      console.log(row(comboLabel(combo), m));
+    }
+    const mean = meanRows(rows);
+    console.log(row("─ mean  ", mean));
+    console.log(byEraLine("exped/g ", mean.expeditionsByEra)); // volume: how often you're in each era
+    console.log(byEraLine("OC/exped", ocIntensity(mean))); // intensity: how hard the gamble bites there
   }
-  const mean = meanRows(rows);
-  console.log(row("─ mean  ", mean));
-  console.log(byEraLine("exped/g ", mean.expeditionsByEra)); // volume: how often you're in each era
-  console.log(byEraLine("OC/exped", ocIntensity(mean))); // intensity: how hard the gamble bites there
-}
-console.log(
-  "\n  (table = composition G/C/B counts · deepest 0 Recent…6 ManyWorlds · mean = unweighted over all compositions)\n"
-);
+  console.log(
+    "\n  (table = composition G/C/B counts · deepest 0 Recent…6 ManyWorlds · mean = unweighted over all compositions)\n"
+  );
+})();

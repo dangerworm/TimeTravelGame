@@ -86,9 +86,9 @@ function replenishMarket(game) {
   fill(true, EXPERT_SLOTS, game.expertPool, 'expertDraw');
 }
 
-function buyIfAffordable(player, game) {
+async function buyIfAffordable(player, game) {
   replenishMarket(game);
-  const pick = player.policy.buyResearcher(player, game.market.filter(Boolean), game.cfg);
+  const pick = await player.policy.buyResearcher(player, game.market.filter(Boolean), game.cfg);
   if (!pick) return;
   player.cash -= pick.cost;
   player.team.push(pick);

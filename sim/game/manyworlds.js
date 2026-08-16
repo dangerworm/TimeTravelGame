@@ -8,7 +8,7 @@ const { resolveSteps } = require('../lib/resolution');
 
 const CO_AUTHOR_CAP = 6;
 
-function resolveManyWorlds(host, card, game) {
+async function resolveManyWorlds(host, card, game) {
   const committed = []; // { r, owner }
   for (const p of game.players) {
     if (p.retired) continue;
@@ -18,7 +18,7 @@ function resolveManyWorlds(host, card, game) {
   if (!roster.length) return { success: false };
 
   // Host opens the door: buildBag uses host.instability for traces (host-only) and the host's base.
-  const outcome = resolveSteps(host, card, roster, host.policy, game);
+  const outcome = await resolveSteps(host, card, roster, host.policy, game);
 
   if (outcome.success) {
     const byOwner = new Map();

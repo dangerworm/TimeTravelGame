@@ -90,7 +90,7 @@ function applyCons(type, player, game, eraIdx) {
 // side effects (instability, integrity hit + consequence on shutdown) and per-expedition bookkeeping.
 // Does NOT grant rewards — callers decide how cleared steps pay (immediate tally vs Data/Artefact
 // zones), so the full game and the per-card probe share one clearing engine. Returns the outcome.
-function resolveSteps(player, card, roster, policy, game) {
+async function resolveSteps(player, card, roster, policy, game) {
   const cfg = game.cfg;
 
   // Refill model (Drew's intent, 10 Jun): a persistent draw deck + discard. The hand is topped
@@ -126,7 +126,7 @@ function resolveSteps(player, card, roster, policy, game) {
     let have = hand.filter(c=>c===step.skill).length;
 
     while (have < step.req) {
-      if (!policy.shouldOverclock(player, step.req-have, si, card, game)) {
+      if (!(await policy.shouldOverclock(player, step.req-have, si, card, game))) {
         cashOut=true; break outer;
       }
       // Overclock: +1 instability (persists), +1 live Trace into the deck (dilutes the rest of
@@ -203,8 +203,8 @@ function applyImmediateRewards(player, card, cleared, policy, game) {
 }
 
 // Convenience wrapper preserving the probe's original one-call behaviour.
-function runExpedition(player, card, roster, policy, game) {
-  const outcome = resolveSteps(player, card, roster, policy, game);
+async function runExpedition(player, card, roster, policy, game) {
+  const outcome = await resolveSteps(player, card, roster, policy, game);
   applyImmediateRewards(player, card, outcome.cleared, policy, game);
   return outcome;
 }

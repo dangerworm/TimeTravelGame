@@ -10,9 +10,12 @@ const { ALL } = require("./policies");
 
 const SAFETY_MAX_ROUNDS = 40; // guards against a non-terminating game; quiet-legacy should fire first
 
-function doTurn(player, game) {
+// Every function below that can reach a policy decision is async, awaited all the way up to
+// playGame — a no-op tick for the sync heuristic bots (policies.js), but what lets an LLM policy
+// (sim/llm/llm-policy.js) make a real network round-trip to Ollama at each decision point.
+async function doTurn(player, game) {
   if (player.retired) return;
-  if (player.policy.shouldRetire(player, game)) {
+  if (await player.policy.shouldRetire(player, game)) {
     player.retired = true;
     return;
   }
@@ -25,11 +28,11 @@ function doTurn(player, game) {
     player.instability = 0; // early-game safety valve: a minimal turn vents it all
   } else if (player.staged && player.team.length) {
     if (player.staged.isMW) {
-      resolveManyWorlds(player, player.staged, game);
+      await resolveManyWorlds(player, player.staged, game);
       player.staged = null;
       if (game.ended) return;
     } else {
-      const { home } = runJump(player, game);
+      const { home } = await runJump(player, game);
       player.staged = null;
       doHomeActions(player, home, game);
     }
@@ -48,12 +51,12 @@ function doTurn(player, game) {
     }
   }
 
-  buyIfAffordable(player, game);
-  planStage(player, game);
+  await buyIfAffordable(player, game);
+  await planStage(player, game);
 }
 
 // Plan: draw era cards up to the Collimator and stage the next jump. Amp 7 stages a Many Worlds card.
-function planStage(player, game) {
+async function planStage(player, game) {
   const drawFrom = (e) => {
     if (!game.eraDecks[e].length) {
       game.eraDecks[e] = game.rng.shuffle(game.eraMaster[e].slice());
@@ -70,13 +73,13 @@ function planStage(player, game) {
   const maxEraIdx = player.machine.amp - 1;
   const drawn = [];
   for (let i = 0; i < player.machine.col; i++) {
-    const card = drawFrom(player.policy.pickEraIdx(player, maxEraIdx, game));
+    const card = drawFrom(await player.policy.pickEraIdx(player, maxEraIdx, game));
     if (card) drawn.push(card);
   }
-  player.staged = drawn.length ? player.policy.pickCard(player, drawn) : null;
+  player.staged = drawn.length ? await player.policy.pickCard(player, drawn) : null;
 }
 
-function playGame(numPlayers, policyNames, cfg, rng, opts = {}) {
+async function playGame(numPlayers, policyNames, cfg, rng, opts = {}) {
   const loaded = loadDecks(rng, opts);
   const players = Array.from({ length: numPlayers }, (_, i) =>
     makePlayer(i, ALL[policyNames[i % policyNames.length]], cfg)
@@ -87,15 +90,15 @@ function playGame(numPlayers, policyNames, cfg, rng, opts = {}) {
   makeMarket(game);
 
   for (const p of players) {
-    buyIfAffordable(p, game);
-    planStage(p, game);
+    await buyIfAffordable(p, game);
+    await planStage(p, game);
   }
 
   while (!game.ended && game.round < SAFETY_MAX_ROUNDS) {
     game.round++;
     for (const p of players) {
       if (game.ended) break;
-      doTurn(p, game);
+      await doTurn(p, game);
     }
     if (!game.ended && players.every((p) => p.retired)) {
       game.ended = true;
@@ -108,4 +111,4 @@ function playGame(numPlayers, policyNames, cfg, rng, opts = {}) {
   return game;
 }
 
-module.exports = { playGame };
+module.exports = { playGame, doTurn, planStage };

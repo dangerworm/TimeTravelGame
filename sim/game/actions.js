@@ -5,13 +5,13 @@ const { resolveSteps, drawCons, applyCons, gainExp } = require('../lib/resolutio
 const { upgradeModule, canUpgradeAmp } = require('./economy');
 
 // ── Jump + Process ────────────────────────────────────────────────────────────
-function runJump(player, game) {
+async function runJump(player, game) {
   const card = player.staged;
-  const roster = player.policy.selectRoster(player, card, game);
+  const roster = await player.policy.selectRoster(player, card, game);
   const home = player.team.filter(r => !roster.includes(r));
 
-  const outcome = resolveSteps(player, card, roster, player.policy, game);
-  processRewards(player, card, outcome, roster, game);
+  const outcome = await resolveSteps(player, card, roster, player.policy, game);
+  await processRewards(player, card, outcome, roster, game);
 
   // A turn with ≥1 overclock draws a consequence (a shutdown already drew its extra inside resolveSteps).
   if (outcome.overclocks > 0 && !outcome.shutdown) applyCons(drawCons(game), player, game, card.eraIdx);
@@ -21,19 +21,19 @@ function runJump(player, game) {
 
 // Award rewards for every cleared step: en-route find (Sell XOR Publish), early-relief spoils (Cash),
 // and — only if every step cleared — the objective (Record→Data zone / Plunder→Artefacts zone).
-function processRewards(player, card, outcome, roster, game) {
+async function processRewards(player, card, outcome, roster, game) {
   for (let i = 0; i < outcome.cleared; i++) {
     const st = card.steps[i];
-    if (st.type === 'objective') claimObjective(player, card, roster, game);
-    else if (i === card.findStepIndex) collectFind(player, card, roster, game);
+    if (st.type === 'objective') await claimObjective(player, card, roster, game);
+    else if (i === card.findStepIndex) await collectFind(player, card, roster, game);
     else if (st.cash > 0) player.cash += Math.round(st.cash * (game.findMult || 1)); // early-relief spoil
   }
 }
 
-function collectFind(player, card, roster, game) {
+async function collectFind(player, card, roster, game) {
   const f = card.find;
   if (!f) return;
-  if (player.policy.publishFind(player, card, game)) {
+  if (await player.policy.publishFind(player, card, game)) {
     player.rep += f.publishRep;                              // Publish → minor paper (Reputation)
     player.papersWritten++;
     grantWriterExp(roster, game);                           // the desk write-up earns experience
@@ -43,11 +43,11 @@ function collectFind(player, card, roster, game) {
 }
 
 // Objective claim — only reached when the whole ladder cleared (the objective is the last step).
-function claimObjective(player, card, roster, game) {
+async function claimObjective(player, card, roster, game) {
   const o = card.objective;
   if (o.mode === 'record-only') { player.data.push({ rep: o.rep, name: card.name }); return; }
 
-  const take = player.policy.recordOrPlunder(player, card, game); // 'record' | 'plunder'
+  const take = await player.policy.recordOrPlunder(player, card, game); // 'record' | 'plunder'
   if (take === 'record' && o.mode !== 'doomed-grab') {
     player.data.push({ rep: o.rep, name: card.name });            // copy/measure → clean
   } else {

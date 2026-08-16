@@ -116,14 +116,14 @@ const makePlayer = stab => ({
 });
 
 // ── Monte-Carlo one (card, team, push-k) ──────────────────────────────────────
-function trialCard(card, teamArr, k, trials, rng, stab) {
+async function trialCard(card, teamArr, k, trials, rng, stab) {
   const pol = policy(k);
   let success = 0, oc = 0, shut = 0;
   for (let t = 0; t < trials; t++) {
     const player = makePlayer(stab);
     const roster = teamArr.map(m => cloneR(m.r));
     const game = { cfg, rng, integrity: 999, integrityMax: 999, consDeck: genConsDeck(cfg, rng), players: [player] };
-    const res = runExpedition(player, card, roster, pol, game);
+    const res = await runExpedition(player, card, roster, pol, game);
     if (res.success) success++;
     oc += res.overclocks;
     if (res.shutdown) shut++;
@@ -155,26 +155,28 @@ for (const [name, arr] of Object.entries(TEAMS)) {
   console.log(`  ${name.padEnd(8)} roster ${arr.length}, hand ${2 * arr.length + 2}, stab ${STAB[name]}  [${desc}]`);
 }
 
-for (const era of ERAS) {
-  const cards = eraCards[era];
-  if (!cards || (onlyEra && era !== onlyEra)) continue;
-  const pats = { current: null, ...(PATTERNS[era] || {}) };
-  console.log(`\n══════ ${era.toUpperCase()} — ${cards.length} cards × ${cards[0].steps.length} steps ══════`);
-  for (const [tname, tarr] of Object.entries(TEAMS)) {
-    const stab = STAB[tname];
-    console.log(`  ${tname} (stab ${stab}):   pattern          clr(no-oc)  clr(push)  avgOC  shutdown%`);
-    for (const [pname, pat] of Object.entries(pats)) {
-      let a0 = 0, a3 = 0, oc = 0, sh = 0;
-      for (const card of cards) {
-        const cc = applyPattern(card, pat);
-        a0 += trialCard(cc, tarr, 0, trials, rng, stab).clear;
-        const r3 = trialCard(cc, tarr, 3, trials, rng, stab);
-        a3 += r3.clear; oc += r3.oc; sh += r3.shut;
+(async () => {
+  for (const era of ERAS) {
+    const cards = eraCards[era];
+    if (!cards || (onlyEra && era !== onlyEra)) continue;
+    const pats = { current: null, ...(PATTERNS[era] || {}) };
+    console.log(`\n══════ ${era.toUpperCase()} — ${cards.length} cards × ${cards[0].steps.length} steps ══════`);
+    for (const [tname, tarr] of Object.entries(TEAMS)) {
+      const stab = STAB[tname];
+      console.log(`  ${tname} (stab ${stab}):   pattern          clr(no-oc)  clr(push)  avgOC  shutdown%`);
+      for (const [pname, pat] of Object.entries(pats)) {
+        let a0 = 0, a3 = 0, oc = 0, sh = 0;
+        for (const card of cards) {
+          const cc = applyPattern(card, pat);
+          a0 += (await trialCard(cc, tarr, 0, trials, rng, stab)).clear;
+          const r3 = await trialCard(cc, tarr, 3, trials, rng, stab);
+          a3 += r3.clear; oc += r3.oc; sh += r3.shut;
+        }
+        const n = cards.length;
+        const label = pname === 'current' ? 'current (real)' : `${pname} [${pat.join(',')}]`;
+        console.log(`           ${label.padEnd(16)}  ${pct(a0 / n)}       ${pct(a3 / n)}      ${f1(oc / n)}   ${pct(sh / n)}`);
       }
-      const n = cards.length;
-      const label = pname === 'current' ? 'current (real)' : `${pname} [${pat.join(',')}]`;
-      console.log(`           ${label.padEnd(16)}  ${pct(a0 / n)}       ${pct(a3 / n)}      ${f1(oc / n)}   ${pct(sh / n)}`);
     }
   }
-}
-console.log('');
+  console.log('');
+})();
