@@ -18,54 +18,7 @@ const path = require("path");
 const { makePRNG } = require("./lib/resolution");
 const { playGame } = require("./game/engine");
 const { getPlayerCombinations } = require("./lib/combination-builder");
-
-// Drew's hand-tuned spread (11 Jun). Each step is a [min,max] band rolled per card from the game RNG
-// — so a card's numbers track its narrative within a band, not a flat mechanical pattern.
-const PROPOSED = {
-  Recent: [
-    [1, 1],
-    [1, 1],
-    [1, 2],
-  ],
-  Modern: [
-    [1, 1],
-    [1, 2],
-    [1, 3],
-  ],
-  EarlyModern: [
-    [1, 2],
-    [1, 3],
-    [1, 2],
-    [2, 3],
-  ],
-  Medieval: [
-    [1, 2],
-    [1, 3],
-    [2, 3],
-    [2, 4],
-  ],
-  Ancient: [
-    [2, 3],
-    [1, 3],
-    [2, 3],
-    [2, 4],
-    [2, 4],
-  ],
-  Prehistoric: [
-    [1, 3],
-    [2, 3],
-    [2, 4],
-    [1, 3],
-    [3, 4],
-  ],
-  ManyWorlds: [
-    [2, 4],
-    [2, 4],
-    [3, 4],
-    [3, 4],
-    [5, 5],
-  ],
-};
+const { PROPOSED } = require("./lib/patterns");
 
 const args = process.argv.slice(2);
 const has = (f) => args.includes(f);

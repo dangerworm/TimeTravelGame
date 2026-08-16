@@ -8,7 +8,7 @@ const { runJump, doHomeActions } = require("./actions");
 const { resolveManyWorlds } = require("./manyworlds");
 const { ALL } = require("./policies");
 
-const SAFETY_MAX_ROUNDS = 40; // guards against a non-terminating game; quiet-legacy should fire first
+const SAFETY_MAX_ROUNDS = 40; // hard backstop if cfg.maxRounds is absent; quiet-legacy should fire first
 
 // Every function below that can reach a policy decision is async, awaited all the way up to
 // playGame — a no-op tick for the sync heuristic bots (policies.js), but what lets an LLM policy
@@ -20,42 +20,48 @@ async function doTurn(player, game) {
     return;
   }
 
-  const hasEngineer = player.team.some((r) => r.profession === "Engineer");
-  const bricked =
-    player.instability > 0 && !hasEngineer && player.machine.stab === game.cfg.startStab;
+  // Many Worlds just committed this player's WHOLE team to another player's attempt this round
+  // (GDD §9: "their owner can't use them at home that turn") — nothing left to jump or develop with.
+  if (player.mwCommittedRound === game.round) {
+    await buyIfAffordable(player, game);
+    await planStage(player, game);
+    return;
+  }
 
-  if (bricked) {
-    player.instability = 0; // early-game safety valve: a minimal turn vents it all
+  const hasEngineer = player.team.some((r) => r.profession === "Engineer");
+  const ventEligible =
+    player.instability > 0 && !hasEngineer && player.machine.stab === game.cfg.startStab;
+  // GDD §6: this is a "may", not a "must" — and it's "a minimal turn... as their Develop action", not
+  // a tax that also swallows the rest of the team's Develop (GDD's "Skip the Jump" path 2 doesn't lose
+  // Develop either). So: vent replaces the JUMP for this turn only; the whole team still develops.
+  const vent = ventEligible && (await player.policy.shouldVent(player, game));
+
+  if (vent) {
+    player.instability = 0;
+    await doHomeActions(player, player.team, game);
   } else if (player.staged && player.team.length) {
     if (player.staged.isMW) {
       await resolveManyWorlds(player, player.staged, game);
       player.staged = null;
       if (game.ended) return;
     } else {
-      const { home } = await runJump(player, game);
+      const { home, skipped } = await runJump(player, game);
       player.staged = null;
-      doHomeActions(player, home, game);
+      // An explicit empty-roster "skip the jump" still develops with the whole team (GDD §6 path 2).
+      await doHomeActions(player, skipped ? player.team : home, game);
     }
   } else {
-    doHomeActions(player, player.team, game); // no jump staged → whole team develops
+    await doHomeActions(player, player.team, game); // no jump staged → whole team develops
   }
   if (game.ended) return;
-
-  // Collapse: Integrity 0 lights a one-round "Unravelling" fuse, then the timeline comes apart (GDD §11).
-  if (game.integrity <= 0) {
-    if (game.unravelRound === null) game.unravelRound = game.round;
-    else if (game.round > game.unravelRound) {
-      game.ended = true;
-      game.endReason = "collapse";
-      return;
-    }
-  }
 
   await buyIfAffordable(player, game);
   await planStage(player, game);
 }
 
-// Plan: draw era cards up to the Collimator and stage the next jump. Amp 7 stages a Many Worlds card.
+// Plan: draw era cards up to the Collimator and stage the next jump. At Amp 7 the player DECLARES
+// (or holds back) a Many Worlds attempt — GDD §14's "vent first, or push now?" — rather than being
+// auto-staged into a forced, repeated attempt on whatever instability the machine happens to carry.
 async function planStage(player, game) {
   const drawFrom = (e) => {
     if (!game.eraDecks[e].length) {
@@ -66,11 +72,14 @@ async function planStage(player, game) {
   };
 
   if (player.machine.amp >= 7) {
-    player.staged = drawFrom(6);
-    return;
+    if (await player.policy.declareManyWorlds(player, game)) {
+      player.staged = drawFrom(6);
+      return;
+    }
+    // Holding back: draw normal era cards, capped at the deepest non-MW tier (era 6 is MW-only).
   }
 
-  const maxEraIdx = player.machine.amp - 1;
+  const maxEraIdx = Math.min(player.machine.amp - 1, 5);
   const drawn = [];
   for (let i = 0; i < player.machine.col; i++) {
     const card = drawFrom(await player.policy.pickEraIdx(player, maxEraIdx, game));
@@ -80,6 +89,7 @@ async function planStage(player, game) {
 }
 
 async function playGame(numPlayers, policyNames, cfg, rng, opts = {}) {
+  const hooks = opts.hooks || {};
   const loaded = loadDecks(rng, opts);
   const players = Array.from({ length: numPlayers }, (_, i) =>
     makePlayer(i, ALL[policyNames[i % policyNames.length]], cfg)
@@ -94,21 +104,38 @@ async function playGame(numPlayers, policyNames, cfg, rng, opts = {}) {
     await planStage(p, game);
   }
 
-  while (!game.ended && game.round < SAFETY_MAX_ROUNDS) {
+  const maxRounds = cfg.maxRounds || SAFETY_MAX_ROUNDS;
+  while (!game.ended && game.round < maxRounds) {
     game.round++;
+    if (hooks.onRoundStart) await hooks.onRoundStart(game);
     for (const p of players) {
       if (game.ended) break;
+      if (p.retired) continue;
+      if (hooks.onTurnStart) await hooks.onTurnStart(p, game);
       await doTurn(p, game);
+      if (hooks.onTurnEnd) await hooks.onTurnEnd(p, game);
     }
-    if (!game.ended && players.every((p) => p.retired)) {
+    if (game.ended) break;
+    if (players.every((p) => p.retired)) {
       game.ended = true;
       game.endReason = "quietlegacy";
+      break;
+    }
+    // Collapse: Integrity 0 lights a one-round "Unravelling" fuse (GDD §11) — every player gets
+    // exactly one more full round at maximum peril before the timeline comes apart, regardless of
+    // seat order (checked here, once per completed round, rather than mid-turn per player).
+    if (game.integrity <= 0) {
+      if (!game.unravelling) game.unravelling = true;
+      else {
+        game.ended = true;
+        game.endReason = "collapse";
+      }
     }
   }
   if (!game.ended) game.endReason = "timeout";
 
-  for (const p of players) p.score = score(p);
+  for (const p of players) p.score = score(p, cfg);
   return game;
 }
 
-module.exports = { playGame, doTurn, planStage };
+module.exports = { playGame, doTurn, planStage, SAFETY_MAX_ROUNDS };

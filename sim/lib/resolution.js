@@ -126,14 +126,19 @@ async function resolveSteps(player, card, roster, policy, game) {
     let have = hand.filter(c=>c===step.skill).length;
 
     while (have < step.req) {
-      if (!(await policy.shouldOverclock(player, step.req-have, si, card, game))) {
+      // GDD §6: "your hand is visible" — hand out the actual cards in hand (not just the raw
+      // shortfall count) plus how much draw pile is left, so a policy can weigh the real odds of
+      // the gamble instead of a bare number.
+      const handInfo = { hand: hand.slice(), deckRemaining: deck.length, discardRemaining: discard.length };
+      if (!(await policy.shouldOverclock(player, step.req-have, si, card, game, handInfo))) {
         cashOut=true; break outer;
       }
-      // Overclock: +1 instability (persists), +1 live Trace into the deck (dilutes the rest of
-      // this expedition too), and draw 1 extra card beyond the hand cap — the gamble.
+      // Overclock: +1 instability (persists beyond this trip), +1 live Trace shuffled into the
+      // REMAINING draw deck (GDD §6: "add +1 Trace to your deck" — not the discard, which would sit
+      // out of play until the next reshuffle), and draw 1 extra card beyond the hand cap — the gamble.
       player.instability++;
       overclocks++;
-      discard.push('T');
+      deck.splice(game.rng.int(0, deck.length), 0, 'T');
       const drawn = draw();
       if (drawn !== null) { hand.push(drawn); if (drawn===step.skill) have++; }
       // Shutdown check
@@ -209,7 +214,15 @@ async function runExpedition(player, card, roster, policy, game) {
   return outcome;
 }
 
+// Probe-only heuristic (era-card-content-based.js) — NOT used by the full game (game/actions.js has
+// its own claimObjective that calls the policy's actual recordOrPlunder). Dispatches on policy.name,
+// so it only knows 'cautious'/'balanced'; anything else (e.g. an LLM policy pointed at this probe)
+// silently falls through to the greedy branch below — flagging that explicitly rather than leaving
+// it a silent landmine, since this function's whole contract depends on that name matching.
 function recordOrPlunder(policy, player, step, game) {
+  if (!['greedy', 'cautious', 'balanced'].includes(policy.name)) {
+    throw new Error(`resolution.js's recordOrPlunder only knows greedy/cautious/balanced policy names, got "${policy.name}" — this probe-only heuristic doesn't support other policies (the full game's game/actions.js does, via policy.recordOrPlunder).`);
+  }
   const doomed     = !!step.isDoomed;
   const integFrac  = game.integrity / Math.max(1, game.integrityMax);
   const considers  = policy.name === 'cautious' ? doomed

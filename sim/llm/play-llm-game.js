@@ -3,30 +3,39 @@
 // ── Warped — LLM playtest ──────────────────────────────────────────────────────
 // Plays one full game of Warped end-to-end on the real decks/ content, with every player's
 // decisions made by a local Ollama model instead of a fixed heuristic bot. Reuses the exact same
-// rules engine the balance sim uses (sim/game/*, sim/lib/*) — this is not a re-implementation of
-// the rules, it's the validated engine with an LLM sitting in the "policy" seat.
+// rules engine the balance sim uses (sim/game/*, sim/lib/*) via engine.js's playGame() — this is
+// not a re-implementation of the rules, it's the validated engine with an LLM sitting in the
+// "policy" seat, driven through the same setup/loop the balance sim uses (opts.hooks below just
+// taps into it for turn-by-turn logging).
 //
 // Usage:
-//   node sim/llm/play-llm-game.js                       # 4 players, qwen2.5:7b, random seed
-//   node sim/llm/play-llm-game.js --model llama3.1:8b
+//   node sim/llm/play-llm-game.js                       # 4 players, llama3.1:8b, random seed
+//   node sim/llm/play-llm-game.js --model qwen2.5:7b-instruct
 //   node sim/llm/play-llm-game.js --seed 42 --players 3
 //   node sim/llm/play-llm-game.js --policies llm,llm,balanced,balanced   # mix in heuristics (fast debug)
+//   node sim/llm/play-llm-game.js --config sim/configs/adopted.json      # play the tuned/gated content
+//
+// Config handling matches sim/full-game.js exactly (same --config/--reqs/--gates/--findmult flags,
+// same overrides/options JSON shape) so the two drivers can never silently diverge on what content
+// an LLM run is actually playing against.
 //
 // Known simplification (shared with the balance sim, see sim/game/engine.js's header comment):
-// the React and Negotiate turn phases (cancelling a jump, renting a rival's teammate) are not
-// modelled — every turn goes straight Jump → Process → Develop → Plan.
+// the React phase's jump-cancel/improvise branch and the Negotiate phase (renting a rival's
+// teammate — the only player-to-player cash transfer in the game) aren't modelled. Every turn goes
+// straight Jump → Process → Develop → Plan, so this sim always plays a closed economy.
+// Also: every decision is a fresh, memoryless call to the model (no conversation history carried
+// between them) — there's no continuity of "plan" across e.g. a buy decision and a bench decision.
 const path = require('path');
 const fs = require('fs');
 const { makePRNG } = require('../lib/resolution');
-const { loadDecks } = require('../lib/deck-loader');
-const { makePlayer, makeGame, score } = require('../game/state');
-const { makeMarket, buyIfAffordable } = require('../game/economy');
-const { doTurn, planStage } = require('../game/engine');
+const { playGame } = require('../game/engine');
 const { ALL } = require('../game/policies');
+const { PROPOSED } = require('../lib/patterns');
 const { ensureServerRunning, ensureModel } = require('./ollama-client');
 const { makeLlmPolicy } = require('./llm-policy');
 
 const args = process.argv.slice(2);
+const has = (f) => args.includes(f);
 const argVal = (flag, def) => {
   const i = args.indexOf(flag);
   return i >= 0 ? args[i + 1] : def;
@@ -36,10 +45,23 @@ const MODEL = argVal('--model', process.env.TT_SIM_MODEL || 'llama3.1:8b');
 const NUM_PLAYERS = parseInt(argVal('--players', '4'), 10);
 const SEED = parseInt(argVal('--seed', String(Date.now() & 0xffffffff)), 10);
 const TEMPERATURE = parseFloat(argVal('--temperature', '0.3'));
-const configPath = argVal('--config', null);
-const BEST = require(path.join(__dirname, '..', 'best-config.json')).config;
-const cfg = { ...BEST, ...(configPath ? JSON.parse(fs.readFileSync(configPath, 'utf8')).config || {} : {}) };
 const policyList = argVal('--policies', Array(NUM_PLAYERS).fill('llm').join(',')).split(',');
+
+// Same shape/precedence as sim/full-game.js: best-config.json is the base; a --config file
+// deep-overrides it (under "overrides", not "config" — that key never existed in sim/configs/*.json,
+// so reading it silently played every LLM run on un-gated, un-patterned content) and supplies run
+// options; CLI flags win over the file.
+const BEST = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'best-config.json'), 'utf8')).config;
+const configPath = argVal('--config', null);
+const fileCfg = configPath ? JSON.parse(fs.readFileSync(configPath, 'utf8')) : {};
+const cfg = { ...BEST, ...(fileCfg.overrides || {}) };
+const fopts = fileCfg.options || {};
+const reqs = argVal('--reqs', fopts.reqs || 'current');
+const findMult = parseFloat(argVal('--findmult', String(fopts.findMult ?? 1)));
+const gateTiers = has('--gates') ? true : has('--nogates') ? false : !!fopts.gateTiers;
+const renewableMarket = has('--renewable') ? true : !!fopts.renewableMarket;
+const patternMap = reqs === 'proposed' ? PROPOSED : null;
+const configLabel = fileCfg.label || (configPath ? path.basename(configPath) : 'best-config');
 
 const ERAS = ['Recent', 'Modern', 'EarlyModern', 'Medieval', 'Ancient', 'Prehistoric', 'ManyWorlds'];
 
@@ -48,7 +70,7 @@ function log(...a) {
 }
 
 // A shallow snapshot of the fields a turn can change, so we can print a readable diff afterwards
-// without needing hooks inside the engine itself.
+// via playGame()'s onTurnStart/onTurnEnd hooks without needing logging built into the engine itself.
 function snapshot(p) {
   return {
     cash: p.cash,
@@ -81,6 +103,7 @@ function logTurnDiff(p, before) {
   if (p.artefacts.length !== before.artefactsLen) bits.push(`artefacts ${before.artefactsLen}→${p.artefacts.length}`);
   if (p.deepestEra !== before.deepestEra) bits.push(`deepest era now ${ERAS[p.deepestEra]}`);
   if (p.shutdowns !== before.shutdowns) bits.push('SHUTDOWN');
+  if (p.retired && !before.retired) bits.push('RETIRED');
   log(`  → P${p.id + 1} turn result: ${bits.length ? bits.join(', ') : '(no change)'}\n`);
 }
 
@@ -102,58 +125,54 @@ function printFinalSummary(game, elapsedMs) {
     );
   });
   log(`\nTimeline integrity: ${game.integrity}/${game.integrityMax}${game.integrity <= 0 ? ' — COLLAPSED' : ''}`);
+  if (game.eraDryEvents) log(`Era decks ran dry and reshuffled ${game.eraDryEvents} time(s) during the game.`);
   log(`Wall-clock time: ${(elapsedMs / 1000).toFixed(1)}s`);
 }
 
 async function main() {
-  log(`Warped — LLM playtest\n  model: ${MODEL}\n  players: ${NUM_PLAYERS} [${policyList.join(', ')}]\n  seed: ${SEED}\n`);
+  log(
+    `Warped — LLM playtest\n  model: ${MODEL}\n  players: ${NUM_PLAYERS} [${policyList.join(', ')}]\n  seed: ${SEED}\n` +
+      `  config: ${configLabel} (reqs:${reqs} gates:${gateTiers} findMult:${findMult} renewableMarket:${renewableMarket})\n`
+  );
 
   if (policyList.includes('llm')) {
     await ensureServerRunning({ log });
     await ensureModel(MODEL, { log });
   }
 
+  // sim/game/engine.js resolves policy names through its own imported `ALL` (sim/game/policies.js) —
+  // it's a module-singleton object, so registering 'llm' on it here is what makes playGame() able to
+  // hand an 'llm' policyName seat to this driver's model-backed policy.
   const llmPolicy = makeLlmPolicy({ model: MODEL, log, temperature: TEMPERATURE });
-  const policies = { ...ALL, llm: llmPolicy };
-  const unknown = policyList.filter((n) => !policies[n]);
-  if (unknown.length) throw new Error(`Unknown --policies entr${unknown.length > 1 ? 'ies' : 'y'}: ${unknown.join(', ')} (known: ${Object.keys(policies).join(', ')})`);
+  ALL.llm = llmPolicy;
+  const unknown = policyList.filter((n) => !ALL[n]);
+  if (unknown.length) throw new Error(`Unknown --policies entr${unknown.length > 1 ? 'ies' : 'y'}: ${unknown.join(', ')} (known: ${Object.keys(ALL).join(', ')})`);
 
   const rng = makePRNG(SEED);
-  const loaded = loadDecks(rng, {});
-  const players = Array.from({ length: NUM_PLAYERS }, (_, i) => makePlayer(i, policies[policyList[i % policyList.length]], cfg));
-  const game = makeGame(players, loaded, cfg, rng);
-  game.findMult = 1;
-  game.renewableMarket = false;
-  makeMarket(game);
-
   const start = Date.now();
+  let lastRound = 0;
+  const snapshots = new WeakMap();
 
-  for (const p of players) {
-    await buyIfAffordable(p, game);
-    await planStage(p, game);
-  }
+  const game = await playGame(NUM_PLAYERS, policyList, cfg, rng, {
+    patternMap,
+    findMult,
+    gateTiers,
+    renewableMarket,
+    hooks: {
+      onRoundStart(g) {
+        lastRound = g.round;
+        log(`\n── Round ${g.round} ${'─'.repeat(60)}`);
+      },
+      onTurnStart(p) {
+        log(`\nPlayer ${p.id + 1}'s turn${p.staged ? ` — staged: ${p.staged.name} [${p.staged.era}]` : ' — no jump staged'}`);
+        snapshots.set(p, snapshot(p));
+      },
+      onTurnEnd(p) {
+        logTurnDiff(p, snapshots.get(p));
+      },
+    },
+  });
 
-  const SAFETY_MAX_ROUNDS = 40;
-  while (!game.ended && game.round < SAFETY_MAX_ROUNDS) {
-    game.round++;
-    log(`\n── Round ${game.round} ${'─'.repeat(60)}`);
-    for (const p of players) {
-      if (game.ended) break;
-      if (p.retired) continue;
-      const staged = p.staged;
-      log(`\nPlayer ${p.id + 1}'s turn${staged ? ` — staged: ${staged.name} [${staged.era}]` : ' — no jump staged'}`);
-      const before = snapshot(p);
-      await doTurn(p, game);
-      logTurnDiff(p, before);
-    }
-    if (!game.ended && players.every((p) => p.retired)) {
-      game.ended = true;
-      game.endReason = 'quietlegacy';
-    }
-  }
-  if (!game.ended) game.endReason = 'timeout';
-
-  for (const p of players) p.score = score(p);
   printFinalSummary(game, Date.now() - start);
 }
 

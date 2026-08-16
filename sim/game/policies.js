@@ -32,6 +32,14 @@ function decideRecordOrPlunder(player, card, game, considers) {
   return 'record';
 }
 
+// Shared artefact sell-vs-publish body (identical across archetypes — matches the pre-M2 hardcoded
+// behaviour in game/actions.js verbatim): sell when behind the table average on Cash, else publish.
+function defaultSellOrPublish(player, artefact, game) {
+  const others = game.players.filter((p) => p !== player);
+  const avgCash = others.reduce((s, p) => s + p.cash, 0) / Math.max(1, others.length);
+  return player.cash < avgCash ? 'sell' : 'publish';
+}
+
 // Retire (the quiet-legacy trigger) when the multiverse is out of reach and there's nothing left to
 // do — or, late enough, give up the Many Worlds dream outright so games actually terminate.
 function stalledRetire(player, game) {
@@ -60,7 +68,10 @@ function buyMissingProfession(player, market, minCash, buffer = 0) {
 // send a reduced roster to an easier era so it still clears. This is what actually drives gradual
 // Amp progression — without it, bots send everyone and never free up a Develop action to upgrade.
 function upgradeBench(player, cfg) {
-  if (canUpgradeAmp(player, cfg)) {
+  // Planning-time approximation: we're deciding WHO to bench, so the true "home" set doesn't exist
+  // yet (it's what this very function determines) — check against the whole team as a hint. The real
+  // gate (economy.js's canUpgradeAmp/tryAmpUpgrade) is enforced for real at Develop time regardless.
+  if (canUpgradeAmp(player, player.team, cfg)) {
     const eng = player.team.find(r => r.profession === 'Engineer');
     if (eng) return [eng];                                  // engineer home → climbs the Amp ladder
     const weakest = [...player.team].sort((a, b) => totalPips(a, 1) - totalPips(b, 1))[0];
@@ -104,6 +115,10 @@ const greedy = {
     return buyMissingProfession(player, market, null, 0);
   },
   shouldRetire: stalledRetire,
+  chooseUpgrade(player, researcher, order) { return order[0]; },  // unchanged fixed priority
+  sellOrPublishArtefact: defaultSellOrPublish,
+  shouldVent() { return true; },                       // free instability relief — always worth it
+  declareManyWorlds() { return true; },                // push now, every time — matches the archetype
 };
 
 const cautious = {
@@ -122,6 +137,10 @@ const cautious = {
     return buyMissingProfession(player, market, 6, 3);
   },
   shouldRetire: stalledRetire,
+  chooseUpgrade(player, researcher, order) { return order[0]; },
+  sellOrPublishArtefact: defaultSellOrPublish,
+  shouldVent() { return true; },
+  declareManyWorlds(player) { return player.instability === 0; },  // vent first — never push a rattled machine
 };
 
 const balanced = {
@@ -147,6 +166,10 @@ const balanced = {
     return buyMissingProfession(player, market, 4, 0);
   },
   shouldRetire: stalledRetire,
+  chooseUpgrade(player, researcher, order) { return order[0]; },
+  sellOrPublishArtefact: defaultSellOrPublish,
+  shouldVent() { return true; },
+  declareManyWorlds(player) { return player.instability <= 1; },  // push when only lightly rattled
 };
 
 const ALL = { greedy, cautious, balanced };

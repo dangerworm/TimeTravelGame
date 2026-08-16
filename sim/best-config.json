@@ -126,6 +126,7 @@
     "mwSteps": 5,
     "mwReqPerStep": 5,
     "mwIntegDmgFail": 2,
+    "mwCoAuthorCap": 6,
     "partingRep": 2,
     "maxRounds": 30
   }

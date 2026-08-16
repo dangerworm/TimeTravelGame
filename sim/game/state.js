@@ -13,6 +13,7 @@ function makePlayer(id, policy, cfg) {
     machine: { amp: cfg.startAmp, cap: cfg.startCap, col: cfg.startCol, stab: cfg.startStab },
     staged: null,
     retired: false,
+    mwCommittedRound: null, // set by manyworlds.js when another player's MW attempt commits this player's team
     deepestEra: 0,
     // stats (for the report)
     expeditions: 0, overclocks: 0, shutdowns: 0, cashOuts: 0,
@@ -35,16 +36,20 @@ function makeGame(players, loaded, cfg, rng) {
     market: null,                    // built by economy.makeMarket in the engine
     integrity: pool, integrityMax: pool,
     consDeck: genConsDeck(cfg, rng),
-    round: 0, ended: false, endReason: null, mwSuccess: false, unravelRound: null,
+    round: 0, ended: false, endReason: null, mwSuccess: false, unravelling: false,
     eraDryEvents: 0,                 // a Plan draw found an empty era deck (deck ran dry)
   };
 }
 
 // SCORE = Reputation − Disrepute + highest module level + unresearched held work (1 each).
-function score(player) {
-  const topModule    = Math.max(player.machine.amp, player.machine.cap, player.machine.col, player.machine.stab);
+// GDD §12 has no floor on rep−disrepute — disrepute is meant to sting for real, not just to zero.
+// The Stabiliser's field (machine.stab) stores max-instability, not a level (starts at cfg.startStab,
+// +2 per upgrade) — convert it to the same 1-based level scale as Amp/Cap/Col before comparing.
+function score(player, cfg) {
+  const stabLevel = (player.machine.stab - cfg.startStab) / 2 + 1;
+  const topModule = Math.max(player.machine.amp, player.machine.cap, player.machine.col, stabLevel);
   const unresearched = player.data.length + player.artefacts.length;
-  return Math.max(0, player.rep - player.disrepute) + topModule + unresearched;
+  return (player.rep - player.disrepute) + topModule + unresearched;
 }
 
 module.exports = { makePlayer, makeGame, score };

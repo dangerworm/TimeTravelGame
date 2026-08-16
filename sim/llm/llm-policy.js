@@ -10,7 +10,7 @@
 // so a confused or slow model degrades gracefully instead of stalling the game.
 const { generateJSON } = require('./ollama-client');
 const prompts = require('./prompts');
-const { balanced, selectRosterDefault } = require('../game/policies');
+const { balanced } = require('../game/policies');
 
 const MAX_ATTEMPTS = 3;
 
@@ -47,6 +47,28 @@ function makeLlmPolicy({ model, log = console.log, temperature = 0.3 }) {
       return out.retire;
     },
 
+    async shouldVent(player, game) {
+      const out = await ask(
+        prompts.shouldVent(player, game),
+        (o) => (typeof o.vent === 'boolean' ? null : 'vent must be true or false'),
+        'shouldVent'
+      );
+      const decision = out === null ? balanced.shouldVent(player, game) : out.vent;
+      if (decision) log(`  P${player.id + 1} vents all instability instead of jumping this turn${reasonTag(out)}`);
+      return decision;
+    },
+
+    async declareManyWorlds(player, game) {
+      const out = await ask(
+        prompts.declareManyWorlds(player, game),
+        (o) => (typeof o.declare === 'boolean' ? null : 'declare must be true or false'),
+        'declareManyWorlds'
+      );
+      const decision = out === null ? balanced.declareManyWorlds(player, game) : out.declare;
+      log(`  P${player.id + 1} ${decision ? 'DECLARES a Many Worlds attempt' : 'holds back from declaring Many Worlds'}${reasonTag(out)}`);
+      return decision;
+    },
+
     async selectRoster(player, card, game) {
       const cap = player.machine.cap;
       const out = await ask(
@@ -61,15 +83,15 @@ function makeLlmPolicy({ model, log = console.log, temperature = 0.3 }) {
         },
         'selectRoster'
       );
-      if (out === null) return selectRosterDefault(player, card, cap);
+      if (out === null) return balanced.selectRoster(player, card, game);
       const roster = out.send.map((i) => player.team[i]);
       log(`  P${player.id + 1} jumps to ${card.name} [${card.era}] with ${roster.length ? roster.map((r) => r.name).join(', ') : 'nobody (skipping)'}${reasonTag(out)}`);
       return roster;
     },
 
-    async shouldOverclock(player, shortfall, si, card, game) {
+    async shouldOverclock(player, shortfall, si, card, game, handInfo) {
       const out = await ask(
-        prompts.shouldOverclock(player, shortfall, si, card, game),
+        prompts.shouldOverclock(player, shortfall, si, card, game, handInfo),
         (o) => (typeof o.overclock === 'boolean' ? null : 'overclock must be true or false'),
         'shouldOverclock'
       );
@@ -98,6 +120,28 @@ function makeLlmPolicy({ model, log = console.log, temperature = 0.3 }) {
       const choice = out === null ? (balanced.publishFind(player) ? 'publish' : 'sell') : out.choice;
       log(`  P${player.id + 1} ${choice === 'publish' ? 'publishes' : 'sells'} the en-route find${reasonTag(out)}`);
       return choice === 'publish';
+    },
+
+    async sellOrPublishArtefact(player, artefact, game) {
+      const out = await ask(
+        prompts.sellOrPublishArtefact(player, artefact, game),
+        (o) => (o.choice === 'sell' || o.choice === 'publish' ? null : 'choice must be "sell" or "publish"'),
+        'sellOrPublishArtefact'
+      );
+      const choice = out === null ? balanced.sellOrPublishArtefact(player, artefact, game) : out.choice;
+      log(`  P${player.id + 1} ${choice === 'sell' ? 'SELLS' : 'PUBLISHES'} the artefact "${artefact.name}"${reasonTag(out)}`);
+      return choice;
+    },
+
+    async chooseUpgrade(player, researcher, order, game) {
+      const out = await ask(
+        prompts.chooseUpgrade(player, researcher, order, game),
+        (o) => (order.includes(o.upgrade) ? null : `upgrade must be one of ${order.join(', ')}`),
+        'chooseUpgrade'
+      );
+      const choice = out === null ? balanced.chooseUpgrade(player, researcher, order) : out.upgrade;
+      log(`  P${player.id + 1}'s ${researcher.name} prioritises the "${choice}" upgrade${reasonTag(out)}`);
+      return choice;
     },
 
     async pickEraIdx(player, maxEraIdx, game) {

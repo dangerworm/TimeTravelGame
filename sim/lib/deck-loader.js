@@ -47,7 +47,12 @@ function adaptCard(c, pattern, opts = {}) {
     } else {
       let cash = 0;
       if (s.find || s.n === c.findStep) cash = (c.find && c.find.cash) || 0;
-      if (c.earlySpoil && c.earlySpoil.step === s.n) cash = c.earlySpoil.cash || 0;
+      if (c.earlySpoil && c.earlySpoil.step === s.n) {
+        // No current card does this, but if a future one puts earlySpoil on the find step, this
+        // silently overwrites the find's cash rather than adding to it — flag it instead of guessing.
+        if (s.n === c.findStep) console.warn(`deck-loader: card "${c.id}" has earlySpoil.step === findStep (${s.n}) — earlySpoil cash is overwriting the find's cash, probably not intended.`);
+        cash = c.earlySpoil.cash || 0;
+      }
       st.cash = cash;
     }
     return st;
