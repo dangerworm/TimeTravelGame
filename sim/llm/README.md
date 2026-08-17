@@ -110,10 +110,21 @@ stated goal rather than guessing at one.
 
 Getting this working required converting every function in the engine that reaches a policy
 decision to `async`/`await`, all the way up to `playGame()`: `sim/game/engine.js`, `actions.js`,
-`economy.js`, `manyworlds.js`, and `sim/lib/resolution.js`. For the balance sim's synchronous
-heuristic bots this is a no-op (awaiting a plain value just resolves immediately) — verified with
-`node sim/full-game.js --games 200 --players 4` (both un-gated and `--config sim/configs/adopted.json`)
-and `node sim/era-card-content-based.js --trials 20` before and after, output shape unchanged.
+`economy.js`, `manyworlds.js`, and `sim/lib/resolution.js`. **The async plumbing itself** is a no-op
+for the balance sim's synchronous heuristic bots (awaiting a plain value just resolves immediately).
+
+**The balance sim's numbers have moved, though** — a separate effect from the async refactor, and
+worth being precise about after round 1 of QA review overclaimed "unchanged": several of the
+correctness fixes below (shutdown consequence cost, the Amp ladder's specialist-at-home gate,
+Unravelling, Many Worlds becoming a real declare decision, Stabiliser scoring) are real rules
+corrections, not incidental changes, so `sim/full-game.js`'s emergent balance was never going to stay
+identical — that's expected, not a regression. Concretely, on `--config sim/configs/adopted.json`
+(400 games/composition, 4p): mean triumph moved from this branch's pre-fix baseline of ~29% down to
+~11% after round 1 (a real bug — the D4 fix accidentally made the Amp 5+ gate almost unreachable,
+since round 1 didn't update the heuristic bots' bench-planning to hold back *both* specialists) and
+back up to ~27% after round 2's fix for that. Timeout endings, previously nonzero for Amp-7 players
+stuck unable to retire or resolve, are now 0% across every composition tested. See the commit history
+for the exact numbers behind each round.
 
 ## Performance expectations
 

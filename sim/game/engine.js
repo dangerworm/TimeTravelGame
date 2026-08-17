@@ -121,9 +121,13 @@ async function playGame(numPlayers, policyNames, cfg, rng, opts = {}) {
       game.endReason = "quietlegacy";
       break;
     }
-    // Collapse: Integrity 0 lights a one-round "Unravelling" fuse (GDD §11) — every player gets
-    // exactly one more full round at maximum peril before the timeline comes apart, regardless of
-    // seat order (checked here, once per completed round, rather than mid-turn per player).
+    // Collapse: Integrity 0 lights a one-round "Unravelling" fuse (GDD §11). Checked once per
+    // completed round (not mid-turn per player): the round in which Integrity hits 0 finishes
+    // normally, then exactly one further full round is played before the timeline comes apart. Seats
+    // that acted before the trigger within the triggering round get one more turn after it; seats
+    // that hadn't gone yet get two (their remainder of the triggering round, plus the extra round) —
+    // no seat is ever denied a turn once Integrity hits 0, which is the harm this fixes, but it's
+    // "finish the round, then play one more," not a literal one-turn-each guarantee.
     if (game.integrity <= 0) {
       if (!game.unravelling) game.unravelling = true;
       else {

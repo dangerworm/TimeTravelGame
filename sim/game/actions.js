@@ -52,6 +52,10 @@ async function collectFind(player, card, roster, game) {
 async function claimObjective(player, card, roster, game) {
   const o = card.objective;
   if (o.mode === 'record-only') { player.data.push({ rep: o.rep, name: card.name }); return; }
+  // Many Worlds cards carry mode:'triumph' and resolve entirely through manyworlds.js (never through
+  // processRewards/claimObjective) — currently unreachable here, but guard explicitly rather than
+  // letting a future card or refactor silently fall into the plunder-or-record branch below.
+  if (o.mode === 'triumph') return;
 
   // Doomed artefacts (GDD §7) are grabbed clean — there is no record option, so this isn't a policy
   // decision at all; asking the model here would burn a round-trip on an answer that's discarded.
@@ -99,18 +103,21 @@ async function engineerHome(player, r, home, game) {
   }
 }
 
-// Picks which held artefact to act on: highest reputation first (a policy choosing to publish wants
-// its best one; one choosing to sell wants the same one it'd otherwise have published) rather than
-// FIFO, which just reflected pickup order and could leave a strong artefact stranded indefinitely.
-const bestArtefact = (artefacts) => artefacts.reduce((a, b) => (b.rep >= a.rep ? b : a));
+// Picks which held item to act on: highest reputation first (a policy choosing to publish wants its
+// best one; one choosing to sell an artefact wants the same one it'd otherwise have published)
+// rather than FIFO, which just reflected pickup order and could leave a strong item stranded
+// indefinitely behind older, lower-value ones.
+const bestByRep = (items) => items.reduce((a, b) => (b.rep >= a.rep ? b : a));
 
 async function historianHome(player, r, home, game) {
   const { cfg } = game;
   if (player.data.length) {                                   // publish a recorded finding → clean Reputation
-    player.rep += player.data.shift().rep; player.papersWritten++; gainExp(r, cfg); return;
+    const d = bestByRep(player.data);
+    player.data.splice(player.data.indexOf(d), 1);
+    player.rep += d.rep; player.papersWritten++; gainExp(r, cfg); return;
   }
   if (player.artefacts.length) {                              // publish (rep) XOR sell (cash + disrepute)
-    const a = bestArtefact(player.artefacts);
+    const a = bestByRep(player.artefacts);
     player.artefacts.splice(player.artefacts.indexOf(a), 1);
     const choice = await player.policy.sellOrPublishArtefact(player, a, game); // 'sell' | 'publish'
     if (choice === 'sell') { player.cash += Math.round(a.sellCash * (game.findMult || 1)); player.disrepute += a.disrepute; player.sells++; }

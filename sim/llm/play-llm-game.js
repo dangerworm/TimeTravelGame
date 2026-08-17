@@ -29,6 +29,7 @@ const path = require('path');
 const fs = require('fs');
 const { makePRNG } = require('../lib/resolution');
 const { playGame } = require('../game/engine');
+const { topModuleLevel } = require('../game/state');
 const { ALL } = require('../game/policies');
 const { PROPOSED } = require('../lib/patterns');
 const { ensureServerRunning, ensureModel } = require('./ollama-client');
@@ -115,7 +116,7 @@ function printFinalSummary(game, elapsedMs) {
   ranked.forEach((p, i) => {
     log(
       `${i === 0 ? '🏆' : '  '} Player ${p.id + 1} (${p.policy.name}) — score ${p.score}` +
-        ` [rep ${p.rep}, disrepute ${p.disrepute}, top module ${Math.max(p.machine.amp, p.machine.cap, p.machine.col, p.machine.stab)}, ` +
+        ` [rep ${p.rep}, disrepute ${p.disrepute}, top module ${topModuleLevel(p, game.cfg)}, ` +
         `unpublished ${p.data.length + p.artefacts.length}]` +
         (p.retired ? ' — retired' : '')
     );
@@ -150,7 +151,6 @@ async function main() {
 
   const rng = makePRNG(SEED);
   const start = Date.now();
-  let lastRound = 0;
   const snapshots = new WeakMap();
 
   const game = await playGame(NUM_PLAYERS, policyList, cfg, rng, {
@@ -160,7 +160,6 @@ async function main() {
     renewableMarket,
     hooks: {
       onRoundStart(g) {
-        lastRound = g.round;
         log(`\n── Round ${g.round} ${'─'.repeat(60)}`);
       },
       onTurnStart(p) {

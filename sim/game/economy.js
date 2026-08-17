@@ -16,12 +16,13 @@ function tryAmpUpgrade(player, researcher, home, game) {
   const nextAmp = m.amp + 1;
   const isEngineer = researcher.profession === 'Engineer';
   const phyHome = home.some(r => r.profession === 'Physicist');
-  const eng = player.team.find(r => r.profession === 'Engineer');
-  const phy = player.team.find(r => r.profession === 'Physicist');
+  // Pre→MW needs BOTH fully experienced — the acting Engineer (researcher, already known to be one
+  // above) and a maxed Physicist actually home, not just any Physicist anywhere on the team.
+  const phyHomeMaxed = home.some(r => r.profession === 'Physicist' && r.expBoxes >= cfg.expMaxBoxes);
   const canAmp = nextAmp <= 2 ? true
                : nextAmp <= 4 ? isEngineer
                : nextAmp <= 6 ? isEngineer && phyHome
-               : isEngineer && phyHome && !!eng && eng.expBoxes >= cfg.expMaxBoxes && !!phy && phy.expBoxes >= cfg.expMaxBoxes;
+               : isEngineer && phyHomeMaxed && researcher.expBoxes >= cfg.expMaxBoxes;
   const cost = cfg.ampCosts[m.amp - 1];
   if (!canAmp || cost == null || player.cash < cost) return false; // cost 0 (free 1→2) is valid
   player.cash -= cost; m.amp++; gainExp(researcher, cfg);
@@ -36,13 +37,13 @@ function canUpgradeAmp(player, home, cfg) {
   if (m.amp >= 7) return false;
   const engHome = home.some((r) => r.profession === 'Engineer');
   const phyHome = home.some((r) => r.profession === 'Physicist');
-  const eng = player.team.find((r) => r.profession === 'Engineer');
-  const phy = player.team.find((r) => r.profession === 'Physicist');
+  const engHomeMaxed = home.some((r) => r.profession === 'Engineer' && r.expBoxes >= cfg.expMaxBoxes);
+  const phyHomeMaxed = home.some((r) => r.profession === 'Physicist' && r.expBoxes >= cfg.expMaxBoxes);
   const nextAmp = m.amp + 1;
   const canAmp = nextAmp <= 2 ? true
                : nextAmp <= 4 ? engHome
                : nextAmp <= 6 ? engHome && phyHome
-               : engHome && phyHome && !!eng && eng.expBoxes >= cfg.expMaxBoxes && !!phy && phy.expBoxes >= cfg.expMaxBoxes;
+               : engHomeMaxed && phyHomeMaxed;
   const cost = cfg.ampCosts[m.amp - 1];
   return canAmp && cost != null && player.cash >= cost;
 }
@@ -71,7 +72,17 @@ async function upgradeModule(player, researcher, home, game) {
     amp: () => tryAmpUpgrade(player, researcher, home, game),
     col: () => buy('col', cfg.colCosts, m.col - 1),
   };
-  const preferred = await player.policy.chooseUpgrade(player, researcher, order, game);
+  // A cost-only prefilter (not the full gate — tryAmpUpgrade still enforces the real specialist/exp
+  // gate below) just to decide whether there's an actual choice worth a model round-trip. Historian's
+  // order is a forced single option; if nothing in `order` is even plausibly affordable there's
+  // nothing to choose between either — skip asking and just try the fixed order.
+  const affordable = (key) =>
+    key === 'cap' ? m.cap - 1 < cfg.capCosts.length && player.cash >= cfg.capCosts[m.cap - 1]
+    : key === 'stab' ? (() => { const i = stabIdx(m, cfg); return i >= 0 && i < cfg.stabCosts.length && player.cash >= cfg.stabCosts[i]; })()
+    : key === 'col' ? m.col - 1 < cfg.colCosts.length && player.cash >= cfg.colCosts[m.col - 1]
+    : /* amp */ m.amp < 7 && cfg.ampCosts[m.amp - 1] != null && player.cash >= cfg.ampCosts[m.amp - 1];
+  const worthAsking = order.length > 1 && order.some(affordable);
+  const preferred = worthAsking ? await player.policy.chooseUpgrade(player, researcher, order, game) : null;
   const tryOrder = preferred && order.includes(preferred) ? [preferred, ...order.filter((k) => k !== preferred)] : order;
   for (const key of tryOrder) {
     if (actions[key]()) return;

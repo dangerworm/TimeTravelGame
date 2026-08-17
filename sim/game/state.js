@@ -41,15 +41,20 @@ function makeGame(players, loaded, cfg, rng) {
   };
 }
 
-// SCORE = Reputation − Disrepute + highest module level + unresearched held work (1 each).
-// GDD §12 has no floor on rep−disrepute — disrepute is meant to sting for real, not just to zero.
 // The Stabiliser's field (machine.stab) stores max-instability, not a level (starts at cfg.startStab,
-// +2 per upgrade) — convert it to the same 1-based level scale as Amp/Cap/Col before comparing.
-function score(player, cfg) {
+// +2 per upgrade) — convert it to the same 1-based level scale as Amp/Cap/Col before comparing them.
+// Shared by score() and any report that wants to display "top module level" (e.g. sim/llm's
+// final-summary printout) so the two can't drift onto different numbers for the same player.
+function topModuleLevel(player, cfg) {
   const stabLevel = (player.machine.stab - cfg.startStab) / 2 + 1;
-  const topModule = Math.max(player.machine.amp, player.machine.cap, player.machine.col, stabLevel);
-  const unresearched = player.data.length + player.artefacts.length;
-  return (player.rep - player.disrepute) + topModule + unresearched;
+  return Math.max(player.machine.amp, player.machine.cap, player.machine.col, stabLevel);
 }
 
-module.exports = { makePlayer, makeGame, score };
+// SCORE = Reputation − Disrepute + highest module level + unresearched held work (1 each).
+// GDD §12 has no floor on rep−disrepute — disrepute is meant to sting for real, not just to zero.
+function score(player, cfg) {
+  const unresearched = player.data.length + player.artefacts.length;
+  return (player.rep - player.disrepute) + topModuleLevel(player, cfg) + unresearched;
+}
+
+module.exports = { makePlayer, makeGame, score, topModuleLevel };

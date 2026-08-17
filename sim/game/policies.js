@@ -42,10 +42,19 @@ function defaultSellOrPublish(player, artefact, game) {
 
 // Retire (the quiet-legacy trigger) when the multiverse is out of reach and there's nothing left to
 // do — or, late enough, give up the Many Worlds dream outright so games actually terminate.
+// Thresholds are derived from cfg.maxRounds (not hardcoded) with a deliberate gap before the safety
+// cap: an Amp-7 player who keeps declining to declare Many Worlds (declareManyWorlds is a real
+// decision now, not a forced auto-attempt) previously could neither retire nor resolve, running out
+// the clock as a `timeout` — a non-ending the GDD doesn't have. The late give-up now applies
+// regardless of Amp level, so every stuck player has a resolution path with rounds to spare before
+// engine.js's hard cap.
 function stalledRetire(player, game) {
-  if (player.machine.amp >= 7) return false;              // still chasing the door — don't quit
-  if (game.round >= 30) return true;                      // late give-up: bank the earthbound career
-  if (game.round < 20) return false;
+  const maxRounds = game.cfg.maxRounds || 30;
+  const lateGiveUp = maxRounds - 5;
+  const midStart = Math.round(maxRounds * 2 / 3);
+  if (game.round >= lateGiveUp) return true;               // hard late give-up — resolve regardless of Amp
+  if (player.machine.amp >= 7) return false;                // still chasing the door — don't quit early
+  if (game.round < midStart) return false;
   const nextAmpCost = game.cfg.ampCosts[player.machine.amp - 1];
   const canProgress = nextAmpCost != null && player.cash >= nextAmpCost;
   const pending = player.data.length || player.artefacts.length;
@@ -72,7 +81,18 @@ function upgradeBench(player, cfg) {
   // yet (it's what this very function determines) — check against the whole team as a hint. The real
   // gate (economy.js's canUpgradeAmp/tryAmpUpgrade) is enforced for real at Develop time regardless.
   if (canUpgradeAmp(player, player.team, cfg)) {
+    const nextAmp = player.machine.amp + 1;
     const eng = player.team.find(r => r.profession === 'Engineer');
+    const phy = player.team.find(r => r.profession === 'Physicist');
+    if (nextAmp >= 5) {
+      // Medieval→Ancient / Ancient→Prehistoric / Prehistoric→MW need the Engineer AND the Physicist
+      // BOTH home the same turn (GDD §8) — benching only the Engineer (round-1's fix) left the gate
+      // unreachable 63% of the time because the Physicist kept getting sent on the expedition. Only
+      // force both home if the team can still field someone; otherwise don't chase an empty roster
+      // just for the gate — fall back to no bench and let Amp wait a turn.
+      if (eng && phy && player.team.length > 2) return [eng, phy];
+      return [];
+    }
     if (eng) return [eng];                                  // engineer home → climbs the Amp ladder
     const weakest = [...player.team].sort((a, b) => totalPips(a, 1) - totalPips(b, 1))[0];
     return weakest ? [weakest] : [];                        // free 1→2 needs no engineer — bench the weakest

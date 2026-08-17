@@ -105,6 +105,15 @@ function declareManyWorlds(player, game) {
   };
 }
 
+// The Amplifier ladder's specialist gate (GDD §8) — the single most consequential roster constraint
+// past the early game: it isn't just "own one", the acting researcher has to BE it, and past Amp 4
+// you need an Engineer AND a Physicist home the SAME turn. Shared text so selectRoster/chooseUpgrade
+// never drift on how they describe it.
+const ampGateNote = (m) =>
+  m.amp <= 1 ? 'Amplifier upgrades so far: free, no specialist needed.'
+  : m.amp <= 3 ? 'Amplifier upgrades from here need an Engineer to be the one HOME doing the upgrade (not just owned — if your Engineer is off on an expedition, nobody else can push it).'
+  : `Amplifier upgrades from here (Amp ${m.amp}→${m.amp + 1}) need an Engineer AND a Physicist BOTH home the same turn — if either is sent on an expedition, the upgrade can't happen that turn no matter who else is home.`;
+
 function selectRoster(player, card, game) {
   return {
     system: SYSTEM(player.id),
@@ -115,10 +124,10 @@ function selectRoster(player, card, game) {
       `(your machine's Capacity). This is the central trade-off of the game: a researcher is EITHER in the ` +
       `field this turn OR does one home Develop action (write/publish a paper, upgrade a machine module, or ` +
       `clear instability) — never both. Sending everyone means nobody develops this turn: no module upgrades, ` +
-      `no papers published, no instability cleared. Your hand for the expedition is built from the sent ` +
-      `roster's skill pips (Insight/Craft/Grit) plus a small base, sized 2×roster+2 cards — a bigger roster ` +
-      `draws a bigger, more reliable hand but leaves fewer researchers free to develop. You may send zero ` +
-      `(skip the jump entirely) if you'd rather everyone develop this turn instead.\n\n` +
+      `no papers published, no instability cleared. ${ampGateNote(player.machine)} Your hand for the expedition ` +
+      `is built from the sent roster's skill pips (Insight/Craft/Grit) plus a small base, sized 2×roster+2 cards ` +
+      `— a bigger roster draws a bigger, more reliable hand but leaves fewer researchers free to develop. You ` +
+      `may send zero (skip the jump entirely) if you'd rather everyone develop this turn instead.\n\n` +
       `Respond as JSON: {"send": [indices...], "reason": "one short sentence"}`,
   };
 }
@@ -188,8 +197,8 @@ function sellOrPublishArtefact(player, artefact, game) {
       `${header(player, game)}\n\n` +
       `Your Historian at home can act on your best held artefact ("${artefact.name}"): PUBLISH it for +${artefact.rep} ` +
       `reputation (clean, no disrepute), or SELL it for $${artefact.sellCash} cash + ${artefact.disrepute} disrepute ` +
-      `(Cash XOR Reputation — the game's central moral fork, GDD §7/§10). Disrepute nets against your final ` +
-      `Reputation at game end, so selling is visible on the scoresheet, not free.\n\n` +
+      `(Cash XOR Reputation — the game's central moral fork). Disrepute nets against your final Reputation at ` +
+      `game end, so selling is visible on the scoresheet, not free.\n\n` +
       `Respond as JSON: {"choice": "sell"|"publish", "reason": "one short sentence"}`,
   };
 }
@@ -200,7 +209,7 @@ function chooseUpgrade(player, researcher, order, game) {
   const describe = {
     cap: () => `cap (Capacitor, roster/hand size): level ${m.cap} → ${m.cap + 1}, costs $${cfg.capCosts[m.cap - 1] ?? '—'}`,
     stab: () => `stab (Stabiliser, max instability before shutdown): ${m.stab} → ${m.stab + 2}, costs $${cfg.stabCosts[stabIdx] ?? '—'}`,
-    amp: () => `amp (Amplifier, max era reachable — opens Many Worlds at 7): ${m.amp} → ${m.amp + 1}, costs $${cfg.ampCosts[m.amp - 1] ?? '—'} (needs the right specialists home — see below)`,
+    amp: () => `amp (Amplifier, max era reachable — opens Many Worlds at 7): ${m.amp} → ${m.amp + 1}, costs $${cfg.ampCosts[m.amp - 1] ?? '—'}`,
     col: () => `col (Collimator, era cards drawn at Plan): level ${m.col} → ${m.col + 1}, costs $${cfg.colCosts[m.col - 1] ?? '—'}`,
   };
   return {
@@ -208,7 +217,7 @@ function chooseUpgrade(player, researcher, order, game) {
     prompt:
       `${header(player, game)}\n\n` +
       `${researcher.name} (${researcher.profession}) is home this turn and can attempt ONE machine upgrade. ` +
-      `Options, in order of what a ${researcher.profession} can normally reach:\n` +
+      `${ampGateNote(m)} Options, in order of what a ${researcher.profession} can normally reach:\n` +
       order.map((k) => `  ${describe[k]()}`).join('\n') + '\n' +
       `Your cash: $${player.cash}. If your pick isn't currently affordable or legal, the turn automatically ` +
       `falls back to the next option in the list above rather than being wasted, so pick your real priority.\n\n` +
