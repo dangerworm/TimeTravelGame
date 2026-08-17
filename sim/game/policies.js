@@ -42,15 +42,16 @@ function defaultSellOrPublish(player, artefact, game) {
 
 // Retire (the quiet-legacy trigger) when the multiverse is out of reach and there's nothing left to
 // do — or, late enough, give up the Many Worlds dream outright so games actually terminate.
-// Thresholds are derived from cfg.maxRounds (not hardcoded) with a deliberate gap before the safety
-// cap: an Amp-7 player who keeps declining to declare Many Worlds (declareManyWorlds is a real
-// decision now, not a forced auto-attempt) previously could neither retire nor resolve, running out
-// the clock as a `timeout` — a non-ending the GDD doesn't have. The late give-up now applies
-// regardless of Amp level, so every stuck player has a resolution path with rounds to spare before
-// engine.js's hard cap.
+// Thresholds are derived from cfg.maxRounds (not hardcoded). An Amp-7 player who keeps declining to
+// declare Many Worlds (declareManyWorlds is a real decision now, not a forced auto-attempt)
+// previously could neither retire nor resolve, running out the clock as a `timeout` — a non-ending
+// the GDD doesn't have. The late give-up now applies regardless of Amp level, so every stuck player
+// has a resolution path by the game's last round — it does NOT truncate the round budget to do it
+// (an earlier version subtracted 5 rounds "for safety margin" and cost the balanced bot ~34 points
+// of triumph rate for no measured benefit — 0% timeouts holds with the give-up right at maxRounds).
 function stalledRetire(player, game) {
   const maxRounds = game.cfg.maxRounds || 30;
-  const lateGiveUp = maxRounds - 5;
+  const lateGiveUp = maxRounds;
   const midStart = Math.round(maxRounds * 2 / 3);
   if (game.round >= lateGiveUp) return true;               // hard late give-up — resolve regardless of Amp
   if (player.machine.amp >= 7) return false;                // still chasing the door — don't quit early

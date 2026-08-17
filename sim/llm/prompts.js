@@ -112,7 +112,8 @@ function declareManyWorlds(player, game) {
 const ampGateNote = (m) =>
   m.amp <= 1 ? 'Amplifier upgrades so far: free, no specialist needed.'
   : m.amp <= 3 ? 'Amplifier upgrades from here need an Engineer to be the one HOME doing the upgrade (not just owned — if your Engineer is off on an expedition, nobody else can push it).'
-  : `Amplifier upgrades from here (Amp ${m.amp}→${m.amp + 1}) need an Engineer AND a Physicist BOTH home the same turn — if either is sent on an expedition, the upgrade can't happen that turn no matter who else is home.`;
+  : m.amp <= 5 ? `Amplifier upgrades from here (Amp ${m.amp}→${m.amp + 1}) need an Engineer AND a Physicist BOTH home the same turn — if either is sent on an expedition, the upgrade can't happen that turn no matter who else is home.`
+  : `Amplifier 6→7 (opens Many Worlds) needs the same Engineer+Physicist-both-home rule, PLUS both of them must be FULLY EXPERIENCED (all earnable experience boxes filled) — a fresh, unexperienced specialist can't push this last step even if home.`;
 
 function selectRoster(player, card, game) {
   return {
